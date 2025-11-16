@@ -30,8 +30,6 @@ let allProducts = baseProducts + appleOnlyProducts
 // -------------------------------------------------------------
 
 let deps: [Package.Dependency] = [
-    // apple-only deps (only referenced by apple-only targets, safe on Linux CI)
-    .package(url: "https://github.com/AvdLee/Roadmap.git", branch: "main"),
 ]
 
 // -------------------------------------------------------------
