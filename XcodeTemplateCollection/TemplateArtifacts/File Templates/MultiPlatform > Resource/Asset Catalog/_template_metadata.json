@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "MultiPlatform > Resource",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Resource\/Asset Catalog.xctemplate",
+  "name" : "Asset Catalog",
+  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
+  "description" : "Asset catalogs store and categorize resources for different platforms, devices, and capabilities (such as scale factors).  When built, items in asset catalogs are compiled into a unified, efficient runtime format or exported to their expected format (based on use)."
+}

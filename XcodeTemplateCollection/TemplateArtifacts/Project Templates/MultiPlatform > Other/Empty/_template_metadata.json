@@ -1,0 +1,13 @@
+{
+  "name" : "Empty",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Other\/Empty.xctemplate",
+  "identifier" : "com.apple.dt.packageTemplate.Empty",
+  "ancestors" : [
+
+  ],
+  "concrete" : false,
+  "category" : "MultiPlatform > Other",
+  "kind" : "Xcode.IDESwiftPackageSupport.PackageTemplateKind",
+  "description" : "An empty package."
+}

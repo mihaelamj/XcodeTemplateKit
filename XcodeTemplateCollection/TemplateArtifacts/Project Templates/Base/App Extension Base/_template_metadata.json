@@ -1,0 +1,14 @@
+{
+  "name" : "App Extension Base",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/Base\/App Extension Base.xctemplate",
+  "identifier" : "com.apple.dt.unit.appextensionbase",
+  "ancestors" : [
+    "com.apple.dt.unit.xpcservicebase",
+    "com.apple.dt.unit.languageChoice"
+  ],
+  "concrete" : false,
+  "category" : "Base",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : ""
+}

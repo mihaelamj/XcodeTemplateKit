@@ -12,6 +12,10 @@ let baseProducts: [Product] = [
     .singleTargetLibrary("SharedModels"),
 ]
 
+let templateProducts: [Product] = [
+    .singleTargetLibrary("TemplateParser"),
+]
+
 #if os(iOS) || os(macOS)
 let appleOnlyProducts: [Product] = [
     .singleTargetLibrary("AppFeature"),
@@ -21,7 +25,7 @@ let appleOnlyProducts: [Product] = []
 #endif
 
 // Always expose PlaybookFeature so Xcode shows the scheme
-let allProducts = baseProducts + appleOnlyProducts
+let allProducts = baseProducts + templateProducts + appleOnlyProducts
 
 // -------------------------------------------------------------
 
@@ -30,6 +34,7 @@ let allProducts = baseProducts + appleOnlyProducts
 // -------------------------------------------------------------
 
 let deps: [Package.Dependency] = [
+    .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.13.0")
 ]
 
 // -------------------------------------------------------------
@@ -48,10 +53,32 @@ let targets: [Target] = {
         name: "SharedModelsTests",
         dependencies: ["SharedModels"]
     )
+    
     let modelTargets = [
         sharedModelsTarget,
         sharedModelsTestsTarget,
     ]
+    
+    // ---------- Templates ----------
+    let templateParserTarget = Target.target(
+        name: "TemplateParser",
+        dependencies: [
+            .product(name: "Parsing", package: "swift-parsing"),
+        ]
+    )
+
+    let templateParserTestsTarget = Target.testTarget(
+        name: "TemplateParserTests",
+        dependencies: [
+            "TemplateParser"
+        ]
+    )
+    
+    let templateTargets = [
+        templateParserTarget,
+        templateParserTestsTarget,
+    ]
+
 
     // ---------- Apple-only UI / Components ----------
     #if os(iOS) || os(macOS)
@@ -75,7 +102,7 @@ let targets: [Target] = {
     let uiTargets: [Target] = []
     #endif
 
-    return modelTargets + uiTargets
+    return modelTargets + templateTargets + uiTargets
 }()
 
 // -------------------------------------------------------------

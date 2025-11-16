@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "MultiPlatform > User Interface",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/User Interface\/SwiftUI View.xctemplate",
+  "name" : "SwiftUI View",
+  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
+  "description" : "A SwiftUI custom view with text"
+}

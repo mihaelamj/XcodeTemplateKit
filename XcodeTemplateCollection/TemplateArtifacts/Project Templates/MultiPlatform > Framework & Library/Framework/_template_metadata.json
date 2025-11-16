@@ -1,0 +1,15 @@
+{
+  "name" : "Framework",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Framework & Library\/Framework.xctemplate",
+  "identifier" : "com.apple.dt.unit.multiPlatform.framework",
+  "ancestors" : [
+    "com.apple.dt.unit.frameworkBase",
+    "com.apple.dt.unit.languageChoice",
+    "com.apple.dt.unit.multiPlatform.base"
+  ],
+  "concrete" : true,
+  "category" : "MultiPlatform > Framework & Library",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : "This template creates a multi-platform framework."
+}

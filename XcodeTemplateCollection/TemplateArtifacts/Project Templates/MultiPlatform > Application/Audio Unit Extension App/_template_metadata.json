@@ -1,0 +1,13 @@
+{
+  "name" : "Audio Unit Extension App",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Application\/Audio Unit Extension App.xctemplate",
+  "identifier" : "com.apple.dt.unit.SwiftUIApplicationWithAudioUnitExtension.multiPlatform.app",
+  "ancestors" : [
+    "com.apple.dt.unit.multiPlatform.app"
+  ],
+  "concrete" : true,
+  "category" : "MultiPlatform > Application",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : "This template creates an application with an Audio Unit application extension.  The application is configured to show a basic user interface."
+}

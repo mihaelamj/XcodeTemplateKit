@@ -1,0 +1,13 @@
+{
+  "name" : "Testing System",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/Base\/Testing System.xctemplate",
+  "identifier" : "com.apple.dt.unit.testingSystem",
+  "ancestors" : [
+
+  ],
+  "concrete" : false,
+  "category" : "Base",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : ""
+}

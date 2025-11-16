@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "User Interface",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/User Interface\/Storyboard.xctemplate",
+  "name" : "Storyboard",
+  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
+  "description" : "An empty Interface Builder Storyboard document for a macOS interface."
+}

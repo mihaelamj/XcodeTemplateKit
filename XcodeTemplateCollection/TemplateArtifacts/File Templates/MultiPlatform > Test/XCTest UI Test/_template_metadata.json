@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "MultiPlatform > Test",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Test\/XCTest UI Test.xctemplate",
+  "name" : "XCTest UI Test",
+  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
+  "description" : "A class implementing a UI test."
+}

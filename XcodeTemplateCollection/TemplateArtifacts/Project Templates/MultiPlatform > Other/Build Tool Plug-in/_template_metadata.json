@@ -1,0 +1,13 @@
+{
+  "name" : "Build Tool Plug-in",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Other\/Build Tool Plug-in.xctemplate",
+  "identifier" : "com.apple.dt.packageTemplate.BuildToolPlugin",
+  "ancestors" : [
+
+  ],
+  "concrete" : false,
+  "category" : "MultiPlatform > Other",
+  "kind" : "Xcode.IDESwiftPackageSupport.PackageTemplateKind",
+  "description" : "A package that builds a build tool plugin."
+}

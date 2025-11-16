@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "SiriKit",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/SiriKit\/Transient App Entity.xctemplate",
+  "name" : "Transient App Entity",
+  "kind" : "Xcode.IDEIntentBuilderEditor.TransientAppEntityTemplateKind",
+  "description" : "A Transient App Entity."
+}

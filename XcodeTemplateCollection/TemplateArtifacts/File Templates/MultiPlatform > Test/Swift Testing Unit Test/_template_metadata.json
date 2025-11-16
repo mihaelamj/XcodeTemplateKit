@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "MultiPlatform > Test",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Test\/Swift Testing Unit Test.xctemplate",
+  "name" : "Swift Testing Unit Test",
+  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
+  "description" : "A Swift Testing unit test."
+}

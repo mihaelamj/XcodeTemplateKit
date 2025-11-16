@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "Other",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Other\/File List.xctemplate",
+  "name" : "File List",
+  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
+  "description" : "An empty file list that is used in a Run Script Phase."
+}

@@ -1,0 +1,14 @@
+{
+  "name" : "Multiplatform ExtensionKit Extension Base",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Base\/Multiplatform ExtensionKit Extension Base.xctemplate",
+  "identifier" : "com.apple.dt.unit.multiPlatform.extensionkit-extension",
+  "ancestors" : [
+    "com.apple.dt.unit.extensionkit-extension",
+    "com.apple.dt.unit.multiPlatform.base"
+  ],
+  "concrete" : false,
+  "category" : "MultiPlatform > Base",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : ""
+}

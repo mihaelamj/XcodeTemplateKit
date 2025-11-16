@@ -1,0 +1,13 @@
+{
+  "name" : "Library",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Library\/Library.xctemplate",
+  "identifier" : "com.apple.dt.packageTemplate.Library",
+  "ancestors" : [
+
+  ],
+  "concrete" : false,
+  "category" : "MultiPlatform > Library",
+  "kind" : "Xcode.IDESwiftPackageSupport.PackageTemplateKind",
+  "description" : "A package that builds a library."
+}

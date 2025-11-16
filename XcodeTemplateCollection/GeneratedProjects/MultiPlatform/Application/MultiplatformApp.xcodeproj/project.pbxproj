@@ -1,0 +1,95 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 77;
+    objects = {
+
+/* Begin PBXBuildFile section */
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+        01826349399549A79BB57295 /* MultiplatformApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplatformApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+        16219A73A8BF436D98EEB7EE = {
+            isa = PBXGroup;
+            children = (
+                5F8834199E0F4308AF36E45A /* MultiplatformApp */,
+                8DC994194D724B959C0B7681 /* Products */,
+            );
+            sourceTree = "<group>";
+        };
+        5F8834199E0F4308AF36E45A /* MultiplatformApp */ = {
+            isa = PBXGroup;
+            children = (
+            );
+            path = MultiplatformApp;
+            sourceTree = "<group>";
+        };
+        8DC994194D724B959C0B7681 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                01826349399549A79BB57295 /* MultiplatformApp.app */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+        086EEE2F6B284D49976A73E3 /* MultiplatformApp */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = D38EC2695A9C4F95BC6E5271 /* Build configuration list for PBXNativeTarget "MultiplatformApp" */;
+            buildPhases = (
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = MultiplatformApp;
+            packageProductDependencies = (
+            );
+            productName = MultiplatformApp;
+            productReference = 01826349399549A79BB57295 /* MultiplatformApp.app */;
+            productType = "com.apple.product-type.application";
+        };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+        274D46AFDF89452EA8893E7E /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                BuildIndependentTargetsInParallel = 1;
+                LastSwiftUpdateCheck = 1610;
+                LastUpgradeCheck = 1610;
+            };
+            buildConfigurationList = 56CA91D5573644E2A9098814 /* Build configuration list for PBXProject "MultiplatformApp" */;
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+                Base,
+            );
+            mainGroup = 16219A73A8BF436D98EEB7EE;
+            minimizedProjectReferenceProxies = 1;
+            preferredProjectObjectVersion = 77;
+            productRefGroup = 8DC994194D724B959C0B7681 /* Products */;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                086EEE2F6B284D49976A73E3 /* MultiplatformApp */,
+            );
+        };
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+/* End XCConfigurationList section */
+    };
+    rootObject = 59671EDE7186421AB1D0891F /* Project object */;
+}

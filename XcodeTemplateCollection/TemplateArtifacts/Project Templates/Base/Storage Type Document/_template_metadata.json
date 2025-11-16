@@ -1,0 +1,13 @@
+{
+  "name" : "Storage Type Document",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/Base\/Storage Type Document.xctemplate",
+  "identifier" : "com.apple.dt.unit.storageType.document-app",
+  "ancestors" : [
+
+  ],
+  "concrete" : false,
+  "category" : "Base",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : ""
+}

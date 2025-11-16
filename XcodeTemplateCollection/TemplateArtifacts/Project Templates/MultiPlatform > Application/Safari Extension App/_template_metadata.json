@@ -1,0 +1,15 @@
+{
+  "name" : "Safari Extension App",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Application\/Safari Extension App.xctemplate",
+  "identifier" : "com.apple.dt.unit.multiPlatform.appWithSafariExtension",
+  "ancestors" : [
+    "com.apple.dt.unit.base",
+    "com.apple.dt.unit.languageChoice",
+    "com.apple.dt.unit.crossPlatformBase"
+  ],
+  "concrete" : true,
+  "category" : "MultiPlatform > Application",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : "This template creates a multi-platform Safari Extension application."
+}

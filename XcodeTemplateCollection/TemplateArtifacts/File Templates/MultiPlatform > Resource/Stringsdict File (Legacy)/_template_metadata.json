@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "MultiPlatform > Resource",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Resource\/Stringsdict File (Legacy).xctemplate",
+  "name" : "Stringsdict File (Legacy)",
+  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
+  "description" : "A prefilled strings dictionary file."
+}

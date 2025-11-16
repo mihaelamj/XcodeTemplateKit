@@ -1,0 +1,14 @@
+{
+  "name" : "Multiplatform UI Test Bundle Base",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/MultiPlatform\/Base\/Multiplatform UI Test Bundle Base.xctemplate",
+  "identifier" : "com.apple.dt.unit.multiPlatform.UITestBundleBase",
+  "ancestors" : [
+    "com.apple.dt.unit.uiTestBundleBase",
+    "com.apple.dt.unit.multiPlatform.base"
+  ],
+  "concrete" : false,
+  "category" : "MultiPlatform > Base",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : ""
+}

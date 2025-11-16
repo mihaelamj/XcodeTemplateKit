@@ -1,0 +1,95 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 77;
+    objects = {
+
+/* Begin PBXBuildFile section */
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+        DA1568D685E0443BAD86E0C7 /* DocumentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocumentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+        BBEF345109DA44DEB05E1DBF = {
+            isa = PBXGroup;
+            children = (
+                7AABF23ACDFE4DE48910995A /* DocumentApp */,
+                C5639718119C42B9B40EF5E6 /* Products */,
+            );
+            sourceTree = "<group>";
+        };
+        7AABF23ACDFE4DE48910995A /* DocumentApp */ = {
+            isa = PBXGroup;
+            children = (
+            );
+            path = DocumentApp;
+            sourceTree = "<group>";
+        };
+        C5639718119C42B9B40EF5E6 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                DA1568D685E0443BAD86E0C7 /* DocumentApp.app */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+        7E64DBC7B2454929948293E4 /* DocumentApp */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = AAF1B89157E749E1BFF18CC3 /* Build configuration list for PBXNativeTarget "DocumentApp" */;
+            buildPhases = (
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = DocumentApp;
+            packageProductDependencies = (
+            );
+            productName = DocumentApp;
+            productReference = DA1568D685E0443BAD86E0C7 /* DocumentApp.app */;
+            productType = "com.apple.product-type.application";
+        };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+        36210AA2731B46DD81C5B7EC /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                BuildIndependentTargetsInParallel = 1;
+                LastSwiftUpdateCheck = 1610;
+                LastUpgradeCheck = 1610;
+            };
+            buildConfigurationList = 16C83A2D47184867AA19770A /* Build configuration list for PBXProject "DocumentApp" */;
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+                Base,
+            );
+            mainGroup = BBEF345109DA44DEB05E1DBF;
+            minimizedProjectReferenceProxies = 1;
+            preferredProjectObjectVersion = 77;
+            productRefGroup = C5639718119C42B9B40EF5E6 /* Products */;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                7E64DBC7B2454929948293E4 /* DocumentApp */,
+            );
+        };
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+/* End XCConfigurationList section */
+    };
+    rootObject = D9CA17DBF5574542BE92F209 /* Project object */;
+}

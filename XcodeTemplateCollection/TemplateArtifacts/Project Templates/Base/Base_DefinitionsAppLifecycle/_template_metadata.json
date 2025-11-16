@@ -1,0 +1,13 @@
+{
+  "name" : "Base_DefinitionsAppLifecycle",
+  "type" : "Project",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/Project Templates\/Base\/Base_DefinitionsAppLifecycle.xctemplate",
+  "identifier" : "com.apple.dt.unit.base_AppLifecycle",
+  "ancestors" : [
+
+  ],
+  "concrete" : false,
+  "category" : "Base",
+  "kind" : "Xcode.Xcode3.ProjectTemplateUnitKind",
+  "description" : ""
+}

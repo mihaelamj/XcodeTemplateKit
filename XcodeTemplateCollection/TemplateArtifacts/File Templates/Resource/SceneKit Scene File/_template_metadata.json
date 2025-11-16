@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "Resource",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Resource\/SceneKit Scene File.xctemplate",
+  "name" : "SceneKit Scene File",
+  "kind" : "Xcode.IDEKit.TextSubstitutionFileTemplateKind",
+  "description" : "An empty SceneKit scene file."
+}

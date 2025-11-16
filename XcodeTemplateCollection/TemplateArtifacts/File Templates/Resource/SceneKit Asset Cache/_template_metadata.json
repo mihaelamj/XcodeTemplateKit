@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "Resource",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Resource\/SceneKit Asset Cache.xctemplate",
+  "name" : "SceneKit Asset Cache",
+  "kind" : "Xcode.IDEKit.TextSubstitutionFileTemplateKind",
+  "description" : "A SceneKit Shader Cache."
+}

@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "SiriKit",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/SiriKit\/INIntent subclass.xctemplate",
+  "name" : "INIntent subclass",
+  "kind" : "Xcode.IDEIntentBuilderEditor.IntentTemplateKind",
+  "description" : "An INIntent subclass."
+}

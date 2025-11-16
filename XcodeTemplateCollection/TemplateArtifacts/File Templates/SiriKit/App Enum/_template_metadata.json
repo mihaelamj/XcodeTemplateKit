@@ -1,0 +1,8 @@
+{
+  "type" : "File",
+  "category" : "SiriKit",
+  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/SiriKit\/App Enum.xctemplate",
+  "name" : "App Enum",
+  "kind" : "Xcode.IDEIntentBuilderEditor.AppEnumerationTemplateKind",
+  "description" : "An App Enumeration."
+}
