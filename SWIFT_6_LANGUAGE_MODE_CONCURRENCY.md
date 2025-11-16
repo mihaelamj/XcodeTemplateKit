@@ -21,6 +21,7 @@
 ## PART 1: TASKS & STRUCTURED CONCURRENCY
 
 ### Rule 1: Task Fundamentals
+**Swift Version:** 5.5+
 **Source:** SE-0304:127-136
 
 - **Every asynchronous function runs as part of a task**
@@ -43,6 +44,7 @@ func example() async {
 ```
 
 ### Rule 2: Child Tasks Must Complete Before Parent Returns
+**Swift Version:** 5.5+
 **Source:** SE-0304:164-167
 
 > "A function that creates a child task must wait for it to end before returning. This structure means that functions can locally reason about all the work currently being done for the current task."
@@ -53,6 +55,7 @@ func example() async {
 - Cancellation propagates **downward only** (not upward to parent)
 
 ### Rule 3: Task Groups
+**Swift Version:** 5.5+
 **Source:** SE-0304:210-249
 
 - **withThrowingTaskGroup** creates a scope for child tasks
@@ -72,10 +75,11 @@ try await withThrowingTaskGroup(of: Result.self) { group in
 }
 ```
 
-### Rule 3a: Discarding Task Groups (Swift 5.9+)
+### Rule 3a: Discarding Task Groups
+**Swift Version:** 5.9+
 **Source:** SE-0381
 
-**NEW:** Use `withDiscardingTaskGroup` when you don't need results:
+Use `withDiscardingTaskGroup` when you don't need results:
 
 ```swift
 await withDiscardingTaskGroup { group in
@@ -95,6 +99,7 @@ await withDiscardingTaskGroup { group in
 - No need for `for await _ in group {}`
 
 ### Rule 4: Task Priority
+**Swift Version:** 5.5+
 **Source:** SE-0304:186-205
 
 - Child tasks **automatically inherit parent priority**
@@ -105,6 +110,7 @@ await withDiscardingTaskGroup { group in
 - Executors **should** (not "must") **honor priority over submission order**
 
 ### Rule 5: async let Implicit Cancellation & Awaiting
+**Swift Version:** 5.5+
 **Source:** SE-0317:304-330
 
 > "As we return from the function without ever having awaited on the values, both of them will be **implicitly cancelled and awaited on** before returning"
@@ -128,6 +134,7 @@ return "done"
 **Important:** Cancellation is **cooperative**. The `slow()` task might take the full 3s even when cancelled!
 
 ### Rule 6: async let vs Task Groups for Racing
+**Swift Version:** 5.5+
 **Source:** SE-0317:501-517
 
 - **async let does NOT implement racing** (implicit await defeats it)
@@ -160,6 +167,7 @@ try await withThrowingTaskGroup(of: Result.self) { group in
 ## PART 2: ACTORS
 
 ### Rule 7: Actor Isolation
+**Swift Version:** 5.5+
 **Source:** SE-0306:84-109
 
 - Actors protect mutable state through **actor isolation**
@@ -169,6 +177,7 @@ try await withThrowingTaskGroup(of: Result.self) { group in
 - **Non-isolated** code cannot synchronously access actor-isolated state
 
 ### Rule 8: Cross-Actor References
+**Swift Version:** 5.5+
 **Source:** SE-0306:111-117
 
 Two ways to access actor-isolated state from outside:
@@ -192,6 +201,7 @@ await account.deposit(100)      // ✓ Async required
 ```
 
 ### Rule 9: Actor Reentrancy & State Validation
+**Swift Version:** 5.5+
 **Source:** SE-0306:18-23, SE-0306:299-448
 
 - Actors are **reentrant by default**
@@ -266,6 +276,7 @@ actor DecisionMaker {
 ```
 
 ### Rule 10: Actor Executors
+**Swift Version:** 5.5+
 **Source:** SE-0304:174-185, SE-0306:115
 
 - Each actor has a **serial executor**
@@ -276,6 +287,7 @@ actor DecisionMaker {
 - This is a **Quality of Implementation** detail, not a language guarantee
 
 ### Rule 11: Isolated Parameters
+**Swift Version:** 5.7+
 **Source:** SE-0313
 
 **Synchronous access to actor state** via isolated parameters:
@@ -302,7 +314,8 @@ await process(on: myIsland)  // Hops to island's executor
 - Clearer than passing actor and awaiting inside
 
 ### Rule 12: Non-Isolated Async Function Execution
-**Source:** SE-0338 ⭐ NEW
+**Swift Version:** 5.7+
+**Source:** SE-0338
 
 **Critical behavior change in Swift 5.7:**
 
@@ -339,6 +352,7 @@ extension MyNetworkSession {
 ## PART 3: MAINACTOR & GLOBAL ACTORS
 
 ### Rule 13: @MainActor Isolation
+**Swift Version:** 5.5+
 **Source:** SE-0316, SE-0306
 
 - `@MainActor` marks code to run on main thread
@@ -359,6 +373,7 @@ class DocumentationCrawler {
 ```
 
 ### Rule 14: nonisolated for Background Work
+**Swift Version:** 5.7+
 **Source:** SE-0313
 
 **Prevent blocking MainActor:**
@@ -387,6 +402,7 @@ class ViewModel {
 ```
 
 ### Rule 15: Dynamic Isolation Checking
+**Swift Version:** 6.0+
 **Source:** Swift 6.0 Documentation
 
 **Runtime isolation verification:**
@@ -413,6 +429,7 @@ func dangerousAccess() {
 ## PART 4: SENDABLE & ISOLATION BOUNDARIES
 
 ### Rule 16: Sendable Protocol Fundamentals
+**Swift Version:** 5.5+
 **Source:** SE-0302
 
 **Sendable** types can be safely passed across isolation boundaries:
@@ -422,9 +439,10 @@ func dangerousAccess() {
 - **Non-Sendable** values cannot cross isolation boundaries (strict mode)
 
 ### Rule 17: Implicit Sendable Conformances
+**Swift Version:** 5.5+
 **Source:** SE-0302
 
-**NEW DETAIL:** Automatic conformance rules vary by visibility:
+Automatic conformance rules vary by visibility:
 
 ```swift
 // 1. Non-public types: Implicit conformance
@@ -446,7 +464,8 @@ public struct PublicPerson {  // Does NOT implicitly conform
 **Why?** API resilience - public types might add non-Sendable members later.
 
 ### Rule 18: Sendable Checking for Async Calls
-**Source:** SE-0338 ⭐ CRITICAL
+**Swift Version:** 5.7+ (enforced in 6.0)
+**Source:** SE-0338
 
 Arguments and results of **ALL** `async` calls must be `Sendable` **unless**:
 1. Caller and callee are both isolated to the **same actor**, OR
@@ -486,10 +505,11 @@ func outside(count: Int) async {
 }
 ```
 
-### Rule 19: Region-Based Isolation (Swift 6.0)
+### Rule 19: Region-Based Isolation
+**Swift Version:** 6.0+
 **Source:** SE-0414:1-100
 
-**NEW:** Can transfer non-Sendable values using **region analysis**:
+Can transfer non-Sendable values using **region analysis**:
 
 ```swift
 class Client {
@@ -536,8 +556,9 @@ await ClientStore.shared.addClient(joanna)
 // ❌ ERROR! joanna already transferred (same region as john)
 ```
 
-### Rule 20: Transferring Parameters (Swift 6.0)
-**Source:** SE-0430 ⭐ NEW
+### Rule 20: Transferring Parameters
+**Swift Version:** 6.0+
+**Source:** SE-0430
 
 Explicit `transferring` keyword for non-Sendable transfers:
 
@@ -566,6 +587,7 @@ await transfer(transferring: myValue)
 ## PART 5: SWIFT 6 MIGRATION & TOOLING
 
 ### Rule 21: Strict Concurrency Checking Levels
+**Swift Version:** 5.7+ (default in 6.0)
 **Source:** SE-0337, Swift 6.0 Documentation
 
 **Three levels of concurrency checking:**
@@ -594,7 +616,8 @@ await transfer(transferring: myValue)
 ```
 
 ### Rule 22: @preconcurrency for Gradual Migration
-**Source:** SE-0337 ⭐ IMPORTANT
+**Swift Version:** 5.7+
+**Source:** SE-0337
 
 Suppress warnings during migration:
 
@@ -614,6 +637,7 @@ Suppress warnings during migration:
 - Objective-C interop
 
 ### Rule 23: Compiler Flags for Migration
+**Swift Version:** 5.7+ (flags), 6.0+ (language mode)
 **Source:** Swift 6.0 Documentation
 
 ```bash
@@ -635,6 +659,7 @@ swift test -Xswiftc -strict-concurrency=complete
 ## PART 6: FORBIDDEN PATTERNS (OLD CONCURRENCY)
 
 ### Rule 24: NO DispatchQueue in Structured Concurrency
+**Swift Version:** 5.5+ (recommendation)
 **Source:** SE-0304, SE-0306:115
 
 **FORBIDDEN:**
@@ -658,6 +683,7 @@ someObjCAPI.setCompletionQueue(DispatchQueue.main)
 ```
 
 ### Rule 25: NO Manual Continuations for Built-in APIs
+**Swift Version:** 5.5+ (async APIs available)
 **Source:** SE-0300
 
 **FORBIDDEN (when async API exists):**
@@ -675,6 +701,7 @@ try await webView.evaluateJavaScript(..., in: nil, contentWorld: .page)
 ```
 
 ### Rule 26: NO NSOperationQueue, pthread, Thread
+**Swift Version:** 5.5+ (recommendation)
 **Source:** Swift Concurrency Design
 
 **FORBIDDEN:**
@@ -693,7 +720,8 @@ pthread_create(...)
 
 ## PART 7: MODERN ASYNC APIS
 
-### Rule 27: Task.sleep API (macOS 13.0+)
+### Rule 27: Task.sleep API
+**Swift Version:** 5.5+ (nanoseconds), 5.7+ (Duration-based)
 **Source:** SE-0374: Clock, Instant, Duration
 
 ```swift
@@ -705,8 +733,9 @@ try await Task.sleep(until: .now + .seconds(5))
 try await Task.sleep(nanoseconds: 5_000_000_000)
 ```
 
-### Rule 28: Task Executor Preference (Swift 6.0)
-**Source:** Apple Swift Concurrency Documentation ⭐ NEW
+### Rule 28: Task Executor Preference
+**Swift Version:** 6.0+
+**Source:** Apple Swift Concurrency Documentation
 
 Fine-grained control over child task execution:
 
