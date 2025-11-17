@@ -64,6 +64,7 @@ struct TemplateMetadata: Codable {
     let path: String
     let kind: String
     let identifier: String?
+    let ancestors: [String]?
     let options: [TemplateOption]
     let totalCombinations: Int
 }
@@ -98,7 +99,7 @@ class TemplateOptionsScanner {
         }
 
         for case let file as String in enumerator {
-            if file.hasSuffix(".xctemplate"), !file.contains("Base.xctemplate") {
+            if file.hasSuffix(".xctemplate") {
                 let fullPath = "\(path)/\(file)"
                 if let metadata = parseTemplate(at: fullPath) {
                     templates.append(metadata)
@@ -125,6 +126,7 @@ class TemplateOptionsScanner {
 
         let kind = plist["Kind"] as? String ?? "unknown"
         let identifier = plist["Identifier"] as? String
+        let ancestors = plist["Ancestors"] as? [String]
 
         // Extract options from plist
         let options = extractOptions(from: plist)
@@ -137,6 +139,7 @@ class TemplateOptionsScanner {
             path: path,
             kind: kind,
             identifier: identifier,
+            ancestors: ancestors,
             options: options,
             totalCombinations: combinations
         )
