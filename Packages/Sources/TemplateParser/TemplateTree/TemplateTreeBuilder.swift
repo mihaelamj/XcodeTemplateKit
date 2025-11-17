@@ -70,10 +70,7 @@ public enum TemplateTreeBuilder {
         var categorizedTemplates: [TemplateCategory: [TemplateKind: [TemplateMetadata]]] = [:]
 
         for template in inventory.templates {
-            // Parse template kind
-            guard let kind = TemplateKind(rawValue: template.identifier ?? "") else {
-                continue
-            }
+            let kind = template.kind
 
             let category = kind.category
 
@@ -120,8 +117,6 @@ public enum TemplateTreeBuilder {
     // MARK: - Private Helpers
 
     private static func buildTemplateNode(from metadata: TemplateMetadata) -> TemplateNode {
-        let kind = TemplateKind(rawValue: metadata.identifier ?? "") ?? .emptyProject
-
         var sections: [SectionNode] = []
 
         // Properties section
@@ -139,23 +134,21 @@ public enum TemplateTreeBuilder {
             .property(PropertyNode(
                 id: "\(metadata.path)-property-kind",
                 key: "Kind",
-                value: metadata.kind
+                value: metadata.kind.displayName
             )),
         ]
 
-        if let identifier = metadata.identifier {
-            propertyItems.append(.property(PropertyNode(
-                id: "\(metadata.path)-property-identifier",
-                key: "Identifier",
-                value: identifier
-            )))
-        }
+        propertyItems.append(.property(PropertyNode(
+            id: "\(metadata.path)-property-identifier",
+            key: "Identifier",
+            value: metadata.identifier
+        )))
 
         if let ancestors = metadata.ancestors, !ancestors.isEmpty {
             propertyItems.append(.property(PropertyNode(
                 id: "\(metadata.path)-property-ancestors",
                 key: "Ancestors",
-                value: ancestors.joined(separator: ", ")
+                value: ancestors.map(\.displayName).joined(separator: ", ")
             )))
         }
 
@@ -190,8 +183,7 @@ public enum TemplateTreeBuilder {
             id: metadata.path,
             name: metadata.name,
             path: metadata.path,
-            kind: kind,
-            identifier: metadata.identifier,
+            kind: metadata.kind,
             sections: sections
         )
     }
@@ -295,11 +287,26 @@ public struct TemplateInventory: Codable {
 public struct TemplateMetadata: Codable {
     let name: String
     let path: String
-    let kind: String
-    let identifier: String?
-    let ancestors: [String]?
+    let kind: TemplateKind
+    let ancestors: [BaseTemplateKind]?
     let options: [TemplateOptionJSON]
     let totalCombinations: Int
+    let fileStructure: [FileNode]?
+
+    /// Template identifier derived from kind.
+    var identifier: String {
+        kind.rawValue
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case path
+        case kind = "identifier" // Decode from "identifier" field to kind
+        case ancestors
+        case options
+        case totalCombinations
+        case fileStructure = "file_structure"
+    }
 }
 
 /// Template option from JSON (internal type).

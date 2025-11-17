@@ -259,22 +259,24 @@ public struct TemplateNode: Hashable, Identifiable {
     public let name: String
     public let path: String
     public let kind: TemplateKind
-    public let identifier: String?
     public let sections: [SectionNode]
+
+    /// Template identifier derived from the kind.
+    public var identifier: String {
+        kind.rawValue
+    }
 
     public init(
         id: String,
         name: String,
         path: String,
         kind: TemplateKind,
-        identifier: String?,
         sections: [SectionNode]
     ) {
         self.id = id
         self.name = name
         self.path = path
         self.kind = kind
-        self.identifier = identifier
         self.sections = sections
     }
 }

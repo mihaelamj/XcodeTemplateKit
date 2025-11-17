@@ -43,8 +43,8 @@ public struct ProjectTemplateParser: Sendable {
         var resolvedNodes: [String] = templateInfo.nodes ?? []
 
         if let ancestors = templateInfo.ancestors {
-            for ancestorId in ancestors.reversed() {
-                if let ancestor = allTemplates.values.first(where: { $0.identifier == ancestorId }) {
+            for ancestorKind in ancestors.reversed() {
+                if let ancestor = allTemplates.values.first(where: { $0.kind == ancestorKind.templateKind }) {
                     // Merge ancestor options
                     if let ancestorOptions = ancestor.options {
                         resolvedOptions = mergeOptions(base: ancestorOptions, override: resolvedOptions)

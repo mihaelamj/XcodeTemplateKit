@@ -64,7 +64,8 @@ let targets: [Target] = {
         name: "TemplateParser",
         dependencies: [
             .product(name: "Parsing", package: "swift-parsing"),
-        ]
+        ],
+        exclude: ["README.md"]
     )
 
     let templateParserTestsTarget = Target.testTarget(
@@ -84,7 +85,10 @@ let targets: [Target] = {
     // ---------- Foundation: AppColors (zero dependencies) ----------
     let appFeatureTarget = Target.target(
         name: "AppFeature",
-        dependencies: ["SharedModels"]
+        dependencies: [
+            "SharedModels",
+            "TemplateParser",
+        ]
     )
     #endif
 
@@ -112,7 +116,7 @@ let package = Package(
     name: "Main",
     platforms: [
         .iOS(.v18),
-        .macOS(.v15),
+        .macOS(.v13), // Match system dylib requirement
     ],
     products: allProducts,
     dependencies: deps,

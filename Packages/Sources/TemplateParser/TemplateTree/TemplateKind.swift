@@ -7,6 +7,152 @@
 
 import Foundation
 
+// MARK: - BaseTemplateKind (Newtype Wrapper)
+
+/// A strongly-typed wrapper guaranteeing this is a *base* template kind.
+///
+/// This enforces that only base templates (where `isBaseTemplate == true`) can be
+/// used as ancestors. The wrapper validates at construction time and during decoding.
+///
+/// ## Example
+/// ```swift
+/// // Type-safe ancestors - only base templates allowed
+/// let ancestors: [BaseTemplateKind] = [
+///     .applicationBase,
+///     .crossPlatformBase,
+///     .languageChoice
+/// ]
+///
+/// // Invalid - caught at runtime with clear error
+/// let invalid = BaseTemplateKind(.app)  // 💥 Precondition failure
+/// ```
+///
+/// ## JSON Encoding
+/// The wrapper is transparent during encoding/decoding - it encodes as the underlying
+/// `TemplateKind` rawValue, so JSON remains unchanged.
+///
+/// ```json
+/// {
+///   "ancestors": ["com.apple.dt.unit.applicationBase", "com.apple.dt.unit.base"]
+/// }
+/// ```
+public struct BaseTemplateKind: Codable, Sendable, Hashable {
+    /// The underlying template kind.
+    public let kind: TemplateKind
+
+    /// Creates a base template kind with validation.
+    ///
+    /// - Parameter kind: The template kind to wrap.
+    /// - Precondition: `kind.isBaseTemplate` must be `true`.
+    public init(_ kind: TemplateKind) {
+        precondition(
+            kind.isBaseTemplate,
+            "Invalid BaseTemplateKind: \(kind.rawValue) is NOT a base template."
+        )
+        self.kind = kind
+    }
+
+    /// Failable initializer for safe construction.
+    ///
+    /// Returns `nil` if the template kind is not a base template.
+    ///
+    /// ## Example
+    /// ```swift
+    /// if let baseKind = BaseTemplateKind(safe: .applicationBase) {
+    ///     // Use baseKind
+    /// }
+    /// ```
+    public init?(safe kind: TemplateKind) {
+        guard kind.isBaseTemplate else { return nil }
+        self.kind = kind
+    }
+
+    /// Convenience accessor for the underlying template kind.
+    public var templateKind: TemplateKind { kind }
+
+    /// Raw value of the underlying template kind.
+    public var rawValue: String { kind.rawValue }
+
+    /// Display name of the underlying template kind.
+    public var displayName: String { kind.displayName }
+}
+
+// MARK: - Codable Conformance
+
+extension BaseTemplateKind {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let decoded = try container.decode(TemplateKind.self)
+
+        guard decoded.isBaseTemplate else {
+            throw DecodingError.dataCorruptedError(
+                in: container,
+                debugDescription: "Expected a base template kind, got: \(decoded.rawValue)"
+            )
+        }
+
+        kind = decoded
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(kind)
+    }
+}
+
+// MARK: - Static Base Template Accessors
+
+extension BaseTemplateKind {
+    // Core Base Templates
+    public static let base = BaseTemplateKind(.base)
+    public static let baseOptions = BaseTemplateKind(.baseOptions)
+    public static let baseDefinitionsLanguage = BaseTemplateKind(.baseDefinitionsLanguage)
+    public static let baseStorageType = BaseTemplateKind(.baseStorageType)
+    public static let baseProjectSettings = BaseTemplateKind(.baseProjectSettings)
+    public static let baseAppLifecycle = BaseTemplateKind(.baseAppLifecycle)
+    public static let baseTestingSystem = BaseTemplateKind(.baseTestingSystem)
+    public static let baseDefinitionsInfoPlist = BaseTemplateKind(.baseDefinitionsInfoPlist)
+    public static let securityCriticalBase = BaseTemplateKind(.securityCriticalBase)
+
+    // Platform Base Templates
+    public static let crossPlatformBase = BaseTemplateKind(.crossPlatformBase)
+    public static let iosAppBase = BaseTemplateKind(.iosAppBase)
+    public static let macosAppBase = BaseTemplateKind(.macosAppBase)
+    public static let tvosAppBase = BaseTemplateKind(.tvosAppBase)
+    public static let multiplatformBase = BaseTemplateKind(.multiplatformBase)
+
+    // Application Base Templates
+    public static let applicationBase = BaseTemplateKind(.applicationBase)
+    public static let swiftUIAppBase = BaseTemplateKind(.swiftUIAppBase)
+    public static let swiftUIDocumentAppBase = BaseTemplateKind(.swiftUIDocumentAppBase)
+
+    // Extension Base Templates
+    public static let appExtensionBase = BaseTemplateKind(.appExtensionBase)
+    public static let extensionKitExtensionBase = BaseTemplateKind(.extensionKitExtensionBase)
+    public static let multiplatformExtensionKitExtensionBase = BaseTemplateKind(.multiplatformExtensionKitExtensionBase)
+    public static let multiplatformAppExtensionBase = BaseTemplateKind(.multiplatformAppExtensionBase)
+
+    // Test Bundle Base Templates
+    public static let unitTestBundleBase = BaseTemplateKind(.unitTestBundleBase)
+    public static let uiTestBundleBase = BaseTemplateKind(.uiTestBundleBase)
+    public static let multiplatformUnitTestBundleBase = BaseTemplateKind(.multiplatformUnitTestBundleBase)
+    public static let multiplatformUITestBundleBase = BaseTemplateKind(.multiplatformUITestBundleBase)
+    public static let swiftUIAppUnitTestBundleBase = BaseTemplateKind(.swiftUIAppUnitTestBundleBase)
+    public static let swiftUIAppUITestBundleBase = BaseTemplateKind(.swiftUIAppUITestBundleBase)
+
+    // Other Base Templates
+    public static let frameworkBase = BaseTemplateKind(.frameworkBase)
+    public static let bundleBase = BaseTemplateKind(.bundleBase)
+    public static let metalLibraryBase = BaseTemplateKind(.metalLibraryBase)
+    public static let xpcServiceBase = BaseTemplateKind(.xpcServiceBase)
+
+    // Utility Templates
+    public static let storageType = BaseTemplateKind(.storageType)
+    public static let storageTypeDocumentApp = BaseTemplateKind(.storageTypeDocumentApp)
+    public static let languageChoice = BaseTemplateKind(.languageChoice)
+    public static let testingSystem = BaseTemplateKind(.testingSystem)
+}
+
 /// High-level categorization of template types.
 ///
 /// Groups templates into major categories for organization.
@@ -35,16 +181,48 @@ public enum TemplateCategory: String, Hashable, CaseIterable {
 /// Each template also has a unique identifier (e.g., `com.apple.dt.unit.multiPlatform.app`)
 /// which is stored in the `Identifier` field.
 ///
+/// ## Template Classification
+///
+/// Templates fall into three main classifications:
+///
+/// 1. **User-Selectable Templates** (53 templates)
+///    - Directly available in Xcode's "New Project" or "New Package" dialog
+///    - Examples: `app`, `framework`, `game`, `libraryPackage`, `swiftMacro`
+///    - Properties: `isBaseTemplate == false`, `isUtilityTemplate == false`
+///
+/// 2. **Base Templates** (31 templates)
+///    - Used for inheritance only, not directly selectable
+///    - Provide reusable code structure, options, and variables
+///    - Examples: `applicationBase`, `crossPlatformBase`, `unitTestBundleBase`
+///    - Properties: `isBaseTemplate == true`, `isUtilityTemplate == false`
+///
+/// 3. **Utility Templates** (4 templates)
+///    - Special base templates that provide option configurations
+///    - Define reusable option sets for common choices
+///    - Examples: `storageType`, `languageChoice`, `testingSystem`
+///    - Properties: `isBaseTemplate == true`, `isUtilityTemplate == true`
+///
 /// ## Example
 /// ```swift
+/// // User-selectable template
 /// let appKind = TemplateKind.app
-/// print(appKind.displayName)  // "App"
-/// print(appKind.rawValue)     // "com.apple.dt.unit.multiPlatform.app"
-/// print(appKind.category)     // TemplateCategory.projectTemplates
-/// print(appKind.isBaseTemplate)  // false
+/// print(appKind.displayName)           // "App"
+/// print(appKind.rawValue)              // "com.apple.dt.unit.multiPlatform.app"
+/// print(appKind.category)              // TemplateCategory.projectTemplates
+/// print(appKind.isBaseTemplate)        // false
+/// print(appKind.isUtilityTemplate)     // false
 ///
-/// let baseKind = TemplateKind.baseOptions
-/// print(baseKind.isBaseTemplate)  // true
+/// // Base template (for inheritance)
+/// let baseKind = TemplateKind.applicationBase
+/// print(baseKind.displayName)          // "Application Base"
+/// print(baseKind.isBaseTemplate)       // true
+/// print(baseKind.isUtilityTemplate)    // false
+///
+/// // Utility template (option configuration)
+/// let utilityKind = TemplateKind.storageType
+/// print(utilityKind.displayName)       // "Storage Type"
+/// print(utilityKind.isBaseTemplate)    // true
+/// print(utilityKind.isUtilityTemplate) // true
 /// ```
 ///
 /// ## Template Inheritance
@@ -55,11 +233,31 @@ public enum TemplateCategory: String, Hashable, CaseIterable {
 /// // - com.apple.dt.unit.iosBase
 /// // - com.apple.dt.unit.languageChoice.app.iOS
 /// // - com.apple.dt.unit.appLifecycle.iOS
+///
+/// // This inheritance provides:
+/// // 1. Common application options (from applicationBase)
+/// // 2. iOS-specific configurations (from iosBase)
+/// // 3. Language selection UI (from languageChoice.app.iOS)
+/// // 4. App lifecycle options (from appLifecycle.iOS)
+/// ```
+///
+/// ## Property Relationships
+/// ```swift
+/// // All utility templates are also base templates
+/// assert(TemplateKind.allCases.filter { $0.isUtilityTemplate }.allSatisfy { $0.isBaseTemplate })
+///
+/// // User-selectable templates are neither base nor utility
+/// let userTemplates = TemplateKind.allCases.filter { !$0.isBaseTemplate }
+/// assert(userTemplates.allSatisfy { !$0.isUtilityTemplate })
+///
+/// // Package templates are never base or utility templates
+/// let packageTemplates = TemplateKind.allCases.filter { $0.category == .packageTemplates }
+/// assert(packageTemplates.allSatisfy { !$0.isBaseTemplate && !$0.isUtilityTemplate })
 /// ```
 ///
 /// - Note: Ancestor identifiers are stored as strings and resolved later using
 ///   `ProjectTemplateParser.loadWithAncestors()` which merges inherited options and nodes.
-public enum TemplateKind: String, Hashable, CaseIterable, Codable {
+public enum TemplateKind: String, Hashable, CaseIterable, Codable, Sendable {
     // MARK: - Project Templates (Xcode.Xcode3.ProjectTemplateUnitKind)
 
     // Other
@@ -203,6 +401,31 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable {
 
     // MARK: - Properties
 
+    /// Human-readable name for the template kind.
+    ///
+    /// Converts the template identifier into a user-friendly display name suitable
+    /// for showing in UI elements like outlines, menus, or lists.
+    ///
+    /// ## Example
+    /// ```swift
+    /// TemplateKind.app.displayName
+    /// // Returns: "App"
+    ///
+    /// TemplateKind.multiplatformSwiftUIDocumentApp.displayName
+    /// // Returns: "Multiplatform SwiftUI Document App"
+    ///
+    /// TemplateKind.iosSafariExtensionApp.displayName
+    /// // Returns: "iOS Safari Extension App"
+    ///
+    /// TemplateKind.applicationBase.displayName
+    /// // Returns: "Application Base"
+    ///
+    /// TemplateKind.buildToolPlugin.displayName
+    /// // Returns: "Build Tool Plug-in"
+    /// ```
+    ///
+    /// - Note: Display names are human-readable and may contain spaces, capitalization,
+    ///   and platform-specific formatting (e.g., "iOS", "macOS", "tvOS", "visionOS").
     public var displayName: String {
         switch self {
         // Other
@@ -321,6 +544,32 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable {
         }
     }
 
+    /// Returns the high-level category this template belongs to.
+    ///
+    /// Templates are organized into two main categories:
+    /// - **Project Templates**: Traditional Xcode projects (apps, frameworks, games, extensions)
+    /// - **Package Templates**: Swift Package Manager packages (libraries, macros, plugins)
+    ///
+    /// ## Example
+    /// ```swift
+    /// TemplateKind.app.category
+    /// // Returns: TemplateCategory.projectTemplates
+    ///
+    /// TemplateKind.framework.category
+    /// // Returns: TemplateCategory.projectTemplates
+    ///
+    /// TemplateKind.libraryPackage.category
+    /// // Returns: TemplateCategory.packageTemplates
+    ///
+    /// TemplateKind.swiftMacro.category
+    /// // Returns: TemplateCategory.packageTemplates
+    ///
+    /// TemplateKind.applicationBase.category
+    /// // Returns: TemplateCategory.projectTemplates (base templates are project templates)
+    /// ```
+    ///
+    /// - Note: All base templates and utility templates belong to the project templates category,
+    ///   even though they are not directly user-selectable.
     public var category: TemplateCategory {
         switch self {
         case .swiftMacro, .buildToolPlugin, .commandPlugin, .emptyPackage, .libraryPackage:
@@ -369,6 +618,42 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable {
         }
     }
 
+    /// Returns `true` for utility templates that provide option configurations.
+    ///
+    /// Utility templates are special base templates that define reusable option sets
+    /// for common configuration choices. They are referenced by other templates to
+    /// provide standardized option UIs (storage type, language choice, testing system).
+    ///
+    /// ## Example
+    /// ```swift
+    /// TemplateKind.storageType.isUtilityTemplate
+    /// // Returns: true
+    /// // Purpose: Provides options for None/Core Data/SwiftData storage
+    ///
+    /// TemplateKind.languageChoice.isUtilityTemplate
+    /// // Returns: true
+    /// // Purpose: Provides options for Swift/Objective-C language selection
+    ///
+    /// TemplateKind.testingSystem.isUtilityTemplate
+    /// // Returns: true
+    /// // Purpose: Provides options for XCTest/Swift Testing framework selection
+    ///
+    /// TemplateKind.app.isUtilityTemplate
+    /// // Returns: false (user-selectable template, not a utility)
+    ///
+    /// TemplateKind.applicationBase.isUtilityTemplate
+    /// // Returns: false (base template, but not a utility)
+    /// ```
+    ///
+    /// ## Utility Template Types
+    /// - **storageType**: Storage options (None, Core Data, SwiftData)
+    /// - **storageTypeDocumentApp**: Storage options specific to document-based apps
+    /// - **languageChoice**: Programming language selection (Swift, Objective-C)
+    /// - **testingSystem**: Testing framework selection (XCTest, Swift Testing)
+    ///
+    /// - Note: All utility templates are also base templates (`isBaseTemplate == true`),
+    ///   but not all base templates are utility templates. Utility templates specifically
+    ///   provide option configurations, while other base templates provide code structure.
     public var isUtilityTemplate: Bool {
         switch self {
         case .storageType, .storageTypeDocumentApp, .languageChoice, .testingSystem:
