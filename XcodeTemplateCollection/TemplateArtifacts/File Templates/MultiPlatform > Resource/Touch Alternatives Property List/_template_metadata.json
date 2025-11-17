@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "MultiPlatform > Resource",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Resource\/Touch Alternatives Property List.xctemplate",
-  "name" : "Touch Alternatives Property List",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "A Touch Alternatives Property List file."
-}

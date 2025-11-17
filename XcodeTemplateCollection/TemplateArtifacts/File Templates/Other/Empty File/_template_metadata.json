@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Other",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Other\/Empty File.xctemplate",
-  "name" : "Empty File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "An empty document."
-}

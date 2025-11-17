@@ -1,5 +1,4 @@
 @testable import SharedModels
 import XCTest
 
-final class DummyModelTests: XCTestCase {
-}
+final class DummyModelTests: XCTestCase {}

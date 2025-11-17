@@ -68,9 +68,9 @@ public struct ProjectTemplateParser: Sendable {
         var merged = base
         for option in override {
             if let index = merged.firstIndex(where: { $0.identifier == option.identifier }) {
-                merged[index] = option  // Override
+                merged[index] = option // Override
             } else {
-                merged.append(option)  // Add new
+                merged.append(option) // Add new
             }
         }
         return merged

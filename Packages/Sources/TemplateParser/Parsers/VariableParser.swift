@@ -38,7 +38,7 @@ public struct VariableParser: Parser {
                     }
                 }
                 .map { name, transforms in
-                    if let transforms = transforms, !transforms.isEmpty {
+                    if let transforms, !transforms.isEmpty {
                         return VariableToken.transformed(name, transforms)
                     } else {
                         // Check if it's a known macro
@@ -56,6 +56,6 @@ public struct VariableParser: Parser {
 
     private static let knownMacros: Set<String> = [
         "FILEHEADER",
-        "COPYRIGHT"
+        "COPYRIGHT",
     ]
 }

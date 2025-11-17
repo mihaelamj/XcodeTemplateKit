@@ -44,7 +44,7 @@ public struct VariableContext: Sendable {
         self.date = date
         self.year = year
         self.options = options
-        self.uuidCache = [:]
+        uuidCache = [:]
     }
 
     /// Resolve a variable token to its string value

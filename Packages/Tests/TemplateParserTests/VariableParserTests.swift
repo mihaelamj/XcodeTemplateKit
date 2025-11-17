@@ -1,5 +1,5 @@
-import Testing
 @testable import TemplateParser
+import Testing
 
 @Suite("Variable Parser Tests")
 struct VariableParserTests {

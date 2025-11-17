@@ -39,12 +39,12 @@ public struct UnifiedTemplateProcessor: Sendable {
 
     /// Find all templates in a directory
     public func findTemplates(in directory: String) -> [String] {
-        return templateInfoParser.findAllTemplates(in: directory)
+        templateInfoParser.findAllTemplates(in: directory)
     }
 
     /// Load template metadata
     public func loadMetadata(from plistPath: String) throws -> [String: Any] {
-        return try templateInfoParser.parsePlist(at: plistPath)
+        try templateInfoParser.parsePlist(at: plistPath)
     }
 
     // MARK: - Template-Specific Helpers

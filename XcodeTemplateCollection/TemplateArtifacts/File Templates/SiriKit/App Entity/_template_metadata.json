@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "SiriKit",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/SiriKit\/App Entity.xctemplate",
-  "name" : "App Entity",
-  "kind" : "Xcode.IDEIntentBuilderEditor.AppEntityTemplateKind",
-  "description" : "An App Entity."
-}

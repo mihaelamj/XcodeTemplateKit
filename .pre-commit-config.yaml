@@ -4,9 +4,11 @@ repos:
     hooks:
       - id: swiftlint
         args: [--quiet]
+        exclude: ^(Scripts/|XcodeTemplateCollection/|XcodeTemplateCollection_NEW/)
 
   - repo: https://github.com/nicklockwood/SwiftFormat
     rev: 0.58.5
     hooks:
       - id: swiftformat
         args: [--quiet]
+        exclude: ^(Scripts/|XcodeTemplateCollection/|XcodeTemplateCollection_NEW/)

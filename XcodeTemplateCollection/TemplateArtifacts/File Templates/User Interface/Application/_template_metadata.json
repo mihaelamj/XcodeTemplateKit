@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "User Interface",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/User Interface\/Application.xctemplate",
-  "name" : "Application",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "An Interface Builder document for a macOS application, including a main menu and window."
-}

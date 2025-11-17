@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Source",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Source\/Package Test Case.xctemplate",
-  "name" : "Package Test Case",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : ""
-}

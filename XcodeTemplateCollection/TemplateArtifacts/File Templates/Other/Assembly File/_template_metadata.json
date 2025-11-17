@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Other",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Other\/Assembly File.xctemplate",
-  "name" : "Assembly File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "An assembly source file."
-}

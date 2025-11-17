@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "MultiPlatform > Resource",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Resource\/Property List.xctemplate",
-  "name" : "Property List",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "An empty XML property list file."
-}

@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "MultiPlatform > Resource",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Resource\/SiriKit Intent Definition File.xctemplate",
-  "name" : "SiriKit Intent Definition File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "SiriKit Intent Definition File"
-}

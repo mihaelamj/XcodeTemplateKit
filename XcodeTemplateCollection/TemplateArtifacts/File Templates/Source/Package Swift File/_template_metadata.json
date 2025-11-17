@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Source",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Source\/Package Swift File.xctemplate",
-  "name" : "Package Swift File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : ""
-}

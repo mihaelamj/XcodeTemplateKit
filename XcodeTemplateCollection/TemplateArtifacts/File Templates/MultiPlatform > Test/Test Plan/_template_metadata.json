@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "MultiPlatform > Test",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Test\/Test Plan.xctemplate",
-  "name" : "Test Plan",
-  "kind" : "Xcode.IDETestPlanEditor.TestPlanTemplateKind",
-  "description" : "A test plan file allows specifying which test targets and tests to run and how to run them, and can be referenced by schemes."
-}

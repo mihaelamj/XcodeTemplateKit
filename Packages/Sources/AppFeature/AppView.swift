@@ -6,6 +6,7 @@ public struct AppView: View {
             .font(.title)
             .padding()
     }
+
     public init() {}
 }
 

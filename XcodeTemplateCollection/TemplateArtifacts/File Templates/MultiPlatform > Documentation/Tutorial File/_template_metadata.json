@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "MultiPlatform > Documentation",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Documentation\/Tutorial File.xctemplate",
-  "name" : "Tutorial File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "Tutorial File"
-}

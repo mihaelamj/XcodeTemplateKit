@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Other",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Other\/Configuration Settings File.xctemplate",
-  "name" : "Configuration Settings File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "An empty Xcode configuration settings file."
-}

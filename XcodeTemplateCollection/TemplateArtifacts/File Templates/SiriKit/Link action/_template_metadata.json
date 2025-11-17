@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "SiriKit",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/SiriKit\/Link action.xctemplate",
-  "name" : "Link action",
-  "kind" : "Xcode.IDEIntentBuilderEditor.LinkActionTemplateKind",
-  "description" : "An App Intent."
-}

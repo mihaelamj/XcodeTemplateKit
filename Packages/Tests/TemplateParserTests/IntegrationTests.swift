@@ -1,6 +1,6 @@
-import Testing
-@testable import TemplateParser
 import Foundation
+@testable import TemplateParser
+import Testing
 
 /// Integration tests using real Xcode templates from XcodeTemplateCollection
 @Suite("Integration Tests with Real Templates")
@@ -8,7 +8,7 @@ struct IntegrationTests {
     let processor = TemplateProcessor()
 
     // Path to our generated template collection
-    let templatesBasePath = "/Users/mm/Developer/personal/templatomat/XcodeTemplateCollection/TemplateArtifacts"
+    let templatesBasePath = "/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/XcodeTemplateCollection/TemplateArtifacts"
 
     func makeTestContext() -> VariableContext {
         VariableContext(
@@ -22,7 +22,7 @@ struct IntegrationTests {
             year: String(Calendar.current.component(.year, from: Date())),
             options: [
                 "productName": "Test Product",
-                "bundleIdentifierPrefix": "com.test"
+                "bundleIdentifierPrefix": "com.test",
             ]
         )
     }
@@ -94,7 +94,7 @@ struct IntegrationTests {
 
         while let file = enumerator?.nextObject() as? String {
             // Look for template Swift files
-            if file.contains("___") && file.hasSuffix(".swift") {
+            if file.contains("___"), file.hasSuffix(".swift") {
                 let fullPath = "\(fileTemplatesPath)/\(file)"
 
                 do {
@@ -147,7 +147,7 @@ struct IntegrationTests {
             packageName: "MyPackage",
             userName: "mm",
             fullUserName: "Mihaela Mihaljevic",
-            date: "16.11.2025.",  // Match the exact format from generated file
+            date: "16.11.2025.", // Match the exact format from generated file
             year: "2025",
             options: [:]
         )

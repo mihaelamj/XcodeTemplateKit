@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Other",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Other\/CLIPS File.xctemplate",
-  "name" : "CLIPS File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "An empty CLIPS file"
-}

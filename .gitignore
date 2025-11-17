@@ -49,3 +49,7 @@ Tasks/.build/
 # Build artefacts (global)
 Build/
 **/Build/
+
+# Generated template artifacts (not part of source code)
+XcodeTemplateCollection/
+XcodeTemplateCollection_NEW/

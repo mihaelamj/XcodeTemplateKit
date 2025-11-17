@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "MultiPlatform > Documentation",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Documentation\/Documentation Catalog.xctemplate",
-  "name" : "Documentation Catalog",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "Documentation catalogs store and categorize resources for different type of documentation, such as articles, reference, and tutorials."
-}

@@ -22,22 +22,22 @@ public struct TemplateInfoParser: Sendable {
 
     /// Extract kind from plist (identifies template type)
     public func extractKind(from plist: [String: Any]) -> String? {
-        return plist["Kind"] as? String
+        plist["Kind"] as? String
     }
 
     /// Extract identifier from plist
     public func extractIdentifier(from plist: [String: Any]) -> String? {
-        return plist["Identifier"] as? String
+        plist["Identifier"] as? String
     }
 
     /// Extract options array from plist
     public func extractOptions(from plist: [String: Any]) -> [[String: Any]]? {
-        return plist["Options"] as? [[String: Any]]
+        plist["Options"] as? [[String: Any]]
     }
 
     /// Extract ancestors from plist (for inheritance)
     public func extractAncestors(from plist: [String: Any]) -> [String]? {
-        return plist["Ancestors"] as? [String]
+        plist["Ancestors"] as? [String]
     }
 
     /// Find all TemplateInfo.plist files in directory

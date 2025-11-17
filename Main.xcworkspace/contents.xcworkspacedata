@@ -1,6 +1,3728 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:Scripts"
+      name = "Scripts">
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Documentation"
+      name = "Documentation">
+      <FileRef
+         location = "group:SWIFT_6_LANGUAGE_MODE_CONCURRENCY.md">
+      </FileRef>
+      <FileRef
+         location = "group:XCODE_TEMPLATE_KINDS_ANALYSIS.md">
+      </FileRef>
+      <FileRef
+         location = "group:CLEAN_PROJECT_GUIDE.md">
+      </FileRef>
+      <FileRef
+         location = "group:SESSION_SUMMARY.md">
+      </FileRef>
+      <FileRef
+         location = "group:TEMPLATE_ARTIFACT_GENERATION.md">
+      </FileRef>
+      <FileRef
+         location = "group:TEMPLATE_PARSING_STRATEGY.md">
+      </FileRef>
+      <FileRef
+         location = "group:TEMPLATE_ANALYSIS.md">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:XcodeTemplateCollection"
+      name = "XcodeTemplateCollection">
+      <Group
+         location = "group:TemplateArtifacts"
+         name = "TemplateArtifacts">
+         <Group
+            location = "group:Project Templates"
+            name = "Project Templates">
+            <Group
+               location = "group:Other"
+               name = "Other">
+               <Group
+                  location = "group:Empty"
+                  name = "Empty">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Aggregate"
+                  name = "Aggregate">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:External Build System"
+                  name = "External Build System">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Framework &amp; Library"
+               name = "MultiPlatform &gt; Framework &amp; Library">
+               <Group
+                  location = "group:Framework Testing Bundle"
+                  name = "Framework Testing Bundle">
+                  <FileRef
+                     location = "group:UnitTest-SwiftTesting.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UnitTest-XCTest.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Framework"
+                  name = "Framework">
+                  <FileRef
+                     location = "group:Framework.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Framework.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Base"
+               name = "MultiPlatform &gt; Base">
+               <Group
+                  location = "group:Multiplatform SwiftUI App UITesting Bundle"
+                  name = "Multiplatform SwiftUI App UITesting Bundle">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform ExtensionKit Extension Base"
+                  name = "Multiplatform ExtensionKit Extension Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform Test Bundle Base"
+                  name = "Multiplatform Test Bundle Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform Base"
+                  name = "Multiplatform Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform SwiftUI App Testing Bundle"
+                  name = "Multiplatform SwiftUI App Testing Bundle">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform SwiftUI Document App"
+                  name = "Multiplatform SwiftUI Document App">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform SwiftUI App"
+                  name = "Multiplatform SwiftUI App">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:App-CloudKit.entitlements">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform UI Test Bundle Base"
+                  name = "Multiplatform UI Test Bundle Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Multiplatform App Extension Base"
+                  name = "Multiplatform App Extension Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Application Extension"
+               name = "MultiPlatform &gt; Application Extension">
+               <Group
+                  location = "group:Widget Extension"
+                  name = "Widget Extension">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Widget.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AppIntent.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Widget-Intent.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:WidgetBundle.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Audio Unit Extension"
+                  name = "Audio Unit Extension">
+                  <Group
+                     location = "group:_Shared"
+                     name = "_Shared">
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:Utility"
+                           name = "Utility">
+                           <FileRef
+                              location = "group:CrossPlatform.swift">
+                           </FileRef>
+                           <FileRef
+                              location = "group:String+Utils.swift">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Parameters"
+                           name = "Parameters">
+                           <FileRef
+                              location = "group:ParameterSpecBase.swift">
+                           </FileRef>
+                        </Group>
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h">
+                        </FileRef>
+                     </Group>
+                     <FileRef
+                        location = "group:README.md">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <Group
+                     location = "group:Generator"
+                     name = "Generator">
+                     <Group
+                        location = "group:DSP"
+                        name = "DSP">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp">
+                        </FileRef>
+                        <FileRef
+                           location = "group:SinOscillator.h">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:DSP"
+                           name = "DSP">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Audio Unit"
+                           name = "Audio Unit">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AudioUnit.swift">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___MainView.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Parameters"
+                        name = "Parameters">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Parameters.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:Instrument"
+                     name = "Instrument">
+                     <Group
+                        location = "group:DSP"
+                        name = "DSP">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp">
+                        </FileRef>
+                        <FileRef
+                           location = "group:SinOscillator.h">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:DSP"
+                           name = "DSP">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Audio Unit"
+                           name = "Audio Unit">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AudioUnit.swift">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___MainView.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Parameters"
+                        name = "Parameters">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Parameters.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:Effect"
+                     name = "Effect">
+                     <Group
+                        location = "group:DSP"
+                        name = "DSP">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:DSP"
+                           name = "DSP">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp">
+                           </FileRef>
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___BufferedAudioBus.hpp">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Audio Unit"
+                           name = "Audio Unit">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AudioUnit.swift">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___MainView.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Parameters"
+                        name = "Parameters">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Parameters.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:Music Effect"
+                     name = "Music Effect">
+                     <Group
+                        location = "group:DSP"
+                        name = "DSP">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:DSP"
+                           name = "DSP">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp">
+                           </FileRef>
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___BufferedAudioBus.hpp">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Audio Unit"
+                           name = "Audio Unit">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AudioUnit.swift">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___MainView.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Parameters"
+                        name = "Parameters">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Parameters.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:MIDI Processor"
+                     name = "MIDI Processor">
+                     <Group
+                        location = "group:DSP"
+                        name = "DSP">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:DSP"
+                           name = "DSP">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp">
+                           </FileRef>
+                        </Group>
+                        <Group
+                           location = "group:Audio Unit"
+                           name = "Audio Unit">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AudioUnit.swift">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:MomentaryButton.swift">
+                        </FileRef>
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___MainView.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Parameters"
+                        name = "Parameters">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Parameters.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:_NonUISpecific"
+                     name = "_NonUISpecific">
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:AudioUnitFactory"
+                           name = "AudioUnitFactory">
+                           <FileRef
+                              location = "group:AudioUnitFactory.swift">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                  </Group>
+                  <Group
+                     location = "group:_UISpecific"
+                     name = "_UISpecific">
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:UI"
+                           name = "UI">
+                           <FileRef
+                              location = "group:ObservableAUParameter.swift">
+                           </FileRef>
+                           <FileRef
+                              location = "group:AudioUnitViewController.swift">
+                           </FileRef>
+                        </Group>
+                     </Group>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:ParameterSlider.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <Group
+                     location = "group:Speech Synthesizer"
+                     name = "Speech Synthesizer">
+                     <Group
+                        location = "group:Common"
+                        name = "Common">
+                        <Group
+                           location = "group:Audio Unit"
+                           name = "Audio Unit">
+                           <FileRef
+                              location = "group:___PACKAGENAMEASIDENTIFIER___AudioUnit.swift">
+                           </FileRef>
+                        </Group>
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:___PACKAGENAMEASIDENTIFIER___MainView.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Parameters"
+                        name = "Parameters">
+                        <FileRef
+                           location = "group:Parameters.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:Generic Extension"
+                  name = "Generic Extension">
+                  <FileRef
+                     location = "group:AppExtension-NonUI.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AppExtension-UI.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Library"
+               name = "MultiPlatform &gt; Library">
+               <Group
+                  location = "group:Library"
+                  name = "Library">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Application"
+               name = "MultiPlatform &gt; Application">
+               <Group
+                  location = "group:SharedContent SceneKit Game"
+                  name = "SharedContent SceneKit Game">
+                  <FileRef
+                     location = "group:GameController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Art.scnassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameController.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Document App"
+                  name = "Document App">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS SceneKit Game"
+                  name = "macOS SceneKit Game">
+                  <FileRef
+                     location = "group:SceneKit_Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_ViewController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_ViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_ViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:visionOS App"
+                  name = "visionOS App">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS Safari Extension"
+                  name = "iOS Safari Extension">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SharedContent Safari Extension"
+                  name = "SharedContent Safari Extension">
+                  <FileRef
+                     location = "group:SafariWebExtensionHandler.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:popup.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SafariWebExtensionHandler.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:background.js">
+                  </FileRef>
+                  <Group
+                     location = "group:images"
+                     name = "images">
+                     <FileRef
+                        location = "group:toolbar-icon.svg">
+                     </FileRef>
+                     <FileRef
+                        location = "group:icon-256.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:icon-48.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:icon-64.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:icon-96.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:icon-128.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:icon-512.png">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:popup.html">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SafariWebExtensionHandler.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:manifest.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:popup.css">
+                  </FileRef>
+                  <Group
+                     location = "group:_locales"
+                     name = "_locales">
+                     <Group
+                        location = "group:en"
+                        name = "en">
+                        <FileRef
+                           location = "group:messages.json">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <FileRef
+                     location = "group:content.js">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Compositor Services"
+                  name = "Compositor Services">
+                  <FileRef
+                     location = "group:ShaderTypes.h">
+                  </FileRef>
+                  <Group
+                     location = "group:Metal 4"
+                     name = "Metal 4">
+                     <Group
+                        location = "group:Progressive"
+                        name = "Progressive">
+                        <FileRef
+                           location = "group:Renderer.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Mixed-Full"
+                        name = "Mixed-Full">
+                        <FileRef
+                           location = "group:Renderer.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <Group
+                     location = "group:Metal"
+                     name = "Metal">
+                     <Group
+                        location = "group:Progressive"
+                        name = "Progressive">
+                        <FileRef
+                           location = "group:Renderer.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Mixed-Full"
+                        name = "Mixed-Full">
+                        <FileRef
+                           location = "group:Renderer.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Shaders.metal">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Game"
+                  name = "Game">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SharedContent Metal 4 Game"
+                  name = "SharedContent Metal 4 Game">
+                  <FileRef
+                     location = "group:Renderer.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ShaderTypes.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Renderer.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Renderer.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Shaders.metal">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS Metal 4 Game"
+                  name = "iOS Metal 4 Game">
+                  <FileRef
+                     location = "group:GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Immersive Space App"
+                  name = "Immersive Space App">
+                  <FileRef
+                     location = "group:AppModel.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ToggleImmersiveSpaceButton.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS Safari Extension App"
+                  name = "iOS Safari Extension App">
+                  <FileRef
+                     location = "group:AppDelegate.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AppDelegate.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:LaunchScreen.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneDelegate.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AppDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneDelegate.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Safari Extension App"
+                  name = "Safari Extension App">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:App"
+                  name = "App">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS SceneKit Game"
+                  name = "iOS SceneKit Game">
+                  <FileRef
+                     location = "group:SceneKit_GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_GameViewController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tvOS App Base"
+                  name = "tvOS App Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:LaunchScreen.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS Metal 4 Game"
+                  name = "macOS Metal 4 Game">
+                  <FileRef
+                     location = "group:GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tvOS SceneKit Game"
+                  name = "tvOS SceneKit Game">
+                  <FileRef
+                     location = "group:SceneKit_GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SceneKit_GameViewController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS App Base"
+                  name = "macOS App Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SharedContent Safari Extension App"
+                  name = "SharedContent Safari Extension App">
+                  <FileRef
+                     location = "group:Main.html">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Style.css">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Icon.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ViewController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Script.js">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ViewController.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS App Entitlements"
+                  name = "macOS App Entitlements">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS SpriteKit Game"
+                  name = "macOS SpriteKit Game">
+                  <FileRef
+                     location = "group:SpriteKit_ViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_ViewController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_ViewController.h">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS Metal Game"
+                  name = "iOS Metal Game">
+                  <FileRef
+                     location = "group:GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SharedContent SpriteKit Game"
+                  name = "SharedContent SpriteKit Game">
+                  <FileRef
+                     location = "group:Actions.sks">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameScene.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameScene.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameScene.sks">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameScene.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS Safari Extension"
+                  name = "macOS Safari Extension">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS Metal Game"
+                  name = "macOS Metal Game">
+                  <FileRef
+                     location = "group:GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS Safari Extension App"
+                  name = "macOS Safari Extension App">
+                  <FileRef
+                     location = "group:AppDelegate.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AppDelegate.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AppDelegate.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS SpriteKit Game"
+                  name = "iOS SpriteKit Game">
+                  <FileRef
+                     location = "group:SpriteKit_GameViewController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:macOS App UI Test Bundle"
+                  name = "macOS App UI Test Bundle">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SharedContent Metal Game"
+                  name = "SharedContent Metal Game">
+                  <FileRef
+                     location = "group:Renderer.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ShaderTypes.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Renderer.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Renderer.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Shaders.metal">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Audio Unit Extension App"
+                  name = "Audio Unit Extension App">
+                  <FileRef
+                     location = "group:App.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <Group
+                     location = "group:Common"
+                     name = "Common">
+                     <Group
+                        location = "group:String"
+                        name = "String">
+                        <FileRef
+                           location = "group:StringHelpers.swift">
+                        </FileRef>
+                     </Group>
+                     <FileRef
+                        location = "group:TypeAliases.swift">
+                     </FileRef>
+                     <Group
+                        location = "group:UI"
+                        name = "UI">
+                        <FileRef
+                           location = "group:ViewControllerRepresentable.swift">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:Audio"
+                        name = "Audio">
+                        <FileRef
+                           location = "group:SimplePlayEngine.swift">
+                        </FileRef>
+                        <FileRef
+                           location = "group:Synth.aif">
+                        </FileRef>
+                     </Group>
+                     <Group
+                        location = "group:MIDI"
+                        name = "MIDI">
+                        <FileRef
+                           location = "group:MIDIManager.swift">
+                        </FileRef>
+                     </Group>
+                  </Group>
+                  <FileRef
+                     location = "group:App.entitlements">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ValidationView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView.swift">
+                  </FileRef>
+                  <Group
+                     location = "group:Model"
+                     name = "Model">
+                     <FileRef
+                        location = "group:AudioUnitHostModel.swift">
+                     </FileRef>
+                     <FileRef
+                        location = "group:AudioUnitViewModel.swift">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:SharedContent RealityKit Game"
+                  name = "SharedContent RealityKit Game">
+                  <FileRef
+                     location = "group:SpinComponent.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS App UI Test Bundle"
+                  name = "iOS App UI Test Bundle">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:iOS App Base"
+                  name = "iOS App Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:LaunchScreen.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tvOS Metal Game"
+                  name = "tvOS Metal Game">
+                  <FileRef
+                     location = "group:GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tvOS Metal 4 Game"
+                  name = "tvOS Metal 4 Game">
+                  <FileRef
+                     location = "group:GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:GameViewController.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:tvOS SpriteKit Game"
+                  name = "tvOS SpriteKit Game">
+                  <FileRef
+                     location = "group:SpriteKit_GameViewController.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_Main.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_GameViewController.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SpriteKit_GameViewController.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform"
+               name = "MultiPlatform">
+               <Group
+                  location = "group:Cross-Platform Base"
+                  name = "Cross-Platform Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Test"
+               name = "MultiPlatform &gt; Test">
+               <Group
+                  location = "group:Unit Testing Bundle"
+                  name = "Unit Testing Bundle">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:UI Testing Bundle"
+                  name = "UI Testing Bundle">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Other"
+               name = "MultiPlatform &gt; Other">
+               <Group
+                  location = "group:Swift Macro"
+                  name = "Swift Macro">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Empty"
+                  name = "Empty">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Build Tool Plug-in"
+                  name = "Build Tool Plug-in">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Command Plug-in"
+                  name = "Command Plug-in">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:Base"
+               name = "Base">
+               <Group
+                  location = "group:SwiftUI App UI Test Bundle Base"
+                  name = "SwiftUI App UI Test Bundle Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Language Choice"
+                  name = "Language Choice">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SwiftUI App Base"
+                  name = "SwiftUI App Base">
+                  <FileRef
+                     location = "group:ContentView-SwiftData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:App.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DataModel.xcdatamodeld">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Persistence-CoreData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Item-SwiftData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView-CoreData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:App-CoreData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:App-SwiftData.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Bundle Base"
+                  name = "Bundle Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base_TestingSystem"
+                  name = "Base_TestingSystem">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SwiftUI App Unit Testing Bundle Base"
+                  name = "SwiftUI App Unit Testing Bundle Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:XPC Service Base"
+                  name = "XPC Service Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base_DefinitionsInfoPlist"
+                  name = "Base_DefinitionsInfoPlist">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:App Extension Base"
+                  name = "App Extension Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base_Options"
+                  name = "Base_Options">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Metal Library Base"
+                  name = "Metal Library Base">
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___PACKAGENAMEASIDENTIFIER___.metal">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Security Critical"
+                  name = "Security Critical">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Unit Testing Bundle Base"
+                  name = "Unit Testing Bundle Base">
+                  <FileRef
+                     location = "group:UnitTest-XCTest.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UnitTest-SwiftTesting.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UnitTest-XCTest.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base_DefinitionsAppLifecycle"
+                  name = "Base_DefinitionsAppLifecycle">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Storage Type"
+                  name = "Storage Type">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:ExtensionKit Extension Base"
+                  name = "ExtensionKit Extension Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SwiftUI Document App Base"
+                  name = "SwiftUI Document App Base">
+                  <FileRef
+                     location = "group:Document.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView-SwiftData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Item-SwiftData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DocumentApp-SwiftData.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:DocumentApp.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Framework Base"
+                  name = "Framework Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___PACKAGENAMEASIDENTIFIER___.docc">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base_DefinitionsLanguage"
+                  name = "Base_DefinitionsLanguage">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Testing System"
+                  name = "Testing System">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:UI Test Bundle Base"
+                  name = "UI Test Bundle Base">
+                  <FileRef
+                     location = "group:UITestLaunchTests.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UITestLaunchTests.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UITest.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:UITest.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base"
+                  name = "Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base_ProjectSettings"
+                  name = "Base_ProjectSettings">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:App Base"
+                  name = "App Base">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Storage Type Document"
+                  name = "Storage Type Document">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Base_StorageType"
+                  name = "Base_StorageType">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_README.txt">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:File Templates"
+            name = "File Templates">
+            <Group
+               location = "group:Other"
+               name = "Other">
+               <Group
+                  location = "group:Empty File"
+                  name = "Empty File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:File.swift">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILENAME___">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:File List"
+                  name = "File List">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:FileList.xcfilelist">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xcfilelist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Exports File"
+                  name = "Exports File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:File.exp">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.exp">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Markdown File"
+                  name = "Markdown File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:README.md">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.md">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Configuration Settings File"
+                  name = "Configuration Settings File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Config.xcconfig">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xcconfig">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Shell Script"
+                  name = "Shell Script">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Script.sh">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.sh">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:PCH File"
+                  name = "PCH File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:PrefixHeader.pch">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.pch">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Assembly File"
+                  name = "Assembly File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:File.s">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.s">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:CLIPS File"
+                  name = "CLIPS File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:File.clp">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.clp">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Resource"
+               name = "MultiPlatform &gt; Resource">
+               <Group
+                  location = "group:Module Map"
+                  name = "Module Map">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:module.modulemap.modulemap">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.modulemap">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Touch Alternatives Property List"
+                  name = "Touch Alternatives Property List">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:com.apple.uikit.inputalternatives.plist">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Asset Catalog"
+                  name = "Asset Catalog">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILENAME___.xcassets">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:App Privacy"
+                  name = "App Privacy">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:PrivacyInfo.xcprivacy">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xcprivacy">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SiriKit Intent Definition File"
+                  name = "SiriKit Intent Definition File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Intents.intentdefinition">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.intentdefinition">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Stringsdict File (Legacy)"
+                  name = "Stringsdict File (Legacy)">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Localizable.stringsdict">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.stringsdict">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Strings File (Legacy)"
+                  name = "Strings File (Legacy)">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Localizable.strings">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.strings">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Property List"
+                  name = "Property List">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Sample.plist">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:RTF File"
+                  name = "RTF File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:File.rtf">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.rtf">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:SiriKit"
+               name = "SiriKit">
+               <Group
+                  location = "group:INIntent subclass"
+                  name = "INIntent subclass">
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___INTENT_SUBCLASS___.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___INTENT_SUBCLASS___.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___INTENT_SUBCLASS___.m">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:App Enum"
+                  name = "App Enum">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___APP_ENUM___.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Link action"
+                  name = "Link action">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___LINK_ACTION___.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:App Entity"
+                  name = "App Entity">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___APP_ENTITY___.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Transient App Entity"
+                  name = "Transient App Entity">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___APP_ENTITY___.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Test"
+               name = "MultiPlatform &gt; Test">
+               <Group
+                  location = "group:Test Plan"
+                  name = "Test Plan">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:TestPlan.xctestplan">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xctestplan">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Swift Testing Unit Test"
+                  name = "Swift Testing Unit Test">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Test.swift">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:XCTest UI Test"
+                  name = "XCTest UI Test">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <Group
+                     location = "group:XCTestCaseObjective-C"
+                     name = "XCTestCaseObjective-C">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.m">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+                  <Group
+                     location = "group:XCTestCaseSwift"
+                     name = "XCTestCaseSwift">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.swift">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:XCTest Unit Test"
+                  name = "XCTest Unit Test">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <Group
+                     location = "group:XCTestCaseObjective-C"
+                     name = "XCTestCaseObjective-C">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.m">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+                  <Group
+                     location = "group:XCTestCaseSwift"
+                     name = "XCTestCaseSwift">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.swift">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Source"
+               name = "MultiPlatform &gt; Source">
+               <Group
+                  location = "group:Swift File"
+                  name = "Swift File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:File.swift">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Metal File"
+                  name = "Metal File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:File.metal">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.metal">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:C++ File"
+                  name = "C++ File">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <Group
+                     location = "group:Default"
+                     name = "Default">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.cpp">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <Group
+                     location = "group:WithHeader"
+                     name = "WithHeader">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.hpp">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.cpp">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:Sources Folder Swift File"
+                  name = "Sources Folder Swift File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:New File.swift">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:C File"
+                  name = "C File">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <Group
+                     location = "group:Default"
+                     name = "Default">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.c">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <Group
+                     location = "group:WithHeader"
+                     name = "WithHeader">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.c">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:Header File"
+                  name = "Header File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Header.h">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Objective-C new superclass"
+                  name = "Objective-C new superclass">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Sample.m">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.h">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.m">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Playground Page"
+                  name = "Playground Page">
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xcplaygroundpage">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Objective-C File"
+                  name = "Objective-C File">
+                  <Group
+                     location = "group:Protocol"
+                     name = "Protocol">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.h">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Empty File"
+                     name = "Empty File">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.m">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:CategoryNSObject"
+                     name = "CategoryNSObject">
+                     <FileRef
+                        location = "group:___VARIABLE_extendedClass:identifier___+___VARIABLE_productName:identifier___.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___VARIABLE_extendedClass:identifier___+___VARIABLE_productName:identifier___.m">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <Group
+                     location = "group:SubclassNSObject"
+                     name = "SubclassNSObject">
+                     <FileRef
+                        location = "group:___VARIABLE_productName:identifier___.m">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___VARIABLE_productName:identifier___.h">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:ExtensionNSObject"
+                     name = "ExtensionNSObject">
+                     <FileRef
+                        location = "group:___VARIABLE_extendedClass:identifier___+___VARIABLE_productName:identifier___.h">
+                     </FileRef>
+                  </Group>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; User Interface"
+               name = "MultiPlatform &gt; User Interface">
+               <Group
+                  location = "group:SwiftUI View"
+                  name = "SwiftUI View">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:SwiftUIView.swift">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:User Interface"
+               name = "User Interface">
+               <Group
+                  location = "group:Storyboard"
+                  name = "Storyboard">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Sample.storyboard">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.storyboard">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Application"
+                  name = "Application">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Sample.xib">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xib">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Main Menu"
+                  name = "Main Menu">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:MainMenu.xib">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xib">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Window"
+                  name = "Window">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Sample.xib">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xib">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Empty"
+                  name = "Empty">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Sample.xib">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xib">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:View"
+                  name = "View">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Sample.xib">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.xib">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:Resource"
+               name = "Resource">
+               <Group
+                  location = "group:SceneKit Asset Catalog"
+                  name = "SceneKit Asset Catalog">
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILENAME___.scnassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SpriteKit Particle File"
+                  name = "SpriteKit Particle File">
+                  <Group
+                     location = "group:Rain"
+                     name = "Rain">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Bokeh"
+                     name = "Bokeh">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Smoke"
+                     name = "Smoke">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <Group
+                     location = "group:Magic"
+                     name = "Magic">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Fireflies"
+                     name = "Fireflies">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <Group
+                     location = "group:Fire"
+                     name = "Fire">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Spark"
+                     name = "Spark">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+                  <Group
+                     location = "group:Snow"
+                     name = "Snow">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:SpriteKit Tile Set"
+                  name = "SpriteKit Tile Set">
+                  <Group
+                     location = "group:Empty Tile Set"
+                     name = "Empty Tile Set">
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Hexagonal Tile Set"
+                     name = "Hexagonal Tile Set">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <Group
+                     location = "group:Grid Tile Set"
+                     name = "Grid Tile Set">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <Group
+                     location = "group:Isometric Tile Set"
+                     name = "Isometric Tile Set">
+                     <FileRef
+                        location = "group:Assets.xcassets">
+                     </FileRef>
+                     <FileRef
+                        location = "group:___FILEBASENAME___.sks">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SpriteKit Scene"
+                  name = "SpriteKit Scene">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.sks">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SceneKit Scene File"
+                  name = "SceneKit Scene File">
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.scn">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SpriteKit Action"
+                  name = "SpriteKit Action">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.sks">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:SceneKit Asset Cache"
+                  name = "SceneKit Asset Cache">
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:Source"
+               name = "Source">
+               <Group
+                  location = "group:Package Swift File"
+                  name = "Package Swift File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:New File.swift">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Package Test Case"
+                  name = "Package Test Case">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:New Tests.swift">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:MultiPlatform &gt; Documentation"
+               name = "MultiPlatform &gt; Documentation">
+               <Group
+                  location = "group:Tutorial Table of Contents File"
+                  name = "Tutorial Table of Contents File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Tutorial Table of Contents.tutorial">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.tutorial">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Extension File"
+                  name = "Extension File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Extension.md">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.md">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Tutorial File"
+                  name = "Tutorial File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Tutorial.tutorial">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.tutorial">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Empty"
+                  name = "Empty">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Empty.md">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.md">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon-1016@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Documentation Catalog"
+                  name = "Documentation Catalog">
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.docc">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Article File"
+                  name = "Article File">
+                  <Group
+                     location = "group:_generated_sample"
+                     name = "_generated_sample">
+                     <FileRef
+                        location = "group:Article.md">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:TemplateIcon@2x.png">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateInfo.plist">
+                  </FileRef>
+                  <FileRef
+                     location = "group:___FILEBASENAME___.md">
+                  </FileRef>
+                  <FileRef
+                     location = "group:_template_metadata.json">
+                  </FileRef>
+                  <FileRef
+                     location = "group:TemplateIcon.png">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+      </Group>
+      <Group
+         location = "group:GeneratedProjects"
+         name = "GeneratedProjects">
+         <Group
+            location = "group:Other"
+            name = "Other">
+            <FileRef
+               location = "group:AggregateTarget">
+            </FileRef>
+            <FileRef
+               location = "group:ExternalBuildSystem">
+            </FileRef>
+            <FileRef
+               location = "group:EmptyProject">
+            </FileRef>
+            <FileRef
+               location = "group:EmptyProject.xcodeproj">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:MultiPlatform"
+            name = "MultiPlatform">
+            <Group
+               location = "group:Test"
+               name = "Test">
+               <Group
+                  location = "group:UnitTestBundleSample"
+                  name = "UnitTestBundleSample">
+                  <FileRef
+                     location = "group:UnitTestBundleSample.swift">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:UITestBundleSample.xcodeproj">
+               </FileRef>
+               <Group
+                  location = "group:UITestBundleSample"
+                  name = "UITestBundleSample">
+                  <FileRef
+                     location = "group:UITestBundleSample.swift">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:UnitTestBundleSample.xcodeproj">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Application"
+               name = "Application">
+               <FileRef
+                  location = "group:GameProject.xcodeproj">
+               </FileRef>
+               <FileRef
+                  location = "group:DocumentApp.xcodeproj">
+               </FileRef>
+               <FileRef
+                  location = "group:MultiplatformApp.xcodeproj">
+               </FileRef>
+               <Group
+                  location = "group:MultiplatformApp"
+                  name = "MultiplatformApp">
+                  <FileRef
+                     location = "group:MultiplatformAppApp.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:Framework"
+               name = "Framework">
+               <Group
+                  location = "group:MyFramework"
+                  name = "MyFramework">
+                  <FileRef
+                     location = "group:MyFramework.swift">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:MyFramework.xcodeproj">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Extension"
+               name = "Extension">
+               <FileRef
+                  location = "group:WidgetExtensionSample.xcodeproj">
+               </FileRef>
+               <Group
+                  location = "group:WidgetExtensionSample"
+                  name = "WidgetExtensionSample">
+                  <FileRef
+                     location = "group:WidgetExtensionSampleApp.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:Assets.xcassets">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ContentView.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:MultiPlatform_Test"
+            name = "MultiPlatform_Test">
+            <FileRef
+               location = "group:UITestingBundle">
+            </FileRef>
+            <FileRef
+               location = "group:UnitTestingBundle">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:MultiPlatform_Framework"
+            name = "MultiPlatform_Framework">
+            <FileRef
+               location = "group:MultiplatformFramework">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:MultiPlatform_Application"
+            name = "MultiPlatform_Application">
+            <FileRef
+               location = "group:SafariExtensionApp">
+            </FileRef>
+            <FileRef
+               location = "group:DocumentApp">
+            </FileRef>
+            <FileRef
+               location = "group:AudioUnitExtensionApp">
+            </FileRef>
+            <FileRef
+               location = "group:MultiplatformApp">
+            </FileRef>
+            <FileRef
+               location = "group:GameProject">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:MultiPlatform_Extension"
+            name = "MultiPlatform_Extension">
+            <FileRef
+               location = "group:WidgetExtension">
+            </FileRef>
+            <FileRef
+               location = "group:GenericExtension">
+            </FileRef>
+            <FileRef
+               location = "group:AudioUnitExtension">
+            </FileRef>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Packages">
    </FileRef>

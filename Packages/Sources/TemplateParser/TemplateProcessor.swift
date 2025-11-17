@@ -11,7 +11,7 @@ public struct TemplateProcessor: Sendable {
         let tokens = try parser.parse(template[...])
 
         // Resolve and concatenate
-        var mutableContext = context  // Make mutable for UUID caching
+        var mutableContext = context // Make mutable for UUID caching
         return tokens.map { token in
             switch token {
             case .text(let str):

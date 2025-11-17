@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Resource",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Resource\/SpriteKit Particle File.xctemplate",
-  "name" : "SpriteKit Particle File",
-  "kind" : "Xcode.IDEKit.TextSubstitutionFileTemplateKind",
-  "description" : "A particle effect template for SpriteKit particle emitter."
-}

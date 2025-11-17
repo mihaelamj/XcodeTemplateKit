@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Other",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Other\/Markdown File.xctemplate",
-  "name" : "Markdown File",
-  "kind" : "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind",
-  "description" : "A markdown file."
-}

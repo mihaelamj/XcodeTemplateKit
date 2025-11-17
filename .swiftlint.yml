@@ -8,9 +8,19 @@ opt_in_rules:
   - shorthand_optional_binding
   - weak_delegate
 
+# Exclude all generated, external, and artifact files
+# We rely on exclusions only, no 'included' section, because pre-commit
+# passes explicit file paths that would bypass 'included' filtering
 excluded:
   - "*.generated"
-  - "Packages/Tests/**" # Tests often use force unwrapping
+  - "XcodeTemplateCollection/**" # Xcode template artifacts (not our code)
+  - "XcodeTemplateCollection_NEW/**" # New generated artifacts (not our code)
+  - "Scripts/**" # Generation scripts from templatomat (external code)
+  - "DerivedData/**" # Build artifacts
+  - "Apps/**" # Demo apps (separate projects)
+  - ".build/**" # Swift Package Manager build artifacts
+  - "Packages/.build/**" # Swift PM dependencies (checked out packages)
+  - "Packages/.swiftpm/**" # Swift PM configuration files
 
 custom_rules:
   # check's for Combine's .assign(to: xxx, on: self) ref-cycle

@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Resource",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Resource\/SceneKit Asset Catalog.xctemplate",
-  "name" : "SceneKit Asset Catalog",
-  "kind" : "Xcode.IDEKit.TextSubstitutionFileTemplateKind",
-  "description" : "A SceneKit Asset Catalog."
-}

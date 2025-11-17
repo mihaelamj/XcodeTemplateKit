@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "MultiPlatform > Source",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/MultiPlatform\/Source\/Objective-C new superclass.xctemplate",
-  "name" : "Objective-C new superclass",
-  "kind" : "Xcode.IDEKit.RefactoringFileTemplateKind.NewSuperclass",
-  "description" : ""
-}

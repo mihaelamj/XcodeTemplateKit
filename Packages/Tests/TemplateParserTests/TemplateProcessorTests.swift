@@ -1,5 +1,5 @@
-import Testing
 @testable import TemplateParser
+import Testing
 
 @Suite("Template Processor Tests")
 struct TemplateProcessorTests {
@@ -17,7 +17,7 @@ struct TemplateProcessorTests {
             year: "2025",
             options: [
                 "productName": "My Product",
-                "bundleIdentifierPrefix": "com.example"
+                "bundleIdentifierPrefix": "com.example",
             ]
         )
     }

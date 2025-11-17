@@ -1,8 +1,0 @@
-{
-  "type" : "File",
-  "category" : "Resource",
-  "source_path" : "\/Applications\/Xcode.app\/Contents\/Developer\/Library\/Xcode\/Templates\/File Templates\/Resource\/SpriteKit Tile Set.xctemplate",
-  "name" : "SpriteKit Tile Set",
-  "kind" : "Xcode.IDEKit.TextSubstitutionFileTemplateKind",
-  "description" : "A tile set template for SpriteKit particle emitter."
-}
