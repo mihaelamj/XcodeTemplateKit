@@ -5,6 +5,36 @@
       location = "group:Scripts"
       name = "Scripts">
       <FileRef
+         location = "group:SwiftPackageProjectGenerator.swift">
+      </FileRef>
+      <FileRef
+         location = "group:TemplateGenerator.swift">
+      </FileRef>
+      <FileRef
+         location = "group:XcodeProjectGenerator.swift">
+      </FileRef>
+      <FileRef
+         location = "group:DirectProjectGenerator.swift">
+      </FileRef>
+      <FileRef
+         location = "group:generate_all_artifacts.sh">
+      </FileRef>
+      <FileRef
+         location = "group:generate_all_projects.sh">
+      </FileRef>
+      <FileRef
+         location = "group:GenerateFileFromTemplate.scpt">
+      </FileRef>
+      <FileRef
+         location = "group:GenerateProjectFromTemplate.scpt">
+      </FileRef>
+      <FileRef
+         location = "group:GenerateProjectsFromTemplates.scpt">
+      </FileRef>
+      <FileRef
+         location = "group:InspectXcodeUI.scpt">
+      </FileRef>
+      <FileRef
          location = "group:README.md">
       </FileRef>
    </Group>
