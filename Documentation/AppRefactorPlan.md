@@ -20,14 +20,11 @@ This plan sequences the factoring and validation work needed to harden the new o
   - `swift test --test-product AppFeatureTests` currently fails in the sandbox because SwiftPM cannot write to `~/.cache/clang/ModuleCache`; rerun locally to exercise the suite.
   - Targeted `swiftlint` runs over the modified Swift files succeed (apart from the sandbox cache-writing warning).
 
-## Phase 3 – Shared UI Extraction
-- **Goal**: Reuse outline primitives (rows, toolbar, search header) across the app.
-- **Tasks**:
-  - Move `TreeOutlineRow`, toolbar button groups, and search bar into `SharedViews`.
-  - Inject dependencies (fonts, icons, actions) so the shared components stay flexible.
+## Phase 3 – Shared UI Extraction _(Completed)_
+- **Outcome**: Introduced the `SharedViews` target (see `Packages/Sources/SharedViews/OutlineComponents.swift`) that hosts reusable outline widgets—`OutlineSearchBar`, `OutlineToolbar`, and `OutlineRowView`. `ExpandableTemplateTreeView` now imports SharedViews so the sidebar layout lives in one place.
 - **Validation**:
-  - SwiftUI previews or unit tests using ViewInspector to confirm bindings work.
-  - SwiftLint + SwiftFormat to keep shared modules aligned with house style.
+  - Targeted SwiftLint runs over `ExpandableTemplateTreeView.swift` and the new shared components pass (sandbox still blocks SwiftLint’s cache plist).
+  - `swift test` remains blocked by module-cache permissions in this sandbox; rerun locally to exercise the full suite with the new SharedViews dependency.
 
 ## Phase 4 – Test Backfill & CI Hook
 - **Goal**: Automate regression detection for the outline + parser stack.

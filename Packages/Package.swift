@@ -18,6 +18,7 @@ let templateProducts: [Product] = [
 
 #if os(iOS) || os(macOS)
 let appleOnlyProducts: [Product] = [
+    .singleTargetLibrary("SharedViews"),
     .singleTargetLibrary("AppFeature"),
 ]
 #else
@@ -82,12 +83,17 @@ let targets: [Target] = {
 
     // ---------- Apple-only UI / Components ----------
     #if os(iOS) || os(macOS)
-    // ---------- Foundation: AppColors (zero dependencies) ----------
+    let sharedViewsTarget = Target.target(
+        name: "SharedViews",
+        dependencies: []
+    )
+
     let appFeatureTarget = Target.target(
         name: "AppFeature",
         dependencies: [
             "SharedModels",
             "TemplateParser",
+            "SharedViews",
         ],
         resources: [
             .process("Resources"),
@@ -107,6 +113,7 @@ let targets: [Target] = {
     #if os(iOS) || os(macOS)
 
     let uiTargets: [Target] = [
+        sharedViewsTarget,
         appFeatureTarget,
         appFeatureTestsTarget,
     ]

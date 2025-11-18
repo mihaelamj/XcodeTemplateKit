@@ -14,7 +14,8 @@ This document collects the essential context so you can skim the entire effort q
 | --- | --- | --- |
 | Domain models | `Packages/Sources/SharedModels` | Pure data structures, no dependencies. |
 | Parser + scanner | `Packages/Sources/TemplateParser` | Uses `swift-parsing`; `TemplateScanner` reads plists and builds the tree. |
-| UI feature | `Packages/Sources/AppFeature` | SwiftUI NavigationSplitView + inspector tabs; depends on SharedModels + TemplateParser. |
+| UI feature | `Packages/Sources/AppFeature` | SwiftUI NavigationSplitView + inspector tabs; depends on SharedModels + TemplateParser + SharedViews. |
+| Shared UI | `Packages/Sources/SharedViews` | Reusable outline widgets (search bar, toolbar, row view) consumed by AppFeature. |
 | Docs & scripts | `Documentation/`, `Scripts/` | Detailed parsing strategy, automation helpers. |
 
 ## Outline View Refactor (Current Work)
