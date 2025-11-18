@@ -63,55 +63,9 @@
          location = "group:XcodeProjectGenerator.swift">
       </FileRef>
    </Group>
-   <Group
-      location = "group:Documentation"
-      name = "Documentation">
-      <FileRef
-         location = "group:BUILD_SETTINGS_SCOPE.md">
-      </FileRef>
-      <FileRef
-         location = "group:CLEAN_PROJECT_GUIDE.md">
-      </FileRef>
-      <FileRef
-         location = "group:PHASE_0_GENERATION_PLAN.md">
-      </FileRef>
-      <FileRef
-         location = "group:PROJECT_GOALS.md">
-      </FileRef>
-      <FileRef
-         location = "group:ROADMAP.md">
-      </FileRef>
-      <FileRef
-         location = "group:SESSION_SUMMARY.md">
-      </FileRef>
-      <FileRef
-         location = "group:SWIFT_6_LANGUAGE_MODE_CONCURRENCY.md">
-      </FileRef>
-      <FileRef
-         location = "group:TEMPLATE_ANALYSIS.md">
-      </FileRef>
-      <FileRef
-         location = "group:TEMPLATE_ARTIFACT_GENERATION.md">
-      </FileRef>
-      <FileRef
-         location = "group:TEMPLATE_PARSING_STRATEGY.md">
-      </FileRef>
-      <FileRef
-         location = "group:TEMPLATE_TYPES_GENERATION.md">
-      </FileRef>
-      <FileRef
-         location = "group:TYPE_CONSTRAINT_PROBLEM.md">
-      </FileRef>
-      <FileRef
-         location = "group:WARMUP_TEMPLATE_TREE_STRUCTURE.md">
-      </FileRef>
-      <FileRef
-         location = "group:XCODE_TEMPLATE_KINDS_ANALYSIS.md">
-      </FileRef>
-      <FileRef
-         location = "group:XCODE_TEMPLATE_PARSING_RULES.md">
-      </FileRef>
-   </Group>
+   <FileRef
+      location = "group:documents">
+   </FileRef>
    <FileRef
       location = "group:Packages">
    </FileRef>

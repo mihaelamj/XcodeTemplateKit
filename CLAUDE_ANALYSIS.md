@@ -777,10 +777,10 @@ XcodeTemplateCollection_NEW/    # Appears redundant?
 /Volumes/Code/DeveloperExt/private/XcodeTemplateKit/lasy_context.md
 ```
 
-**Issue:** Context file at project root (should be in Documentation/ or ai-docs/)
+**Issue:** Context file at project root (should be in documents/ or ai-docs/)
 
 **Resolution Needed:**
-- Move to `Documentation/context.md` or `ai-docs/lasy_context.md`
+- Move to `documents/context.md` or `ai-docs/lasy_context.md`
 - Update any references
 
 ### Areas for Improvement
@@ -833,12 +833,12 @@ XcodeTemplateCollection_NEW/    # Appears redundant?
 
 **Action Items:**
 - [ ] Clarify XcodeTemplateCollection_NEW/ purpose or remove
-- [ ] Move lasy_context.md to Documentation/ or ai-docs/
+- [ ] Move lasy_context.md to documents/ or ai-docs/
 - [ ] Add README to ai-rules/ explaining purpose
-- [ ] Organize Documentation/ directory with subdirectories:
-  - `Documentation/Architecture/` - Architecture docs
-  - `Documentation/Parsing/` - Parsing strategy docs
-  - `Documentation/Development/` - Development guides
+- [ ] Organize documents/ directory with subdirectories:
+  - `documents/Architecture/` - Architecture docs
+  - `documents/Parsing/` - Parsing strategy docs
+  - `documents/Development/` - Development guides
 
 **Estimated Effort:** 1 day
 

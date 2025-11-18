@@ -344,7 +344,7 @@ ls /Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/
 
 ## 📖 Related Documentation
 
-- **[TEMPLATE_ARTIFACT_GENERATION.md](../Documentation/TEMPLATE_ARTIFACT_GENERATION.md)** - Comprehensive generation guide
+- **[TEMPLATE_ARTIFACT_GENERATION.md](../documents/TEMPLATE_ARTIFACT_GENERATION.md)** - Comprehensive generation guide
 - **[XCODE_TEMPLATE_PARSING_RULES.md](../Packages/Sources/TemplateParser/XCODE_TEMPLATE_PARSING_RULES.md)** - Complete parsing reference
 - **[XcodeTemplateCollection/README.md](../XcodeTemplateCollection/README.md)** - Artifacts overview
 

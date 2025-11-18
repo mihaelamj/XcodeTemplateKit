@@ -1,5 +1,10 @@
 import SwiftUI
 import TemplateParser
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+#endif
 
 /// Detail view that shows rich information about the selected tree node.
 /// Styled like Xcode's Inspector panel with tabbed interface.
@@ -46,7 +51,7 @@ struct TreeNodeDetailView: View {
                     Spacer()
                 }
                 .padding()
-                .background(Color(nsColor: .controlBackgroundColor))
+                .background(controlBackground)
 
                 Divider()
 
@@ -69,7 +74,7 @@ struct TreeNodeDetailView: View {
                         .buttonStyle(.plain)
                     }
                 }
-                .background(Color(nsColor: .controlBackgroundColor))
+                .background(controlBackground)
 
                 Divider()
 
@@ -726,7 +731,7 @@ struct InspectorSection<Content: View>: View {
             VStack(alignment: .leading, spacing: 0) {
                 content
             }
-            .background(Color(nsColor: .controlBackgroundColor))
+            .background(controlBackground)
             .cornerRadius(6)
             .padding(.horizontal, 12)
         }
@@ -793,8 +798,7 @@ struct CopyableText: View {
     }
 
     private func copyToClipboard() {
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(text, forType: .string)
+        copyToPasteboard(text)
         showCopied = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             showCopied = false
@@ -816,11 +820,11 @@ struct CodeBlock: View {
                     .textSelection(.enabled)
                     .padding(12)
             }
-            .background(Color(nsColor: .textBackgroundColor))
+            .background(textBackground)
             .cornerRadius(6)
             .overlay(
                 RoundedRectangle(cornerRadius: 6)
-                    .stroke(Color(nsColor: .separatorColor), lineWidth: 1)
+                    .stroke(separatorColor, lineWidth: 1)
             )
 
             HStack {
@@ -838,11 +842,45 @@ struct CodeBlock: View {
     }
 
     private func copyToClipboard() {
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(code, forType: .string)
+        copyToPasteboard(code)
         showCopied = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             showCopied = false
         }
     }
+}
+
+// MARK: - Platform Helpers
+
+private var controlBackground: Color {
+    #if os(macOS)
+    Color(nsColor: .controlBackgroundColor)
+    #else
+    Color(uiColor: .systemBackground)
+    #endif
+}
+
+private var textBackground: Color {
+    #if os(macOS)
+    Color(nsColor: .textBackgroundColor)
+    #else
+    Color(uiColor: .secondarySystemBackground)
+    #endif
+}
+
+private var separatorColor: Color {
+    #if os(macOS)
+    Color(nsColor: .separatorColor)
+    #else
+    Color(uiColor: .separator)
+    #endif
+}
+
+private func copyToPasteboard(_ text: String) {
+    #if os(macOS)
+    NSPasteboard.general.clearContents()
+    NSPasteboard.general.setString(text, forType: .string)
+    #else
+    UIPasteboard.general.string = text
+    #endif
 }

@@ -70,7 +70,7 @@ XcodeTemplateKit/
 │   ├── TemplateArtifacts/            # 146 processed templates
 │   └── GeneratedProjects/            # 14 working Swift projects
 │
-├── Documentation/                     # Project documentation
+├── documents/                     # Project documentation
 │   ├── TEMPLATE_ARTIFACT_GENERATION.md
 │   ├── XCODE_TEMPLATE_PARSING_RULES.md
 │   ├── CLEAN_PROJECT_GUIDE.md
@@ -86,17 +86,17 @@ XcodeTemplateKit/
 
 ### Core Documentation
 
-- **[TEMPLATE_ARTIFACT_GENERATION.md](Documentation/TEMPLATE_ARTIFACT_GENERATION.md)** - How artifacts are generated from Xcode
+- **[TEMPLATE_ARTIFACT_GENERATION.md](documents/TEMPLATE_ARTIFACT_GENERATION.md)** - How artifacts are generated from Xcode
 - **[XCODE_TEMPLATE_PARSING_RULES.md](Packages/Sources/TemplateParser/XCODE_TEMPLATE_PARSING_RULES.md)** - Complete parsing reference (37KB)
-- **[TEMPLATE_PARSING_STRATEGY.md](Documentation/TEMPLATE_PARSING_STRATEGY.md)** - Parser implementation strategy
-- **[CLEAN_PROJECT_GUIDE.md](Documentation/CLEAN_PROJECT_GUIDE.md)** - Project setup guide
+- **[TEMPLATE_PARSING_STRATEGY.md](documents/TEMPLATE_PARSING_STRATEGY.md)** - Parser implementation strategy
+- **[CLEAN_PROJECT_GUIDE.md](documents/CLEAN_PROJECT_GUIDE.md)** - Project setup guide
 
 ### Additional Resources
 
-- **[XCODE_TEMPLATE_KINDS_ANALYSIS.md](Documentation/XCODE_TEMPLATE_KINDS_ANALYSIS.md)** - Template taxonomy
-- **[TEMPLATE_ANALYSIS.md](Documentation/TEMPLATE_ANALYSIS.md)** - Template structure analysis
-- **[SWIFT_6_LANGUAGE_MODE_CONCURRENCY.md](Documentation/SWIFT_6_LANGUAGE_MODE_CONCURRENCY.md)** - Concurrency compliance
-- **[SESSION_SUMMARY.md](Documentation/SESSION_SUMMARY.md)** - Development history
+- **[XCODE_TEMPLATE_KINDS_ANALYSIS.md](documents/XCODE_TEMPLATE_KINDS_ANALYSIS.md)** - Template taxonomy
+- **[TEMPLATE_ANALYSIS.md](documents/TEMPLATE_ANALYSIS.md)** - Template structure analysis
+- **[SWIFT_6_LANGUAGE_MODE_CONCURRENCY.md](documents/SWIFT_6_LANGUAGE_MODE_CONCURRENCY.md)** - Concurrency compliance
+- **[SESSION_SUMMARY.md](documents/SESSION_SUMMARY.md)** - Development history
 
 ---
 
@@ -111,7 +111,7 @@ These artifacts are used by integration tests to validate the parser against rea
 
 **Source**: `/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/`
 
-For details on generating fresh artifacts, see [TEMPLATE_ARTIFACT_GENERATION.md](Documentation/TEMPLATE_ARTIFACT_GENERATION.md).
+For details on generating fresh artifacts, see [TEMPLATE_ARTIFACT_GENERATION.md](documents/TEMPLATE_ARTIFACT_GENERATION.md).
 
 ---
 
