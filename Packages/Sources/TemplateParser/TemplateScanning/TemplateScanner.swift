@@ -2,27 +2,12 @@ import Foundation
 
 /// Scans Xcode templates and captures complete plist data
 public class TemplateScanner {
+    // TODO: Make Xcode path configurable/selectable by user in future
+    // For now, hardcoded to standard Xcode.app location
     private let xcodeTemplatesPath = "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates"
     private let fileManager = FileManager.default
-    private lazy var templateRoots: [String] = {
-        var roots = [xcodeTemplatesPath]
-        let platforms = [
-            "iPhoneOS",
-            "iPhoneSimulator",
-            "MacOSX",
-            "AppleTVOS",
-            "AppleTVSimulator",
-            "WatchOS",
-            "WatchSimulator",
-            "visionOS",
-            "visionOSSimulator",
-        ]
-        for platform in platforms {
-            let path = "/Applications/Xcode.app/Contents/Developer/Platforms/\(platform).platform/Developer/Library/Xcode/Templates"
-            roots.append(path)
-        }
-        return roots
-    }()
+    private lazy var templateRoots: [String] = // Only scan main Xcode.app bundle, not platform-specific templates
+        [xcodeTemplatesPath]
 
     public init() {}
 
@@ -108,11 +93,27 @@ public class TemplateScanner {
             return nil
         }
 
-        // Extract standard fields
-        // Note: "Identifier" contains the unique template kind (e.g., "com.apple.dt.unit.app")
-        // "Kind" is just the template type category (e.g., "Xcode.Xcode3.ProjectTemplateUnitKind")
-        guard let kindString = plist["Identifier"] as? String else {
-            return nil // Skip templates without Identifier field
+        // Extract template identifier from plist
+        // IMPORTANT: Xcode uses different field names for different template types:
+        //
+        // Project/Package Templates (88 templates):
+        //   - Have "Identifier" field (e.g., "com.apple.dt.unit.app")
+        //   - Also have "Kind" field for category (e.g., "Xcode.Xcode3.ProjectTemplateUnitKind")
+        //
+        // File Templates (58 templates):
+        //   - Only have "Kind" field (e.g., "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind")
+        //   - No "Identifier" field present
+        //
+        // Total: 146 templates in Xcode.app bundle
+        //
+        // Strategy: Use "Identifier" if available (Project/Package), otherwise use "Kind" (File)
+        let kindString: String
+        if let identifier = plist["Identifier"] as? String {
+            kindString = identifier
+        } else if let kind = plist["Kind"] as? String {
+            kindString = kind
+        } else {
+            return nil // Skip templates without Identifier or Kind field
         }
 
         // Parse template kind - unknown kinds are preserved as .unknown(String)
