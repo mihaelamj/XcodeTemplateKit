@@ -1,0 +1,3332 @@
+{
+  "generatedAt": "2025-11-17T19:05:50.243290Z",
+  "totalTemplates": 83,
+  "totalCombinations": 83,
+  "templates": [
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.applicationBase",
+      "ancestors": [
+        "com.apple.dt.unit.bundleBase"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/App Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "App Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.appextensionbase",
+      "ancestors": [
+        "com.apple.dt.unit.xpcservicebase",
+        "com.apple.dt.unit.languageChoice"
+      ],
+      "nodes": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/App Extension Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "App Extension Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base",
+      "ancestors": [
+        "com.apple.dt.unit.base_DefinitionsLanguage",
+        "com.apple.dt.unit.base_DefinitionsInfoPlist",
+        "com.apple.dt.unit.base_ProjectSettings",
+        "com.apple.dt.unit.base_Options",
+        "com.apple.dt.unit.base_AppLifecycle",
+        "com.apple.dt.unit.base_StorageType"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base_AppLifecycle",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base_DefinitionsAppLifecycle.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base_DefinitionsAppLifecycle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base_DefinitionsInfoPlist",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base_DefinitionsInfoPlist.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base_DefinitionsInfoPlist",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base_DefinitionsLanguage",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base_DefinitionsLanguage.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base_DefinitionsLanguage",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base_Options",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base_Options.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base_Options",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base_ProjectSettings",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base_ProjectSettings.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base_ProjectSettings",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base_StorageType",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base_StorageType.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base_StorageType",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.base_TestingSystem",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Base_TestingSystem.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Base_TestingSystem",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.bundleBase",
+      "ancestors": [
+        "com.apple.dt.unit.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Bundle Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Bundle Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.extensionkit-extension",
+      "ancestors": [
+        "com.apple.dt.unit.xpcservicebase",
+        "com.apple.dt.unit.languageChoice"
+      ],
+      "nodes": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/ExtensionKit Extension Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "ExtensionKit Extension Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.frameworkBase",
+      "ancestors": [
+        "com.apple.dt.unit.bundleBase"
+      ],
+      "file_structure": [
+        {
+          "path": "___PACKAGENAMEASIDENTIFIER___.docc",
+          "isDirectory": true,
+          "name": "___PACKAGENAMEASIDENTIFIER___.docc",
+          "children": [
+            {
+              "path": "___PACKAGENAMEASIDENTIFIER___.docc/Resources",
+              "isDirectory": true,
+              "name": "Resources",
+              "children": [
+                {
+                  "name": "README__ignoredByTemplate__",
+                  "path": "___PACKAGENAMEASIDENTIFIER___.docc/Resources/README__ignoredByTemplate__",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "___PACKAGENAMEASIDENTIFIER___.md",
+              "path": "___PACKAGENAMEASIDENTIFIER___.docc/___PACKAGENAMEASIDENTIFIER___.md",
+              "isDirectory": false
+            }
+          ]
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Framework Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Framework Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.languageChoice",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Language Choice.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Language Choice",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.metalLibrary.base",
+      "ancestors": [],
+      "nodes": [
+        "___PACKAGENAMEASIDENTIFIER___.metal"
+      ],
+      "file_structure": [
+        {
+          "name": "TemplateIcon.png",
+          "path": "TemplateIcon.png",
+          "isDirectory": false
+        },
+        {
+          "name": "TemplateIcon@2x.png",
+          "path": "TemplateIcon@2x.png",
+          "isDirectory": false
+        },
+        {
+          "name": "___PACKAGENAMEASIDENTIFIER___.metal",
+          "path": "___PACKAGENAMEASIDENTIFIER___.metal",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Metal Library Base.xctemplate",
+      "description": "This template builds a Metal library.",
+      "category": "Base",
+      "name": "Metal Library Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.securityCriticalBase",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Security Critical.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Security Critical",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.storageType.document-app",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Storage Type Document.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Storage Type Document",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.storageType",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Storage Type.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Storage Type",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.applicationBase.SwiftUI",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase",
+        "com.apple.dt.unit.storageType"
+      ],
+      "nodes": [
+        "Assets.xcassets"
+      ],
+      "file_structure": [
+        {
+          "name": "App-CoreData.swift",
+          "path": "App-CoreData.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "App-SwiftData.swift",
+          "path": "App-SwiftData.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "App.swift",
+          "path": "App.swift",
+          "isDirectory": false
+        },
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "ContentView-CoreData.swift",
+          "path": "ContentView-CoreData.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "ContentView-SwiftData.swift",
+          "path": "ContentView-SwiftData.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "ContentView.swift",
+          "path": "ContentView.swift",
+          "isDirectory": false
+        },
+        {
+          "path": "DataModel.xcdatamodeld",
+          "isDirectory": true,
+          "name": "DataModel.xcdatamodeld",
+          "children": [
+            {
+              "path": "DataModel.xcdatamodeld/___PACKAGENAMEASIDENTIFIER___.xcdatamodel",
+              "isDirectory": true,
+              "name": "___PACKAGENAMEASIDENTIFIER___.xcdatamodel",
+              "children": [
+                {
+                  "name": "contents",
+                  "path": "DataModel.xcdatamodeld/___PACKAGENAMEASIDENTIFIER___.xcdatamodel/contents",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Item-SwiftData.swift",
+          "path": "Item-SwiftData.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Persistence-CoreData.swift",
+          "path": "Persistence-CoreData.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/SwiftUI App Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "SwiftUI App Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.uiTestBundleBase.app.SwiftUI",
+      "ancestors": [
+        "com.apple.dt.unit.uiTestBundleBase"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/SwiftUI App UI Test Bundle Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "SwiftUI App UI Test Bundle Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.unitTestBundleBase.app.SwiftUI",
+      "ancestors": [
+        "com.apple.dt.unit.unitTestBundleBase"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/SwiftUI App Unit Testing Bundle Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "SwiftUI App Unit Testing Bundle Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.applicationBase.document-based.SwiftUI",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase",
+        "com.apple.dt.unit.storageType.document-app"
+      ],
+      "nodes": [
+        "Assets.xcassets"
+      ],
+      "file_structure": [
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "ContentView-SwiftData.swift",
+          "path": "ContentView-SwiftData.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "ContentView.swift",
+          "path": "ContentView.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Document.swift",
+          "path": "Document.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "DocumentApp-SwiftData.swift",
+          "path": "DocumentApp-SwiftData.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "DocumentApp.swift",
+          "path": "DocumentApp.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Item-SwiftData.swift",
+          "path": "Item-SwiftData.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/SwiftUI Document App Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "SwiftUI Document App Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.testingSystem",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Testing System.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Testing System",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.uiTestBundleBase",
+      "ancestors": [
+        "com.apple.dt.unit.bundleBase",
+        "com.apple.dt.unit.languageChoice"
+      ],
+      "file_structure": [
+        {
+          "name": "UITest.m",
+          "path": "UITest.m",
+          "isDirectory": false
+        },
+        {
+          "name": "UITest.swift",
+          "path": "UITest.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "UITestLaunchTests.m",
+          "path": "UITestLaunchTests.m",
+          "isDirectory": false
+        },
+        {
+          "name": "UITestLaunchTests.swift",
+          "path": "UITestLaunchTests.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/UI Test Bundle Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "UI Test Bundle Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.unitTestBundleBase",
+      "ancestors": [
+        "com.apple.dt.unit.bundleBase",
+        "com.apple.dt.unit.languageChoice",
+        "com.apple.dt.unit.testingSystem"
+      ],
+      "file_structure": [
+        {
+          "name": "UnitTest-SwiftTesting.swift",
+          "path": "UnitTest-SwiftTesting.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "UnitTest-XCTest.m",
+          "path": "UnitTest-XCTest.m",
+          "isDirectory": false
+        },
+        {
+          "name": "UnitTest-XCTest.swift",
+          "path": "UnitTest-XCTest.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/Unit Testing Bundle Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "Unit Testing Bundle Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.xpcservicebase",
+      "ancestors": [
+        "com.apple.dt.unit.bundleBase"
+      ],
+      "nodes": [
+        "Info.plist:XPCService"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Base/XPC Service Base.xctemplate",
+      "description": "",
+      "category": "Base",
+      "name": "XPC Service Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.audiounitextension.multiplatform",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.nsappex.base"
+      ],
+      "nodes": [
+        "README.md",
+        "Common/___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h",
+        "Common/Parameters/ParameterSpecBase.swift",
+        "Common/Utility/CrossPlatform.swift",
+        "Common/Utility/String+Utils.swift"
+      ],
+      "file_structure": [
+        {
+          "path": "Effect",
+          "isDirectory": true,
+          "name": "Effect",
+          "children": [
+            {
+              "path": "Effect/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "Effect/Common/Audio Unit",
+                  "isDirectory": true,
+                  "name": "Audio Unit",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "path": "Effect/Common/Audio Unit/___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "path": "Effect/Common/DSP",
+                  "isDirectory": true,
+                  "name": "DSP",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "path": "Effect/Common/DSP/___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "isDirectory": false
+                    },
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___BufferedAudioBus.hpp",
+                      "path": "Effect/Common/DSP/___PACKAGENAMEASIDENTIFIER___BufferedAudioBus.hpp",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "path": "Effect/DSP",
+              "isDirectory": true,
+              "name": "DSP",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "path": "Effect/DSP/___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Effect/Parameters",
+              "isDirectory": true,
+              "name": "Parameters",
+              "children": [
+                {
+                  "name": "Parameters.swift",
+                  "path": "Effect/Parameters/Parameters.swift",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "path": "Effect/Parameters/___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Effect/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "path": "Effect/UI/___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "Generator",
+          "isDirectory": true,
+          "name": "Generator",
+          "children": [
+            {
+              "path": "Generator/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "Generator/Common/Audio Unit",
+                  "isDirectory": true,
+                  "name": "Audio Unit",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "path": "Generator/Common/Audio Unit/___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "path": "Generator/Common/DSP",
+                  "isDirectory": true,
+                  "name": "DSP",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "path": "Generator/Common/DSP/___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "path": "Generator/DSP",
+              "isDirectory": true,
+              "name": "DSP",
+              "children": [
+                {
+                  "name": "SinOscillator.h",
+                  "path": "Generator/DSP/SinOscillator.h",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "path": "Generator/DSP/___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Generator/Parameters",
+              "isDirectory": true,
+              "name": "Parameters",
+              "children": [
+                {
+                  "name": "Parameters.swift",
+                  "path": "Generator/Parameters/Parameters.swift",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "path": "Generator/Parameters/___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Generator/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "path": "Generator/UI/___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "Instrument",
+          "isDirectory": true,
+          "name": "Instrument",
+          "children": [
+            {
+              "path": "Instrument/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "Instrument/Common/Audio Unit",
+                  "isDirectory": true,
+                  "name": "Audio Unit",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "path": "Instrument/Common/Audio Unit/___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "path": "Instrument/Common/DSP",
+                  "isDirectory": true,
+                  "name": "DSP",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "path": "Instrument/Common/DSP/___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "path": "Instrument/DSP",
+              "isDirectory": true,
+              "name": "DSP",
+              "children": [
+                {
+                  "name": "SinOscillator.h",
+                  "path": "Instrument/DSP/SinOscillator.h",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "path": "Instrument/DSP/___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Instrument/Parameters",
+              "isDirectory": true,
+              "name": "Parameters",
+              "children": [
+                {
+                  "name": "Parameters.swift",
+                  "path": "Instrument/Parameters/Parameters.swift",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "path": "Instrument/Parameters/___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Instrument/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "path": "Instrument/UI/___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "MIDI Processor",
+          "isDirectory": true,
+          "name": "MIDI Processor",
+          "children": [
+            {
+              "path": "MIDI Processor/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "MIDI Processor/Common/Audio Unit",
+                  "isDirectory": true,
+                  "name": "Audio Unit",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "path": "MIDI Processor/Common/Audio Unit/___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "path": "MIDI Processor/Common/DSP",
+                  "isDirectory": true,
+                  "name": "DSP",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "path": "MIDI Processor/Common/DSP/___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "path": "MIDI Processor/DSP",
+              "isDirectory": true,
+              "name": "DSP",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "path": "MIDI Processor/DSP/___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "MIDI Processor/Parameters",
+              "isDirectory": true,
+              "name": "Parameters",
+              "children": [
+                {
+                  "name": "Parameters.swift",
+                  "path": "MIDI Processor/Parameters/Parameters.swift",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "path": "MIDI Processor/Parameters/___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "MIDI Processor/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "MomentaryButton.swift",
+                  "path": "MIDI Processor/UI/MomentaryButton.swift",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "path": "MIDI Processor/UI/___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "Music Effect",
+          "isDirectory": true,
+          "name": "Music Effect",
+          "children": [
+            {
+              "path": "Music Effect/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "Music Effect/Common/Audio Unit",
+                  "isDirectory": true,
+                  "name": "Audio Unit",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "path": "Music Effect/Common/Audio Unit/___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "path": "Music Effect/Common/DSP",
+                  "isDirectory": true,
+                  "name": "DSP",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "path": "Music Effect/Common/DSP/___PACKAGENAMEASIDENTIFIER___AUProcessHelper.hpp",
+                      "isDirectory": false
+                    },
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___BufferedAudioBus.hpp",
+                      "path": "Music Effect/Common/DSP/___PACKAGENAMEASIDENTIFIER___BufferedAudioBus.hpp",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "path": "Music Effect/DSP",
+              "isDirectory": true,
+              "name": "DSP",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "path": "Music Effect/DSP/___PACKAGENAMEASIDENTIFIER___DSPKernel.hpp",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Music Effect/Parameters",
+              "isDirectory": true,
+              "name": "Parameters",
+              "children": [
+                {
+                  "name": "Parameters.swift",
+                  "path": "Music Effect/Parameters/Parameters.swift",
+                  "isDirectory": false
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "path": "Music Effect/Parameters/___PACKAGENAMEASIDENTIFIER___ParameterAddresses.h",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Music Effect/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "path": "Music Effect/UI/___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "Speech Synthesizer",
+          "isDirectory": true,
+          "name": "Speech Synthesizer",
+          "children": [
+            {
+              "path": "Speech Synthesizer/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "Speech Synthesizer/Common/Audio Unit",
+                  "isDirectory": true,
+                  "name": "Audio Unit",
+                  "children": [
+                    {
+                      "name": "___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "path": "Speech Synthesizer/Common/Audio Unit/___PACKAGENAMEASIDENTIFIER___AudioUnit.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h",
+                  "path": "Speech Synthesizer/Common/___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Speech Synthesizer/Parameters",
+              "isDirectory": true,
+              "name": "Parameters",
+              "children": [
+                {
+                  "name": "Parameters.swift",
+                  "path": "Speech Synthesizer/Parameters/Parameters.swift",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Speech Synthesizer/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "path": "Speech Synthesizer/UI/___PACKAGENAMEASIDENTIFIER___MainView.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "_NonUISpecific",
+          "isDirectory": true,
+          "name": "_NonUISpecific",
+          "children": [
+            {
+              "path": "_NonUISpecific/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "_NonUISpecific/Common/AudioUnitFactory",
+                  "isDirectory": true,
+                  "name": "AudioUnitFactory",
+                  "children": [
+                    {
+                      "name": "AudioUnitFactory.swift",
+                      "path": "_NonUISpecific/Common/AudioUnitFactory/AudioUnitFactory.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "_Shared",
+          "isDirectory": true,
+          "name": "_Shared",
+          "children": [
+            {
+              "path": "_Shared/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "_Shared/Common/Parameters",
+                  "isDirectory": true,
+                  "name": "Parameters",
+                  "children": [
+                    {
+                      "name": "ParameterSpecBase.swift",
+                      "path": "_Shared/Common/Parameters/ParameterSpecBase.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "path": "_Shared/Common/Utility",
+                  "isDirectory": true,
+                  "name": "Utility",
+                  "children": [
+                    {
+                      "name": "CrossPlatform.swift",
+                      "path": "_Shared/Common/Utility/CrossPlatform.swift",
+                      "isDirectory": false
+                    },
+                    {
+                      "name": "String+Utils.swift",
+                      "path": "_Shared/Common/Utility/String+Utils.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                },
+                {
+                  "name": "___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h",
+                  "path": "_Shared/Common/___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "README.md",
+              "path": "_Shared/README.md",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "path": "_UISpecific",
+          "isDirectory": true,
+          "name": "_UISpecific",
+          "children": [
+            {
+              "path": "_UISpecific/Common",
+              "isDirectory": true,
+              "name": "Common",
+              "children": [
+                {
+                  "path": "_UISpecific/Common/UI",
+                  "isDirectory": true,
+                  "name": "UI",
+                  "children": [
+                    {
+                      "name": "AudioUnitViewController.swift",
+                      "path": "_UISpecific/Common/UI/AudioUnitViewController.swift",
+                      "isDirectory": false
+                    },
+                    {
+                      "name": "ObservableAUParameter.swift",
+                      "path": "_UISpecific/Common/UI/ObservableAUParameter.swift",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "path": "_UISpecific/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "ParameterSlider.swift",
+                  "path": "_UISpecific/UI/ParameterSlider.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application Extension/Audio Unit Extension.xctemplate",
+      "description": "This template builds an Audio Unit application extension.",
+      "category": "MultiPlatform > Application Extension",
+      "name": "Audio Unit Extension",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.generic-extension",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.extensionkit-extension"
+      ],
+      "nodes": [
+        "Info.plist:EXAppExtensionAttributes"
+      ],
+      "file_structure": [
+        {
+          "name": "AppExtension-NonUI.swift",
+          "path": "AppExtension-NonUI.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "AppExtension-UI.swift",
+          "path": "AppExtension-UI.swift",
+          "isDirectory": false
+        }
+      ],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application Extension/Generic Extension.xctemplate",
+      "description": "This template builds a generic ExtensionKit App Extension.",
+      "category": "MultiPlatform > Application Extension",
+      "name": "Generic Extension",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.widget",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.nsappex.base"
+      ],
+      "nodes": [
+        "Info.plist:NSExtension",
+        "Assets.xcassets",
+        "___PACKAGENAME:identifier___Bundle.swift"
+      ],
+      "file_structure": [
+        {
+          "name": "AppIntent.swift",
+          "path": "AppIntent.swift",
+          "isDirectory": false
+        },
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            },
+            {
+              "path": "Assets.xcassets/WidgetBackground.colorset",
+              "isDirectory": true,
+              "name": "WidgetBackground.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/WidgetBackground.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Widget-Intent.swift",
+          "path": "Widget-Intent.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Widget.swift",
+          "path": "Widget.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "WidgetBundle.swift",
+          "path": "WidgetBundle.swift",
+          "isDirectory": false
+        }
+      ],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application Extension/Widget Extension.xctemplate",
+      "description": "This template builds a Widget application extension.",
+      "category": "MultiPlatform > Application Extension",
+      "name": "Widget Extension",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.app.SwiftUI"
+      ],
+      "file_structure": [],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/App.xctemplate",
+      "description": "This template creates a multi-platform SwiftUI application.",
+      "category": "MultiPlatform > Application",
+      "name": "App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.SwiftUIApplicationWithAudioUnitExtension.multiPlatform.app",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.app"
+      ],
+      "nodes": [
+        "Assets.xcassets",
+        "___PACKAGENAME:identifier___.entitlements",
+        "ContentView.swift",
+        "ValidationView.swift",
+        "___PACKAGENAME:identifier___App.swift",
+        "Common/UI/ViewControllerRepresentable.swift",
+        "Common/Audio/Synth.aif",
+        "Common/Audio/SimplePlayEngine.swift",
+        "Common/MIDI/MIDIManager.swift",
+        "Common/TypeAliases.swift",
+        "Common/String/StringHelpers.swift",
+        "Model/AudioUnitHostModel.swift",
+        "Model/AudioUnitViewModel.swift"
+      ],
+      "file_structure": [
+        {
+          "name": "App.entitlements",
+          "path": "App.entitlements",
+          "isDirectory": false
+        },
+        {
+          "name": "App.swift",
+          "path": "App.swift",
+          "isDirectory": false
+        },
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            },
+            {
+              "path": "Assets.xcassets/LargeIcon.imageset",
+              "isDirectory": true,
+              "name": "LargeIcon.imageset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/LargeIcon.imageset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "Common",
+          "isDirectory": true,
+          "name": "Common",
+          "children": [
+            {
+              "path": "Common/Audio",
+              "isDirectory": true,
+              "name": "Audio",
+              "children": [
+                {
+                  "name": "SimplePlayEngine.swift",
+                  "path": "Common/Audio/SimplePlayEngine.swift",
+                  "isDirectory": false
+                },
+                {
+                  "name": "Synth.aif",
+                  "path": "Common/Audio/Synth.aif",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Common/MIDI",
+              "isDirectory": true,
+              "name": "MIDI",
+              "children": [
+                {
+                  "name": "MIDIManager.swift",
+                  "path": "Common/MIDI/MIDIManager.swift",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Common/String",
+              "isDirectory": true,
+              "name": "String",
+              "children": [
+                {
+                  "name": "StringHelpers.swift",
+                  "path": "Common/String/StringHelpers.swift",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "TypeAliases.swift",
+              "path": "Common/TypeAliases.swift",
+              "isDirectory": false
+            },
+            {
+              "path": "Common/UI",
+              "isDirectory": true,
+              "name": "UI",
+              "children": [
+                {
+                  "name": "ViewControllerRepresentable.swift",
+                  "path": "Common/UI/ViewControllerRepresentable.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ContentView.swift",
+          "path": "ContentView.swift",
+          "isDirectory": false
+        },
+        {
+          "path": "Model",
+          "isDirectory": true,
+          "name": "Model",
+          "children": [
+            {
+              "name": "AudioUnitHostModel.swift",
+              "path": "Model/AudioUnitHostModel.swift",
+              "isDirectory": false
+            },
+            {
+              "name": "AudioUnitViewModel.swift",
+              "path": "Model/AudioUnitViewModel.swift",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "ValidationView.swift",
+          "path": "ValidationView.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/Audio Unit Extension App.xctemplate",
+      "description": "This template creates an application with an Audio Unit application extension.  The application is configured to show a basic user interface.",
+      "category": "MultiPlatform > Application",
+      "name": "Audio Unit Extension App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatform.CompositorServicesComponent",
+      "ancestors": [],
+      "nodes": [
+        "Assets.xcassets",
+        "ShaderTypes.h",
+        "Shaders.metal"
+      ],
+      "file_structure": [
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Assets.xcassets/ColorMap.textureset",
+              "isDirectory": true,
+              "name": "ColorMap.textureset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/ColorMap.textureset/Contents.json",
+                  "isDirectory": false
+                },
+                {
+                  "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset",
+                  "isDirectory": true,
+                  "name": "Universal.mipmapset",
+                  "children": [
+                    {
+                      "name": "ColorMap.png",
+                      "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset/ColorMap.png",
+                      "isDirectory": false
+                    },
+                    {
+                      "name": "Contents.json",
+                      "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset/Contents.json",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "path": "Metal",
+          "isDirectory": true,
+          "name": "Metal",
+          "children": [
+            {
+              "path": "Metal/Mixed-Full",
+              "isDirectory": true,
+              "name": "Mixed-Full",
+              "children": [
+                {
+                  "name": "Renderer.swift",
+                  "path": "Metal/Mixed-Full/Renderer.swift",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Metal/Progressive",
+              "isDirectory": true,
+              "name": "Progressive",
+              "children": [
+                {
+                  "name": "Renderer.swift",
+                  "path": "Metal/Progressive/Renderer.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "Metal 4",
+          "isDirectory": true,
+          "name": "Metal 4",
+          "children": [
+            {
+              "path": "Metal 4/Mixed-Full",
+              "isDirectory": true,
+              "name": "Mixed-Full",
+              "children": [
+                {
+                  "name": "Renderer.swift",
+                  "path": "Metal 4/Mixed-Full/Renderer.swift",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Metal 4/Progressive",
+              "isDirectory": true,
+              "name": "Progressive",
+              "children": [
+                {
+                  "name": "Renderer.swift",
+                  "path": "Metal 4/Progressive/Renderer.swift",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ShaderTypes.h",
+          "path": "ShaderTypes.h",
+          "isDirectory": false
+        },
+        {
+          "name": "Shaders.metal",
+          "path": "Shaders.metal",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/Compositor Services.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "Compositor Services",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app.document-based",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.app.document-based.SwiftUI"
+      ],
+      "file_structure": [],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/Document App.xctemplate",
+      "description": "This template creates a multi-platform SwiftUI document-based application.",
+      "category": "MultiPlatform > Application",
+      "name": "Document App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformGame",
+      "ancestors": [
+        "com.apple.dt.unit.base",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "file_structure": [],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatform.ImmersiveSpaceComponent",
+      "ancestors": [],
+      "nodes": [
+        "AppModel.swift",
+        "ToggleImmersiveSpaceButton.swift"
+      ],
+      "file_structure": [
+        {
+          "name": "AppModel.swift",
+          "path": "AppModel.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "ToggleImmersiveSpaceButton.swift",
+          "path": "ToggleImmersiveSpaceButton.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/Immersive Space App.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "Immersive Space App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.appWithSafariExtension",
+      "ancestors": [
+        "com.apple.dt.unit.base",
+        "com.apple.dt.unit.languageChoice",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "file_structure": [],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/Safari Extension App.xctemplate",
+      "description": "This template creates a multi-platform Safari Extension application.",
+      "category": "MultiPlatform > Application",
+      "name": "Safari Extension App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetal4Game_sharedComponent",
+      "ancestors": [
+        "com.apple.dt.unit.base",
+        "com.apple.dt.unit.languageChoice",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "nodes": [
+        "Assets.xcassets"
+      ],
+      "file_structure": [
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Assets.xcassets/ColorMap.textureset",
+              "isDirectory": true,
+              "name": "ColorMap.textureset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/ColorMap.textureset/Contents.json",
+                  "isDirectory": false
+                },
+                {
+                  "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset",
+                  "isDirectory": true,
+                  "name": "Universal.mipmapset",
+                  "children": [
+                    {
+                      "name": "ColorMap.png",
+                      "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset/ColorMap.png",
+                      "isDirectory": false
+                    },
+                    {
+                      "name": "Contents.json",
+                      "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset/Contents.json",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "Renderer.h",
+          "path": "Renderer.h",
+          "isDirectory": false
+        },
+        {
+          "name": "Renderer.m",
+          "path": "Renderer.m",
+          "isDirectory": false
+        },
+        {
+          "name": "Renderer.swift",
+          "path": "Renderer.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "ShaderTypes.h",
+          "path": "ShaderTypes.h",
+          "isDirectory": false
+        },
+        {
+          "name": "Shaders.metal",
+          "path": "Shaders.metal",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/SharedContent Metal 4 Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "SharedContent Metal 4 Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetalGame_sharedComponent",
+      "ancestors": [
+        "com.apple.dt.unit.base",
+        "com.apple.dt.unit.languageChoice",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "nodes": [
+        "Assets.xcassets"
+      ],
+      "file_structure": [
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "path": "Assets.xcassets/ColorMap.textureset",
+              "isDirectory": true,
+              "name": "ColorMap.textureset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/ColorMap.textureset/Contents.json",
+                  "isDirectory": false
+                },
+                {
+                  "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset",
+                  "isDirectory": true,
+                  "name": "Universal.mipmapset",
+                  "children": [
+                    {
+                      "name": "ColorMap.png",
+                      "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset/ColorMap.png",
+                      "isDirectory": false
+                    },
+                    {
+                      "name": "Contents.json",
+                      "path": "Assets.xcassets/ColorMap.textureset/Universal.mipmapset/Contents.json",
+                      "isDirectory": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "Renderer.h",
+          "path": "Renderer.h",
+          "isDirectory": false
+        },
+        {
+          "name": "Renderer.m",
+          "path": "Renderer.m",
+          "isDirectory": false
+        },
+        {
+          "name": "Renderer.swift",
+          "path": "Renderer.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "ShaderTypes.h",
+          "path": "ShaderTypes.h",
+          "isDirectory": false
+        },
+        {
+          "name": "Shaders.metal",
+          "path": "Shaders.metal",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/SharedContent Metal Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "SharedContent Metal Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformRealityKitGame",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.app.SwiftUI"
+      ],
+      "nodes": [
+        "Assets.xcassets",
+        "ContentView.swift",
+        "SpinComponent.swift"
+      ],
+      "file_structure": [
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "ContentView.swift",
+          "path": "ContentView.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "SpinComponent.swift",
+          "path": "SpinComponent.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/SharedContent RealityKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "SharedContent RealityKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.appWithSafariExtension.shared",
+      "ancestors": [],
+      "nodes": [
+        "Assets.xcassets",
+        "Resources/Base.lproj/Main.html",
+        "Resources/Icon.png",
+        "Resources/Style.css",
+        "Resources/Script.js"
+      ],
+      "file_structure": [
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            },
+            {
+              "path": "Assets.xcassets/LargeIcon.imageset",
+              "isDirectory": true,
+              "name": "LargeIcon.imageset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/LargeIcon.imageset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Icon.png",
+          "path": "Icon.png",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.html",
+          "path": "Main.html",
+          "isDirectory": false
+        },
+        {
+          "name": "Script.js",
+          "path": "Script.js",
+          "isDirectory": false
+        },
+        {
+          "name": "Style.css",
+          "path": "Style.css",
+          "isDirectory": false
+        },
+        {
+          "name": "ViewController.h",
+          "path": "ViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "ViewController.m",
+          "path": "ViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "ViewController.swift",
+          "path": "ViewController.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/SharedContent Safari Extension App.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "SharedContent Safari Extension App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.safariExtension.shared",
+      "ancestors": [],
+      "file_structure": [
+        {
+          "name": "SafariWebExtensionHandler.h",
+          "path": "SafariWebExtensionHandler.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SafariWebExtensionHandler.m",
+          "path": "SafariWebExtensionHandler.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SafariWebExtensionHandler.swift",
+          "path": "SafariWebExtensionHandler.swift",
+          "isDirectory": false
+        },
+        {
+          "path": "_locales",
+          "isDirectory": true,
+          "name": "_locales",
+          "children": [
+            {
+              "path": "_locales/en",
+              "isDirectory": true,
+              "name": "en",
+              "children": [
+                {
+                  "name": "messages.json",
+                  "path": "_locales/en/messages.json",
+                  "isDirectory": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "background.js",
+          "path": "background.js",
+          "isDirectory": false
+        },
+        {
+          "name": "content.js",
+          "path": "content.js",
+          "isDirectory": false
+        },
+        {
+          "path": "images",
+          "isDirectory": true,
+          "name": "images",
+          "children": [
+            {
+              "name": "icon-128.png",
+              "path": "images/icon-128.png",
+              "isDirectory": false
+            },
+            {
+              "name": "icon-256.png",
+              "path": "images/icon-256.png",
+              "isDirectory": false
+            },
+            {
+              "name": "icon-48.png",
+              "path": "images/icon-48.png",
+              "isDirectory": false
+            },
+            {
+              "name": "icon-512.png",
+              "path": "images/icon-512.png",
+              "isDirectory": false
+            },
+            {
+              "name": "icon-64.png",
+              "path": "images/icon-64.png",
+              "isDirectory": false
+            },
+            {
+              "name": "icon-96.png",
+              "path": "images/icon-96.png",
+              "isDirectory": false
+            },
+            {
+              "name": "toolbar-icon.svg",
+              "path": "images/toolbar-icon.svg",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "manifest.json",
+          "path": "manifest.json",
+          "isDirectory": false
+        },
+        {
+          "name": "popup.css",
+          "path": "popup.css",
+          "isDirectory": false
+        },
+        {
+          "name": "popup.html",
+          "path": "popup.html",
+          "isDirectory": false
+        },
+        {
+          "name": "popup.js",
+          "path": "popup.js",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/SharedContent Safari Extension.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "SharedContent Safari Extension",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSceneKitGame_sharedComponent",
+      "ancestors": [
+        "com.apple.dt.unit.base",
+        "com.apple.dt.unit.languageChoice",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "nodes": [
+        "Art.scnassets",
+        "Assets.xcassets"
+      ],
+      "file_structure": [
+        {
+          "path": "Art.scnassets",
+          "isDirectory": true,
+          "name": "Art.scnassets",
+          "children": [
+            {
+              "name": "ship.scn",
+              "path": "Art.scnassets/ship.scn",
+              "isDirectory": false
+            },
+            {
+              "name": "texture.png",
+              "path": "Art.scnassets/texture.png",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "GameController.h",
+          "path": "GameController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameController.m",
+          "path": "GameController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameController.swift",
+          "path": "GameController.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/SharedContent SceneKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "SharedContent SceneKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSpriteKitGame_sharedComponent",
+      "ancestors": [
+        "com.apple.dt.unit.base",
+        "com.apple.dt.unit.languageChoice",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "nodes": [
+        "Actions.sks",
+        "GameScene.sks",
+        "Assets.xcassets"
+      ],
+      "file_structure": [
+        {
+          "name": "Actions.sks",
+          "path": "Actions.sks",
+          "isDirectory": false
+        },
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        },
+        {
+          "name": "GameScene.h",
+          "path": "GameScene.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameScene.m",
+          "path": "GameScene.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameScene.sks",
+          "path": "GameScene.sks",
+          "isDirectory": false
+        },
+        {
+          "name": "GameScene.swift",
+          "path": "GameScene.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/SharedContent SpriteKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "SharedContent SpriteKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformAppBase_iOS",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase",
+        "com.apple.dt.unit.iosBase_Definitions",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "nodes": [],
+      "file_structure": [
+        {
+          "name": "LaunchScreen.storyboard",
+          "path": "LaunchScreen.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "platforms": [
+        "com.apple.platform.iphoneos"
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS App Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS App Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app.iOS.tests.ui",
+      "ancestors": [
+        "com.apple.dt.unit.iosUITestBundleBase"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS App UI Test Bundle.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS App UI Test Bundle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetal4Game_iOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_iOS"
+      ],
+      "file_structure": [
+        {
+          "name": "GameViewController.h",
+          "path": "GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.m",
+          "path": "GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.swift",
+          "path": "GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS Metal 4 Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS Metal 4 Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetalGame_iOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_iOS"
+      ],
+      "file_structure": [
+        {
+          "name": "GameViewController.h",
+          "path": "GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.m",
+          "path": "GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.swift",
+          "path": "GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS Metal Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS Metal Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.appWithSafariExtension.iOS",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase",
+        "com.apple.dt.unit.iosBase",
+        "com.apple.dt.unit.languageChoice.app.iOS",
+        "com.apple.dt.unit.appLifecycle.iOS"
+      ],
+      "nodes": [
+        "Info.plist:UIApplicationSceneManifest:UISceneStoryboardFile",
+        "Base.lproj/LaunchScreen.storyboard",
+        "Base.lproj/Main.storyboard"
+      ],
+      "file_structure": [
+        {
+          "name": "AppDelegate.h",
+          "path": "AppDelegate.h",
+          "isDirectory": false
+        },
+        {
+          "name": "AppDelegate.m",
+          "path": "AppDelegate.m",
+          "isDirectory": false
+        },
+        {
+          "name": "AppDelegate.swift",
+          "path": "AppDelegate.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "LaunchScreen.storyboard",
+          "path": "LaunchScreen.storyboard",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneDelegate.h",
+          "path": "SceneDelegate.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneDelegate.m",
+          "path": "SceneDelegate.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneDelegate.swift",
+          "path": "SceneDelegate.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS Safari Extension App.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS Safari Extension App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.safariExtension.iOS",
+      "ancestors": [
+        "com.apple.dt.unit.iosAppExtensionBase"
+      ],
+      "nodes": [
+        "Info.plist:NSExtension"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS Safari Extension.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS Safari Extension",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSceneKitGame_iOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_iOS"
+      ],
+      "file_structure": [
+        {
+          "name": "SceneKit_GameViewController.h",
+          "path": "SceneKit_GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_GameViewController.m",
+          "path": "SceneKit_GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_GameViewController.swift",
+          "path": "SceneKit_GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_Main.storyboard",
+          "path": "SceneKit_Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS SceneKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS SceneKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSpriteKitGame_iOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_iOS"
+      ],
+      "file_structure": [
+        {
+          "name": "SpriteKit_GameViewController.h",
+          "path": "SpriteKit_GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_GameViewController.m",
+          "path": "SpriteKit_GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_GameViewController.swift",
+          "path": "SpriteKit_GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_Main.storyboard",
+          "path": "SpriteKit_Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/iOS SpriteKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "iOS SpriteKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformAppBase_OSX",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase",
+        "com.apple.dt.unit.osxBase_Definitions",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "file_structure": [],
+      "platforms": [
+        "com.apple.platform.macosx"
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS App Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS App Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformAppEntitlements_OSX",
+      "ancestors": [],
+      "file_structure": [],
+      "platforms": [
+        "com.apple.platform.macosx"
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS App Entitlements.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS App Entitlements",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app.macOS.tests.ui",
+      "ancestors": [
+        "com.apple.dt.unit.osxUITestBundleBase"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS App UI Test Bundle.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS App UI Test Bundle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetal4Game_OSXComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_OSX",
+        "com.apple.dt.unit.crossPlatformAppEntitlements_OSX"
+      ],
+      "file_structure": [
+        {
+          "name": "GameViewController.h",
+          "path": "GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.m",
+          "path": "GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.swift",
+          "path": "GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS Metal 4 Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS Metal 4 Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetalGame_OSXComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_OSX",
+        "com.apple.dt.unit.crossPlatformAppEntitlements_OSX"
+      ],
+      "file_structure": [
+        {
+          "name": "GameViewController.h",
+          "path": "GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.m",
+          "path": "GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.swift",
+          "path": "GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS Metal Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS Metal Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.appWithSafariExtension.macOS",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase",
+        "com.apple.dt.unit.osxBase"
+      ],
+      "nodes": [
+        "Base.lproj/Main.storyboard"
+      ],
+      "file_structure": [
+        {
+          "name": "AppDelegate.h",
+          "path": "AppDelegate.h",
+          "isDirectory": false
+        },
+        {
+          "name": "AppDelegate.m",
+          "path": "AppDelegate.m",
+          "isDirectory": false
+        },
+        {
+          "name": "AppDelegate.swift",
+          "path": "AppDelegate.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS Safari Extension App.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS Safari Extension App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.safariExtension.macOS",
+      "ancestors": [
+        "com.apple.dt.unit.osxAppExtensionBase"
+      ],
+      "nodes": [
+        "Info.plist:NSExtension"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS Safari Extension.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS Safari Extension",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSceneKitGame_OSXComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_OSX",
+        "com.apple.dt.unit.crossPlatformAppEntitlements_OSX"
+      ],
+      "file_structure": [
+        {
+          "name": "SceneKit_Main.storyboard",
+          "path": "SceneKit_Main.storyboard",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_ViewController.h",
+          "path": "SceneKit_ViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_ViewController.m",
+          "path": "SceneKit_ViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_ViewController.swift",
+          "path": "SceneKit_ViewController.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS SceneKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS SceneKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSpriteKitGame_OSXComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_OSX",
+        "com.apple.dt.unit.crossPlatformAppEntitlements_OSX"
+      ],
+      "file_structure": [
+        {
+          "name": "SpriteKit_Main.storyboard",
+          "path": "SpriteKit_Main.storyboard",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_ViewController.h",
+          "path": "SpriteKit_ViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_ViewController.m",
+          "path": "SpriteKit_ViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_ViewController.swift",
+          "path": "SpriteKit_ViewController.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/macOS SpriteKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "macOS SpriteKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformAppBase_tvOS",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase",
+        "com.apple.dt.unit.tvosBase_Definitions",
+        "com.apple.dt.unit.crossPlatformBase"
+      ],
+      "nodes": [
+        "Base.lproj/Main.storyboard",
+        "Base.lproj/LaunchScreen.storyboard"
+      ],
+      "file_structure": [
+        {
+          "name": "LaunchScreen.storyboard",
+          "path": "LaunchScreen.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "platforms": [
+        "com.apple.platform.appletvos"
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/tvOS App Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "tvOS App Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetal4Game_tvOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_tvOS"
+      ],
+      "file_structure": [
+        {
+          "name": "GameViewController.h",
+          "path": "GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.m",
+          "path": "GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.swift",
+          "path": "GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/tvOS Metal 4 Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "tvOS Metal 4 Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformMetalGame_tvOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_tvOS"
+      ],
+      "file_structure": [
+        {
+          "name": "GameViewController.h",
+          "path": "GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.m",
+          "path": "GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "GameViewController.swift",
+          "path": "GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "Main.storyboard",
+          "path": "Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/tvOS Metal Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "tvOS Metal Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSceneKitGame_tvOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_tvOS"
+      ],
+      "file_structure": [
+        {
+          "name": "SceneKit_GameViewController.h",
+          "path": "SceneKit_GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_GameViewController.m",
+          "path": "SceneKit_GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_GameViewController.swift",
+          "path": "SceneKit_GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "SceneKit_Main.storyboard",
+          "path": "SceneKit_Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/tvOS SceneKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "tvOS SceneKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformSpriteKitGame_tvOSComponent",
+      "ancestors": [
+        "com.apple.dt.unit.crossPlatformAppBase_tvOS"
+      ],
+      "file_structure": [
+        {
+          "name": "SpriteKit_GameViewController.h",
+          "path": "SpriteKit_GameViewController.h",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_GameViewController.m",
+          "path": "SpriteKit_GameViewController.m",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_GameViewController.swift",
+          "path": "SpriteKit_GameViewController.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "SpriteKit_Main.storyboard",
+          "path": "SpriteKit_Main.storyboard",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/tvOS SpriteKit Game.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "tvOS SpriteKit Game",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatform.visionOS.base",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Application/visionOS App.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Application",
+      "name": "visionOS App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.nsappex.base",
+      "ancestors": [
+        "com.apple.dt.unit.appextensionbase",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform App Extension Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform App Extension Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.base",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.extensionkit-extension",
+      "ancestors": [
+        "com.apple.dt.unit.extensionkit-extension",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform ExtensionKit Extension Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform ExtensionKit Extension Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.unit",
+      "ancestors": [
+        "com.apple.dt.unit.unitTestBundleBase.app.SwiftUI",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform SwiftUI App Testing Bundle.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform SwiftUI App Testing Bundle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.ui",
+      "ancestors": [
+        "com.apple.dt.unit.uiTestBundleBase.app.SwiftUI",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform SwiftUI App UITesting Bundle.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform SwiftUI App UITesting Bundle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app.SwiftUI",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase.SwiftUI",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [
+        {
+          "name": "App-CloudKit.entitlements",
+          "path": "App-CloudKit.entitlements",
+          "isDirectory": false
+        },
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform SwiftUI App.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform SwiftUI App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.app.document-based.SwiftUI",
+      "ancestors": [
+        "com.apple.dt.unit.applicationBase.document-based.SwiftUI",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [
+        {
+          "path": "Assets.xcassets",
+          "isDirectory": true,
+          "name": "Assets.xcassets",
+          "children": [
+            {
+              "path": "Assets.xcassets/AccentColor.colorset",
+              "isDirectory": true,
+              "name": "AccentColor.colorset",
+              "children": [
+                {
+                  "name": "Contents.json",
+                  "path": "Assets.xcassets/AccentColor.colorset/Contents.json",
+                  "isDirectory": false
+                }
+              ]
+            },
+            {
+              "name": "Contents.json",
+              "path": "Assets.xcassets/Contents.json",
+              "isDirectory": false
+            }
+          ]
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform SwiftUI Document App.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform SwiftUI Document App",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.unitTestBundleBase",
+      "ancestors": [
+        "com.apple.dt.unit.unitTestBundleBase",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform Test Bundle Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform Test Bundle Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.UITestBundleBase",
+      "ancestors": [
+        "com.apple.dt.unit.uiTestBundleBase",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Base/Multiplatform UI Test Bundle Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Base",
+      "name": "Multiplatform UI Test Bundle Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.frameworkUnitTestBundle",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.unitTestBundleBase"
+      ],
+      "file_structure": [
+        {
+          "name": "UnitTest-SwiftTesting.swift",
+          "path": "UnitTest-SwiftTesting.swift",
+          "isDirectory": false
+        },
+        {
+          "name": "UnitTest-XCTest.swift",
+          "path": "UnitTest-XCTest.swift",
+          "isDirectory": false
+        }
+      ],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Framework & Library/Framework Testing Bundle.xctemplate",
+      "description": "",
+      "category": "MultiPlatform > Framework & Library",
+      "name": "Framework Testing Bundle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.framework",
+      "ancestors": [
+        "com.apple.dt.unit.frameworkBase",
+        "com.apple.dt.unit.languageChoice",
+        "com.apple.dt.unit.multiPlatform.base"
+      ],
+      "file_structure": [
+        {
+          "name": "Framework.h",
+          "path": "Framework.h",
+          "isDirectory": false
+        },
+        {
+          "name": "Framework.swift",
+          "path": "Framework.swift",
+          "isDirectory": false
+        }
+      ],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Framework & Library/Framework.xctemplate",
+      "description": "This template creates a multi-platform framework.",
+      "category": "MultiPlatform > Framework & Library",
+      "name": "Framework",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.UITestingBundle",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.UITestBundleBase"
+      ],
+      "file_structure": [],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Test/UI Testing Bundle.xctemplate",
+      "description": "This target builds a user interface testing bundle.",
+      "category": "MultiPlatform > Test",
+      "name": "UI Testing Bundle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.multiPlatform.unitTestBundle",
+      "ancestors": [
+        "com.apple.dt.unit.multiPlatform.unitTestBundleBase"
+      ],
+      "file_structure": [],
+      "platforms": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Test/Unit Testing Bundle.xctemplate",
+      "description": "This target builds a unit test bundle.",
+      "category": "MultiPlatform > Test",
+      "name": "Unit Testing Bundle",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.crossPlatformBase",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/MultiPlatform/Cross-Platform Base.xctemplate",
+      "description": "",
+      "category": "MultiPlatform",
+      "name": "Cross-Platform Base",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": false
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.aggregate",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Other/Aggregate.xctemplate",
+      "description": "This target is used to aggregate other targets together.",
+      "category": "Other",
+      "name": "Aggregate",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.emptyProject",
+      "ancestors": [],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Other/Empty.xctemplate",
+      "description": "This template creates an empty project with no files or targets.",
+      "category": "Other",
+      "name": "Empty",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    },
+    {
+      "type": "Project",
+      "identifier": "com.apple.dt.unit.externalBuildSystem",
+      "ancestors": [
+        "com.apple.dt.unit.base"
+      ],
+      "file_structure": [],
+      "source_path": "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/Project Templates/Other/External Build System.xctemplate",
+      "description": "This template builds using an external build system.",
+      "category": "Other",
+      "name": "External Build System",
+      "kind": "Xcode.Xcode3.ProjectTemplateUnitKind",
+      "concrete": true
+    }
+  ]
+}

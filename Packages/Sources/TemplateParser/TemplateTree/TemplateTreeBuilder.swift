@@ -253,11 +253,11 @@ public enum TemplateTreeBuilder {
 ///   "templates": [...]
 /// }
 /// ```
-public struct TemplateInventory: Codable {
-    let generatedAt: String
-    let templates: [TemplateMetadata]
-    let totalTemplates: Int
-    let totalCombinations: Int
+public struct TemplateInventory: Codable, Sendable {
+    public let generatedAt: String
+    public let templates: [TemplateMetadata]
+    public let totalTemplates: Int
+    public let totalCombinations: Int
 }
 
 /// Metadata for a single template from JSON.
@@ -284,28 +284,101 @@ public struct TemplateInventory: Codable {
 ///
 /// - Note: `ancestors` contains template identifier strings that reference parent templates.
 ///   These are resolved later using `ProjectTemplateParser.loadWithAncestors()`.
-public struct TemplateMetadata: Codable {
-    let name: String
-    let path: String
-    let kind: TemplateKind
-    let ancestors: [BaseTemplateKind]?
-    let options: [TemplateOptionJSON]
-    let totalCombinations: Int
-    let fileStructure: [FileNode]?
+public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
+    public let id: String // Use path as unique ID
+    public let name: String
+    public let path: String
+    public let kind: TemplateKind
+    public let ancestors: [TemplateKind]?
+    public let options: [TemplateOptionJSON]
+    public let totalCombinations: Int
+    public let fileStructure: [FileNode]?
+
+    /// Original raw content from TemplateInfo.plist.
+    ///
+    /// Contains the raw text as it appears on disk,
+    /// preserving the original formatting and comments.
+    public let rawContent: String?
+
+    /// The format type of the raw content.
+    ///
+    /// Can be "xml", "json", or "openstep" (ASCII plist format).
+    public let rawContentType: String?
 
     /// Template identifier derived from kind.
-    var identifier: String {
+    public var identifier: String {
         kind.rawValue
+    }
+
+    /// Initialize with parsed values
+    public init(
+        name: String,
+        path: String,
+        kind: TemplateKind,
+        ancestors: [TemplateKind]? = nil,
+        options: [TemplateOptionJSON] = [],
+        totalCombinations: Int = 1,
+        fileStructure: [FileNode]? = nil,
+        rawContent: String? = nil,
+        rawContentType: String? = nil
+    ) {
+        self.name = name
+        self.path = path
+        self.kind = kind
+        self.ancestors = ancestors
+        self.options = options
+        self.totalCombinations = totalCombinations
+        self.fileStructure = fileStructure
+        self.rawContent = rawContent
+        self.rawContentType = rawContentType
+        id = path
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+
+        // Try "path" first, fall back to "source_path"
+        if let pathValue = try? container.decode(String.self, forKey: .path) {
+            path = pathValue
+        } else {
+            path = try container.decode(String.self, forKey: .sourcePath)
+        }
+
+        kind = try container.decode(TemplateKind.self, forKey: .kind)
+        ancestors = try container.decodeIfPresent([TemplateKind].self, forKey: .ancestors)
+        options = try container.decodeIfPresent([TemplateOptionJSON].self, forKey: .options) ?? []
+        totalCombinations = try container.decodeIfPresent(Int.self, forKey: .totalCombinations) ?? 1
+        fileStructure = try container.decodeIfPresent([FileNode].self, forKey: .fileStructure)
+        rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
+        rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
+        id = path // Use path as unique ID
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(path, forKey: .path)
+        try container.encode(kind, forKey: .kind)
+        try container.encodeIfPresent(ancestors, forKey: .ancestors)
+        try container.encode(options, forKey: .options)
+        try container.encode(totalCombinations, forKey: .totalCombinations)
+        try container.encodeIfPresent(fileStructure, forKey: .fileStructure)
+        try container.encodeIfPresent(rawContent, forKey: .rawContent)
+        try container.encodeIfPresent(rawContentType, forKey: .rawContentType)
     }
 
     enum CodingKeys: String, CodingKey {
         case name
         case path
-        case kind = "identifier" // Decode from "identifier" field to kind
+        case sourcePath = "source_path"
+        case kind = "identifier" // Decode from "identifier" field - the unique template identifier
         case ancestors
         case options
         case totalCombinations
         case fileStructure = "file_structure"
+        case rawContent = "raw_content"
+        case rawContentType = "raw_content_type"
     }
 }
 
@@ -323,10 +396,10 @@ public struct TemplateMetadata: Codable {
 ///   "choices": ["SwiftUI", "UIKit"]
 /// }
 /// ```
-struct TemplateOptionJSON: Codable {
-    let name: String
-    let type: String
-    let identifier: String
-    let defaultValue: String
-    let choices: [String]?
+public struct TemplateOptionJSON: Codable, Hashable, Sendable {
+    public let name: String
+    public let type: String
+    public let identifier: String
+    public let defaultValue: String
+    public let choices: [String]?
 }

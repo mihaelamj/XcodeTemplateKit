@@ -164,6 +164,7 @@ extension BaseTemplateKind {
 /// ```
 public enum TemplateCategory: String, Hashable, CaseIterable {
     case projectTemplates = "Project Templates"
+    case fileTemplates = "File Templates"
     case packageTemplates = "Package Templates"
 
     public var displayName: String {
@@ -257,149 +258,636 @@ public enum TemplateCategory: String, Hashable, CaseIterable {
 ///
 /// - Note: Ancestor identifiers are stored as strings and resolved later using
 ///   `ProjectTemplateParser.loadWithAncestors()` which merges inherited options and nodes.
-public enum TemplateKind: String, Hashable, CaseIterable, Codable, Sendable {
+///
+/// ## SwiftLint Exceptions
+///
+/// This file exceeds normal size limits because it catalogs all 158+ Xcode template kinds:
+/// - **file_length**: Required to map all Apple template identifiers (Project, File, Package templates)
+/// - **type_body_length**: Enum needs 158+ cases plus computed properties for complete coverage
+///
+/// Splitting this enum would break type safety and make template kind handling more complex.
+/// The large size is intentional and necessary for comprehensive Xcode template support.
+// swiftlint:disable file_length
+// swiftlint:disable:next type_body_length
+public enum TemplateKind: Hashable, Codable, Sendable {
+    // MARK: - Unknown/Uncatalogued Templates
+
+    case unknown(String) // Preserves the raw value for analysis
+
     // MARK: - Project Templates (Xcode.Xcode3.ProjectTemplateUnitKind)
 
     // Other
-    case externalBuildSystem = "com.apple.dt.unit.externalBuildSystem"
-    case aggregate = "com.apple.dt.unit.aggregate"
-    case emptyProject = "com.apple.dt.unit.emptyProject"
+    case externalBuildSystem
+    case aggregate
+    case emptyProject
 
     // Test
-    case uiTestingBundle = "com.apple.dt.unit.multiPlatform.UITestingBundle"
-    case unitTestingBundle = "com.apple.dt.unit.multiPlatform.unitTestBundle"
+    case uiTestingBundle
+    case unitTestingBundle
 
     // Application Extension
-    case genericExtension = "com.apple.dt.unit.multiPlatform.generic-extension"
-    case widgetExtension = "com.apple.dt.unit.multiPlatform.widget"
-    case audioUnitExtension = "com.apple.dt.unit.audiounitextension.multiplatform"
+    case genericExtension
+    case widgetExtension
+    case audioUnitExtension
 
     // Safari Extension Apps
-    case iosSafariExtensionApp = "com.apple.dt.unit.multiPlatform.appWithSafariExtension.iOS"
-    case safariExtensionApp = "com.apple.dt.unit.multiPlatform.appWithSafariExtension"
-    case macosSafariExtensionApp = "com.apple.dt.unit.multiPlatform.appWithSafariExtension.macOS"
-    case sharedSafariExtensionApp = "com.apple.dt.unit.multiPlatform.appWithSafariExtension.shared"
+    case iosSafariExtensionApp
+    case safariExtensionApp
+    case macosSafariExtensionApp
+    case sharedSafariExtensionApp
 
     // Safari Extensions
-    case iosSafariExtension = "com.apple.dt.unit.multiPlatform.safariExtension.iOS"
-    case macosSafariExtension = "com.apple.dt.unit.multiPlatform.safariExtension.macOS"
-    case sharedSafariExtension = "com.apple.dt.unit.multiPlatform.safariExtension.shared"
+    case iosSafariExtension
+    case macosSafariExtension
+    case sharedSafariExtension
 
     // Game - Main
-    case game = "com.apple.dt.unit.crossPlatformGame"
+    case game
 
     // Game - SceneKit
-    case sceneKitGameShared = "com.apple.dt.unit.crossPlatformSceneKitGame_sharedComponent"
-    case sceneKitGameIOS = "com.apple.dt.unit.crossPlatformSceneKitGame_iOSComponent"
-    case sceneKitGameMacOS = "com.apple.dt.unit.crossPlatformSceneKitGame_OSXComponent"
-    case sceneKitGameTvOS = "com.apple.dt.unit.crossPlatformSceneKitGame_tvOSComponent"
+    case sceneKitGameShared
+    case sceneKitGameIOS
+    case sceneKitGameMacOS
+    case sceneKitGameTvOS
 
     // Game - SpriteKit
-    case spriteKitGameShared = "com.apple.dt.unit.crossPlatformSpriteKitGame_sharedComponent"
-    case spriteKitGameIOS = "com.apple.dt.unit.crossPlatformSpriteKitGame_iOSComponent"
-    case spriteKitGameMacOS = "com.apple.dt.unit.crossPlatformSpriteKitGame_OSXComponent"
-    case spriteKitGameTvOS = "com.apple.dt.unit.crossPlatformSpriteKitGame_tvOSComponent"
+    case spriteKitGameShared
+    case spriteKitGameIOS
+    case spriteKitGameMacOS
+    case spriteKitGameTvOS
 
     // Game - Metal
-    case metalGameShared = "com.apple.dt.unit.crossPlatformMetalGame_sharedComponent"
-    case metalGameIOS = "com.apple.dt.unit.crossPlatformMetalGame_iOSComponent"
-    case metalGameMacOS = "com.apple.dt.unit.crossPlatformMetalGame_OSXComponent"
-    case metalGameTvOS = "com.apple.dt.unit.crossPlatformMetalGame_tvOSComponent"
+    case metalGameShared
+    case metalGameIOS
+    case metalGameMacOS
+    case metalGameTvOS
 
     // Game - Metal 4
-    case metal4GameShared = "com.apple.dt.unit.crossPlatformMetal4Game_sharedComponent"
-    case metal4GameIOS = "com.apple.dt.unit.crossPlatformMetal4Game_iOSComponent"
-    case metal4GameMacOS = "com.apple.dt.unit.crossPlatformMetal4Game_OSXComponent"
-    case metal4GameTvOS = "com.apple.dt.unit.crossPlatformMetal4Game_tvOSComponent"
+    case metal4GameShared
+    case metal4GameIOS
+    case metal4GameMacOS
+    case metal4GameTvOS
 
     // Game - RealityKit
-    case realityKitGame = "com.apple.dt.unit.crossPlatformRealityKitGame"
+    case realityKitGame
 
     // visionOS
-    case immersiveSpaceApp = "com.apple.dt.unit.crossPlatform.ImmersiveSpaceComponent"
-    case visionOSApp = "com.apple.dt.unit.crossPlatform.visionOS.base"
-    case compositorServices = "com.apple.dt.unit.crossPlatform.CompositorServicesComponent"
+    case immersiveSpaceApp
+    case visionOSApp
+    case compositorServices
 
     // Apps - Main
-    case documentApp = "com.apple.dt.unit.multiPlatform.app.document-based"
-    case app = "com.apple.dt.unit.multiPlatform.app"
-    case audioUnitExtensionApp = "com.apple.dt.unit.SwiftUIApplicationWithAudioUnitExtension.multiPlatform.app"
+    case documentApp
+    case app
+    case audioUnitExtensionApp
 
     // Apps - UI Testing
-    case iosAppUITestBundle = "com.apple.dt.unit.multiPlatform.app.iOS.tests.ui"
-    case macosAppUITestBundle = "com.apple.dt.unit.multiPlatform.app.macOS.tests.ui"
-    case multiplatformSwiftUIAppUITestingBundle = "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.ui"
+    case iosAppUITestBundle
+    case macosAppUITestBundle
+    case multiplatformSwiftUIAppUITestingBundle
 
     // Apps - SwiftUI
-    case multiplatformSwiftUIDocumentApp = "com.apple.dt.unit.multiPlatform.app.document-based.SwiftUI"
-    case multiplatformSwiftUIAppTestingBundle = "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.unit"
-    case multiplatformSwiftUIApp = "com.apple.dt.unit.multiPlatform.app.SwiftUI"
+    case multiplatformSwiftUIDocumentApp
+    case multiplatformSwiftUIAppTestingBundle
+    case multiplatformSwiftUIApp
 
     // Entitlements
-    case macosAppEntitlements = "com.apple.dt.unit.crossPlatformAppEntitlements_OSX"
+    case macosAppEntitlements
 
     // Framework
-    case framework = "com.apple.dt.unit.multiPlatform.framework"
-    case frameworkTestingBundle = "com.apple.dt.unit.multiPlatform.frameworkUnitTestBundle"
+    case framework
+    case frameworkTestingBundle
 
     // Base Templates (used for inheritance only - not directly selectable)
-    case base = "com.apple.dt.unit.base"
-    case baseOptions = "com.apple.dt.unit.base_Options"
-    case baseDefinitionsLanguage = "com.apple.dt.unit.base_DefinitionsLanguage"
-    case baseStorageType = "com.apple.dt.unit.base_StorageType"
-    case baseProjectSettings = "com.apple.dt.unit.base_ProjectSettings"
-    case baseAppLifecycle = "com.apple.dt.unit.base_AppLifecycle"
-    case baseTestingSystem = "com.apple.dt.unit.base_TestingSystem"
-    case baseDefinitionsInfoPlist = "com.apple.dt.unit.base_DefinitionsInfoPlist"
-    case securityCriticalBase = "com.apple.dt.unit.securityCriticalBase"
+    case base
+    case baseOptions
+    case baseDefinitionsLanguage
+    case baseStorageType
+    case baseProjectSettings
+    case baseAppLifecycle
+    case baseTestingSystem
+    case baseDefinitionsInfoPlist
+    case securityCriticalBase
 
     // Platform Base Templates
-    case crossPlatformBase = "com.apple.dt.unit.crossPlatformBase"
-    case iosAppBase = "com.apple.dt.unit.crossPlatformAppBase_iOS"
-    case macosAppBase = "com.apple.dt.unit.crossPlatformAppBase_OSX"
-    case tvosAppBase = "com.apple.dt.unit.crossPlatformAppBase_tvOS"
-    case multiplatformBase = "com.apple.dt.unit.multiPlatform.base"
+    case crossPlatformBase
+    case iosAppBase
+    case macosAppBase
+    case tvosAppBase
+    case multiplatformBase
 
     // Application Base Templates
-    case applicationBase = "com.apple.dt.unit.applicationBase"
-    case swiftUIAppBase = "com.apple.dt.unit.applicationBase.SwiftUI"
-    case swiftUIDocumentAppBase = "com.apple.dt.unit.applicationBase.document-based.SwiftUI"
+    case applicationBase
+    case swiftUIAppBase
+    case swiftUIDocumentAppBase
 
     // Extension Base Templates
-    case appExtensionBase = "com.apple.dt.unit.appextensionbase"
-    case extensionKitExtensionBase = "com.apple.dt.unit.extensionkit-extension"
-    case multiplatformExtensionKitExtensionBase = "com.apple.dt.unit.multiPlatform.extensionkit-extension"
-    case multiplatformAppExtensionBase = "com.apple.dt.unit.multiPlatform.nsappex.base"
+    case appExtensionBase
+    case extensionKitExtensionBase
+    case multiplatformExtensionKitExtensionBase
+    case multiplatformAppExtensionBase
 
     // Test Bundle Base Templates
-    case unitTestBundleBase = "com.apple.dt.unit.unitTestBundleBase"
-    case uiTestBundleBase = "com.apple.dt.unit.uiTestBundleBase"
-    case multiplatformUnitTestBundleBase = "com.apple.dt.unit.multiPlatform.unitTestBundleBase"
-    case multiplatformUITestBundleBase = "com.apple.dt.unit.multiPlatform.UITestBundleBase"
-    case swiftUIAppUnitTestBundleBase = "com.apple.dt.unit.unitTestBundleBase.app.SwiftUI"
-    case swiftUIAppUITestBundleBase = "com.apple.dt.unit.uiTestBundleBase.app.SwiftUI"
+    case unitTestBundleBase
+    case uiTestBundleBase
+    case multiplatformUnitTestBundleBase
+    case multiplatformUITestBundleBase
+    case swiftUIAppUnitTestBundleBase
+    case swiftUIAppUITestBundleBase
 
     // Other Base Templates
-    case frameworkBase = "com.apple.dt.unit.frameworkBase"
-    case bundleBase = "com.apple.dt.unit.bundleBase"
-    case metalLibraryBase = "com.apple.dt.unit.metalLibrary.base"
-    case xpcServiceBase = "com.apple.dt.unit.xpcservicebase"
+    case frameworkBase
+    case bundleBase
+    case metalLibraryBase
+    case xpcServiceBase
 
     // Utility Templates (used for option configuration)
-    case storageType = "com.apple.dt.unit.storageType"
-    case storageTypeDocumentApp = "com.apple.dt.unit.storageType.document-app"
-    case languageChoice = "com.apple.dt.unit.languageChoice"
-    case testingSystem = "com.apple.dt.unit.testingSystem"
+    case storageType
+    case storageTypeDocumentApp
+    case languageChoice
+    case testingSystem
+
+    // iOS-specific Base Templates
+    case iosAppLifecycle
+    case iosAppExtensionBase
+    case iosBase
+    case iosBaseDefinitions
+    case iosUITestBundleBase
+    case iosLanguageChoice
+
+    // macOS-specific Base Templates
+    case macOSAppExtensionBase
+    case macOSBase
+    case macOSBaseDefinitions
+    case macOSUITestBundleBase
+
+    // tvOS-specific Base Templates
+    case tvOSBaseDefinitions
+
+    // MARK: - File Templates
+
+    // File Templates - Source Files
+    case fileTemplateSwiftFile
+    case fileTemplateObjectiveCFile
+    case fileTemplateCFile // Also represents C++ File (same identifier)
+    case fileTemplateHeaderFile
+    case fileTemplateMetalFile
+    case fileTemplateAssemblyFile
+    case fileTemplateCLIPSFile
+
+    // File Templates - Swift/SwiftUI
+    case fileTemplateSwiftUIView
+    case fileTemplatePackageSwiftFile
+    case fileTemplateSourcesFolderSwiftFile
+
+    // File Templates - Testing
+    case fileTemplateSwiftTestingUnitTest
+    case fileTemplateXCTestUnitTest
+    case fileTemplateXCTestUITest
+    case fileTemplatePackageTestCase
+    case fileTemplateTestPlan
+
+    // File Templates - UI/Scene
+    case fileTemplateStoryboard
+    case fileTemplateView
+    case fileTemplateWindow
+    case fileTemplateMainMenu
+    case fileTemplateApplication
+
+    // File Templates - SceneKit
+    case fileTemplateSceneKitSceneFile
+    case fileTemplateSceneKitAssetCatalog
+    case fileTemplateSceneKitAssetCache
+
+    // File Templates - SpriteKit
+    case fileTemplateSpriteKitScene
+    case fileTemplateSpriteKitAction
+    case fileTemplateSpriteKitParticleFile
+    case fileTemplateSpriteKitTileSet
+
+    // File Templates - Assets/Resources
+    case fileTemplateAssetCatalog
+    case fileTemplatePropertyList
+    case fileTemplateStringsFileLegacy
+    case fileTemplateStringsdictFileLegacy
+    /// Touch Alternatives Property List template.
+    case fileTemplateTouchAlternativesPropertyList
+
+    // File Templates - Documentation
+    case fileTemplateDocumentationCatalog
+    case fileTemplateArticleFile
+    case fileTemplateTutorialFile
+    case fileTemplateTutorialTableOfContentsFile
+    case fileTemplateMarkdownFile
+    case fileTemplateRTFFile
+
+    // File Templates - Configuration
+    case fileTemplateConfigurationSettingsFile
+    case fileTemplateModuleMap
+    case fileTemplatePCHFile
+    case fileTemplateFileList
+    case fileTemplateExportsFile
+    case fileTemplateExtensionFile
+
+    // File Templates - Scripts/Shell
+    case fileTemplateShellScript
+    case fileTemplatePlaygroundPage
+
+    // File Templates - SiriKit/Intents
+    case fileTemplateSiriKitIntentDefinitionFile
+    case fileTemplateINIntentSubclass
+    case fileTemplateAppEntity
+    case fileTemplateTransientAppEntity
+    case fileTemplateAppEnum
+    case fileTemplateLinkAction
+
+    // File Templates - Other
+    case fileTemplateEmpty
+    case fileTemplateEmptyFile
+    case fileTemplateAppPrivacy
+    case fileTemplateObjectiveCNewSuperclass
 
     // MARK: - Package Templates (Xcode.IDESwiftPackageSupport.PackageTemplateKind)
 
-    case swiftMacro = "com.apple.dt.packageTemplate.SwiftMacro"
-    case buildToolPlugin = "com.apple.dt.packageTemplate.BuildToolPlugin"
-    case commandPlugin = "com.apple.dt.packageTemplate.CommandPlugin"
-    case emptyPackage = "com.apple.dt.packageTemplate.Empty"
-    case libraryPackage = "com.apple.dt.packageTemplate.Library"
+    case swiftMacro
+    case buildToolPlugin
+    case commandPlugin
+    case emptyPackage
+    case libraryPackage
 
     // MARK: - Properties
+
+    /// The raw string identifier for the template kind.
+    ///
+    /// Returns the template's unique identifier string, typically starting with
+    /// "com.apple.dt.unit." for project templates or "com.apple.dt.packageTemplate." for packages.
+    ///
+    /// ## Example
+    /// ```swift
+    /// TemplateKind.app.rawValue
+    /// // Returns: "com.apple.dt.unit.multiPlatform.app"
+    ///
+    /// TemplateKind.libraryPackage.rawValue
+    /// // Returns: "com.apple.dt.packageTemplate.Library"
+    ///
+    /// TemplateKind.unknown("custom.template").rawValue
+    /// // Returns: "custom.template"
+    /// ```
+    public var rawValue: String {
+        switch self {
+        case .unknown(let rawValue): return rawValue
+        // Project Templates
+        case .externalBuildSystem: return "com.apple.dt.unit.externalBuildSystem"
+        case .aggregate: return "com.apple.dt.unit.aggregate"
+        case .emptyProject: return "com.apple.dt.unit.emptyProject"
+        case .uiTestingBundle: return "com.apple.dt.unit.multiPlatform.UITestingBundle"
+        case .unitTestingBundle: return "com.apple.dt.unit.multiPlatform.unitTestBundle"
+        case .genericExtension: return "com.apple.dt.unit.multiPlatform.generic-extension"
+        case .widgetExtension: return "com.apple.dt.unit.multiPlatform.widget"
+        case .audioUnitExtension: return "com.apple.dt.unit.audiounitextension.multiplatform"
+        case .iosSafariExtensionApp: return "com.apple.dt.unit.multiPlatform.appWithSafariExtension.iOS"
+        case .safariExtensionApp: return "com.apple.dt.unit.multiPlatform.appWithSafariExtension"
+        case .macosSafariExtensionApp: return "com.apple.dt.unit.multiPlatform.appWithSafariExtension.macOS"
+        case .sharedSafariExtensionApp: return "com.apple.dt.unit.multiPlatform.appWithSafariExtension.shared"
+        case .iosSafariExtension: return "com.apple.dt.unit.multiPlatform.safariExtension.iOS"
+        case .macosSafariExtension: return "com.apple.dt.unit.multiPlatform.safariExtension.macOS"
+        case .sharedSafariExtension: return "com.apple.dt.unit.multiPlatform.safariExtension.shared"
+        case .game: return "com.apple.dt.unit.crossPlatformGame"
+        case .sceneKitGameShared: return "com.apple.dt.unit.crossPlatformSceneKitGame_sharedComponent"
+        case .sceneKitGameIOS: return "com.apple.dt.unit.crossPlatformSceneKitGame_iOSComponent"
+        case .sceneKitGameMacOS: return "com.apple.dt.unit.crossPlatformSceneKitGame_OSXComponent"
+        case .sceneKitGameTvOS: return "com.apple.dt.unit.crossPlatformSceneKitGame_tvOSComponent"
+        case .spriteKitGameShared: return "com.apple.dt.unit.crossPlatformSpriteKitGame_sharedComponent"
+        case .spriteKitGameIOS: return "com.apple.dt.unit.crossPlatformSpriteKitGame_iOSComponent"
+        case .spriteKitGameMacOS: return "com.apple.dt.unit.crossPlatformSpriteKitGame_OSXComponent"
+        case .spriteKitGameTvOS: return "com.apple.dt.unit.crossPlatformSpriteKitGame_tvOSComponent"
+        case .metalGameShared: return "com.apple.dt.unit.crossPlatformMetalGame_sharedComponent"
+        case .metalGameIOS: return "com.apple.dt.unit.crossPlatformMetalGame_iOSComponent"
+        case .metalGameMacOS: return "com.apple.dt.unit.crossPlatformMetalGame_OSXComponent"
+        case .metalGameTvOS: return "com.apple.dt.unit.crossPlatformMetalGame_tvOSComponent"
+        case .metal4GameShared: return "com.apple.dt.unit.crossPlatformMetal4Game_sharedComponent"
+        case .metal4GameIOS: return "com.apple.dt.unit.crossPlatformMetal4Game_iOSComponent"
+        case .metal4GameMacOS: return "com.apple.dt.unit.crossPlatformMetal4Game_OSXComponent"
+        case .metal4GameTvOS: return "com.apple.dt.unit.crossPlatformMetal4Game_tvOSComponent"
+        case .realityKitGame: return "com.apple.dt.unit.crossPlatformRealityKitGame"
+        case .immersiveSpaceApp: return "com.apple.dt.unit.crossPlatform.ImmersiveSpaceComponent"
+        case .visionOSApp: return "com.apple.dt.unit.crossPlatform.visionOS.base"
+        case .compositorServices: return "com.apple.dt.unit.crossPlatform.CompositorServicesComponent"
+        case .documentApp: return "com.apple.dt.unit.multiPlatform.app.document-based"
+        case .app: return "com.apple.dt.unit.multiPlatform.app"
+        case .audioUnitExtensionApp:
+            return "com.apple.dt.unit.SwiftUIApplicationWithAudioUnitExtension.multiPlatform.app"
+        case .iosAppUITestBundle: return "com.apple.dt.unit.multiPlatform.app.iOS.tests.ui"
+        case .macosAppUITestBundle: return "com.apple.dt.unit.multiPlatform.app.macOS.tests.ui"
+        case .multiplatformSwiftUIAppUITestingBundle: return "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.ui"
+        case .multiplatformSwiftUIDocumentApp: return "com.apple.dt.unit.multiPlatform.app.document-based.SwiftUI"
+        case .multiplatformSwiftUIAppTestingBundle: return "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.unit"
+        case .multiplatformSwiftUIApp: return "com.apple.dt.unit.multiPlatform.app.SwiftUI"
+        case .macosAppEntitlements: return "com.apple.dt.unit.crossPlatformAppEntitlements_OSX"
+        case .framework: return "com.apple.dt.unit.multiPlatform.framework"
+        case .frameworkTestingBundle: return "com.apple.dt.unit.multiPlatform.frameworkUnitTestBundle"
+        // Base Templates
+        case .base: return "com.apple.dt.unit.base"
+        case .baseOptions: return "com.apple.dt.unit.base_Options"
+        case .baseDefinitionsLanguage: return "com.apple.dt.unit.base_DefinitionsLanguage"
+        case .baseStorageType: return "com.apple.dt.unit.base_StorageType"
+        case .baseProjectSettings: return "com.apple.dt.unit.base_ProjectSettings"
+        case .baseAppLifecycle: return "com.apple.dt.unit.base_AppLifecycle"
+        case .baseTestingSystem: return "com.apple.dt.unit.base_TestingSystem"
+        case .baseDefinitionsInfoPlist: return "com.apple.dt.unit.base_DefinitionsInfoPlist"
+        case .securityCriticalBase: return "com.apple.dt.unit.securityCriticalBase"
+        case .crossPlatformBase: return "com.apple.dt.unit.crossPlatformBase"
+        case .iosAppBase: return "com.apple.dt.unit.crossPlatformAppBase_iOS"
+        case .macosAppBase: return "com.apple.dt.unit.crossPlatformAppBase_OSX"
+        case .tvosAppBase: return "com.apple.dt.unit.crossPlatformAppBase_tvOS"
+        case .multiplatformBase: return "com.apple.dt.unit.multiPlatform.base"
+        case .applicationBase: return "com.apple.dt.unit.applicationBase"
+        case .swiftUIAppBase: return "com.apple.dt.unit.applicationBase.SwiftUI"
+        case .swiftUIDocumentAppBase: return "com.apple.dt.unit.applicationBase.document-based.SwiftUI"
+        case .appExtensionBase: return "com.apple.dt.unit.appextensionbase"
+        case .extensionKitExtensionBase: return "com.apple.dt.unit.extensionkit-extension"
+        case .multiplatformExtensionKitExtensionBase: return "com.apple.dt.unit.multiPlatform.extensionkit-extension"
+        case .multiplatformAppExtensionBase: return "com.apple.dt.unit.multiPlatform.nsappex.base"
+        case .unitTestBundleBase: return "com.apple.dt.unit.unitTestBundleBase"
+        case .uiTestBundleBase: return "com.apple.dt.unit.uiTestBundleBase"
+        case .multiplatformUnitTestBundleBase: return "com.apple.dt.unit.multiPlatform.unitTestBundleBase"
+        case .multiplatformUITestBundleBase: return "com.apple.dt.unit.multiPlatform.UITestBundleBase"
+        case .swiftUIAppUnitTestBundleBase: return "com.apple.dt.unit.unitTestBundleBase.app.SwiftUI"
+        case .swiftUIAppUITestBundleBase: return "com.apple.dt.unit.uiTestBundleBase.app.SwiftUI"
+        case .frameworkBase: return "com.apple.dt.unit.frameworkBase"
+        case .bundleBase: return "com.apple.dt.unit.bundleBase"
+        case .metalLibraryBase: return "com.apple.dt.unit.metalLibrary.base"
+        case .xpcServiceBase: return "com.apple.dt.unit.xpcservicebase"
+        case .storageType: return "com.apple.dt.unit.storageType"
+        case .storageTypeDocumentApp: return "com.apple.dt.unit.storageType.document-app"
+        case .languageChoice: return "com.apple.dt.unit.languageChoice"
+        case .testingSystem: return "com.apple.dt.unit.testingSystem"
+        case .iosAppLifecycle: return "com.apple.dt.unit.appLifecycle.iOS"
+        case .iosAppExtensionBase: return "com.apple.dt.unit.iosAppExtensionBase"
+        case .iosBase: return "com.apple.dt.unit.iosBase"
+        case .iosBaseDefinitions: return "com.apple.dt.unit.iosBase_Definitions"
+        case .iosUITestBundleBase: return "com.apple.dt.unit.iosUITestBundleBase"
+        case .iosLanguageChoice: return "com.apple.dt.unit.languageChoice.app.iOS"
+        case .macOSAppExtensionBase: return "com.apple.dt.unit.osxAppExtensionBase"
+        case .macOSBase: return "com.apple.dt.unit.osxBase"
+        case .macOSBaseDefinitions: return "com.apple.dt.unit.osxBase_Definitions"
+        case .macOSUITestBundleBase: return "com.apple.dt.unit.osxUITestBundleBase"
+        case .tvOSBaseDefinitions: return "com.apple.dt.unit.tvosBase_Definitions"
+        // File Templates
+        case .fileTemplateSwiftFile: return "fileTemplate.swiftFile"
+        case .fileTemplateObjectiveCFile: return "fileTemplate.objectiveCFile"
+        case .fileTemplateCFile: return "fileTemplate.cFile"
+        case .fileTemplateHeaderFile: return "fileTemplate.headerFile"
+        case .fileTemplateMetalFile: return "fileTemplate.metalFile"
+        case .fileTemplateAssemblyFile: return "fileTemplate.assemblyFile"
+        case .fileTemplateCLIPSFile: return "fileTemplate.cLIPSFile"
+        case .fileTemplateSwiftUIView: return "fileTemplate.swiftUIView"
+        case .fileTemplatePackageSwiftFile: return "fileTemplate.packageSwiftFile"
+        case .fileTemplateSourcesFolderSwiftFile: return "fileTemplate.sourcesFolderSwiftFile"
+        case .fileTemplateSwiftTestingUnitTest: return "fileTemplate.swiftTestingUnitTest"
+        case .fileTemplateXCTestUnitTest: return "fileTemplate.xCTestUnitTest"
+        case .fileTemplateXCTestUITest: return "fileTemplate.xCTestUITest"
+        case .fileTemplatePackageTestCase: return "fileTemplate.packageTestCase"
+        case .fileTemplateTestPlan: return "fileTemplate.testPlan"
+        case .fileTemplateStoryboard: return "fileTemplate.storyboard"
+        case .fileTemplateView: return "fileTemplate.view"
+        case .fileTemplateWindow: return "fileTemplate.window"
+        case .fileTemplateMainMenu: return "fileTemplate.mainMenu"
+        case .fileTemplateApplication: return "fileTemplate.application"
+        case .fileTemplateSceneKitSceneFile: return "fileTemplate.sceneKitSceneFile"
+        case .fileTemplateSceneKitAssetCatalog: return "fileTemplate.sceneKitAssetCatalog"
+        case .fileTemplateSceneKitAssetCache: return "fileTemplate.sceneKitAssetCache"
+        case .fileTemplateSpriteKitScene: return "fileTemplate.spriteKitScene"
+        case .fileTemplateSpriteKitAction: return "fileTemplate.spriteKitAction"
+        case .fileTemplateSpriteKitParticleFile: return "fileTemplate.spriteKitParticleFile"
+        case .fileTemplateSpriteKitTileSet: return "fileTemplate.spriteKitTileSet"
+        case .fileTemplateAssetCatalog: return "fileTemplate.assetCatalog"
+        case .fileTemplatePropertyList: return "fileTemplate.propertyList"
+        case .fileTemplateStringsFileLegacy: return "fileTemplate.stringsFileLegacy"
+        case .fileTemplateStringsdictFileLegacy: return "fileTemplate.stringsdictFileLegacy"
+        case .fileTemplateTouchAlternativesPropertyList: return "fileTemplate.touchAlternativesPropertyList"
+        case .fileTemplateDocumentationCatalog: return "fileTemplate.documentationCatalog"
+        case .fileTemplateArticleFile: return "fileTemplate.articleFile"
+        case .fileTemplateTutorialFile: return "fileTemplate.tutorialFile"
+        case .fileTemplateTutorialTableOfContentsFile: return "fileTemplate.tutorialTableofContentsFile"
+        case .fileTemplateMarkdownFile: return "fileTemplate.markdownFile"
+        case .fileTemplateRTFFile: return "fileTemplate.rTFFile"
+        case .fileTemplateConfigurationSettingsFile: return "fileTemplate.configurationSettingsFile"
+        case .fileTemplateModuleMap: return "fileTemplate.moduleMap"
+        case .fileTemplatePCHFile: return "fileTemplate.pCHFile"
+        case .fileTemplateFileList: return "fileTemplate.fileList"
+        case .fileTemplateExportsFile: return "fileTemplate.exportsFile"
+        case .fileTemplateExtensionFile: return "fileTemplate.extensionFile"
+        case .fileTemplateShellScript: return "fileTemplate.shellScript"
+        case .fileTemplatePlaygroundPage: return "fileTemplate.playgroundPage"
+        case .fileTemplateSiriKitIntentDefinitionFile: return "fileTemplate.siriKitIntentDefinitionFile"
+        case .fileTemplateINIntentSubclass: return "fileTemplate.iNIntentsubclass"
+        case .fileTemplateAppEntity: return "fileTemplate.appEntity"
+        case .fileTemplateTransientAppEntity: return "fileTemplate.transientAppEntity"
+        case .fileTemplateAppEnum: return "fileTemplate.appEnum"
+        case .fileTemplateLinkAction: return "fileTemplate.linkaction"
+        case .fileTemplateEmpty: return "fileTemplate.empty"
+        case .fileTemplateEmptyFile: return "fileTemplate.emptyFile"
+        case .fileTemplateAppPrivacy: return "fileTemplate.appPrivacy"
+        case .fileTemplateObjectiveCNewSuperclass: return "fileTemplate.objectiveCnewsuperclass"
+        // Package Templates
+        case .swiftMacro: return "com.apple.dt.packageTemplate.SwiftMacro"
+        case .buildToolPlugin: return "com.apple.dt.packageTemplate.BuildToolPlugin"
+        case .commandPlugin: return "com.apple.dt.packageTemplate.CommandPlugin"
+        case .emptyPackage: return "com.apple.dt.packageTemplate.Empty"
+        case .libraryPackage: return "com.apple.dt.packageTemplate.Library"
+        }
+    }
+
+    /// Initialize from a raw template identifier string.
+    ///
+    /// Creates a `TemplateKind` from the template's unique identifier.
+    /// Returns `.unknown(rawValue)` if the identifier is not recognized.
+    ///
+    /// ## Example
+    /// ```swift
+    /// let kind = TemplateKind(rawValue: "com.apple.dt.unit.multiPlatform.app")
+    /// // Returns: .app
+    ///
+    /// let unknownKind = TemplateKind(rawValue: "custom.unknown.template")
+    /// // Returns: .unknown("custom.unknown.template")
+    /// ```
+    ///
+    /// ## SwiftLint Exceptions
+    ///
+    /// This initializer violates complexity and length rules because it maps 158+ template identifiers:
+    /// - **cyclomatic_complexity**: Switch has 158+ cases (one per template kind)
+    /// - **function_body_length**: Required to map all Xcode template identifier strings to enum cases
+    ///
+    /// This is auto-generated mapping code. Each template kind needs its own case mapping.
+    /// Complexity cannot be reduced without breaking the exhaustive string-to-enum conversion.
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
+    public init(rawValue: String) {
+        switch rawValue {
+        // Project Templates
+        case "com.apple.dt.unit.externalBuildSystem": self = .externalBuildSystem
+        case "com.apple.dt.unit.aggregate": self = .aggregate
+        case "com.apple.dt.unit.emptyProject": self = .emptyProject
+        case "com.apple.dt.unit.multiPlatform.UITestingBundle": self = .uiTestingBundle
+        case "com.apple.dt.unit.multiPlatform.unitTestBundle": self = .unitTestingBundle
+        case "com.apple.dt.unit.multiPlatform.generic-extension": self = .genericExtension
+        case "com.apple.dt.unit.multiPlatform.widget": self = .widgetExtension
+        case "com.apple.dt.unit.audiounitextension.multiplatform": self = .audioUnitExtension
+        case "com.apple.dt.unit.multiPlatform.appWithSafariExtension.iOS": self = .iosSafariExtensionApp
+        case "com.apple.dt.unit.multiPlatform.appWithSafariExtension": self = .safariExtensionApp
+        case "com.apple.dt.unit.multiPlatform.appWithSafariExtension.macOS": self = .macosSafariExtensionApp
+        case "com.apple.dt.unit.multiPlatform.appWithSafariExtension.shared": self = .sharedSafariExtensionApp
+        case "com.apple.dt.unit.multiPlatform.safariExtension.iOS": self = .iosSafariExtension
+        case "com.apple.dt.unit.multiPlatform.safariExtension.macOS": self = .macosSafariExtension
+        case "com.apple.dt.unit.multiPlatform.safariExtension.shared": self = .sharedSafariExtension
+        case "com.apple.dt.unit.crossPlatformGame": self = .game
+        case "com.apple.dt.unit.crossPlatformSceneKitGame_sharedComponent": self = .sceneKitGameShared
+        case "com.apple.dt.unit.crossPlatformSceneKitGame_iOSComponent": self = .sceneKitGameIOS
+        case "com.apple.dt.unit.crossPlatformSceneKitGame_OSXComponent": self = .sceneKitGameMacOS
+        case "com.apple.dt.unit.crossPlatformSceneKitGame_tvOSComponent": self = .sceneKitGameTvOS
+        case "com.apple.dt.unit.crossPlatformSpriteKitGame_sharedComponent": self = .spriteKitGameShared
+        case "com.apple.dt.unit.crossPlatformSpriteKitGame_iOSComponent": self = .spriteKitGameIOS
+        case "com.apple.dt.unit.crossPlatformSpriteKitGame_OSXComponent": self = .spriteKitGameMacOS
+        case "com.apple.dt.unit.crossPlatformSpriteKitGame_tvOSComponent": self = .spriteKitGameTvOS
+        case "com.apple.dt.unit.crossPlatformMetalGame_sharedComponent": self = .metalGameShared
+        case "com.apple.dt.unit.crossPlatformMetalGame_iOSComponent": self = .metalGameIOS
+        case "com.apple.dt.unit.crossPlatformMetalGame_OSXComponent": self = .metalGameMacOS
+        case "com.apple.dt.unit.crossPlatformMetalGame_tvOSComponent": self = .metalGameTvOS
+        case "com.apple.dt.unit.crossPlatformMetal4Game_sharedComponent": self = .metal4GameShared
+        case "com.apple.dt.unit.crossPlatformMetal4Game_iOSComponent": self = .metal4GameIOS
+        case "com.apple.dt.unit.crossPlatformMetal4Game_OSXComponent": self = .metal4GameMacOS
+        case "com.apple.dt.unit.crossPlatformMetal4Game_tvOSComponent": self = .metal4GameTvOS
+        case "com.apple.dt.unit.crossPlatformRealityKitGame": self = .realityKitGame
+        case "com.apple.dt.unit.crossPlatform.ImmersiveSpaceComponent": self = .immersiveSpaceApp
+        case "com.apple.dt.unit.crossPlatform.visionOS.base": self = .visionOSApp
+        case "com.apple.dt.unit.crossPlatform.CompositorServicesComponent": self = .compositorServices
+        case "com.apple.dt.unit.multiPlatform.app.document-based": self = .documentApp
+        case "com.apple.dt.unit.multiPlatform.app": self = .app
+        case "com.apple.dt.unit.SwiftUIApplicationWithAudioUnitExtension.multiPlatform.app":
+            self = .audioUnitExtensionApp
+        case "com.apple.dt.unit.multiPlatform.app.iOS.tests.ui": self = .iosAppUITestBundle
+        case "com.apple.dt.unit.multiPlatform.app.macOS.tests.ui": self = .macosAppUITestBundle
+        case "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.ui": self = .multiplatformSwiftUIAppUITestingBundle
+        case "com.apple.dt.unit.multiPlatform.app.document-based.SwiftUI": self = .multiplatformSwiftUIDocumentApp
+        case "com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.unit": self = .multiplatformSwiftUIAppTestingBundle
+        case "com.apple.dt.unit.multiPlatform.app.SwiftUI": self = .multiplatformSwiftUIApp
+        case "com.apple.dt.unit.crossPlatformAppEntitlements_OSX": self = .macosAppEntitlements
+        case "com.apple.dt.unit.multiPlatform.framework": self = .framework
+        case "com.apple.dt.unit.multiPlatform.frameworkUnitTestBundle": self = .frameworkTestingBundle
+        // Base Templates
+        case "com.apple.dt.unit.base": self = .base
+        case "com.apple.dt.unit.base_Options": self = .baseOptions
+        case "com.apple.dt.unit.base_DefinitionsLanguage": self = .baseDefinitionsLanguage
+        case "com.apple.dt.unit.base_StorageType": self = .baseStorageType
+        case "com.apple.dt.unit.base_ProjectSettings": self = .baseProjectSettings
+        case "com.apple.dt.unit.base_AppLifecycle": self = .baseAppLifecycle
+        case "com.apple.dt.unit.base_TestingSystem": self = .baseTestingSystem
+        case "com.apple.dt.unit.base_DefinitionsInfoPlist": self = .baseDefinitionsInfoPlist
+        case "com.apple.dt.unit.securityCriticalBase": self = .securityCriticalBase
+        case "com.apple.dt.unit.crossPlatformBase": self = .crossPlatformBase
+        case "com.apple.dt.unit.crossPlatformAppBase_iOS": self = .iosAppBase
+        case "com.apple.dt.unit.crossPlatformAppBase_OSX": self = .macosAppBase
+        case "com.apple.dt.unit.crossPlatformAppBase_tvOS": self = .tvosAppBase
+        case "com.apple.dt.unit.multiPlatform.base": self = .multiplatformBase
+        case "com.apple.dt.unit.applicationBase": self = .applicationBase
+        case "com.apple.dt.unit.applicationBase.SwiftUI": self = .swiftUIAppBase
+        case "com.apple.dt.unit.applicationBase.document-based.SwiftUI": self = .swiftUIDocumentAppBase
+        case "com.apple.dt.unit.appextensionbase": self = .appExtensionBase
+        case "com.apple.dt.unit.extensionkit-extension": self = .extensionKitExtensionBase
+        case "com.apple.dt.unit.multiPlatform.extensionkit-extension": self = .multiplatformExtensionKitExtensionBase
+        case "com.apple.dt.unit.multiPlatform.nsappex.base": self = .multiplatformAppExtensionBase
+        case "com.apple.dt.unit.unitTestBundleBase": self = .unitTestBundleBase
+        case "com.apple.dt.unit.uiTestBundleBase": self = .uiTestBundleBase
+        case "com.apple.dt.unit.multiPlatform.unitTestBundleBase": self = .multiplatformUnitTestBundleBase
+        case "com.apple.dt.unit.multiPlatform.UITestBundleBase": self = .multiplatformUITestBundleBase
+        case "com.apple.dt.unit.unitTestBundleBase.app.SwiftUI": self = .swiftUIAppUnitTestBundleBase
+        case "com.apple.dt.unit.uiTestBundleBase.app.SwiftUI": self = .swiftUIAppUITestBundleBase
+        case "com.apple.dt.unit.frameworkBase": self = .frameworkBase
+        case "com.apple.dt.unit.bundleBase": self = .bundleBase
+        case "com.apple.dt.unit.metalLibrary.base": self = .metalLibraryBase
+        case "com.apple.dt.unit.xpcservicebase": self = .xpcServiceBase
+        case "com.apple.dt.unit.storageType": self = .storageType
+        case "com.apple.dt.unit.storageType.document-app": self = .storageTypeDocumentApp
+        case "com.apple.dt.unit.languageChoice": self = .languageChoice
+        case "com.apple.dt.unit.testingSystem": self = .testingSystem
+        case "com.apple.dt.unit.appLifecycle.iOS": self = .iosAppLifecycle
+        case "com.apple.dt.unit.iosAppExtensionBase": self = .iosAppExtensionBase
+        case "com.apple.dt.unit.iosBase": self = .iosBase
+        case "com.apple.dt.unit.iosBase_Definitions": self = .iosBaseDefinitions
+        case "com.apple.dt.unit.iosUITestBundleBase": self = .iosUITestBundleBase
+        case "com.apple.dt.unit.languageChoice.app.iOS": self = .iosLanguageChoice
+        case "com.apple.dt.unit.osxAppExtensionBase": self = .macOSAppExtensionBase
+        case "com.apple.dt.unit.osxBase": self = .macOSBase
+        case "com.apple.dt.unit.osxBase_Definitions": self = .macOSBaseDefinitions
+        case "com.apple.dt.unit.osxUITestBundleBase": self = .macOSUITestBundleBase
+        case "com.apple.dt.unit.tvosBase_Definitions": self = .tvOSBaseDefinitions
+        // File Templates
+        case "fileTemplate.swiftFile": self = .fileTemplateSwiftFile
+        case "fileTemplate.objectiveCFile": self = .fileTemplateObjectiveCFile
+        case "fileTemplate.cFile": self = .fileTemplateCFile
+        case "fileTemplate.headerFile": self = .fileTemplateHeaderFile
+        case "fileTemplate.metalFile": self = .fileTemplateMetalFile
+        case "fileTemplate.assemblyFile": self = .fileTemplateAssemblyFile
+        case "fileTemplate.cLIPSFile": self = .fileTemplateCLIPSFile
+        case "fileTemplate.swiftUIView": self = .fileTemplateSwiftUIView
+        case "fileTemplate.packageSwiftFile": self = .fileTemplatePackageSwiftFile
+        case "fileTemplate.sourcesFolderSwiftFile": self = .fileTemplateSourcesFolderSwiftFile
+        case "fileTemplate.swiftTestingUnitTest": self = .fileTemplateSwiftTestingUnitTest
+        case "fileTemplate.xCTestUnitTest": self = .fileTemplateXCTestUnitTest
+        case "fileTemplate.xCTestUITest": self = .fileTemplateXCTestUITest
+        case "fileTemplate.packageTestCase": self = .fileTemplatePackageTestCase
+        case "fileTemplate.testPlan": self = .fileTemplateTestPlan
+        case "fileTemplate.storyboard": self = .fileTemplateStoryboard
+        case "fileTemplate.view": self = .fileTemplateView
+        case "fileTemplate.window": self = .fileTemplateWindow
+        case "fileTemplate.mainMenu": self = .fileTemplateMainMenu
+        case "fileTemplate.application": self = .fileTemplateApplication
+        case "fileTemplate.sceneKitSceneFile": self = .fileTemplateSceneKitSceneFile
+        case "fileTemplate.sceneKitAssetCatalog": self = .fileTemplateSceneKitAssetCatalog
+        case "fileTemplate.sceneKitAssetCache": self = .fileTemplateSceneKitAssetCache
+        case "fileTemplate.spriteKitScene": self = .fileTemplateSpriteKitScene
+        case "fileTemplate.spriteKitAction": self = .fileTemplateSpriteKitAction
+        case "fileTemplate.spriteKitParticleFile": self = .fileTemplateSpriteKitParticleFile
+        case "fileTemplate.spriteKitTileSet": self = .fileTemplateSpriteKitTileSet
+        case "fileTemplate.assetCatalog": self = .fileTemplateAssetCatalog
+        case "fileTemplate.propertyList": self = .fileTemplatePropertyList
+        case "fileTemplate.stringsFileLegacy": self = .fileTemplateStringsFileLegacy
+        case "fileTemplate.stringsdictFileLegacy": self = .fileTemplateStringsdictFileLegacy
+        case "fileTemplate.touchAlternativesPropertyList": self = .fileTemplateTouchAlternativesPropertyList
+        case "fileTemplate.documentationCatalog": self = .fileTemplateDocumentationCatalog
+        case "fileTemplate.articleFile": self = .fileTemplateArticleFile
+        case "fileTemplate.tutorialFile": self = .fileTemplateTutorialFile
+        case "fileTemplate.tutorialTableofContentsFile": self = .fileTemplateTutorialTableOfContentsFile
+        case "fileTemplate.markdownFile": self = .fileTemplateMarkdownFile
+        case "fileTemplate.rTFFile": self = .fileTemplateRTFFile
+        case "fileTemplate.configurationSettingsFile": self = .fileTemplateConfigurationSettingsFile
+        case "fileTemplate.moduleMap": self = .fileTemplateModuleMap
+        case "fileTemplate.pCHFile": self = .fileTemplatePCHFile
+        case "fileTemplate.fileList": self = .fileTemplateFileList
+        case "fileTemplate.exportsFile": self = .fileTemplateExportsFile
+        case "fileTemplate.extensionFile": self = .fileTemplateExtensionFile
+        case "fileTemplate.shellScript": self = .fileTemplateShellScript
+        case "fileTemplate.playgroundPage": self = .fileTemplatePlaygroundPage
+        case "fileTemplate.siriKitIntentDefinitionFile": self = .fileTemplateSiriKitIntentDefinitionFile
+        case "fileTemplate.iNIntentsubclass": self = .fileTemplateINIntentSubclass
+        case "fileTemplate.appEntity": self = .fileTemplateAppEntity
+        case "fileTemplate.transientAppEntity": self = .fileTemplateTransientAppEntity
+        case "fileTemplate.appEnum": self = .fileTemplateAppEnum
+        case "fileTemplate.linkaction": self = .fileTemplateLinkAction
+        case "fileTemplate.empty": self = .fileTemplateEmpty
+        case "fileTemplate.emptyFile": self = .fileTemplateEmptyFile
+        case "fileTemplate.appPrivacy": self = .fileTemplateAppPrivacy
+        case "fileTemplate.objectiveCnewsuperclass": self = .fileTemplateObjectiveCNewSuperclass
+        // Package Templates
+        case "com.apple.dt.packageTemplate.SwiftMacro": self = .swiftMacro
+        case "com.apple.dt.packageTemplate.BuildToolPlugin": self = .buildToolPlugin
+        case "com.apple.dt.packageTemplate.CommandPlugin": self = .commandPlugin
+        case "com.apple.dt.packageTemplate.Empty": self = .emptyPackage
+        case "com.apple.dt.packageTemplate.Library": self = .libraryPackage
+        // Unknown
+        default: self = .unknown(rawValue)
+        }
+    }
 
     /// Human-readable name for the template kind.
     ///
@@ -428,6 +916,8 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable, Sendable {
     ///   and platform-specific formatting (e.g., "iOS", "macOS", "tvOS", "visionOS").
     public var displayName: String {
         switch self {
+        // Unknown
+        case .unknown(let rawValue): return "Unknown (\(rawValue))"
         // Other
         case .externalBuildSystem: return "External Build System"
         case .aggregate: return "Aggregate"
@@ -535,6 +1025,88 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable, Sendable {
         case .storageTypeDocumentApp: return "Storage Type Document App"
         case .languageChoice: return "Language Choice"
         case .testingSystem: return "Testing System"
+        // iOS-specific Base Templates
+        case .iosAppLifecycle: return "iOS App Lifecycle"
+        case .iosAppExtensionBase: return "iOS App Extension Base"
+        case .iosBase: return "iOS Base"
+        case .iosBaseDefinitions: return "iOS Base Definitions"
+        case .iosUITestBundleBase: return "iOS UI Test Bundle Base"
+        case .iosLanguageChoice: return "iOS Language Choice"
+        // macOS-specific Base Templates
+        case .macOSAppExtensionBase: return "macOS App Extension Base"
+        case .macOSBase: return "macOS Base"
+        case .macOSBaseDefinitions: return "macOS Base Definitions"
+        case .macOSUITestBundleBase: return "macOS UI Test Bundle Base"
+        // tvOS-specific Base Templates
+        case .tvOSBaseDefinitions: return "tvOS Base Definitions"
+        // File Templates - Source Files
+        case .fileTemplateSwiftFile: return "Swift File"
+        case .fileTemplateObjectiveCFile: return "Objective-C File"
+        case .fileTemplateCFile: return "C/C++ File"
+        case .fileTemplateHeaderFile: return "Header File"
+        case .fileTemplateMetalFile: return "Metal File"
+        case .fileTemplateAssemblyFile: return "Assembly File"
+        case .fileTemplateCLIPSFile: return "CLIPS File"
+        // File Templates - Swift/SwiftUI
+        case .fileTemplateSwiftUIView: return "SwiftUI View"
+        case .fileTemplatePackageSwiftFile: return "Package Swift File"
+        case .fileTemplateSourcesFolderSwiftFile: return "Sources Folder Swift File"
+        // File Templates - Testing
+        case .fileTemplateSwiftTestingUnitTest: return "Swift Testing Unit Test"
+        case .fileTemplateXCTestUnitTest: return "XCTest Unit Test"
+        case .fileTemplateXCTestUITest: return "XCTest UI Test"
+        case .fileTemplatePackageTestCase: return "Package Test Case"
+        case .fileTemplateTestPlan: return "Test Plan"
+        // File Templates - UI/Scene
+        case .fileTemplateStoryboard: return "Storyboard"
+        case .fileTemplateView: return "View"
+        case .fileTemplateWindow: return "Window"
+        case .fileTemplateMainMenu: return "Main Menu"
+        case .fileTemplateApplication: return "Application"
+        // File Templates - SceneKit
+        case .fileTemplateSceneKitSceneFile: return "SceneKit Scene File"
+        case .fileTemplateSceneKitAssetCatalog: return "SceneKit Asset Catalog"
+        case .fileTemplateSceneKitAssetCache: return "SceneKit Asset Cache"
+        // File Templates - SpriteKit
+        case .fileTemplateSpriteKitScene: return "SpriteKit Scene"
+        case .fileTemplateSpriteKitAction: return "SpriteKit Action"
+        case .fileTemplateSpriteKitParticleFile: return "SpriteKit Particle File"
+        case .fileTemplateSpriteKitTileSet: return "SpriteKit Tile Set"
+        // File Templates - Assets/Resources
+        case .fileTemplateAssetCatalog: return "Asset Catalog"
+        case .fileTemplatePropertyList: return "Property List"
+        case .fileTemplateStringsFileLegacy: return "Strings File (Legacy)"
+        case .fileTemplateStringsdictFileLegacy: return "Stringsdict File (Legacy)"
+        case .fileTemplateTouchAlternativesPropertyList: return "Touch Alternatives Property List"
+        // File Templates - Documentation
+        case .fileTemplateDocumentationCatalog: return "Documentation Catalog"
+        case .fileTemplateArticleFile: return "Article File"
+        case .fileTemplateTutorialFile: return "Tutorial File"
+        case .fileTemplateTutorialTableOfContentsFile: return "Tutorial Table of Contents File"
+        case .fileTemplateMarkdownFile: return "Markdown File"
+        case .fileTemplateRTFFile: return "RTF File"
+        // File Templates - Configuration
+        case .fileTemplateConfigurationSettingsFile: return "Configuration Settings File"
+        case .fileTemplateModuleMap: return "Module Map"
+        case .fileTemplatePCHFile: return "PCH File"
+        case .fileTemplateFileList: return "File List"
+        case .fileTemplateExportsFile: return "Exports File"
+        case .fileTemplateExtensionFile: return "Extension File"
+        // File Templates - Scripts/Shell
+        case .fileTemplateShellScript: return "Shell Script"
+        case .fileTemplatePlaygroundPage: return "Playground Page"
+        // File Templates - SiriKit/Intents
+        case .fileTemplateSiriKitIntentDefinitionFile: return "SiriKit Intent Definition File"
+        case .fileTemplateINIntentSubclass: return "INIntent Subclass"
+        case .fileTemplateAppEntity: return "App Entity"
+        case .fileTemplateTransientAppEntity: return "Transient App Entity"
+        case .fileTemplateAppEnum: return "App Enum"
+        case .fileTemplateLinkAction: return "Link Action"
+        // File Templates - Other
+        case .fileTemplateEmpty: return "Empty"
+        case .fileTemplateEmptyFile: return "Empty File"
+        case .fileTemplateAppPrivacy: return "App Privacy"
+        case .fileTemplateObjectiveCNewSuperclass: return "Objective-C New Superclass"
         // Package Templates
         case .swiftMacro: return "Swift Macro"
         case .buildToolPlugin: return "Build Tool Plug-in"
@@ -574,6 +1146,28 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable, Sendable {
         switch self {
         case .swiftMacro, .buildToolPlugin, .commandPlugin, .emptyPackage, .libraryPackage:
             return .packageTemplates
+        case .fileTemplateSwiftFile, .fileTemplateObjectiveCFile, .fileTemplateCFile,
+             .fileTemplateHeaderFile, .fileTemplateMetalFile, .fileTemplateAssemblyFile,
+             .fileTemplateCLIPSFile, .fileTemplateSwiftUIView, .fileTemplatePackageSwiftFile,
+             .fileTemplateSourcesFolderSwiftFile, .fileTemplateSwiftTestingUnitTest,
+             .fileTemplateXCTestUnitTest, .fileTemplateXCTestUITest, .fileTemplatePackageTestCase,
+             .fileTemplateTestPlan, .fileTemplateStoryboard, .fileTemplateView, .fileTemplateWindow,
+             .fileTemplateMainMenu, .fileTemplateApplication, .fileTemplateSceneKitSceneFile,
+             .fileTemplateSceneKitAssetCatalog, .fileTemplateSceneKitAssetCache,
+             .fileTemplateSpriteKitScene, .fileTemplateSpriteKitAction,
+             .fileTemplateSpriteKitParticleFile, .fileTemplateSpriteKitTileSet,
+             .fileTemplateAssetCatalog, .fileTemplatePropertyList, .fileTemplateStringsFileLegacy,
+             .fileTemplateStringsdictFileLegacy, .fileTemplateTouchAlternativesPropertyList,
+             .fileTemplateDocumentationCatalog, .fileTemplateArticleFile, .fileTemplateTutorialFile,
+             .fileTemplateTutorialTableOfContentsFile, .fileTemplateMarkdownFile, .fileTemplateRTFFile,
+             .fileTemplateConfigurationSettingsFile, .fileTemplateModuleMap, .fileTemplatePCHFile,
+             .fileTemplateFileList, .fileTemplateExportsFile, .fileTemplateExtensionFile,
+             .fileTemplateShellScript, .fileTemplatePlaygroundPage,
+             .fileTemplateSiriKitIntentDefinitionFile, .fileTemplateINIntentSubclass,
+             .fileTemplateAppEntity, .fileTemplateTransientAppEntity, .fileTemplateAppEnum,
+             .fileTemplateLinkAction, .fileTemplateEmpty, .fileTemplateEmptyFile,
+             .fileTemplateAppPrivacy, .fileTemplateObjectiveCNewSuperclass:
+            return .fileTemplates
         default:
             return .projectTemplates
         }
@@ -611,7 +1205,14 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable, Sendable {
              // Other Base Templates
              .frameworkBase, .bundleBase, .metalLibraryBase, .xpcServiceBase,
              // Utility Templates (used for option configuration)
-             .storageType, .storageTypeDocumentApp, .languageChoice, .testingSystem:
+             .storageType, .storageTypeDocumentApp, .languageChoice, .testingSystem,
+             // iOS-specific Base Templates
+             .iosAppLifecycle, .iosAppExtensionBase, .iosBase, .iosBaseDefinitions,
+             .iosUITestBundleBase, .iosLanguageChoice,
+             // macOS-specific Base Templates
+             .macOSAppExtensionBase, .macOSBase, .macOSBaseDefinitions, .macOSUITestBundleBase,
+             // tvOS-specific Base Templates
+             .tvOSBaseDefinitions:
             return true
         default:
             return false
@@ -661,6 +1262,21 @@ public enum TemplateKind: String, Hashable, CaseIterable, Codable, Sendable {
         default:
             return false
         }
+    }
+}
+
+// MARK: - Codable Conformance
+
+extension TemplateKind {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+        self.init(rawValue: rawValue)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(rawValue)
     }
 }
 

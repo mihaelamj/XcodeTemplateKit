@@ -192,10 +192,10 @@ Before we can GENERATE templates, we need to deeply understand:
 │ Options Matrix:                         │
 │                                         │
 │ Interface:                              │
-│ ○ SwiftUI      ○ Storyboard            │
+│ ○ SwiftUI      ○ Storyboard             │
 │                                         │
 │ Storage:                                │
-│ ○ None  ○ Core Data  ○ SwiftData       │
+│ ○ None  ○ Core Data  ○ SwiftData        │
 │                                         │
 │ Features:                               │
 │ ☑ Include Tests                         │
@@ -205,7 +205,7 @@ Before we can GENERATE templates, we need to deeply understand:
 │ ✓ ContentView.swift                     │
 │ ✓ AppApp.swift                          │
 │ ✓ Assets.xcassets                       │
-│ ✓ Preview Content/Preview Assets...    │
+│ ✓ Preview Content/Preview Assets...     │
 │ ✓ Tests/AppTests.swift (conditional)    │
 │ ...                                     │
 └─────────────────────────────────────────┘
@@ -218,7 +218,7 @@ Before we can GENERATE templates, we need to deeply understand:
 ├─────────────────────────────────────────┤
 │ Common Patterns:                        │
 │                                         │
-│ Most Used Variables (across all temps):│
+│ Most Used Variables (across all temps): │
 │ 1. ___FILEBASENAME___ (142 templates)   │
 │ 2. ___PROJECTNAME___ (88 templates)     │
 │ 3. ___DATE___ (120 templates)           │
@@ -229,9 +229,9 @@ Before we can GENERATE templates, we need to deeply understand:
 │                                         │
 │ Template Inheritance Tree:              │
 │ Base                                    │
-│ ├─ Cross-Platform Base                 │
-│ │  ├─ Multiplatform App                │
-│ │  └─ Multiplatform Framework          │
+│ ├─ Cross-Platform Base                  │
+│ │  ├─ Multiplatform App                 │
+│ │  └─ Multiplatform Framework           │
 │ └─ ...                                  │
 └─────────────────────────────────────────┘
 ```
@@ -248,19 +248,19 @@ Before we can GENERATE templates, we need to deeply understand:
 │ Project: MyApp                          │
 │ Organization: Acme Inc                  │
 │                                         │
-│ ┌─ Generated Output ───────────────┐   │
-│ │ //                               │   │
-│ │ //  MyViewModel.swift            │   │
-│ │ //  MyApp                        │   │
-│ │ //                               │   │
-│ │ //  Created by User on 11/17/25  │   │
-│ │ //  Copyright © 2025 Acme Inc    │   │
-│ │ //                               │   │
-│ │                                  │   │
-│ │ import Foundation                │   │
-│ │                                  │   │
-│ │                                  │   │
-│ └──────────────────────────────────┘   │
+│ ┌─ Generated Output ───────────────┐    │
+│ │ //                               │    │
+│ │ //  MyViewModel.swift            │    │
+│ │ //  MyApp                        │    │
+│ │ //                               │    │
+│ │ //  Created by User on 11/17/25  │    │
+│ │ //  Copyright © 2025 Acme Inc    │    │
+│ │ //                               │    │
+│ │                                  │    │
+│ │ import Foundation                │    │
+│ │                                  │    │
+│ │                                  │    │
+│ └──────────────────────────────────┘    │
 │                                         │
 │ [Compare with Xcode Output]             │
 └─────────────────────────────────────────┘

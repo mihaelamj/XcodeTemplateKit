@@ -88,6 +88,9 @@ let targets: [Target] = {
         dependencies: [
             "SharedModels",
             "TemplateParser",
+        ],
+        resources: [
+            .process("Resources"),
         ]
     )
     #endif
@@ -116,7 +119,7 @@ let package = Package(
     name: "Main",
     platforms: [
         .iOS(.v18),
-        .macOS(.v13), // Match system dylib requirement
+        .macOS(.v14), // Required for ContentUnavailableView
     ],
     products: allProducts,
     dependencies: deps,

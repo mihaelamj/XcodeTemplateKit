@@ -9,6 +9,43 @@
 
 **Ultimate Goal**: Create a comprehensive toolkit for understanding, parsing, and eventually **generating custom Xcode templates programmatically**.
 
+
+---
+
+## TODO:
+
+
+
+Iw want you to add all possibilites of values, jusy like in ide,
+I wanna se all possible items a value can take, and also a type annotiatio like (Integer, Boolean, TemplateKind)
+
+also we have these swiftlint errors, never touch swiftlint config, always fix the errors
+SwiftLint................................................................Failed
+- hook id: swiftlint
+- exit code: 2
+
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/ExpandableTemplateTreeView.swift:63:57: warning: Multiple Closures with Trailing Closure Violation: Trailing closure syntax should not be used when passing more than one closure argument (multiple_closures_with_trailing_closure)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/ExpandableTemplateTreeView.swift:93:59: warning: Multiple Closures with Trailing Closure Violation: Trailing closure syntax should not be used when passing more than one closure argument (multiple_closures_with_trailing_closure)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/ExpandableTemplateTreeView.swift:97:61: warning: Multiple Closures with Trailing Closure Violation: Trailing closure syntax should not be used when passing more than one closure argument (multiple_closures_with_trailing_closure)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/ExpandableTemplateTreeView.swift:104:56: warning: Multiple Closures with Trailing Closure Violation: Trailing closure syntax should not be used when passing more than one closure argument (multiple_closures_with_trailing_closure)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/ExpandableTemplateTreeView.swift:113:56: warning: Multiple Closures with Trailing Closure Violation: Trailing closure syntax should not be used when passing more than one closure argument (multiple_closures_with_trailing_closure)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/ExpandableTemplateTreeView.swift:122:53: warning: Multiple Closures with Trailing Closure Violation: Trailing closure syntax should not be used when passing more than one closure argument (multiple_closures_with_trailing_closure)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/TemplateParser/TemplateTree/TemplateTreeBuilder.swift:119:25: warning: Function Body Length Violation: Function body should span 50 lines or less excluding comments and whitespace: currently spans 57 lines (function_body_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TemplateTreeModel.swift:337:17: warning: Prefer For-Where Violation: `where` clauses are preferred over a single `if` inside a `for` (for_where)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TemplateTreeModel.swift:207:18: warning: Function Body Length Violation: Function body should span 50 lines or less excluding comments and whitespace: currently spans 52 lines (function_body_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/TemplateParser/TemplateTree/TemplateKind.swift:261:8: error: Type Body Length Violation: Type body should span 300 lines or less excluding comments and whitespace: currently spans 372 lines (type_body_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/TemplateParserTests/BundledJSONDecodingTests.swift:23:37: error: Empty Count Violation: Prefer checking `isEmpty` over comparing `count` to zero (empty_count)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/TemplateParserTests/BundledJSONDecodingTests.swift:97:37: error: Empty Count Violation: Prefer checking `isEmpty` over comparing `count` to zero (empty_count)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TreeNodeDetailView.swift:125:18: warning: Function Body Length Violation: Function body should span 50 lines or less excluding comments and whitespace: currently spans 53 lines (function_body_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TreeNodeDetailView.swift:247:1: error: Line Length Violation: Line should be 180 characters or less; currently it has 201 characters (line_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TreeNodeDetailView.swift:451:1: error: Line Length Violation: Line should be 180 characters or less; currently it has 229 characters (line_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TreeNodeDetailView.swift:477:1: error: Line Length Violation: Line should be 180 characters or less; currently it has 282 characters (line_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TreeNodeDetailView.swift:492:1: error: Line Length Violation: Line should be 180 characters or less; currently it has 200 characters (line_length)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TreeNodeDetailView.swift:43:63: warning: Multiple Closures with Trailing Closure Violation: Trailing closure syntax should not be used when passing more than one closure argument (multiple_closures_with_trailing_closure)
+/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Sources/AppFeature/TreeNodeDetailView.swift:6:1: error: Type Body Length Violation: Type body should span 300 lines or less excluding comments and whitespace: currently spans 440 lines (type_body_length)
+
+
+
 ---
 
 ## 📊 Project Phases
