@@ -97,6 +97,22 @@ public struct OutlineRowView: View {
         .frame(minHeight: 28)
         .padding(.vertical, 4)
         .contentShape(Rectangle())
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(configuration.label)
+        .accessibilityValue(configuration.subtitle ?? "")
+        .accessibilityHint(accessibilityHint ?? "")
+        .accessibilityAddTraits(configuration.hasChildren ? .isButton : [])
+        .accessibilityAction(named: configuration.hasChildren ? (isExpanded ? "Collapse" : "Expand") : "Select") {
+            guard configuration.hasChildren else { return }
+            onToggle()
+        }
+    }
+
+    private var accessibilityHint: String? {
+        guard configuration.hasChildren else {
+            return "Leaf node"
+        }
+        return isExpanded ? "Collapse node" : "Expand node"
     }
 }
 

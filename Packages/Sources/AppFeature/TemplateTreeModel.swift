@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import OSLog
 import TemplateParser
 
 /// UI-specific tree model for displaying templates in an expandable hierarchy.
@@ -28,6 +29,9 @@ public final class TemplateTreeModel {
     private var fullyExpandedFlattenCache: [FlattenedNode] = []
     private var filteredNodeCache: [String: [TreeNode]] = [:]
     private var nodeLookup: [String: TreeNode] = [:]
+    private static let log = OSLog(subsystem: "com.xcodetemplate.app", category: .pointsOfInterest)
+    private static let logger = Logger(subsystem: "com.xcodetemplate.app", category: "TemplateTreeModel")
+    private static let signposter = OSSignposter(logHandle: log)
 
     public init(inventory: TemplateInventory) {
         self.inventory = inventory
@@ -79,15 +83,20 @@ public extension TemplateTreeModel {
         expandedIDs: Set<String>,
         autoExpandAll: Bool = false
     ) -> [FlattenedNode] {
+        let signpostID = TemplateTreeModel.signposter.makeSignpostID()
+        let interval = TemplateTreeModel.signposter.beginInterval("FlattenNodes", id: signpostID)
+        let nodes: [FlattenedNode]
         if autoExpandAll, usingFullRootSet(roots) {
-            return fullyExpandedFlattenCache
+            nodes = fullyExpandedFlattenCache
+        } else {
+            nodes = flattenNodes(
+                roots: roots,
+                expandedIDs: expandedIDs,
+                autoExpandAll: autoExpandAll
+            )
         }
-
-        return flattenNodes(
-            roots: roots,
-            expandedIDs: expandedIDs,
-            autoExpandAll: autoExpandAll
-        )
+        TemplateTreeModel.signposter.endInterval("FlattenNodes", interval)
+        return nodes
     }
 
     func filteredNodes(matching searchText: String) -> [TreeNode] {
@@ -98,7 +107,10 @@ public extension TemplateTreeModel {
             return cached
         }
 
+        let signpostID = TemplateTreeModel.signposter.makeSignpostID()
+        TemplateTreeModel.signposter.emitEvent("FilterNodes", id: signpostID)
         let filtered = rootNodes.compactMap { filterNode($0, searchText: normalizedText) }
+        TemplateTreeModel.signposter.emitEvent("FilterNodesResult", id: signpostID)
         filteredNodeCache[normalizedText] = filtered
         return filtered
     }

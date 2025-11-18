@@ -49,6 +49,12 @@ Adopt SwiftUI’s purpose-built outline APIs so that each tree node occupies its
 - **Proposed change**: Keep the full `TemplateTreeModel` tree resident (20k nodes is manageable) and let the UI be lazy. OutlineGroup and `List` already render rows on demand, so you don’t pay the cost of 20k views at once. If you must defer child construction, hand OutlineGroup stable IDs plus a lightweight on-demand children provider rather than recreating whole subtrees.
 - **Expected result**: Stable identity enables smooth animations and persistent selection while avoiding heavy rendering costs.
 
+### 8. Instrumentation & Accessibility (New)
+
+- **Action taken**: Added OSLog signposts around `TemplateTreeModel.flattenedNodes` and `filteredNodes` so Instruments’ Points of Interest can chart expansion/search latency with live node counts.
+- **Action taken**: Shared outline rows in `SharedViews` now publish explicit accessibility labels/values/hints and respond to VoiceOver actions, ensuring the collapsible tree exposes predictable semantics.
+- **Next steps**: Capture measurements (expand-all, deep search) on large inventories and record VoiceOver/keyboard findings here for regression tracking.
+
 ## Validation Plan
 
 1. Run the app on macOS and iPadOS simulators. Expand/collapse multiple depths to ensure rows no longer bounce.

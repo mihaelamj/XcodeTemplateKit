@@ -37,12 +37,14 @@ This plan sequences the factoring and validation work needed to harden the new o
   - Successful `swift test`.
   - CI/pre-commit output showing both lint + tests pass.
 
-## Phase 5 – Performance & Accessibility Pass
+## Phase 5 – Performance & Accessibility Pass _(In Progress)_
 - **Goal**: Ensure the flattened outline performs well on large inventories and remains accessible.
-- **Tasks**:
-  - Profile expansion/search on large template sets (Instruments + signposts).
-  - Run VoiceOver and keyboard navigation to confirm Outline semantics.
-  - Capture findings inside `SwiftUIOutlineAnimationPlan.md` for future reference.
+- **Current Work**:
+  - Added OSLog signposts in `TemplateTreeModel` for flattening/filtering so Instruments can chart expansion latency.
+  - Shared outline rows now expose explicit accessibility labels/values/hints to improve VoiceOver navigation.
+- **Next Tasks**:
+  - Use Instruments (Points of Interest + signposts) on a large inventory to capture frame-time deltas during expand/search.
+  - Validate VoiceOver and keyboard navigation on macOS/iPadOS devices; document findings in `SwiftUIOutlineAnimationPlan.md`.
 - **Validation**:
   - Documented metrics (frame rate, expansion duration) and accessibility checklist results.
   - Bug fixes filed or implemented if issues appear.
