@@ -10,6 +10,7 @@ import PackageDescription
 
 let baseProducts: [Product] = [
     .singleTargetLibrary("SharedModels"),
+    .executable(name: "TemplateScannerAudit", targets: ["TemplateScannerAudit"]),
 ]
 
 let templateProducts: [Product] = [
@@ -79,6 +80,12 @@ let targets: [Target] = {
     let templateTargets = [
         templateParserTarget,
         templateParserTestsTarget,
+        Target.executableTarget(
+            name: "TemplateScannerAudit",
+            dependencies: [
+                "TemplateParser",
+            ]
+        ),
     ]
 
     // ---------- Apple-only UI / Components ----------

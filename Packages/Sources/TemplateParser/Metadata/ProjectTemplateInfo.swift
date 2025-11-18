@@ -71,6 +71,9 @@ public struct FileNode: Codable, Sendable, Hashable {
     /// Relative path from template root (e.g., "Assets.xcassets/AccentColor.colorset/Contents.json")
     public let path: String
 
+    /// Absolute path on disk for the template file or directory
+    public let absolutePath: String
+
     /// Whether this node represents a directory (`true`) or a file (`false`)
     public let isDirectory: Bool
 
@@ -83,6 +86,7 @@ public struct FileNode: Codable, Sendable, Hashable {
     enum CodingKeys: String, CodingKey {
         case name
         case path
+        case absolutePath
         case isDirectory
         case children
     }

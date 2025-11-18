@@ -21,6 +21,7 @@ struct TemplateMetadataDecodingTests {
             {
               "name": "App.swift",
               "path": "App.swift",
+              "absolutePath": "/Applications/Xcode.app/.../App Base.xctemplate/App.swift",
               "isDirectory": false
             }
           ],

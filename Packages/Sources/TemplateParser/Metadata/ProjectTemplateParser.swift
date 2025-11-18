@@ -22,11 +22,9 @@ public struct ProjectTemplateParser: Sendable {
             return templates
         }
 
-        for case let file as String in enumerator {
-            if file.hasSuffix(".xctemplate/TemplateInfo.plist") {
-                let fullPath = "\(directory)/\(file)"
-                templates.append(fullPath)
-            }
+        for case let file as String in enumerator where file.hasSuffix(".xctemplate/TemplateInfo.plist") {
+            let fullPath = "\(directory)/\(file)"
+            templates.append(fullPath)
         }
 
         return templates

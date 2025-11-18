@@ -721,7 +721,7 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     ///
     /// This is auto-generated mapping code. Each template kind needs its own case mapping.
     /// Complexity cannot be reduced without breaking the exhaustive string-to-enum conversion.
-    // swiftlint:disable:next cyclomatic_complexity function_body_length
+    // swiftlint:disable:next function_body_length
     public init(rawValue: String) {
         switch rawValue {
         // Project Templates

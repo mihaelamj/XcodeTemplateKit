@@ -20,7 +20,7 @@ import UIKit
 ///   Splitting would break SwiftUI Form coherence and make the UI harder to maintain.
 ///
 /// These violations are necessary for a complete, Xcode-style inspector interface.
-// swiftlint:disable type_body_length
+// swiftlint:disable:next type_body_length
 struct TreeNodeDetailView: View {
     let node: TreeNode?
     @State private var selectedTab: InspectorTab = .attributes
@@ -58,19 +58,22 @@ struct TreeNodeDetailView: View {
                 // Tab bar
                 HStack(spacing: 0) {
                     ForEach(InspectorTab.allCases, id: \.self) { tab in
-                        Button(action: { selectedTab = tab }) {
-                            VStack(spacing: 4) {
-                                Image(systemName: tab.icon)
-                                    .font(.system(size: 16))
-                                Text(tab.rawValue)
-                                    .font(.system(size: 10))
+                        Button(
+                            action: { selectedTab = tab },
+                            label: {
+                                VStack(spacing: 4) {
+                                    Image(systemName: tab.icon)
+                                        .font(.system(size: 16))
+                                    Text(tab.rawValue)
+                                        .font(.system(size: 10))
+                                }
+                                .frame(maxWidth: .infinity, minHeight: 44) // Minimum 44pt tap target
+                                .padding(.vertical, 12) // Increased padding for better tap area
+                                .background(selectedTab == tab ? Color.accentColor.opacity(0.1) : Color.clear)
+                                .foregroundStyle(selectedTab == tab ? .primary : .secondary)
+                                .contentShape(Rectangle()) // Ensure entire frame is tappable
                             }
-                            .frame(maxWidth: .infinity, minHeight: 44) // Minimum 44pt tap target
-                            .padding(.vertical, 12) // Increased padding for better tap area
-                            .background(selectedTab == tab ? Color.accentColor.opacity(0.1) : Color.clear)
-                            .foregroundStyle(selectedTab == tab ? .primary : .secondary)
-                            .contentShape(Rectangle()) // Ensure entire frame is tappable
-                        }
+                        )
                         .buttonStyle(.plain)
                     }
                 }

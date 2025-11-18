@@ -116,6 +116,7 @@ public enum TemplateTreeBuilder {
 
     // MARK: - Private Helpers
 
+    // swiftlint:disable:next function_body_length
     private static func buildTemplateNode(from metadata: TemplateMetadata) -> TemplateNode {
         var sections: [SectionNode] = []
 

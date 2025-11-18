@@ -4,22 +4,35 @@ import Foundation
 public class TemplateScanner {
     private let xcodeTemplatesPath = "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates"
     private let fileManager = FileManager.default
+    private lazy var templateRoots: [String] = {
+        var roots = [xcodeTemplatesPath]
+        let platforms = [
+            "iPhoneOS",
+            "iPhoneSimulator",
+            "MacOSX",
+            "AppleTVOS",
+            "AppleTVSimulator",
+            "WatchOS",
+            "WatchSimulator",
+            "visionOS",
+            "visionOSSimulator",
+        ]
+        for platform in platforms {
+            let path = "/Applications/Xcode.app/Contents/Developer/Platforms/\(platform).platform/Developer/Library/Xcode/Templates"
+            roots.append(path)
+        }
+        return roots
+    }()
 
     public init() {}
 
     /// Scan all Xcode templates and return complete inventory
     public func scanAllTemplates() -> TemplateInventory {
         var templates: [TemplateMetadata] = []
+        var seenPaths = Set<String>()
 
-        let fileTemplatesPath = "\(xcodeTemplatesPath)/File Templates"
-        let projectTemplatesPath = "\(xcodeTemplatesPath)/Project Templates"
-
-        templates.append(contentsOf: scanDirectory(projectTemplatesPath, type: "Project"))
-        templates.append(contentsOf: scanDirectory(fileTemplatesPath, type: "File"))
-
-        // Check for package templates
-        if let packagePath = findPackageTemplatesPath() {
-            templates.append(contentsOf: scanDirectory(packagePath, type: "Package"))
+        for root in templateRoots where fileManager.fileExists(atPath: root) {
+            templates.append(contentsOf: scanTemplates(atRoot: root, seenPaths: &seenPaths))
         }
 
         // Calculate total combinations
@@ -33,29 +46,18 @@ public class TemplateScanner {
         )
     }
 
-    private func findPackageTemplatesPath() -> String? {
-        let possiblePaths = [
-            "\(xcodeTemplatesPath)/Package Templates",
-            "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/Package Templates",
-        ]
-
-        for path in possiblePaths where fileManager.fileExists(atPath: path) {
-            return path
-        }
-
-        return nil
-    }
-
-    private func scanDirectory(_ path: String, type: String) -> [TemplateMetadata] {
+    private func scanTemplates(atRoot root: String, seenPaths: inout Set<String>) -> [TemplateMetadata] {
         var templates: [TemplateMetadata] = []
 
-        guard let enumerator = fileManager.enumerator(atPath: path) else {
+        guard let enumerator = fileManager.enumerator(atPath: root) else {
             return templates
         }
 
-        for case let file as String in enumerator where file.hasSuffix(".xctemplate") {
-            let fullPath = "\(path)/\(file)"
-            if let metadata = parseTemplate(at: fullPath, type: type) {
+        for case let file as String in enumerator where file.hasSuffix("TemplateInfo.plist") {
+            let templateRelativePath = (file as NSString).deletingLastPathComponent
+            let fullPath = "\(root)/\(templateRelativePath)"
+            if seenPaths.insert(fullPath).inserted,
+               let metadata = parseTemplate(at: fullPath, templateType: determineTemplateType(path: fullPath)) {
                 templates.append(metadata)
             }
         }
@@ -63,7 +65,19 @@ public class TemplateScanner {
         return templates
     }
 
-    private func parseTemplate(at path: String, type: String) -> TemplateMetadata? {
+    private func determineTemplateType(path: String) -> String {
+        if path.contains("/Project Templates/") {
+            return "Project"
+        } else if path.contains("/File Templates/") {
+            return "File"
+        } else if path.contains("/Package Templates/") {
+            return "Package"
+        } else {
+            return "Unknown"
+        }
+    }
+
+    private func parseTemplate(at path: String, templateType: String) -> TemplateMetadata? {
         let plistPath = "\(path)/TemplateInfo.plist"
 
         guard fileManager.fileExists(atPath: plistPath) else {
@@ -126,16 +140,6 @@ public class TemplateScanner {
             rawContent: rawContent,
             rawContentType: contentType
         )
-    }
-
-    private func extractCategory(from path: String) -> String {
-        let components = path.components(separatedBy: "/")
-        if let templatesIndex = components.lastIndex(where: { $0.contains("Templates") }) {
-            let categoryComponents = components[(templatesIndex + 1)...]
-                .filter { !$0.hasSuffix(".xctemplate") }
-            return categoryComponents.joined(separator: " > ")
-        }
-        return "Unknown"
     }
 
     private func extractOptions(from plist: [String: Any]) -> [TemplateOptionJSON] {
@@ -214,6 +218,7 @@ public class TemplateScanner {
             nodes.append(FileNode(
                 name: item,
                 path: relativePath,
+                absolutePath: fullPath,
                 isDirectory: isDir.boolValue,
                 children: children
             ))
