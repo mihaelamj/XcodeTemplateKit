@@ -258,6 +258,18 @@ public struct TemplateInventory: Codable, Sendable {
     public let templates: [TemplateMetadata]
     public let totalTemplates: Int
     public let totalCombinations: Int
+
+    public init(
+        generatedAt: String,
+        templates: [TemplateMetadata],
+        totalTemplates: Int,
+        totalCombinations: Int
+    ) {
+        self.generatedAt = generatedAt
+        self.templates = templates
+        self.totalTemplates = totalTemplates
+        self.totalCombinations = totalCombinations
+    }
 }
 
 /// Metadata for a single template from JSON.

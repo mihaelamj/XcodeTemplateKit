@@ -16,6 +16,7 @@ import TemplateParser
 ///
 /// Uses @Observable macro (iOS 17+) for better performance - views only update when
 /// properties read by body actually change.
+@MainActor
 @Observable
 public final class TemplateTreeModel {
     public var rootNodes: [TreeNode] = []

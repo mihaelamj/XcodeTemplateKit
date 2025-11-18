@@ -73,6 +73,10 @@ struct TemplateBrowserView: View {
         }
     }
 
+    private enum TemplateLoadingError: Error {
+        case failedToScan
+    }
+
     private func loadTemplates() async {
         isLoading = true
         defer { isLoading = false }
@@ -81,10 +85,20 @@ struct TemplateBrowserView: View {
             logger.info("Scanning Xcode templates...")
 
             // Scan templates directly from Xcode installation
-            let scanner = TemplateScanner()
-            let inventory = await Task.detached(priority: .userInitiated) {
-                scanner.scanAllTemplates()
-            }.value
+            let inventory = try await withThrowingTaskGroup(
+                of: TemplateInventory.self,
+                returning: TemplateInventory.self
+            ) { group in
+                group.addTask(priority: .userInitiated) {
+                    TemplateScanner().scanAllTemplates()
+                }
+
+                guard let inventory = try await group.next() else {
+                    throw TemplateLoadingError.failedToScan
+                }
+                group.cancelAll()
+                return inventory
+            }
 
             logger.info("Successfully scanned \(inventory.totalTemplates) templates with \(inventory.totalCombinations) combinations")
 
@@ -93,22 +107,6 @@ struct TemplateBrowserView: View {
                 templateInventory = inventory
                 treeModel = TemplateTreeModel(inventory: inventory)
             }
-        } catch let decodingError as DecodingError {
-            let message: String
-            switch decodingError {
-            case .typeMismatch(let type, let context):
-                message = "Type mismatch for \(type) at \(context.codingPath.map(\.stringValue).joined(separator: ".")): \(context.debugDescription)"
-            case .valueNotFound(let type, let context):
-                message = "Value not found for \(type) at \(context.codingPath.map(\.stringValue).joined(separator: ".")): \(context.debugDescription)"
-            case .keyNotFound(let key, let context):
-                message = "Key '\(key.stringValue)' not found at \(context.codingPath.map(\.stringValue).joined(separator: ".")): \(context.debugDescription)"
-            case .dataCorrupted(let context):
-                message = "Data corrupted at \(context.codingPath.map(\.stringValue).joined(separator: ".")): \(context.debugDescription)"
-            @unknown default:
-                message = "Decoding error: \(decodingError.localizedDescription)"
-            }
-            logger.error("Decoding error: \(message)")
-            errorMessage = "Failed to decode templates: \(message)"
         } catch {
             let message = "Failed to load templates: \(error.localizedDescription)"
             logger.error("\(message)")

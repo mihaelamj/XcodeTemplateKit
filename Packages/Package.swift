@@ -88,12 +88,23 @@ let targets: [Target] = {
         dependencies: []
     )
 
+    let sharedViewsTestsTarget = Target.testTarget(
+        name: "SharedViewsTests",
+        dependencies: [
+            "SharedViews",
+        ]
+    )
+
     let appFeatureTarget = Target.target(
         name: "AppFeature",
         dependencies: [
             "SharedModels",
             "TemplateParser",
             "SharedViews",
+        ],
+        exclude: [
+            "DESIGN_RULES.md",
+            "SWIFTUI_FINDINGS.md",
         ],
         resources: [
             .process("Resources"),
@@ -114,6 +125,7 @@ let targets: [Target] = {
 
     let uiTargets: [Target] = [
         sharedViewsTarget,
+        sharedViewsTestsTarget,
         appFeatureTarget,
         appFeatureTestsTarget,
     ]
