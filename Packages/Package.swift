@@ -93,6 +93,14 @@ let targets: [Target] = {
             .process("Resources"),
         ]
     )
+
+    let appFeatureTestsTarget = Target.testTarget(
+        name: "AppFeatureTests",
+        dependencies: [
+            "AppFeature",
+            "TemplateParser",
+        ]
+    )
     #endif
 
     // Collect UI/component targets
@@ -100,6 +108,7 @@ let targets: [Target] = {
 
     let uiTargets: [Target] = [
         appFeatureTarget,
+        appFeatureTestsTarget,
     ]
     #else
     let componentTargets: [Target] = []

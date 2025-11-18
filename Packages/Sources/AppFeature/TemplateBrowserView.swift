@@ -62,7 +62,7 @@ struct TemplateBrowserView: View {
     private var detailContent: some View {
         if let treeModel,
            let nodeID = selectedNodeID,
-           let selectedNode = findNode(withID: nodeID, in: treeModel.rootNodes) {
+           let selectedNode = treeModel.node(withID: nodeID) {
             TreeNodeDetailView(node: selectedNode)
         } else {
             ContentUnavailableView {
@@ -71,18 +71,6 @@ struct TemplateBrowserView: View {
                 Text("Choose an item from the tree to view details")
             }
         }
-    }
-
-    private func findNode(withID id: String, in nodes: [TreeNode]) -> TreeNode? {
-        for node in nodes {
-            if node.id == id {
-                return node
-            }
-            if let found = findNode(withID: id, in: node.children) {
-                return found
-            }
-        }
-        return nil
     }
 
     private func loadTemplates() async {

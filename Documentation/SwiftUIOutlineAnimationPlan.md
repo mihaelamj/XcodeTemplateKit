@@ -11,14 +11,14 @@ Adopt SwiftUI’s purpose-built outline APIs so that each tree node occupies its
 ### 1. `ExpandableTemplateTreeView` (`Packages/Sources/AppFeature/ExpandableTemplateTreeView.swift`)
 
 - **Current behavior**: Manual recursion builds nested `DisclosureGroup`s inside a single `List` row (`lines 30-196`). SwiftUI first collapses the row back to the label, then re-expands it, which produces the “jump up, then down” glitch.
-- **Proposed change**: Replace the inner `ForEach + TreeNodeView` stack with an `OutlineGroup(treeModel.rootNodes, children: \.children)` inside the `List`. Each node renders through a single `TreeNodeRow` that handles icon, font, and selection. Bind the branch’s `isExpanded` to `treeModel.expandedNodes` so OutlineGroup can animate insertions smoothly (`documentation_swiftui_outlinegroup.md`).
-- **Expected result**: Rows animate by inserting siblings rather than resizing the parent, eliminating the bounce and giving macOS/iPadOS-native outline gestures for free.
+- **Action taken**: Flatten the tree into a `[FlattenedNode]` collection (node + depth) and render it with a single `List` row per node. Each row shows its own indent, chevron, and label while expansion state lives in `TemplateTreeModel.expandedNodes`. This mirrors OutlineGroup semantics (per `documentation_swiftui_outlinegroup.md`) but keeps programmatic expand/collapse support.
+- **Result**: Rows now animate by inserting/removing siblings rather than resizing parent rows, eliminating the bounce while honoring toolbar expand/collapse controls.
 
 ### 2. Search + expansion coupling (`ExpandableTemplateTreeView.swift` lines 30-65)
 
 - **Current behavior**: `filteredNodes` mutates `treeModel.expandedNodes` while SwiftUI is computing the body, violating “no state changes during view update” guidance and cancelling animations.
-- **Proposed change**: Keep `filteredNodes` pure (just return filtered data). Use `onChange(of: searchText)` to `withAnimation` expand matching IDs and store a filtered tree snapshot in a new `@State` cache.
-- **Expected result**: No more runtime warnings, and animations remain intact because all mutations happen inside explicit transactions.
+- **Action taken**: Move filtering logic into `TemplateTreeModel.filteredNodes(matching:)` (pure) and have the view compute `flattenedNodes` with an `autoExpandAll` flag during active search.
+- **Result**: No runtime warnings, and search results display fully expanded without touching the live expansion set.
 
 ### 3. Toolbar actions (`ExpandableTemplateTreeView.swift` lines 105-112)
 
@@ -40,9 +40,14 @@ Adopt SwiftUI’s purpose-built outline APIs so that each tree node occupies its
 
 ### 6. Legacy `TemplateTreeView` (`Packages/Sources/AppFeature/TemplateTreeView.swift`)
 
-- **Current behavior**: Maintains `expandedCategories`/`expandedKinds` plus toolbar actions that never read those sets, which confuses future contributors.
-- **Proposed change**: Either remove the unused state or hook it up to the OutlineGroup-based implementation. Document whichever view remains the canonical sidebar so there aren’t two divergent approaches.
-- **Expected result**: One authoritative outline implementation, reducing maintenance overhead.
+- **Status**: Removed. `ExpandableTemplateTreeView` is the single authoritative outline implementation, eliminating duplicated state and toolbar logic.
+- **Follow-up**: Future sidebar work should continue to evolve `ExpandableTemplateTreeView` and shared components rather than recreating alternate tree views.
+
+### 7. Data strategy for large outlines
+
+- **Current behavior**: Nodes are rebuilt when filtering or expanding to avoid materializing the entire tree, which produces new IDs each time and invalidates SwiftUI’s animation state.
+- **Proposed change**: Keep the full `TemplateTreeModel` tree resident (20k nodes is manageable) and let the UI be lazy. OutlineGroup and `List` already render rows on demand, so you don’t pay the cost of 20k views at once. If you must defer child construction, hand OutlineGroup stable IDs plus a lightweight on-demand children provider rather than recreating whole subtrees.
+- **Expected result**: Stable identity enables smooth animations and persistent selection while avoiding heavy rendering costs.
 
 ## Validation Plan
 

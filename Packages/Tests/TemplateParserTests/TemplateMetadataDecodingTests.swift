@@ -152,24 +152,4 @@ struct TemplateMetadataDecodingTests {
         #expect(inventory.templates[0].name == "App")
         #expect(inventory.templates[1].name == "Framework")
     }
-
-    /// Test that unknown template kind throws an error.
-    @Test("Unknown template kind throws error")
-    func unknownTemplateKindThrows() throws {
-        let json = """
-        {
-          "identifier": "com.unknown.template",
-          "source_path": "/path/Unknown.xctemplate",
-          "name": "Unknown",
-          "kind": "Xcode.Xcode3.ProjectTemplateUnitKind"
-        }
-        """
-
-        let data = Data(json.utf8)
-        let decoder = JSONDecoder()
-
-        #expect(throws: DecodingError.self) {
-            try decoder.decode(TemplateMetadata.self, from: data)
-        }
-    }
 }

@@ -27,41 +27,29 @@ struct ExpandableTemplateTreeView: View {
         _selectedNodeID = selectedNodeID
     }
 
-    var filteredNodes: [TreeNode] {
+    private var isSearching: Bool {
+        !searchText.isEmpty
+    }
+
+    private var filteredRootNodes: [TreeNode] {
         if searchText.isEmpty {
             return treeModel.rootNodes
         }
-
-        let filtered = treeModel.rootNodes.map { filterNode($0) }.compactMap { $0 }
-
-        // Auto-expand all nodes when searching
-        expandAllNodes(filtered)
-
-        return filtered
+        return treeModel.filteredNodes(matching: searchText)
     }
 
-    private func filterNode(_ node: TreeNode) -> TreeNode? {
-        let matchesSearch = node.label.localizedCaseInsensitiveContains(searchText)
-        let filteredChildren = node.children.map { filterNode($0) }.compactMap { $0 }
-
-        if matchesSearch || !filteredChildren.isEmpty {
-            return TreeNode(
-                id: node.id,
-                type: node.type,
-                label: node.label,
-                subtitle: node.subtitle,
-                icon: node.icon,
-                children: filteredChildren
-            )
+    private var flattenedNodes: [TemplateTreeModel.FlattenedNode] {
+        let expandedIDs: Set<String>
+        if isSearching {
+            expandedIDs = treeModel.collectExpandableIDs(from: filteredRootNodes)
+        } else {
+            expandedIDs = treeModel.expandedNodes
         }
-        return nil
-    }
-
-    private func expandAllNodes(_ nodes: [TreeNode]) {
-        for node in nodes where !node.children.isEmpty {
-            treeModel.expandedNodes.insert(node.id)
-            expandAllNodes(node.children)
-        }
+        return treeModel.flattenedNodes(
+            roots: filteredRootNodes,
+            expandedIDs: expandedIDs,
+            autoExpandAll: isSearching
+        )
     }
 
     var body: some View {
@@ -73,10 +61,13 @@ struct ExpandableTemplateTreeView: View {
                 TextField("Search", text: $searchText)
                     .textFieldStyle(.plain)
                 if !searchText.isEmpty {
-                    Button(action: { searchText = "" }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundStyle(.secondary)
-                    }
+                    Button(
+                        action: { searchText = "" },
+                        label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundStyle(.secondary)
+                        }
+                    )
                     .buttonStyle(.plain)
                 }
             }
@@ -86,15 +77,29 @@ struct ExpandableTemplateTreeView: View {
             Divider()
 
             List(selection: $selectedNodeID) {
-                ForEach(filteredNodes) { node in
-                    TreeNodeView(
-                        node: node,
-                        treeModel: treeModel,
-                        fontSize: fontSize
+                ForEach(flattenedNodes) { item in
+                    TreeOutlineRow(
+                        node: item.node,
+                        level: item.level,
+                        fontSize: fontSize,
+                        isExpanded: isSearching ? true : treeModel.isExpanded(item.node.id),
+                        isSearching: isSearching,
+                        onToggle: {
+                            guard !isSearching else { return }
+                            withAnimation(.smooth(duration: 0.25)) {
+                                treeModel.toggleExpansion(for: item.node.id)
+                            }
+                        }
                     )
+                    .tag(item.node.id)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedNodeID = item.node.id
+                    }
                 }
             }
             .listStyle(.sidebar)
+            .environment(\.defaultMinListRowHeight, 28)
             .focused($isFocused)
         }
         .navigationTitle("Templates")
@@ -103,38 +108,61 @@ struct ExpandableTemplateTreeView: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
-                Button(action: { treeModel.expandAll() }) {
-                    Label("Expand All", systemImage: "arrow.down.right.and.arrow.up.left")
-                }
+                Button(
+                    action: {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            treeModel.expandedNodes = treeModel.allExpandableNodeIDs()
+                        }
+                    },
+                    label: {
+                        Label("Expand All", systemImage: "arrow.down.right.and.arrow.up.left")
+                    }
+                )
 
-                Button(action: { treeModel.collapseAll() }) {
-                    Label("Collapse All", systemImage: "arrow.up.left.and.arrow.down.right")
-                }
+                Button(
+                    action: {
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            treeModel.collapseAll()
+                        }
+                    },
+                    label: {
+                        Label("Collapse All", systemImage: "arrow.up.left.and.arrow.down.right")
+                    }
+                )
 
                 #if os(macOS) || os(iOS)
                 Divider()
 
-                Button(action: { increaseFontSize() }) {
-                    Label("Increase Font Size", systemImage: "textformat.size.larger")
-                }
+                Button(
+                    action: { increaseFontSize() },
+                    label: {
+                        Label("Increase Font Size", systemImage: "textformat.size.larger")
+                    }
+                )
                 #if os(macOS)
                 .keyboardShortcut("+", modifiers: .command)
                 #else
                 .keyboardShortcut("+", modifiers: .control)
                 #endif
 
-                Button(action: { decreaseFontSize() }) {
-                    Label("Decrease Font Size", systemImage: "textformat.size.smaller")
-                }
+                Button(
+                    action: { decreaseFontSize() },
+                    label: {
+                        Label("Decrease Font Size", systemImage: "textformat.size.smaller")
+                    }
+                )
                 #if os(macOS)
                 .keyboardShortcut("-", modifiers: .command)
                 #else
                 .keyboardShortcut("-", modifiers: .control)
                 #endif
 
-                Button(action: { resetFontSize() }) {
-                    Label("Reset Font Size", systemImage: "textformat.size")
-                }
+                Button(
+                    action: { resetFontSize() },
+                    label: {
+                        Label("Reset Font Size", systemImage: "textformat.size")
+                    }
+                )
                 #if os(macOS)
                 .keyboardShortcut("0", modifiers: .command)
                 #else
@@ -158,43 +186,43 @@ struct ExpandableTemplateTreeView: View {
     }
 }
 
-// MARK: - Tree Node View
+// MARK: - Outline Row
 
-struct TreeNodeView: View {
+struct TreeOutlineRow: View {
     let node: TreeNode
-    var treeModel: TemplateTreeModel // No property wrapper needed with @Observable
+    let level: Int
     let fontSize: CGFloat
+    let isExpanded: Bool
+    let isSearching: Bool
+    let onToggle: () -> Void
 
     var body: some View {
-        if node.children.isEmpty {
-            // Leaf node
-            LeafNodeRow(node: node, fontSize: fontSize)
-                .tag(node.id)
-        } else {
-            // Expandable node
-            DisclosureGroup(
-                isExpanded: Binding(
-                    get: { treeModel.isExpanded(node.id) },
-                    set: { _ in
-                        withAnimation(.smooth(duration: 0.25)) {
-                            treeModel.toggleExpansion(for: node.id)
-                        }
+        HStack(spacing: 6) {
+            Color.clear
+                .frame(width: CGFloat(level) * 14, height: 1)
+
+            if node.children.isEmpty {
+                Color.clear
+                    .frame(width: 14, height: 1)
+            } else {
+                Button(
+                    action: onToggle,
+                    label: {
+                        Image(systemName: "chevron.right")
+                            .rotationEffect(.degrees(isExpanded ? 90 : 0))
+                            .foregroundStyle(.secondary)
+                            .frame(width: 14, height: 14)
                     }
                 )
-            ) {
-                ForEach(node.children) { child in
-                    TreeNodeView(
-                        node: child,
-                        treeModel: treeModel,
-                        fontSize: fontSize
-                    )
-                }
-            } label: {
-                NodeLabel(node: node, fontSize: fontSize)
+                .buttonStyle(.plain)
+                .disabled(isSearching)
             }
-            .animation(nil, value: treeModel.isExpanded(node.id)) // Prevent jumping
-            .tag(node.id)
+
+            NodeLabel(node: node, fontSize: fontSize)
         }
+        .frame(minHeight: 28) // Ensure adequate tap target height
+        .padding(.vertical, 4) // Additional padding for better touch area
+        .contentShape(Rectangle()) // Make entire row tappable
     }
 }
 
@@ -224,9 +252,9 @@ struct NodeLabel: View {
                 }
             }
         }
-        .frame(minHeight: 28) // Ensure adequate tap target height
-        .padding(.vertical, 4) // Additional padding for better touch area
-        .contentShape(Rectangle()) // Make entire row tappable
+        .frame(minHeight: 28)
+        .padding(.vertical, 4)
+        .contentShape(Rectangle())
     }
 
     private func colorForNode(_ node: TreeNode) -> Color {
@@ -265,42 +293,6 @@ struct NodeLabel: View {
 
         case .value:
             return .secondary
-        }
-    }
-}
-
-// MARK: - Leaf Node Row
-
-struct LeafNodeRow: View {
-    let node: TreeNode
-    let fontSize: CGFloat
-
-    var body: some View {
-        HStack(spacing: 6) {
-            Image(systemName: node.icon)
-                .foregroundStyle(colorForNode(node))
-                .font(.system(size: fontSize - 1))
-                .frame(width: fontSize + 4)
-
-            Text(node.label)
-                .font(.system(size: fontSize))
-                .lineLimit(2)
-        }
-        .frame(minHeight: 28) // Ensure adequate tap target height
-        .padding(.vertical, 4) // Additional padding for better touch area
-        .contentShape(Rectangle()) // Make entire row tappable
-    }
-
-    private func colorForNode(_ node: TreeNode) -> Color {
-        switch node.type {
-        case .property:
-            return .gray
-        case .file(let fileNode):
-            return fileNode.isDirectory ? .blue : .gray
-        case .value:
-            return .secondary
-        default:
-            return .primary
         }
     }
 }

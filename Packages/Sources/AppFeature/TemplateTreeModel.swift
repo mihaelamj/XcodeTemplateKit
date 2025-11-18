@@ -23,27 +23,100 @@ public final class TemplateTreeModel {
 
     private let inventory: TemplateInventory
     private var templateCache: [String: TemplateMetadata] = [:]
+    private var cachedExpandableIDs: Set<String> = []
+    private var fullyExpandedFlattenCache: [FlattenedNode] = []
+    private var filteredNodeCache: [String: [TreeNode]] = [:]
+    private var nodeLookup: [String: TreeNode] = [:]
 
     public init(inventory: TemplateInventory) {
         self.inventory = inventory
-
-        // Build template cache for quick ancestor lookups
-        for template in inventory.templates {
-            templateCache[template.identifier] = template
-        }
-
+        inventory.templates.forEach { templateCache[$0.identifier] = $0 }
         buildTree()
     }
+}
 
-    private func buildTree() {
-        // Group templates by category
+// MARK: - Public API
+
+public extension TemplateTreeModel {
+    struct FlattenedNode: Identifiable {
+        public let node: TreeNode
+        public let level: Int
+
+        public var id: String { node.id }
+    }
+
+    func toggleExpansion(for nodeID: String) {
+        if expandedNodes.contains(nodeID) {
+            expandedNodes.remove(nodeID)
+        } else {
+            expandedNodes.insert(nodeID)
+        }
+    }
+
+    func isExpanded(_ nodeID: String) -> Bool {
+        expandedNodes.contains(nodeID)
+    }
+
+    func expandAll() {
+        expandedNodes = cachedExpandableIDs
+    }
+
+    func collapseAll() {
+        expandedNodes.removeAll()
+    }
+
+    func allExpandableNodeIDs() -> Set<String> {
+        cachedExpandableIDs
+    }
+
+    func collectExpandableIDs(from nodes: [TreeNode]) -> Set<String> {
+        collectIDs(from: nodes)
+    }
+
+    func flattenedNodes(
+        roots: [TreeNode],
+        expandedIDs: Set<String>,
+        autoExpandAll: Bool = false
+    ) -> [FlattenedNode] {
+        if autoExpandAll, usingFullRootSet(roots) {
+            return fullyExpandedFlattenCache
+        }
+
+        return flattenNodes(
+            roots: roots,
+            expandedIDs: expandedIDs,
+            autoExpandAll: autoExpandAll
+        )
+    }
+
+    func filteredNodes(matching searchText: String) -> [TreeNode] {
+        let normalizedText = normalizedSearchKey(for: searchText)
+        guard !normalizedText.isEmpty else { return rootNodes }
+
+        if let cached = filteredNodeCache[normalizedText] {
+            return cached
+        }
+
+        let filtered = rootNodes.compactMap { filterNode($0, searchText: normalizedText) }
+        filteredNodeCache[normalizedText] = filtered
+        return filtered
+    }
+
+    func node(withID id: String) -> TreeNode? {
+        nodeLookup[id]
+    }
+}
+
+// MARK: - Tree Building
+
+private extension TemplateTreeModel {
+    func buildTree() {
         let grouped = Dictionary(grouping: inventory.templates) { $0.kind.category }
 
-        // Create category nodes
         rootNodes = TemplateCategory.allCases.compactMap { category in
             guard let templates = grouped[category] else { return nil }
 
-            let categoryNode = TreeNode(
+            return TreeNode(
                 id: "category-\(category.rawValue)",
                 type: .category(category),
                 label: category.displayName,
@@ -52,31 +125,27 @@ public final class TemplateTreeModel {
                     .sorted { $0.name < $1.name }
                     .map { buildTemplateNode($0) }
             )
-
-            return categoryNode
         }
+
+        refreshCaches()
     }
 
-    private func buildTemplateNode(_ template: TemplateMetadata) -> TreeNode {
+    func buildTemplateNode(_ template: TemplateMetadata) -> TreeNode {
         var children: [TreeNode] = []
 
-        // Properties node
         let propertiesNode = buildPropertiesNode(for: template)
         children.append(propertiesNode)
 
-        // Ancestors node (with full property expansion)
         if let ancestors = template.ancestors, !ancestors.isEmpty {
             let ancestorsNode = buildAncestorsNode(ancestors: ancestors, templateName: template.name)
             children.append(ancestorsNode)
         }
 
-        // Options node
         if !template.options.isEmpty {
             let optionsNode = buildOptionsNode(options: template.options, templateName: template.name)
             children.append(optionsNode)
         }
 
-        // File Structure node
         if let fileStructure = template.fileStructure, !fileStructure.isEmpty {
             let filesNode = buildFileStructureNode(files: fileStructure, templateName: template.name)
             children.append(filesNode)
@@ -92,11 +161,10 @@ public final class TemplateTreeModel {
         )
     }
 
-    private func buildPropertiesNode(for template: TemplateMetadata, idPrefix: String? = nil) -> TreeNode {
+    func buildPropertiesNode(for template: TemplateMetadata, idPrefix: String? = nil) -> TreeNode {
         var propertyChildren: [TreeNode] = []
         let prefix = idPrefix ?? template.path
 
-        // Basic properties
         propertyChildren.append(TreeNode(
             id: "prop-\(prefix)-name",
             type: .property(key: "Name", value: template.name),
@@ -148,13 +216,11 @@ public final class TemplateTreeModel {
         )
     }
 
-    private func buildAncestorsNode(ancestors: [TemplateKind], templateName: String) -> TreeNode {
+    func buildAncestorsNode(ancestors: [TemplateKind], templateName: String) -> TreeNode {
         let ancestorChildren = ancestors.enumerated().map { index, ancestorKind in
-            // Try to find the actual ancestor template to show its full properties
             if let ancestorTemplate = templateCache[ancestorKind.rawValue] {
                 return buildAncestorTemplateNode(ancestorTemplate, index: index, parentName: templateName)
             } else {
-                // Ancestor not in our inventory (external base template)
                 return TreeNode(
                     id: "ancestor-\(templateName)-\(index)-\(ancestorKind.rawValue)",
                     type: .ancestor(kind: ancestorKind),
@@ -174,21 +240,18 @@ public final class TemplateTreeModel {
         )
     }
 
-    private func buildAncestorTemplateNode(_ template: TemplateMetadata, index: Int, parentName: String) -> TreeNode {
+    func buildAncestorTemplateNode(_ template: TemplateMetadata, index: Int, parentName: String) -> TreeNode {
         var children: [TreeNode] = []
 
-        // Add properties of the ancestor with unique ID
         let ancestorTemplateName = "ancestor-\(parentName)-\(index)"
         let ancestorProps = buildPropertiesNode(for: template, idPrefix: ancestorTemplateName)
         children.append(ancestorProps)
 
-        // Recursively add ancestor's ancestors
         if let nestedAncestors = template.ancestors, !nestedAncestors.isEmpty {
             let nestedNode = buildAncestorsNode(ancestors: nestedAncestors, templateName: ancestorTemplateName)
             children.append(nestedNode)
         }
 
-        // Add ancestor's options
         if !template.options.isEmpty {
             let optionsNode = buildOptionsNode(options: template.options, templateName: ancestorTemplateName)
             children.append(optionsNode)
@@ -204,55 +267,14 @@ public final class TemplateTreeModel {
         )
     }
 
-    private func buildOptionsNode(options: [TemplateOptionJSON], templateName: String) -> TreeNode {
+    func buildOptionsNode(options: [TemplateOptionJSON], templateName: String) -> TreeNode {
         let optionChildren = options.enumerated().map { index, option in
-            var optionDetails: [TreeNode] = []
-
-            optionDetails.append(TreeNode(
-                id: "option-\(templateName)-\(index)-type",
-                type: .property(key: "Type", value: option.type),
-                label: "Type: \(option.type)",
-                icon: "doc.text"
-            ))
-
-            optionDetails.append(TreeNode(
-                id: "option-\(templateName)-\(index)-identifier",
-                type: .property(key: "Identifier", value: option.identifier),
-                label: "Identifier: \(option.identifier)",
-                icon: "number"
-            ))
-
-            optionDetails.append(TreeNode(
-                id: "option-\(templateName)-\(index)-default",
-                type: .property(key: "Default Value", value: option.defaultValue),
-                label: "Default: \(option.defaultValue)",
-                icon: "checkmark.circle"
-            ))
-
-            if let choices = option.choices, !choices.isEmpty {
-                let choicesNode = TreeNode(
-                    id: "option-\(templateName)-\(index)-choices",
-                    type: .section(name: "Choices"),
-                    label: "Choices (\(choices.count))",
-                    icon: "list.bullet",
-                    children: choices.enumerated().map { choiceIndex, choice in
-                        TreeNode(
-                            id: "option-\(templateName)-\(index)-choice-\(choiceIndex)",
-                            type: .value(choice),
-                            label: choice,
-                            icon: "circle.fill"
-                        )
-                    }
-                )
-                optionDetails.append(choicesNode)
-            }
-
-            return TreeNode(
+            TreeNode(
                 id: "option-\(templateName)-\(index)",
                 type: .option(option),
                 label: option.name,
                 icon: "slider.horizontal.3",
-                children: optionDetails
+                children: optionDetailNodes(option: option, templateName: templateName, index: index)
             )
         }
 
@@ -265,7 +287,57 @@ public final class TemplateTreeModel {
         )
     }
 
-    private func buildFileStructureNode(files: [FileNode], templateName: String) -> TreeNode {
+    func optionDetailNodes(option: TemplateOptionJSON, templateName: String, index: Int) -> [TreeNode] {
+        var optionDetails: [TreeNode] = [
+            TreeNode(
+                id: "option-\(templateName)-\(index)-type",
+                type: .property(key: "Type", value: option.type),
+                label: "Type: \(option.type)",
+                icon: "doc.text"
+            ),
+            TreeNode(
+                id: "option-\(templateName)-\(index)-identifier",
+                type: .property(key: "Identifier", value: option.identifier),
+                label: "Identifier: \(option.identifier)",
+                icon: "number"
+            ),
+            TreeNode(
+                id: "option-\(templateName)-\(index)-default",
+                type: .property(key: "Default Value", value: option.defaultValue),
+                label: "Default: \(option.defaultValue)",
+                icon: "checkmark.circle"
+            ),
+        ]
+
+        if let choices = option.choices, !choices.isEmpty {
+            optionDetails.append(optionChoicesNode(
+                choices: choices,
+                templateName: templateName,
+                optionIndex: index
+            ))
+        }
+
+        return optionDetails
+    }
+
+    func optionChoicesNode(choices: [String], templateName: String, optionIndex: Int) -> TreeNode {
+        TreeNode(
+            id: "option-\(templateName)-\(optionIndex)-choices",
+            type: .section(name: "Choices"),
+            label: "Choices (\(choices.count))",
+            icon: "list.bullet",
+            children: choices.enumerated().map { choiceIndex, choice in
+                TreeNode(
+                    id: "option-\(templateName)-\(optionIndex)-choice-\(choiceIndex)",
+                    type: .value(choice),
+                    label: choice,
+                    icon: "circle.fill"
+                )
+            }
+        )
+    }
+
+    func buildFileStructureNode(files: [FileNode], templateName: String) -> TreeNode {
         let fileChildren = files.enumerated().map { index, file in
             buildFileNode(file: file, templateName: templateName, index: index)
         }
@@ -279,10 +351,9 @@ public final class TemplateTreeModel {
         )
     }
 
-    private func buildFileNode(file: FileNode, templateName: String, index: Int) -> TreeNode {
+    func buildFileNode(file: FileNode, templateName: String, index: Int) -> TreeNode {
         let children: [TreeNode]
         if let fileChildren = file.children, !fileChildren.isEmpty {
-            // Recursively build children for directories
             children = fileChildren.enumerated().map { childIndex, child in
                 buildFileNode(file: child, templateName: "\(templateName)-\(index)", index: childIndex)
             }
@@ -298,10 +369,98 @@ public final class TemplateTreeModel {
             children: children
         )
     }
+}
 
-    // MARK: - Helper Methods
+// MARK: - Filtering & Utilities
 
-    private func iconForCategory(_ category: TemplateCategory) -> String {
+private extension TemplateTreeModel {
+    func refreshCaches() {
+        cachedExpandableIDs = collectIDs(from: rootNodes)
+        filteredNodeCache.removeAll()
+        nodeLookup = [:]
+        indexNodes(rootNodes)
+        fullyExpandedFlattenCache = flattenNodes(
+            roots: rootNodes,
+            expandedIDs: cachedExpandableIDs,
+            autoExpandAll: true
+        )
+    }
+
+    func collectIDs(from nodes: [TreeNode]) -> Set<String> {
+        var ids = Set<String>()
+        func walk(_ nodes: [TreeNode]) {
+            for node in nodes where !node.children.isEmpty {
+                ids.insert(node.id)
+                walk(node.children)
+            }
+        }
+        walk(nodes)
+        return ids
+    }
+
+    func flattenNodes(
+        roots: [TreeNode],
+        expandedIDs: Set<String>,
+        autoExpandAll: Bool
+    ) -> [FlattenedNode] {
+        var result: [FlattenedNode] = []
+
+        func appendNodes(_ nodes: [TreeNode], level: Int) {
+            for node in nodes {
+                result.append(FlattenedNode(node: node, level: level))
+                let shouldExpand = autoExpandAll || expandedIDs.contains(node.id)
+                if shouldExpand {
+                    appendNodes(node.children, level: level + 1)
+                }
+            }
+        }
+
+        appendNodes(roots, level: 0)
+        return result
+    }
+
+    func filterNode(_ node: TreeNode, searchText: String) -> TreeNode? {
+        let matches = node.label.localizedCaseInsensitiveContains(searchText)
+            || (node.subtitle?.localizedCaseInsensitiveContains(searchText) ?? false)
+        let filteredChildren = node.children.compactMap { filterNode($0, searchText: searchText) }
+
+        if matches || !filteredChildren.isEmpty {
+            return TreeNode(
+                id: node.id,
+                type: node.type,
+                label: node.label,
+                subtitle: node.subtitle,
+                icon: node.icon,
+                children: filteredChildren
+            )
+        }
+
+        return nil
+    }
+
+    func usingFullRootSet(_ nodes: [TreeNode]) -> Bool {
+        guard nodes.count == rootNodes.count else { return false }
+        return zip(nodes, rootNodes).allSatisfy { $0.id == $1.id }
+    }
+
+    func normalizedSearchKey(for text: String) -> String {
+        text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+    }
+
+    func indexNodes(_ nodes: [TreeNode]) {
+        for node in nodes {
+            nodeLookup[node.id] = node
+            if !node.children.isEmpty {
+                indexNodes(node.children)
+            }
+        }
+    }
+}
+
+// MARK: - Icons
+
+private extension TemplateTreeModel {
+    func iconForCategory(_ category: TemplateCategory) -> String {
         switch category {
         case .projectTemplates: return "folder.fill"
         case .fileTemplates: return "doc.fill"
@@ -309,7 +468,7 @@ public final class TemplateTreeModel {
         }
     }
 
-    private func iconForTemplate(_ template: TemplateMetadata) -> String {
+    func iconForTemplate(_ template: TemplateMetadata) -> String {
         if template.kind.isBaseTemplate {
             return "cube"
         }
@@ -320,7 +479,7 @@ public final class TemplateTreeModel {
         }
     }
 
-    private func iconForFile(_ name: String) -> String {
+    func iconForFile(_ name: String) -> String {
         let ext = (name as NSString).pathExtension.lowercased()
         switch ext {
         case "swift": return "swift"
@@ -329,36 +488,6 @@ public final class TemplateTreeModel {
         case "json": return "curlybraces"
         default: return "doc"
         }
-    }
-
-    // MARK: - Expansion/Selection
-
-    public func toggleExpansion(for nodeID: String) {
-        if expandedNodes.contains(nodeID) {
-            expandedNodes.remove(nodeID)
-        } else {
-            expandedNodes.insert(nodeID)
-        }
-    }
-
-    public func isExpanded(_ nodeID: String) -> Bool {
-        expandedNodes.contains(nodeID)
-    }
-
-    public func expandAll() {
-        func collectIDs(from nodes: [TreeNode]) -> Set<String> {
-            var ids = Set<String>()
-            for node in nodes where !node.children.isEmpty {
-                ids.insert(node.id)
-                ids.formUnion(collectIDs(from: node.children))
-            }
-            return ids
-        }
-        expandedNodes = collectIDs(from: rootNodes)
-    }
-
-    public func collapseAll() {
-        expandedNodes.removeAll()
     }
 }
 
