@@ -53,3 +53,7 @@ Build/
 # Generated template artifacts (not part of source code)
 XcodeTemplateCollection/
 XcodeTemplateCollection_NEW/
+
+# Build artifacts and caches
+.clang-module-cache/
+Packages/documents/
