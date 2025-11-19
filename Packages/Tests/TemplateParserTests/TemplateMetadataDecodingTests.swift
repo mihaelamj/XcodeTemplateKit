@@ -33,11 +33,11 @@ struct TemplateMetadataDecodingTests {
           "concrete": false,
           "options": [
             {
-              "name": "Interface",
-              "type": "popup",
-              "identifier": "interfaceChoice",
-              "defaultValue": "SwiftUI",
-              "choices": ["SwiftUI", "UIKit"]
+              "Name": "Interface",
+              "Type": "popup",
+              "Identifier": "interfaceChoice",
+              "Default": "SwiftUI",
+              "Values": ["SwiftUI", "UIKit"]
             }
           ],
           "totalCombinations": 2
