@@ -1,6 +1,5 @@
 import SharedViews
 import SwiftUI
-import TemplateParser
 
 /// Fully expandable tree view for templates with dynamic font sizing.
 ///

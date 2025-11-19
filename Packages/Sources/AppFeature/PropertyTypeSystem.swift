@@ -1,6 +1,5 @@
 import Foundation
 import TemplateModels
-import TemplateParser
 
 /// Type system for property metadata - provides type annotations and possible values
 enum PropertyType {

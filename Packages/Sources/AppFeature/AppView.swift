@@ -1,5 +1,4 @@
 import SwiftUI
-import TemplateParser
 
 /// Main application view with template browser.
 ///

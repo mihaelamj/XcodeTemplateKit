@@ -1,6 +1,5 @@
 import SwiftUI
 import TemplateModels
-import TemplateParser
 #if os(macOS)
 import AppKit
 #else

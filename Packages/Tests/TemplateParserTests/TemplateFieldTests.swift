@@ -116,7 +116,7 @@ struct DescriptionFieldTests {
     @Test("Parse description from template")
     func parseDescription() throws {
         // Load fixture plist
-        let fixturePath = "/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/TemplateParserTests/Fixtures/Description_App.plist"
+        let fixturePath = "/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/Fixtures/Description/Description_App.plist"
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -131,7 +131,7 @@ struct DescriptionFieldTests {
     @Test("Handle missing description")
     func parseMissingDescription() throws {
         // Load fixture plist without Description field
-        let fixturePath = "/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/TemplateParserTests/Fixtures/Description_Missing.plist"
+        let fixturePath = "/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/Fixtures/Description/Description_Missing.plist"
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 

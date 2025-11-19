@@ -1,6 +1,5 @@
 import SwiftUI
 import TemplateModels
-import TemplateParser
 
 /// Displays a single template with expandable details.
 ///
