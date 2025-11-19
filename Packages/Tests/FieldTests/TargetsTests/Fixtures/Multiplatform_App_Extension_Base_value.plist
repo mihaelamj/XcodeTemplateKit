@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>SharedSettings</key>
+			<dict>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks</string>
+				<key>LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]</key>
+				<string>$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

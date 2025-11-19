@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Nodes</key>
+	<array>
+		<string>Assets.xcassets</string>
+		<string>Resources/Base.lproj/Main.html</string>
+		<string>Resources/Icon.png</string>
+		<string>Resources/Style.css</string>
+		<string>Resources/Script.js</string>
+	</array>
+</dict>
+</plist>

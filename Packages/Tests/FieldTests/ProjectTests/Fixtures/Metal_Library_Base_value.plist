@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Project</key>
+	<dict>
+		<key>Configurations</key>
+		<dict>
+			<key>Debug</key>
+			<dict>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>INCLUDE_SOURCE</string>
+			</dict>
+			<key>Release</key>
+			<dict>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+			</dict>
+		</dict>
+		<key>SharedSettings</key>
+		<dict>
+			<key>ALWAYS_SEARCH_USER_PATHS</key>
+			<string>NO</string>
+			<key>MTL_FAST_MATH</key>
+			<string>YES</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

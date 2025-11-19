@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>Frameworks</key>
+			<array/>
+			<key>SharedSettings</key>
+			<dict>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>c++20</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>ENABLE_APP_SANDBOX</key>
+				<string>YES</string>
+				<key>ENABLE_USER_SELECTED_FILES</key>
+				<string>readonly</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>___PACKAGENAME___/Common/___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h</string>
+				<key>SWIFT_OBJC_INTEROP_MODE</key>
+				<string>objcxx</string>
+			</dict>
+			<key>TargetIdentifier</key>
+			<string>com.apple.dt.audioUnitExtension</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>SharedSettings</key>
+			<dict>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>___PACKAGENAME:identifier___/___PACKAGENAME:identifier___.entitlements</string>
+				<key>ENABLE_APP_SANDBOX</key>
+				<string>YES</string>
+				<key>ENABLE_HARDENED_RUNTIME</key>
+				<string>YES</string>
+				<key>ENABLE_OUTGOING_NETWORK_CONNECTIONS</key>
+				<string>YES</string>
+				<key>ENABLE_USER_SELECTED_FILES</key>
+				<string>readonly</string>
+				<key>INFOPLIST_KEY_CFBundleDisplayName</key>
+				<string>___PACKAGENAMEASIDENTIFIER___</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-framework AudioToolbox -framework AVFoundation</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

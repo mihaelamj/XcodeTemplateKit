@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DefaultCompletionName</key>
+	<string>PrivacyInfo</string>
+	<key>Description</key>
+	<string>An app privacy configuration file.</string>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___.xcprivacy</string>
+	<key>AllowedTypes</key>
+	<array>
+		<string>com.apple.xcode.app-privacy-property-list</string>
+	</array>
+	<key>Summary</key>
+	<string>An app privacy configuration file.</string>
+	<key>Platforms</key>
+	<array/>
+	<key>Image</key>
+	<dict>
+		<key>FileTypeIcon</key>
+		<string>plist</string>
+	</dict>
+	<key>SupportsSwiftPackage</key>
+	<true/>
+</dict>
+</plist>

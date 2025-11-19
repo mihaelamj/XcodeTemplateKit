@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Definitions</key>
+	<dict>
+		<key>Info.plist:EXAppExtensionAttributes</key>
+		<string>&lt;key&gt;EXAppExtensionAttributes&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;EXExtensionPointIdentifier&lt;/key&gt;
+        &lt;string&gt;com.example.example-extension&lt;/string&gt;
+    &lt;/dict&gt;
+</string>
+	</dict>
+</dict>
+</plist>

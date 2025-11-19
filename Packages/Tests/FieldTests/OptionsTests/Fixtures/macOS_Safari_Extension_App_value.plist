@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>languageChoice</string>
+			<key>Units</key>
+			<dict>
+				<key>Objective-C</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>AppDelegate.h</key>
+						<dict>
+							<key>Path</key>
+							<string>AppDelegate.h</string>
+							<key>SortOrder</key>
+							<integer>1</integer>
+						</dict>
+						<key>AppDelegate.m</key>
+						<dict>
+							<key>Path</key>
+							<string>AppDelegate.m</string>
+							<key>SortOrder</key>
+							<integer>2</integer>
+						</dict>
+						<key>main.m:main:NSApplicationMain</key>
+						<string>@autoreleasepool {
+    // Setup code that might create autoreleased objects goes here.
+}
+return NSApplicationMain(argc, argv);</string>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>AppDelegate.h</string>
+						<string>AppDelegate.m</string>
+						<string>main.m:comments</string>
+						<string>main.m:imports:importCocoa</string>
+						<string>main.m:main:NSApplicationMain</string>
+					</array>
+				</dict>
+				<key>Swift</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>AppDelegate.swift</key>
+						<dict>
+							<key>Path</key>
+							<string>AppDelegate.swift</string>
+							<key>SortOrder</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>AppDelegate.swift</string>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>extensionTargetType</string>
+			<key>Units</key>
+			<dict>
+				<key>Base</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>Info.plist:SFSafariWebExtensionConverterVersion</key>
+						<string>&lt;key&gt;SFSafariWebExtensionConverterVersion&lt;/key&gt;
+                        &lt;string&gt;___TOOLSVERSION:XML___&lt;/string&gt;
+                        </string>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>Info.plist:SFSafariWebExtensionConverterVersion</string>
+					</array>
+					<key>Targets</key>
+					<array>
+						<dict>
+							<key>SharedSettings</key>
+							<dict>
+								<key>INFOPLIST_FILE</key>
+								<string>___PACKAGENAME___/Info.plist</string>
+							</dict>
+							<key>TargetIdentifier</key>
+							<string>com.apple.dt.osxApplicationTarget</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

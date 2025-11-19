@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>languageChoice</string>
+			<key>Units</key>
+			<dict>
+				<key>Objective-C</key>
+				<dict>
+					<key>Nodes</key>
+					<array>
+						<string>Base.lproj/Main.storyboard</string>
+						<string>AppDelegate.h:comments</string>
+						<string>AppDelegate.h:imports:importCocoa</string>
+						<string>AppDelegate.h:interface(AppDelegate : NSObject &lt;NSApplicationDelegate&gt;)</string>
+						<string>AppDelegate.m:comments</string>
+						<string>AppDelegate.m:imports:importHeader:AppDelegate.h</string>
+						<string>AppDelegate.m:extension</string>
+						<string>AppDelegate.m:implementation:methods:applicationDidFinishLaunching(- (void\)applicationDidFinishLaunching:(NSNotification *\)aNotification)</string>
+						<string>AppDelegate.m:implementation:methods:applicationDidFinishLaunching:comments</string>
+						<string>AppDelegate.m:implementation:methods:applicationWillTerminate(- (void\)applicationWillTerminate:(NSNotification *\)aNotification)</string>
+						<string>AppDelegate.m:implementation:methods:applicationWillTerminate:comments</string>
+						<string>main.m:comments</string>
+						<string>main.m:imports:importCocoa</string>
+						<string>main.m:main:NSApplicationMain</string>
+					</array>
+					<key>RequiredOptions</key>
+					<dict>
+						<key>appLifecycle</key>
+						<string>Cocoa</string>
+					</dict>
+					<key>Targets</key>
+					<array>
+						<dict>
+							<key>SharedSettings</key>
+							<dict>
+								<key>INFOPLIST_KEY_NSMainStoryboardFile</key>
+								<string>Main</string>
+								<key>INFOPLIST_KEY_NSPrincipalClass</key>
+								<string>NSApplication</string>
+							</dict>
+							<key>TargetIdentifier</key>
+							<string>com.apple.dt.osxApplicationTarget</string>
+						</dict>
+					</array>
+				</dict>
+				<key>Swift</key>
+				<dict>
+					<key>Definitions</key>
+					<dict>
+						<key>AppDelegate.swift:NSApplicationMain</key>
+						<string>@main</string>
+					</dict>
+					<key>Nodes</key>
+					<array>
+						<string>Base.lproj/Main.storyboard</string>
+						<string>AppDelegate.swift:comments</string>
+						<string>AppDelegate.swift:imports:importCocoa</string>
+						<string>AppDelegate.swift:NSApplicationMain</string>
+						<string>AppDelegate.swift:implementation(AppDelegate: NSObject, NSApplicationDelegate)</string>
+						<string>AppDelegate.swift:implementation:properties</string>
+						<string>AppDelegate.swift:implementation:methods:applicationDidFinishLaunching(func applicationDidFinishLaunching(_ aNotification: Notification\))</string>
+						<string>AppDelegate.swift:implementation:methods:applicationDidFinishLaunching:comments</string>
+						<string>AppDelegate.swift:implementation:methods:applicationWillTerminate(func applicationWillTerminate(_ aNotification: Notification\))</string>
+						<string>AppDelegate.swift:implementation:methods:applicationWillTerminate:comments</string>
+					</array>
+					<key>RequiredOptions</key>
+					<dict>
+						<key>appLifecycle</key>
+						<string>Cocoa</string>
+					</dict>
+					<key>Targets</key>
+					<array>
+						<dict>
+							<key>SharedSettings</key>
+							<dict>
+								<key>INFOPLIST_KEY_NSMainStoryboardFile</key>
+								<string>Main</string>
+								<key>INFOPLIST_KEY_NSPrincipalClass</key>
+								<string>NSApplication</string>
+							</dict>
+							<key>TargetIdentifier</key>
+							<string>com.apple.dt.osxApplicationTarget</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

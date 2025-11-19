@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Kind</key>
+    <string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+    <key>Identifier</key>
+    <string>com.apple.dt.unit.multiPlatform.generic-extension</string>
+    <key>Ancestors</key>
+    <array>
+        <string>com.apple.dt.unit.multiPlatform.extensionkit-extension</string>
+    </array>
+    <key>Concrete</key>
+    <true/>
+    <key>Platforms</key>
+    <array />
+    <key>Description</key>
+    <string>This template builds a generic ExtensionKit App Extension.</string>
+    <key>Options</key>
+    <array>
+        <dict>
+            <key>Identifier</key>
+            <string>languageChoice</string>
+            <key>Override</key>
+            <string>Swift</string>
+        </dict>
+        <dict>
+            <key>Identifier</key>
+            <string>isUIExtension</string>
+            <key>Name</key>
+            <string>Supports User Interface</string>
+            <key>NotPersisted</key>
+            <false/>
+            <key>SortOrder</key>
+            <integer>101</integer>
+            <key>Type</key>
+            <string>checkbox</string>
+            <key>Default</key>
+            <string>false</string>
+            <key>Units</key>
+            <dict>
+                <key>false</key>
+                <dict>
+                    <key>Nodes</key>
+                    <array>
+                        <string>___PACKAGENAME:identifier___.swift</string>
+                    </array>
+                    <key>Definitions</key>
+                    <dict>
+                        <key>___PACKAGENAME:identifier___.swift</key>
+                        <dict>
+                            <key>Path</key>
+                            <string>AppExtension-NonUI.swift</string>
+                        </dict>
+                    </dict>
+                </dict>
+                <key>true</key>
+                <dict>
+                    <key>Nodes</key>
+                    <array>
+                        <string>___PACKAGENAME:identifier___.swift</string>
+                    </array>
+                    <key>Definitions</key>
+                    <dict>
+                        <key>___PACKAGENAME:identifier___.swift</key>
+                        <dict>
+                            <key>Path</key>
+                            <string>AppExtension-UI.swift</string>
+                        </dict>
+                    </dict>
+                </dict>
+            </dict>
+        </dict>
+    </array>
+    <key>Nodes</key>
+    <array>
+        <string>Info.plist:EXAppExtensionAttributes</string>
+    </array>
+    <key>Definitions</key>
+    <dict>
+        <key>Info.plist:EXAppExtensionAttributes</key>
+        <string><![CDATA[<key>EXAppExtensionAttributes</key>
+    <dict>
+        <key>EXExtensionPointIdentifier</key>
+        <string>com.example.example-extension</string>
+    </dict>
+]]></string>
+    </dict>
+    <key>Image</key>
+    <dict>
+        <key>SystemSymbolName</key>
+        <string>puzzlepiece.extension</string>
+    </dict>
+</dict>
+</plist>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Definitions</key>
+	<dict>
+		<key>Assets.xcassets</key>
+		<dict>
+			<key>AssetGeneration</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>AppIcon</string>
+					<key>Platforms</key>
+					<dict>
+						<key>visionOS</key>
+						<string>true</string>
+					</dict>
+					<key>Type</key>
+					<string>solidimagestack</string>
+				</dict>
+			</array>
+			<key>OmitFromProjectStructure</key>
+			<true/>
+			<key>Path</key>
+			<string>Assets.xcassets</string>
+		</dict>
+		<key>ShaderTypes.h</key>
+		<dict>
+			<key>OmitFromProjectStructure</key>
+			<true/>
+			<key>Path</key>
+			<string>ShaderTypes.h</string>
+		</dict>
+		<key>Shaders.metal</key>
+		<dict>
+			<key>OmitFromProjectStructure</key>
+			<true/>
+			<key>Path</key>
+			<string>Shaders.metal</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

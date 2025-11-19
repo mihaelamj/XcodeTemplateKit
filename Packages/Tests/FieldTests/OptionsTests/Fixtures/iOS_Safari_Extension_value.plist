@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>extensionBundleIdentifier</string>
+			<key>Units</key>
+			<dict>
+				<key>ForAppTemplate</key>
+				<dict>
+					<key>Targets</key>
+					<array>
+						<dict>
+							<key>SharedSettings</key>
+							<dict>
+								<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+								<string>___VARIABLE_bundleIdentifier:bundleIdentifier___.Extension</string>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

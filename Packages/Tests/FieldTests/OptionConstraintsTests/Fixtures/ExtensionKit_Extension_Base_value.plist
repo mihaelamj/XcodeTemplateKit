@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OptionConstraints</key>
+	<array>
+		<dict>
+			<key>ConstraintType</key>
+			<string>RequirementIfAssociatedTarget</string>
+			<key>Identifier</key>
+			<string>bundleIdentifierPrefix</string>
+			<key>Value</key>
+			<string>___ASSOCIATEDTARGET_bundleIdentifier___</string>
+		</dict>
+	</array>
+</dict>
+</plist>

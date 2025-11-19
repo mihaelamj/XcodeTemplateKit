@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Definitions</key>
+	<dict>
+		<key>main.m</key>
+		<dict>
+			<key>SortOrder</key>
+			<integer>999</integer>
+		</dict>
+		<key>main.m:main</key>
+		<dict>
+			<key>Beginning</key>
+			<string>int main(int argc, const char * argv[]) {</string>
+			<key>End</key>
+			<string>}</string>
+			<key>Indent</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

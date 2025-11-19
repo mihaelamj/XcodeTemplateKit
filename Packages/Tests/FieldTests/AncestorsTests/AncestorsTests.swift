@@ -10,21 +10,44 @@ import Testing
 struct AncestorsTests {
     @Test("Parse single ancestor")
     func parseSingleAncestor() throws {
-        // TODO: Load from Fixtures/Ancestors_App.plist
-        // Verify TemplateScanner extracts Ancestors array correctly
-        #expect(Bool(true), "Not yet implemented")
+        // Load App template which has single ancestor
+        let fixturePath = #filePath.replacingOccurrences(of: "AncestorsTests.swift", with: "Fixtures/App_value.plist")
+        let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
+
+        // Extract Ancestors field
+        let ancestors = plist["Ancestors"] as? [String]
+
+        // Verify Ancestors is extracted correctly
+        #expect(ancestors != nil, "Ancestors should be present in App template")
+        #expect(ancestors?.count == 1, "App should have 1 ancestor")
+        #expect(ancestors?.first == "com.apple.dt.unit.multiPlatform.app.SwiftUI", "Ancestor should match")
     }
 
     @Test("Parse multiple ancestors")
     func parseMultipleAncestors() throws {
-        // TODO: Load fixture with multiple ancestors
-        // Verify all ancestors are extracted
-        #expect(Bool(true), "Not yet implemented")
+        // Load App Extension Base template which has multiple ancestors
+        let fixturePath = #filePath.replacingOccurrences(of: "AncestorsTests.swift", with: "Fixtures/App_Extension_Base_value.plist")
+        let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
+
+        // Extract Ancestors field
+        let ancestors = plist["Ancestors"] as? [String]
+
+        // Verify Ancestors is extracted correctly
+        #expect(ancestors != nil, "Ancestors should be present")
+        #expect(ancestors?.count == 2, "App Extension Base should have 2 ancestors")
+        #expect(ancestors?.contains("com.apple.dt.unit.xpcservicebase") == true, "Should have xpcservicebase ancestor")
+        #expect(ancestors?.contains("com.apple.dt.unit.languageChoice") == true, "Should have languageChoice ancestor")
     }
 
     @Test("Handle missing ancestors")
     func parseMissingAncestors() throws {
-        // TODO: Verify templates without Ancestors return nil
-        #expect(Bool(true), "Not yet implemented")
+        // Create a plist without Ancestors field
+        let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
+        let ancestors = testPlist["Ancestors"] as? [String]
+
+        // Verify Ancestors is nil when not present
+        #expect(ancestors == nil, "Ancestors should be nil when not present in template")
     }
 }
