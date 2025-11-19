@@ -160,20 +160,32 @@ public class TemplateScanner {
                 continue
             }
 
-            let type = optionDict["Type"] as? String ?? "text"
-            let defaultValue = optionDict["Default"] as? String ?? ""
+            let type = optionDict["Type"] as? String
+            let defaultValue = optionDict["Default"] as? String
+            let description = optionDict["Description"] as? String
+            let override = optionDict["Override"] as? String
+            let notPersisted = optionDict["NotPersisted"] as? Bool
+            let required = optionDict["Required"] as? Bool
+            let emptyReplacement = optionDict["EmptyReplacement"] as? String
+            let sortOrder = optionDict["SortOrder"] as? Int
+            let values = optionDict["Values"] as? [String]
+            let valueTitles = optionDict["ValueTitles"] as? [String]
 
-            var choices: [String]?
-            if let units = optionDict["Units"] as? [[String: Any]] {
-                choices = units.compactMap { $0["Identifier"] as? String }
-            }
+            // TODO: Parse RequiredOptionsForValues and Units properly
 
             options.append(TemplateOptionJSON(
-                name: name,
-                type: type,
                 identifier: identifier,
-                defaultValue: defaultValue,
-                choices: choices
+                name: name,
+                type: type ?? "text",
+                defaultValue: defaultValue ?? "",
+                description: description,
+                override: override,
+                notPersisted: notPersisted,
+                required: required,
+                emptyReplacement: emptyReplacement,
+                sortOrder: sortOrder,
+                values: values,
+                valueTitles: valueTitles
             ))
         }
 
