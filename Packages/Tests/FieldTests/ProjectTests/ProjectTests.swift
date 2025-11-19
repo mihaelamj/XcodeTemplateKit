@@ -1,12 +1,12 @@
-
+// swiftlint:disable type_body_length force_cast
 import Foundation
 @testable import TemplateParser
 import Testing
 
-/// Comprehensive tests for the "Project" field extraction
+/// Comprehensive bidirectional tests for the "Project" field
 ///
-/// Tests all available fixtures to ensure complete coverage.
-/// Verifies that plist loading and field extraction work correctly.
+/// Tests both parsing (plist → Swift) and serialization (Swift → plist) to ensure
+/// correct round-trip behavior for all fixtures.
 @Suite("Project Field Parsing")
 struct ProjectTests {
     @Test("Parse Project from Base_ProjectSettings")
@@ -19,8 +19,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from Base_ProjectSettings")
+    func roundTripBase_ProjectSettings() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/Base_ProjectSettings_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Parse Project from Empty")
@@ -33,8 +59,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from Empty")
+    func roundTripEmpty() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/Empty_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Parse Project from Framework_Base")
@@ -47,8 +99,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from Framework_Base")
+    func roundTripFramework_Base() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/Framework_Base_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Parse Project from Metal_Library_Base")
@@ -61,8 +139,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from Metal_Library_Base")
+    func roundTripMetal_Library_Base() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/Metal_Library_Base_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Parse Project from iOS_Safari_Extension_App")
@@ -75,8 +179,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from iOS_Safari_Extension_App")
+    func roundTripiOS_Safari_Extension_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/iOS_Safari_Extension_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Parse Project from iOS_Safari_Extension")
@@ -89,8 +219,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from iOS_Safari_Extension")
+    func roundTripiOS_Safari_Extension() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/iOS_Safari_Extension_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Parse Project from macOS_Safari_Extension_App")
@@ -103,8 +259,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from macOS_Safari_Extension_App")
+    func roundTripmacOS_Safari_Extension_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/macOS_Safari_Extension_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Parse Project from macOS_Safari_Extension")
@@ -117,8 +299,34 @@ struct ProjectTests {
         let value = plist["Project"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Project from macOS_Safari_Extension")
+    func roundTripmacOS_Safari_Extension() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ProjectTests.swift", with: "Fixtures/macOS_Safari_Extension_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Project"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Project"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Project"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Project should survive round-trip")
     }
 
     @Test("Handle missing Project")

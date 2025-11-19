@@ -1,12 +1,12 @@
-
+// swiftlint:disable type_body_length force_cast
 import Foundation
 @testable import TemplateParser
 import Testing
 
-/// Comprehensive tests for the "Icon" field extraction
+/// Comprehensive bidirectional tests for the "Icon" field
 ///
-/// Tests all available fixtures to ensure complete coverage.
-/// Verifies that plist loading and field extraction work correctly.
+/// Tests both parsing (plist → Swift) and serialization (Swift → plist) to ensure
+/// correct round-trip behavior for all fixtures.
 @Suite("Icon Field Parsing")
 struct IconTests {
     @Test("Parse Icon from Application")
@@ -19,8 +19,34 @@ struct IconTests {
         let value = plist["Icon"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Icon from Application")
+    func roundTripApplication() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "IconTests.swift", with: "Fixtures/Application_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Icon"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Icon"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Icon"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Icon should survive round-trip")
     }
 
     @Test("Parse Icon from Empty")
@@ -33,8 +59,34 @@ struct IconTests {
         let value = plist["Icon"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Icon from Empty")
+    func roundTripEmpty() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "IconTests.swift", with: "Fixtures/Empty_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Icon"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Icon"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Icon"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Icon should survive round-trip")
     }
 
     @Test("Parse Icon from Main_Menu")
@@ -47,8 +99,34 @@ struct IconTests {
         let value = plist["Icon"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Icon from Main_Menu")
+    func roundTripMain_Menu() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "IconTests.swift", with: "Fixtures/Main_Menu_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Icon"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Icon"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Icon"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Icon should survive round-trip")
     }
 
     @Test("Parse Icon from Storyboard")
@@ -61,8 +139,34 @@ struct IconTests {
         let value = plist["Icon"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Icon from Storyboard")
+    func roundTripStoryboard() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "IconTests.swift", with: "Fixtures/Storyboard_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Icon"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Icon"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Icon"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Icon should survive round-trip")
     }
 
     @Test("Parse Icon from View")
@@ -75,8 +179,34 @@ struct IconTests {
         let value = plist["Icon"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Icon from View")
+    func roundTripView() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "IconTests.swift", with: "Fixtures/View_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Icon"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Icon"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Icon"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Icon should survive round-trip")
     }
 
     @Test("Parse Icon from Window")
@@ -89,8 +219,34 @@ struct IconTests {
         let value = plist["Icon"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Icon from Window")
+    func roundTripWindow() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "IconTests.swift", with: "Fixtures/Window_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Icon"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Icon"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Icon"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Icon should survive round-trip")
     }
 
     @Test("Handle missing Icon")

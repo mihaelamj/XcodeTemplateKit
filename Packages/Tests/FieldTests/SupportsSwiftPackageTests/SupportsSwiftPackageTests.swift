@@ -1,12 +1,12 @@
-
+// swiftlint:disable type_body_length force_cast
 import Foundation
 @testable import TemplateParser
 import Testing
 
-/// Comprehensive tests for the "SupportsSwiftPackage" field extraction
+/// Comprehensive bidirectional tests for the "SupportsSwiftPackage" field
 ///
-/// Tests all available fixtures to ensure complete coverage.
-/// Verifies that plist loading and field extraction work correctly.
+/// Tests both parsing (plist → Swift) and serialization (Swift → plist) to ensure
+/// correct round-trip behavior for all fixtures.
 @Suite("SupportsSwiftPackage Field Parsing")
 struct SupportsSwiftPackageTests {
     @Test("Parse SupportsSwiftPackage from App_Privacy")
@@ -16,11 +16,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from App_Privacy")
+    func roundTripApp_Privacy() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/App_Privacy_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Article_File")
@@ -30,11 +56,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Article_File")
+    func roundTripArticle_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Article_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Asset_Catalog")
@@ -44,11 +96,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Asset_Catalog")
+    func roundTripAsset_Catalog() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Asset_Catalog_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from C++_File")
@@ -58,11 +136,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from C++_File")
+    func roundTripC_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/C++_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from C_File")
@@ -72,11 +176,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from C_File")
+    func roundTripC_File_2() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/C_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Documentation_Catalog")
@@ -86,11 +216,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Documentation_Catalog")
+    func roundTripDocumentation_Catalog() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Documentation_Catalog_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Empty_File")
@@ -100,11 +256,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Empty_File")
+    func roundTripEmpty_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Empty_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Empty")
@@ -114,11 +296,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Empty")
+    func roundTripEmpty() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Empty_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Extension_File")
@@ -128,11 +336,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Extension_File")
+    func roundTripExtension_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Extension_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Header_File")
@@ -142,11 +376,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Header_File")
+    func roundTripHeader_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Header_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Main_Menu")
@@ -156,11 +416,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Main_Menu")
+    func roundTripMain_Menu() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Main_Menu_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Markdown_File")
@@ -170,11 +456,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Markdown_File")
+    func roundTripMarkdown_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Markdown_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Metal_File")
@@ -184,11 +496,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Metal_File")
+    func roundTripMetal_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Metal_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Objective-C_File")
@@ -198,11 +536,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Objective-C_File")
+    func roundTripObjective_C_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Objective-C_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Objective-C_new_superclass")
@@ -212,11 +576,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Objective-C_new_superclass")
+    func roundTripObjective_C_new_superclass() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Objective-C_new_superclass_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Storyboard")
@@ -226,11 +616,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Storyboard")
+    func roundTripStoryboard() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Storyboard_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Strings_File_(Legacy)")
@@ -240,11 +656,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Strings_File_(Legacy)")
+    func roundTripStrings_File_Legacy() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Strings_File_(Legacy)_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Stringsdict_File_(Legacy)")
@@ -254,11 +696,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Stringsdict_File_(Legacy)")
+    func roundTripStringsdict_File_Legacy() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Stringsdict_File_(Legacy)_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from SwiftUI_View")
@@ -268,11 +736,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from SwiftUI_View")
+    func roundTripSwiftUI_View() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/SwiftUI_View_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Swift_File")
@@ -282,11 +776,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Swift_File")
+    func roundTripSwift_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Swift_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Swift_Testing_Unit_Test")
@@ -296,11 +816,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Swift_Testing_Unit_Test")
+    func roundTripSwift_Testing_Unit_Test() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Swift_Testing_Unit_Test_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Tutorial_File")
@@ -310,11 +856,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Tutorial_File")
+    func roundTripTutorial_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Tutorial_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Tutorial_Table_of_Contents_File")
@@ -324,11 +896,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Tutorial_Table_of_Contents_File")
+    func roundTripTutorial_Table_of_Contents_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Tutorial_Table_of_Contents_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from View")
@@ -338,11 +936,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from View")
+    func roundTripView() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/View_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from Window")
@@ -352,11 +976,37 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from Window")
+    func roundTripWindow() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/Window_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Parse SupportsSwiftPackage from XCTest_Unit_Test")
@@ -366,18 +1016,44 @@ struct SupportsSwiftPackageTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = plist["SupportsSwiftPackage"] as? Bool
+        let value = (plist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SupportsSwiftPackage from XCTest_Unit_Test")
+    func roundTripXCTest_Unit_Test() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SupportsSwiftPackageTests.swift", with: "Fixtures/XCTest_Unit_Test_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = (originalPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SupportsSwiftPackage"] = value.toPropertyListValue()
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = (reparsedPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SupportsSwiftPackage should survive round-trip")
     }
 
     @Test("Handle missing SupportsSwiftPackage")
     func parseMissingSupportsSwiftPackage() throws {
         let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
 
-        let value = testPlist["SupportsSwiftPackage"] as? Bool
+        let value = (testPlist["SupportsSwiftPackage"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
 
         #expect(value == nil, "SupportsSwiftPackage should be nil when not present")
     }

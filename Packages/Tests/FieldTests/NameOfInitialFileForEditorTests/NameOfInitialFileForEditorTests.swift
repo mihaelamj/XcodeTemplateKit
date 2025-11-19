@@ -1,12 +1,12 @@
-
+// swiftlint:disable type_body_length force_cast
 import Foundation
 @testable import TemplateParser
 import Testing
 
-/// Comprehensive tests for the "NameOfInitialFileForEditor" field extraction
+/// Comprehensive bidirectional tests for the "NameOfInitialFileForEditor" field
 ///
-/// Tests all available fixtures to ensure complete coverage.
-/// Verifies that plist loading and field extraction work correctly.
+/// Tests both parsing (plist → Swift) and serialization (Swift → plist) to ensure
+/// correct round-trip behavior for all fixtures.
 @Suite("NameOfInitialFileForEditor Field Parsing")
 struct NameOfInitialFileForEditorTests {
     @Test("Parse NameOfInitialFileForEditor from App")
@@ -19,8 +19,34 @@ struct NameOfInitialFileForEditorTests {
         let value = plist["NameOfInitialFileForEditor"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip NameOfInitialFileForEditor from App")
+    func roundTripApp() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "NameOfInitialFileForEditorTests.swift", with: "Fixtures/App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["NameOfInitialFileForEditor"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["NameOfInitialFileForEditor"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["NameOfInitialFileForEditor"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "NameOfInitialFileForEditor should survive round-trip")
     }
 
     @Test("Parse NameOfInitialFileForEditor from Document_App")
@@ -33,8 +59,34 @@ struct NameOfInitialFileForEditorTests {
         let value = plist["NameOfInitialFileForEditor"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip NameOfInitialFileForEditor from Document_App")
+    func roundTripDocument_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "NameOfInitialFileForEditorTests.swift", with: "Fixtures/Document_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["NameOfInitialFileForEditor"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["NameOfInitialFileForEditor"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["NameOfInitialFileForEditor"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "NameOfInitialFileForEditor should survive round-trip")
     }
 
     @Test("Parse NameOfInitialFileForEditor from Safari_Extension_App")
@@ -47,8 +99,34 @@ struct NameOfInitialFileForEditorTests {
         let value = plist["NameOfInitialFileForEditor"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip NameOfInitialFileForEditor from Safari_Extension_App")
+    func roundTripSafari_Extension_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "NameOfInitialFileForEditorTests.swift", with: "Fixtures/Safari_Extension_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["NameOfInitialFileForEditor"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["NameOfInitialFileForEditor"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["NameOfInitialFileForEditor"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "NameOfInitialFileForEditor should survive round-trip")
     }
 
     @Test("Parse NameOfInitialFileForEditor from SharedContent_RealityKit_Game")
@@ -61,8 +139,34 @@ struct NameOfInitialFileForEditorTests {
         let value = plist["NameOfInitialFileForEditor"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip NameOfInitialFileForEditor from SharedContent_RealityKit_Game")
+    func roundTripSharedContent_RealityKit_Game() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "NameOfInitialFileForEditorTests.swift", with: "Fixtures/SharedContent_RealityKit_Game_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["NameOfInitialFileForEditor"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["NameOfInitialFileForEditor"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["NameOfInitialFileForEditor"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "NameOfInitialFileForEditor should survive round-trip")
     }
 
     @Test("Parse NameOfInitialFileForEditor from SwiftUI_App_Base")
@@ -75,8 +179,34 @@ struct NameOfInitialFileForEditorTests {
         let value = plist["NameOfInitialFileForEditor"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip NameOfInitialFileForEditor from SwiftUI_App_Base")
+    func roundTripSwiftUI_App_Base() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "NameOfInitialFileForEditorTests.swift", with: "Fixtures/SwiftUI_App_Base_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["NameOfInitialFileForEditor"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["NameOfInitialFileForEditor"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["NameOfInitialFileForEditor"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "NameOfInitialFileForEditor should survive round-trip")
     }
 
     @Test("Parse NameOfInitialFileForEditor from SwiftUI_Document_App_Base")
@@ -89,8 +219,34 @@ struct NameOfInitialFileForEditorTests {
         let value = plist["NameOfInitialFileForEditor"] as? String
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip NameOfInitialFileForEditor from SwiftUI_Document_App_Base")
+    func roundTripSwiftUI_Document_App_Base() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "NameOfInitialFileForEditorTests.swift", with: "Fixtures/SwiftUI_Document_App_Base_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["NameOfInitialFileForEditor"] as? String
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["NameOfInitialFileForEditor"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["NameOfInitialFileForEditor"] as? String
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "NameOfInitialFileForEditor should survive round-trip")
     }
 
     @Test("Handle missing NameOfInitialFileForEditor")

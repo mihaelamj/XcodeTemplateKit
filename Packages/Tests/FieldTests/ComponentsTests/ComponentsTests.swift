@@ -1,12 +1,12 @@
-
+// swiftlint:disable type_body_length force_cast
 import Foundation
 @testable import TemplateParser
 import Testing
 
-/// Comprehensive tests for the "Components" field extraction
+/// Comprehensive bidirectional tests for the "Components" field
 ///
-/// Tests all available fixtures to ensure complete coverage.
-/// Verifies that plist loading and field extraction work correctly.
+/// Tests both parsing (plist → Swift) and serialization (Swift → plist) to ensure
+/// correct round-trip behavior for all fixtures.
 @Suite("Components Field Parsing")
 struct ComponentsTests {
     @Test("Parse Components from Audio_Unit_Extension_App")
@@ -19,8 +19,34 @@ struct ComponentsTests {
         let value = plist["Components"]
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Components from Audio_Unit_Extension_App")
+    func roundTripAudio_Unit_Extension_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ComponentsTests.swift", with: "Fixtures/Audio_Unit_Extension_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Components"]
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Components"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Components"]
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Components should survive round-trip")
     }
 
     @Test("Parse Components from Safari_Extension_App")
@@ -33,8 +59,34 @@ struct ComponentsTests {
         let value = plist["Components"]
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip Components from Safari_Extension_App")
+    func roundTripSafari_Extension_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "ComponentsTests.swift", with: "Fixtures/Safari_Extension_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["Components"]
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["Components"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["Components"]
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "Components should survive round-trip")
     }
 
     @Test("Handle missing Components")

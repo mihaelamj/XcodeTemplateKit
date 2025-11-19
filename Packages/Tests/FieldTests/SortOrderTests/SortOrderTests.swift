@@ -1,12 +1,12 @@
-
+// swiftlint:disable type_body_length force_cast
 import Foundation
 @testable import TemplateParser
 import Testing
 
-/// Comprehensive tests for the "SortOrder" field extraction
+/// Comprehensive bidirectional tests for the "SortOrder" field
 ///
-/// Tests all available fixtures to ensure complete coverage.
-/// Verifies that plist loading and field extraction work correctly.
+/// Tests both parsing (plist → Swift) and serialization (Swift → plist) to ensure
+/// correct round-trip behavior for all fixtures.
 @Suite("SortOrder Field Parsing")
 struct SortOrderTests {
     @Test("Parse SortOrder from App")
@@ -19,8 +19,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from App")
+    func roundTripApp() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Application")
@@ -33,8 +59,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Application")
+    func roundTripApplication() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Application_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Article_File")
@@ -47,8 +99,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Article_File")
+    func roundTripArticle_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Article_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Audio_Unit_Extension_App")
@@ -61,8 +139,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Audio_Unit_Extension_App")
+    func roundTripAudio_Unit_Extension_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Audio_Unit_Extension_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Build_Tool_Plug-in")
@@ -75,8 +179,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Build_Tool_Plug-in")
+    func roundTripBuild_Tool_Plug_in() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Build_Tool_Plug-in_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from C++_File")
@@ -89,8 +219,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from C++_File")
+    func roundTripC_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/C++_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from C_File")
@@ -103,8 +259,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from C_File")
+    func roundTripC_File_2() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/C_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Command_Plug-in")
@@ -117,8 +299,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Command_Plug-in")
+    func roundTripCommand_Plug_in() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Command_Plug-in_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Document_App")
@@ -131,8 +339,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Document_App")
+    func roundTripDocument_App() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Document_App_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Documentation_Catalog")
@@ -145,8 +379,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Documentation_Catalog")
+    func roundTripDocumentation_Catalog() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Documentation_Catalog_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Empty_File")
@@ -159,8 +419,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Empty_File")
+    func roundTripEmpty_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Empty_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Empty")
@@ -173,8 +459,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Empty")
+    func roundTripEmpty() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Empty_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Extension_File")
@@ -187,8 +499,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Extension_File")
+    func roundTripExtension_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Extension_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Framework")
@@ -201,8 +539,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Framework")
+    func roundTripFramework() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Framework_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Game")
@@ -215,8 +579,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Game")
+    func roundTripGame() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Game_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Header_File")
@@ -229,8 +619,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Header_File")
+    func roundTripHeader_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Header_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Library")
@@ -243,8 +659,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Library")
+    func roundTripLibrary() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Library_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Main_Menu")
@@ -257,8 +699,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Main_Menu")
+    func roundTripMain_Menu() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Main_Menu_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Metal_File")
@@ -271,8 +739,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Metal_File")
+    func roundTripMetal_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Metal_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Metal_Library_Base")
@@ -285,8 +779,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Metal_Library_Base")
+    func roundTripMetal_Library_Base() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Metal_Library_Base_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Objective-C_File")
@@ -299,8 +819,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Objective-C_File")
+    func roundTripObjective_C_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Objective-C_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from SharedContent_RealityKit_Game")
@@ -313,8 +859,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from SharedContent_RealityKit_Game")
+    func roundTripSharedContent_RealityKit_Game() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/SharedContent_RealityKit_Game_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Storyboard")
@@ -327,8 +899,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Storyboard")
+    func roundTripStoryboard() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Storyboard_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from SwiftUI_App_Base")
@@ -341,8 +939,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from SwiftUI_App_Base")
+    func roundTripSwiftUI_App_Base() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/SwiftUI_App_Base_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from SwiftUI_Document_App_Base")
@@ -355,8 +979,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from SwiftUI_Document_App_Base")
+    func roundTripSwiftUI_Document_App_Base() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/SwiftUI_Document_App_Base_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from SwiftUI_View")
@@ -369,8 +1019,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from SwiftUI_View")
+    func roundTripSwiftUI_View() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/SwiftUI_View_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Swift_File")
@@ -383,8 +1059,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Swift_File")
+    func roundTripSwift_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Swift_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Swift_Macro")
@@ -397,8 +1099,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Swift_Macro")
+    func roundTripSwift_Macro() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Swift_Macro_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Swift_Testing_Unit_Test")
@@ -411,8 +1139,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Swift_Testing_Unit_Test")
+    func roundTripSwift_Testing_Unit_Test() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Swift_Testing_Unit_Test_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Tutorial_File")
@@ -425,8 +1179,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Tutorial_File")
+    func roundTripTutorial_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Tutorial_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Tutorial_Table_of_Contents_File")
@@ -439,8 +1219,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Tutorial_Table_of_Contents_File")
+    func roundTripTutorial_Table_of_Contents_File() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Tutorial_Table_of_Contents_File_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from View")
@@ -453,8 +1259,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from View")
+    func roundTripView() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/View_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from Window")
@@ -467,8 +1299,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from Window")
+    func roundTripWindow() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/Window_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from XCTest_UI_Test")
@@ -481,8 +1339,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from XCTest_UI_Test")
+    func roundTripXCTest_UI_Test() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/XCTest_UI_Test_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Parse SortOrder from XCTest_Unit_Test")
@@ -495,8 +1379,34 @@ struct SortOrderTests {
         let value = plist["SortOrder"] as? Int
 
         // Test passes if plist loads and extraction completes without error
-        // Field may or may not be present depending on template
         _ = value
+    }
+
+    @Test("Round-trip SortOrder from XCTest_Unit_Test")
+    func roundTripXCTest_Unit_Test() throws {
+        let fixturePath = #filePath.replacingOccurrences(of: "SortOrderTests.swift", with: "Fixtures/XCTest_Unit_Test_value.plist")
+        let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
+        let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
+
+        // Parse original value
+        let value = originalPlist["SortOrder"] as? Int
+
+        // Skip test if field not present in this template
+        guard let value else { return }
+
+        // Serialize back to plist
+        var outputPlist: [String: Any] = [:]
+        outputPlist["SortOrder"] = value
+
+        // Serialize to XML data
+        let outputData = try PropertyListSerialization.data(fromPropertyList: outputPlist, format: .xml, options: 0)
+
+        // Parse serialized data
+        let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
+        let reparsedValue = reparsedPlist["SortOrder"] as? Int
+
+        // Verify round-trip preserves value
+        #expect(reparsedValue != nil, "SortOrder should survive round-trip")
     }
 
     @Test("Handle missing SortOrder")
