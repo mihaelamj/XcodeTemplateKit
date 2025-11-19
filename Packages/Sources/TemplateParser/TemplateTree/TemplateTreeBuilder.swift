@@ -354,6 +354,31 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     /// Template summary text. Prevalence unknown.
     public let summary: String?
 
+    // MARK: - Boolean Fields
+
+    /// Whether template is concrete (not abstract). Appears in 17 templates.
+    public let concrete: Bool?
+
+    /// Whether template is localized by default. Appears in 2 templates.
+    public let localizedByDefault: Bool?
+
+    /// Whether template is project-only. Appears in 1 template.
+    public let projectOnly: Bool?
+
+    /// Whether template supports Swift Package. Appears in 25 templates.
+    public let supportsSwiftPackage: Bool?
+
+    /// Whether to suppress top-level group. Appears in 3 templates.
+    public let suppressTopLevelGroup: Bool?
+
+    /// Whether template is target-only. Appears in 7 templates.
+    public let targetOnly: Bool?
+
+    // MARK: - Integer Fields
+
+    /// UI sort order. Appears in 41 templates.
+    public let sortOrder: Int?
+
     /// Original raw content from TemplateInfo.plist.
     ///
     /// Contains the raw text as it appears on disk,
@@ -393,6 +418,13 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         packageType: String? = nil,
         project: String? = nil,
         summary: String? = nil,
+        concrete: Bool? = nil,
+        localizedByDefault: Bool? = nil,
+        projectOnly: Bool? = nil,
+        supportsSwiftPackage: Bool? = nil,
+        suppressTopLevelGroup: Bool? = nil,
+        targetOnly: Bool? = nil,
+        sortOrder: Int? = nil,
         rawContent: String? = nil,
         rawContentType: String? = nil
     ) {
@@ -417,6 +449,13 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         self.packageType = packageType
         self.project = project
         self.summary = summary
+        self.concrete = concrete
+        self.localizedByDefault = localizedByDefault
+        self.projectOnly = projectOnly
+        self.supportsSwiftPackage = supportsSwiftPackage
+        self.suppressTopLevelGroup = suppressTopLevelGroup
+        self.targetOnly = targetOnly
+        self.sortOrder = sortOrder
         self.rawContent = rawContent
         self.rawContentType = rawContentType
         id = path
@@ -452,6 +491,13 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         packageType = try container.decodeIfPresent(String.self, forKey: .packageType)
         project = try container.decodeIfPresent(String.self, forKey: .project)
         summary = try container.decodeIfPresent(String.self, forKey: .summary)
+        concrete = try container.decodeIfPresent(Bool.self, forKey: .concrete)
+        localizedByDefault = try container.decodeIfPresent(Bool.self, forKey: .localizedByDefault)
+        projectOnly = try container.decodeIfPresent(Bool.self, forKey: .projectOnly)
+        supportsSwiftPackage = try container.decodeIfPresent(Bool.self, forKey: .supportsSwiftPackage)
+        suppressTopLevelGroup = try container.decodeIfPresent(Bool.self, forKey: .suppressTopLevelGroup)
+        targetOnly = try container.decodeIfPresent(Bool.self, forKey: .targetOnly)
+        sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
         rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
         id = path // Use path as unique ID
@@ -480,6 +526,13 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         try container.encodeIfPresent(packageType, forKey: .packageType)
         try container.encodeIfPresent(project, forKey: .project)
         try container.encodeIfPresent(summary, forKey: .summary)
+        try container.encodeIfPresent(concrete, forKey: .concrete)
+        try container.encodeIfPresent(localizedByDefault, forKey: .localizedByDefault)
+        try container.encodeIfPresent(projectOnly, forKey: .projectOnly)
+        try container.encodeIfPresent(supportsSwiftPackage, forKey: .supportsSwiftPackage)
+        try container.encodeIfPresent(suppressTopLevelGroup, forKey: .suppressTopLevelGroup)
+        try container.encodeIfPresent(targetOnly, forKey: .targetOnly)
+        try container.encodeIfPresent(sortOrder, forKey: .sortOrder)
         try container.encodeIfPresent(rawContent, forKey: .rawContent)
         try container.encodeIfPresent(rawContentType, forKey: .rawContentType)
     }
@@ -507,6 +560,13 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         case packageType
         case project
         case summary
+        case concrete
+        case localizedByDefault
+        case projectOnly
+        case supportsSwiftPackage
+        case suppressTopLevelGroup
+        case targetOnly
+        case sortOrder
         case rawContent = "raw_content"
         case rawContentType = "raw_content_type"
     }

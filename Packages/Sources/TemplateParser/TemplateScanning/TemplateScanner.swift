@@ -146,6 +146,17 @@ public class TemplateScanner {
         let project = plist["Project"] as? String
         let summary = plist["Summary"] as? String
 
+        // Extract boolean fields
+        let concrete = plist["Concrete"] as? Bool
+        let localizedByDefault = plist["LocalizedByDefault"] as? Bool
+        let projectOnly = plist["ProjectOnly"] as? Bool
+        let supportsSwiftPackage = plist["SupportsSwiftPackage"] as? Bool
+        let suppressTopLevelGroup = plist["SuppressTopLevelGroup"] as? Bool
+        let targetOnly = plist["TargetOnly"] as? Bool
+
+        // Extract integer fields
+        let sortOrder = plist["SortOrder"] as? Int
+
         return TemplateMetadata(
             name: name,
             path: path,
@@ -168,6 +179,13 @@ public class TemplateScanner {
             packageType: packageType,
             project: project,
             summary: summary,
+            concrete: concrete,
+            localizedByDefault: localizedByDefault,
+            projectOnly: projectOnly,
+            supportsSwiftPackage: supportsSwiftPackage,
+            suppressTopLevelGroup: suppressTopLevelGroup,
+            targetOnly: targetOnly,
+            sortOrder: sortOrder,
             rawContent: rawContent,
             rawContentType: contentType
         )
