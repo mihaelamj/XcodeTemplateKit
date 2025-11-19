@@ -171,7 +171,7 @@ public class TemplateScanner {
 
         // Extract complex dictionary fields
         let components = serializeToData(plist["Components"])
-        let targets = serializeToData(plist["Targets"])
+        let targets = parseTargets(plist["Targets"])
         let definitions = parseDefinitions(plist["Definitions"])
         let optionConstraints = serializeToData(plist["OptionConstraints"])
 
@@ -221,6 +221,21 @@ public class TemplateScanner {
     private func serializeToData(_ value: Any?) -> Data? {
         guard let value else { return nil }
         return try? PropertyListSerialization.data(fromPropertyList: value, format: .binary, options: 0)
+    }
+
+    /// Parse Targets field from plist array.
+    private func parseTargets(_ value: Any?) -> TemplateTargets? {
+        guard let targetsArray = value as? [[String: Any]], !targetsArray.isEmpty else {
+            return nil
+        }
+
+        // Convert to proper format for TemplateTargets decoding
+        guard let data = try? PropertyListSerialization.data(fromPropertyList: targetsArray, format: .binary, options: 0),
+              let targets = try? PropertyListDecoder().decode(TemplateTargets.self, from: data) else {
+            return nil
+        }
+
+        return targets
     }
 
     /// Parse Definitions field from plist dictionary.

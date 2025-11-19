@@ -355,8 +355,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     public let components: Data?
 
     /// Target configurations. Appears in 71 templates.
-    /// Stored as serialized Data due to complex nested structure.
-    public let targets: Data?
+    public let targets: TemplateTargets?
 
     /// Template definitions for code generation. Appears in 28 templates.
     public let definitions: TemplateDefinitions?
@@ -416,7 +415,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         platforms: [Platform]? = nil,
         title: String? = nil,
         components: Data? = nil,
-        targets: Data? = nil,
+        targets: TemplateTargets? = nil,
         definitions: TemplateDefinitions? = nil,
         optionConstraints: Data? = nil,
         rawContent: String? = nil,
@@ -505,7 +504,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         platforms = try container.decodeIfPresent([Platform].self, forKey: .platforms)
         title = try container.decodeIfPresent(String.self, forKey: .title)
         components = try container.decodeIfPresent(Data.self, forKey: .components)
-        targets = try container.decodeIfPresent(Data.self, forKey: .targets)
+        targets = try container.decodeIfPresent(TemplateTargets.self, forKey: .targets)
         definitions = try container.decodeIfPresent(TemplateDefinitions.self, forKey: .definitions)
         optionConstraints = try container.decodeIfPresent(Data.self, forKey: .optionConstraints)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)

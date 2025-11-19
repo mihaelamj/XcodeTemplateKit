@@ -168,9 +168,8 @@ public struct TemplateWriter {
             let components = try PropertyListSerialization.propertyList(from: componentsData, format: nil)
             plist["Components"] = components
         }
-        if let targetsData = metadata.targets {
-            let targets = try PropertyListSerialization.propertyList(from: targetsData, format: nil)
-            plist["Targets"] = targets
+        if let targets = metadata.targets {
+            plist["Targets"] = try serializeTargets(targets)
         }
         if let definitions = metadata.definitions {
             plist["Definitions"] = try serializeDefinitions(definitions)
@@ -186,6 +185,92 @@ public struct TemplateWriter {
         }
 
         return plist
+    }
+
+    /// Serialize TemplateTargets to plist array format.
+    ///
+    /// - Parameter targets: The template targets
+    /// - Returns: Array of target dictionaries
+    /// - Throws: Serialization errors
+    private func serializeTargets(_ targets: TemplateTargets) throws -> [[String: Any]] {
+        try targets.targets.map { try serializeTargetDefinition($0) }
+    }
+
+    /// Serialize TargetDefinition to plist dictionary format.
+    ///
+    /// - Parameter target: The target definition
+    /// - Returns: Dictionary representation
+    /// - Throws: Serialization errors
+    private func serializeTargetDefinition(_ target: TargetDefinition) throws -> [String: Any] {
+        var dict: [String: Any] = [:]
+
+        if let name = target.name {
+            dict["Name"] = name
+        }
+        if let targetIdentifier = target.targetIdentifier {
+            dict["TargetIdentifier"] = targetIdentifier
+        }
+        if let targetType = target.targetType {
+            dict["TargetType"] = targetType
+        }
+        if let productType = target.productType {
+            dict["ProductType"] = productType
+        }
+        if let sharedSettings = target.sharedSettings {
+            dict["SharedSettings"] = try serializePropertyListDict(sharedSettings)
+        }
+        if let buildConfigurations = target.buildConfigurations {
+            dict["BuildConfigurations"] = try buildConfigurations.mapValues { try serializePropertyListDict($0) }
+        }
+        if let buildPhases = target.buildPhases {
+            dict["BuildPhases"] = buildPhases.map { ["Class": $0.buildClass] }
+        }
+        if let dependencies = target.dependencies {
+            dict["Dependencies"] = try dependencies.map { try serializePropertyListValue($0) }
+        }
+        if let frameworks = target.frameworks {
+            dict["Frameworks"] = try frameworks.map { try serializePropertyListValue($0) }
+        }
+        if let concrete = target.concrete {
+            dict["Concrete"] = concrete
+        }
+
+        return dict
+    }
+
+    /// Serialize PropertyListValue dictionary to Any dictionary.
+    ///
+    /// - Parameter dict: Dictionary with PropertyListValue values
+    /// - Returns: Dictionary with Any values
+    /// - Throws: Serialization errors
+    private func serializePropertyListDict(_ dict: [String: PropertyListValue]) throws -> [String: Any] {
+        var result: [String: Any] = [:]
+        for (key, value) in dict {
+            result[key] = try serializePropertyListValue(value)
+        }
+        return result
+    }
+
+    /// Serialize PropertyListValue to Any.
+    ///
+    /// - Parameter value: The property list value
+    /// - Returns: Any representation
+    /// - Throws: Serialization errors
+    private func serializePropertyListValue(_ value: PropertyListValue) throws -> Any {
+        switch value {
+        case .string(let string):
+            return string
+        case .int(let int):
+            return int
+        case .double(let double):
+            return double
+        case .bool(let bool):
+            return bool
+        case .array(let array):
+            return try array.map { try serializePropertyListValue($0) }
+        case .dictionary(let dict):
+            return try serializePropertyListDict(dict)
+        }
     }
 
     /// Serialize TemplateDefinitions to plist dictionary format.
