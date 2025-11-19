@@ -169,10 +169,10 @@ public class TemplateScanner {
         let platforms = platformsStrings?.map { Platform(rawValue: $0) }
         let title = plist["Title"] as? String
 
-        // Extract complex dictionary fields and serialize to Data
+        // Extract complex dictionary fields
         let components = serializeToData(plist["Components"])
         let targets = serializeToData(plist["Targets"])
-        let definitions = serializeToData(plist["Definitions"])
+        let definitions = parseDefinitions(plist["Definitions"])
         let optionConstraints = serializeToData(plist["OptionConstraints"])
 
         return TemplateMetadata(
@@ -221,6 +221,30 @@ public class TemplateScanner {
     private func serializeToData(_ value: Any?) -> Data? {
         guard let value else { return nil }
         return try? PropertyListSerialization.data(fromPropertyList: value, format: .binary, options: 0)
+    }
+
+    /// Parse Definitions field from plist dictionary.
+    private func parseDefinitions(_ value: Any?) -> TemplateDefinitions? {
+        guard let definitionsDict = value as? [String: Any], !definitionsDict.isEmpty else {
+            return nil
+        }
+
+        var definitions: [String: DefinitionValue] = [:]
+
+        for (key, value) in definitionsDict {
+            // Check if it's a string (code snippet) or dictionary (file definition)
+            if let stringValue = value as? String {
+                definitions[key] = .string(stringValue)
+            } else if let dictValue = value as? [String: Any] {
+                // Convert to proper format for FileDefinition decoding
+                if let data = try? PropertyListSerialization.data(fromPropertyList: dictValue, format: .binary, options: 0),
+                   let fileDefinition = try? PropertyListDecoder().decode(FileDefinition.self, from: data) {
+                    definitions[key] = .file(fileDefinition)
+                }
+            }
+        }
+
+        return definitions.isEmpty ? nil : TemplateDefinitions(definitions: definitions)
     }
 
     private func extractOptions(from plist: [String: Any]) -> [TemplateOptionJSON] {

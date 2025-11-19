@@ -172,9 +172,8 @@ public struct TemplateWriter {
             let targets = try PropertyListSerialization.propertyList(from: targetsData, format: nil)
             plist["Targets"] = targets
         }
-        if let definitionsData = metadata.definitions {
-            let definitions = try PropertyListSerialization.propertyList(from: definitionsData, format: nil)
-            plist["Definitions"] = definitions
+        if let definitions = metadata.definitions {
+            plist["Definitions"] = try serializeDefinitions(definitions)
         }
         if let optionConstraintsData = metadata.optionConstraints {
             let optionConstraints = try PropertyListSerialization.propertyList(from: optionConstraintsData, format: nil)
@@ -187,6 +186,88 @@ public struct TemplateWriter {
         }
 
         return plist
+    }
+
+    /// Serialize TemplateDefinitions to plist dictionary format.
+    ///
+    /// - Parameter definitions: The template definitions
+    /// - Returns: Dictionary mapping file identifiers to their definitions
+    /// - Throws: Serialization errors
+    private func serializeDefinitions(_ definitions: TemplateDefinitions) throws -> [String: Any] {
+        var result: [String: Any] = [:]
+
+        for (key, value) in definitions.definitions {
+            switch value {
+            case .string(let string):
+                result[key] = string
+            case .file(let fileDefinition):
+                result[key] = try serializeFileDefinition(fileDefinition)
+            }
+        }
+
+        return result
+    }
+
+    /// Serialize FileDefinition to plist dictionary format.
+    ///
+    /// - Parameter definition: The file definition
+    /// - Returns: Dictionary representation
+    /// - Throws: Serialization errors
+    private func serializeFileDefinition(_ definition: FileDefinition) throws -> [String: Any] {
+        var dict: [String: Any] = [:]
+
+        if let path = definition.path {
+            dict["Path"] = path
+        }
+        if let group = definition.group {
+            switch group {
+            case .single(let name):
+                dict["Group"] = name
+            case .path(let components):
+                dict["Group"] = components
+            }
+        }
+        if let targetIndices = definition.targetIndices {
+            dict["TargetIndices"] = targetIndices
+        }
+        if let beginning = definition.beginning {
+            dict["Beginning"] = beginning
+        }
+        if let end = definition.end {
+            dict["End"] = end
+        }
+        if let sortOrder = definition.sortOrder {
+            dict["SortOrder"] = sortOrder
+        }
+        if let indent = definition.indent {
+            dict["Indent"] = indent
+        }
+        if let assetGeneration = definition.assetGeneration {
+            dict["AssetGeneration"] = try assetGeneration.map { try serializeAssetGeneration($0) }
+        }
+
+        return dict
+    }
+
+    /// Serialize AssetGenerationConfig to plist dictionary format.
+    ///
+    /// - Parameter config: The asset generation configuration
+    /// - Returns: Dictionary representation
+    /// - Throws: Serialization errors
+    private func serializeAssetGeneration(_ config: AssetGenerationConfig) throws -> [String: Any] {
+        var dict: [String: Any] = [:]
+
+        if let name = config.name {
+            dict["Name"] = name
+        }
+        if let type = config.type {
+            dict["Type"] = type
+        }
+        if let platforms = config.platforms {
+            dict["Platforms"] = platforms
+        }
+
+        return dict
     }
 
     /// Create a property list dictionary for a template option.
