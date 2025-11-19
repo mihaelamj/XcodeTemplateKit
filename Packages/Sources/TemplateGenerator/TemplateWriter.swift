@@ -164,9 +164,8 @@ public struct TemplateWriter {
         }
 
         // Complex fields stored as Data (deserialize back to dictionaries)
-        if let componentsData = metadata.components {
-            let components = try PropertyListSerialization.propertyList(from: componentsData, format: nil)
-            plist["Components"] = components
+        if let components = metadata.components {
+            plist["Components"] = try serializeComponents(components)
         }
         if let targets = metadata.targets {
             plist["Targets"] = try serializeTargets(targets)
@@ -185,6 +184,35 @@ public struct TemplateWriter {
         }
 
         return plist
+    }
+
+    /// Serialize TemplateComponents to plist array format.
+    ///
+    /// - Parameter components: The template components
+    /// - Returns: Array of component dictionaries
+    /// - Throws: Serialization errors
+    private func serializeComponents(_ components: TemplateComponents) throws -> [[String: Any]] {
+        try components.components.map { try serializeComponent($0) }
+    }
+
+    /// Serialize TemplateComponent to plist dictionary format.
+    ///
+    /// - Parameter component: The component definition
+    /// - Returns: Dictionary representation
+    /// - Throws: Serialization errors
+    private func serializeComponent(_ component: TemplateComponent) throws -> [String: Any] {
+        var dict: [String: Any] = [:]
+
+        dict["Identifier"] = component.identifier
+        dict["Name"] = component.name
+
+        if let injections = component.productBuildPhaseInjections {
+            dict["ProductBuildPhaseInjections"] = injections.map { injection in
+                ["TargetIdentifier": injection.targetIdentifier]
+            }
+        }
+
+        return dict
     }
 
     /// Serialize TemplateTargets to plist array format.

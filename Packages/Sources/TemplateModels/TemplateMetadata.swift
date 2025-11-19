@@ -351,8 +351,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     // MARK: - Complex Dictionary Fields (Stored as Data)
 
     /// Component configurations. Appears in 2 templates.
-    /// Stored as serialized Data due to complex nested structure.
-    public let components: Data?
+    public let components: TemplateComponents?
 
     /// Target configurations. Appears in 71 templates.
     public let targets: TemplateTargets?
@@ -414,7 +413,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         nodes: [String]? = nil,
         platforms: [Platform]? = nil,
         title: String? = nil,
-        components: Data? = nil,
+        components: TemplateComponents? = nil,
         targets: TemplateTargets? = nil,
         definitions: TemplateDefinitions? = nil,
         optionConstraints: Data? = nil,
@@ -503,7 +502,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         nodes = try container.decodeIfPresent([String].self, forKey: .nodes)
         platforms = try container.decodeIfPresent([Platform].self, forKey: .platforms)
         title = try container.decodeIfPresent(String.self, forKey: .title)
-        components = try container.decodeIfPresent(Data.self, forKey: .components)
+        components = try container.decodeIfPresent(TemplateComponents.self, forKey: .components)
         targets = try container.decodeIfPresent(TemplateTargets.self, forKey: .targets)
         definitions = try container.decodeIfPresent(TemplateDefinitions.self, forKey: .definitions)
         optionConstraints = try container.decodeIfPresent(Data.self, forKey: .optionConstraints)
