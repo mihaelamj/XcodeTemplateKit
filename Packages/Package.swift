@@ -15,6 +15,7 @@ let baseProducts: [Product] = [
 
 let templateProducts: [Product] = [
     .singleTargetLibrary("TemplateParser"),
+    .singleTargetLibrary("TemplateGenerator"),
 ]
 
 #if os(iOS) || os(macOS)
@@ -77,6 +78,21 @@ let targets: [Target] = {
         ]
     )
 
+    let templateGeneratorTarget = Target.target(
+        name: "TemplateGenerator",
+        dependencies: [
+            "TemplateParser",
+        ]
+    )
+
+    let templateGeneratorTestsTarget = Target.testTarget(
+        name: "TemplateGeneratorTests",
+        dependencies: [
+            "TemplateGenerator",
+            "TemplateParser",
+        ]
+    )
+
     // ---------- Field-specific test targets ----------
     let fieldTestTargets: [Target] = [
         Target.testTarget(name: "AllowedTypesTests", dependencies: ["TemplateParser"], path: "Tests/FieldTests/AllowedTypesTests"),
@@ -117,6 +133,8 @@ let targets: [Target] = {
     let templateTargets = [
         templateParserTarget,
         templateParserTestsTarget,
+        templateGeneratorTarget,
+        templateGeneratorTestsTarget,
         Target.executableTarget(
             name: "TemplateScannerAudit",
             dependencies: [
