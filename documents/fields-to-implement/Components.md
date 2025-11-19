@@ -3,7 +3,7 @@
 ## Current Status
 **Stored as:** `Data?` (unparsed binary plist data)
 **Occurrences:** 2 templates
-**Priority:** Low (very rare field)
+**Priority:** High 
 
 ## Description
 The `Components` field specifies sub-targets or extensions that should be added to a project template. It's primarily used for app extension templates where one target (the extension) needs to be embedded in another target (the main app).
