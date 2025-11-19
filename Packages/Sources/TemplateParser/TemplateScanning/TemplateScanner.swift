@@ -130,8 +130,21 @@ public class TemplateScanner {
         // Build file structure
         let fileStructure = buildFileStructure(at: path, relativeTo: path)
 
-        // Extract description
+        // Extract all string fields
         let description = plist["Description"] as? String
+        let associatedTargetSpecification = plist["AssociatedTargetSpecification"] as? String
+        let buildableType = plist["BuildableType"] as? String
+        let defaultCompletionName = plist["DefaultCompletionName"] as? String
+        let hiddenFromChooser = plist["HiddenFromChooser"] as? String
+        let hiddenFromLibrary = plist["HiddenFromLibrary"] as? String
+        let icon = plist["Icon"] as? String
+        let image = plist["Image"] as? String
+        let mainTemplateFile = plist["MainTemplateFile"] as? String
+        let templateName = plist["Name"] as? String
+        let nameOfInitialFileForEditor = plist["NameOfInitialFileForEditor"] as? String
+        let packageType = plist["PackageType"] as? String
+        let project = plist["Project"] as? String
+        let summary = plist["Summary"] as? String
 
         return TemplateMetadata(
             name: name,
@@ -142,6 +155,19 @@ public class TemplateScanner {
             totalCombinations: combinations,
             fileStructure: fileStructure.isEmpty ? nil : fileStructure,
             description: description,
+            associatedTargetSpecification: associatedTargetSpecification,
+            buildableType: buildableType,
+            defaultCompletionName: defaultCompletionName,
+            hiddenFromChooser: hiddenFromChooser,
+            hiddenFromLibrary: hiddenFromLibrary,
+            icon: icon,
+            image: image,
+            mainTemplateFile: mainTemplateFile,
+            templateName: templateName,
+            nameOfInitialFileForEditor: nameOfInitialFileForEditor,
+            packageType: packageType,
+            project: project,
+            summary: summary,
             rawContent: rawContent,
             rawContentType: contentType
         )

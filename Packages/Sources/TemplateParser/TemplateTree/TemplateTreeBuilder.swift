@@ -313,6 +313,47 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     /// Appears in 69 of 146 templates.
     public let description: String?
 
+    // MARK: - Simple String Fields
+
+    /// Target association specification ID. Appears in 5 templates.
+    public let associatedTargetSpecification: String?
+
+    /// Build phase type for file templates. Appears in 16 templates.
+    public let buildableType: String?
+
+    /// Default filename for the created file. Appears in 69 templates.
+    public let defaultCompletionName: String?
+
+    /// UI visibility flag. Appears in 9 templates.
+    public let hiddenFromChooser: String?
+
+    /// Library visibility flag. Appears in 9 templates.
+    public let hiddenFromLibrary: String?
+
+    /// Icon filename for template. Appears in 5 templates.
+    public let icon: String?
+
+    /// Image asset name. Appears in 59 templates.
+    public let image: String?
+
+    /// Primary template file path. Appears in 47 templates.
+    public let mainTemplateFile: String?
+
+    /// Display name override. Appears in 9 templates.
+    public let templateName: String?
+
+    /// Initial file to open in editor. Appears in 8 templates.
+    public let nameOfInitialFileForEditor: String?
+
+    /// Swift Package type. Appears in 5 templates.
+    public let packageType: String?
+
+    /// Project configuration. Appears in 10 templates.
+    public let project: String?
+
+    /// Template summary text. Prevalence unknown.
+    public let summary: String?
+
     /// Original raw content from TemplateInfo.plist.
     ///
     /// Contains the raw text as it appears on disk,
@@ -339,6 +380,19 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         totalCombinations: Int = 1,
         fileStructure: [FileNode]? = nil,
         description: String? = nil,
+        associatedTargetSpecification: String? = nil,
+        buildableType: String? = nil,
+        defaultCompletionName: String? = nil,
+        hiddenFromChooser: String? = nil,
+        hiddenFromLibrary: String? = nil,
+        icon: String? = nil,
+        image: String? = nil,
+        mainTemplateFile: String? = nil,
+        templateName: String? = nil,
+        nameOfInitialFileForEditor: String? = nil,
+        packageType: String? = nil,
+        project: String? = nil,
+        summary: String? = nil,
         rawContent: String? = nil,
         rawContentType: String? = nil
     ) {
@@ -350,6 +404,19 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         self.totalCombinations = totalCombinations
         self.fileStructure = fileStructure
         self.description = description
+        self.associatedTargetSpecification = associatedTargetSpecification
+        self.buildableType = buildableType
+        self.defaultCompletionName = defaultCompletionName
+        self.hiddenFromChooser = hiddenFromChooser
+        self.hiddenFromLibrary = hiddenFromLibrary
+        self.icon = icon
+        self.image = image
+        self.mainTemplateFile = mainTemplateFile
+        self.templateName = templateName
+        self.nameOfInitialFileForEditor = nameOfInitialFileForEditor
+        self.packageType = packageType
+        self.project = project
+        self.summary = summary
         self.rawContent = rawContent
         self.rawContentType = rawContentType
         id = path
@@ -372,6 +439,19 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         totalCombinations = try container.decodeIfPresent(Int.self, forKey: .totalCombinations) ?? 1
         fileStructure = try container.decodeIfPresent([FileNode].self, forKey: .fileStructure)
         description = try container.decodeIfPresent(String.self, forKey: .description)
+        associatedTargetSpecification = try container.decodeIfPresent(String.self, forKey: .associatedTargetSpecification)
+        buildableType = try container.decodeIfPresent(String.self, forKey: .buildableType)
+        defaultCompletionName = try container.decodeIfPresent(String.self, forKey: .defaultCompletionName)
+        hiddenFromChooser = try container.decodeIfPresent(String.self, forKey: .hiddenFromChooser)
+        hiddenFromLibrary = try container.decodeIfPresent(String.self, forKey: .hiddenFromLibrary)
+        icon = try container.decodeIfPresent(String.self, forKey: .icon)
+        image = try container.decodeIfPresent(String.self, forKey: .image)
+        mainTemplateFile = try container.decodeIfPresent(String.self, forKey: .mainTemplateFile)
+        templateName = try container.decodeIfPresent(String.self, forKey: .templateName)
+        nameOfInitialFileForEditor = try container.decodeIfPresent(String.self, forKey: .nameOfInitialFileForEditor)
+        packageType = try container.decodeIfPresent(String.self, forKey: .packageType)
+        project = try container.decodeIfPresent(String.self, forKey: .project)
+        summary = try container.decodeIfPresent(String.self, forKey: .summary)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
         rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
         id = path // Use path as unique ID
@@ -387,6 +467,19 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         try container.encode(totalCombinations, forKey: .totalCombinations)
         try container.encodeIfPresent(fileStructure, forKey: .fileStructure)
         try container.encodeIfPresent(description, forKey: .description)
+        try container.encodeIfPresent(associatedTargetSpecification, forKey: .associatedTargetSpecification)
+        try container.encodeIfPresent(buildableType, forKey: .buildableType)
+        try container.encodeIfPresent(defaultCompletionName, forKey: .defaultCompletionName)
+        try container.encodeIfPresent(hiddenFromChooser, forKey: .hiddenFromChooser)
+        try container.encodeIfPresent(hiddenFromLibrary, forKey: .hiddenFromLibrary)
+        try container.encodeIfPresent(icon, forKey: .icon)
+        try container.encodeIfPresent(image, forKey: .image)
+        try container.encodeIfPresent(mainTemplateFile, forKey: .mainTemplateFile)
+        try container.encodeIfPresent(templateName, forKey: .templateName)
+        try container.encodeIfPresent(nameOfInitialFileForEditor, forKey: .nameOfInitialFileForEditor)
+        try container.encodeIfPresent(packageType, forKey: .packageType)
+        try container.encodeIfPresent(project, forKey: .project)
+        try container.encodeIfPresent(summary, forKey: .summary)
         try container.encodeIfPresent(rawContent, forKey: .rawContent)
         try container.encodeIfPresent(rawContentType, forKey: .rawContentType)
     }
@@ -401,6 +494,19 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         case totalCombinations
         case fileStructure = "file_structure"
         case description
+        case associatedTargetSpecification
+        case buildableType
+        case defaultCompletionName
+        case hiddenFromChooser
+        case hiddenFromLibrary
+        case icon
+        case image
+        case mainTemplateFile
+        case templateName
+        case nameOfInitialFileForEditor
+        case packageType
+        case project
+        case summary
         case rawContent = "raw_content"
         case rawContentType = "raw_content_type"
     }
