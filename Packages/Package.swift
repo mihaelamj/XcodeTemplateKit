@@ -77,6 +77,43 @@ let targets: [Target] = {
         ]
     )
 
+    // ---------- Field-specific test targets ----------
+    let fieldTestTargets: [Target] = [
+        Target.testTarget(name: "AllowedTypesTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "AncestorsTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "AssociatedTargetSpecificationTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "BuildableTypeTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "ComponentsTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "ConcreteTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "DefaultCompletionNameTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "DefinitionsTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "DescriptionTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "HiddenFromChooserTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "HiddenFromLibraryTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "IconTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "IdentifierTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "ImageTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "KindTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "LocalizedByDefaultTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "MainTemplateFileTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "NameOfInitialFileForEditorTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "NameTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "NodesTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "OptionConstraintsTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "OptionsTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "PackageTypeTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "PlatformsTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "ProjectOnlyTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "ProjectTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "SortOrderTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "SummaryTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "SupportsSwiftPackageTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "SuppressTopLevelGroupTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "TargetOnlyTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "TargetsTests", dependencies: ["TemplateParser"]),
+        Target.testTarget(name: "TitleTests", dependencies: ["TemplateParser"]),
+    ]
+
     let templateTargets = [
         templateParserTarget,
         templateParserTestsTarget,
@@ -86,7 +123,7 @@ let targets: [Target] = {
                 "TemplateParser",
             ]
         ),
-    ]
+    ] + fieldTestTargets
 
     // ---------- Apple-only UI / Components ----------
     #if os(iOS) || os(macOS)
