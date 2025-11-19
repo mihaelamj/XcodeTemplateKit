@@ -351,6 +351,86 @@ public enum ProjectConfiguration: String, Codable, Hashable, Sendable {
     case sharedSettings = "SharedSettings"
 }
 
+/// Boolean format used in property lists.
+///
+/// Xcode templates use two different boolean serialization formats:
+/// - **Objective-C format**: String-based "YES" and "NO" (legacy Objective-C convention)
+/// - **Swift format**: XML boolean `<true/>` and `<false/>` (modern property list standard)
+///
+/// ## Usage in Templates
+///
+/// **Objective-C format** is used by:
+/// - `HiddenFromChooser` and `HiddenFromLibrary` (legacy template visibility flags)
+/// - All Xcode build settings in Options/Definitions dictionaries (e.g., ENABLE_TESTABILITY)
+///
+/// **Swift format** is used by:
+/// - Modern template metadata fields: `Concrete`, `LocalizedByDefault`, `ProjectOnly`,
+///   `SupportsSwiftPackage`, `SuppressTopLevelGroup`, `TargetOnly`
+///
+/// ## Template Creation
+///
+/// When writing templates, you must use the correct format:
+/// ```xml
+/// <!-- Objective-C format -->
+/// <key>HiddenFromChooser</key>
+/// <string>YES</string>
+///
+/// <!-- Swift format -->
+/// <key>Concrete</key>
+/// <true/>
+/// ```
+///
+/// See `BooleanPropertyFormats.md` for complete documentation.
+public enum TemplateBooleanFormat: Hashable, Sendable {
+    /// Objective-C boolean format using YES/NO strings.
+    ///
+    /// Used for legacy template properties and all Xcode build settings.
+    /// Serializes as `<string>YES</string>` or `<string>NO</string>`.
+    case objectiveCBoolean(Bool)
+
+    /// Swift boolean format using true/false XML booleans.
+    ///
+    /// Used for modern template metadata properties.
+    /// Serializes as `<true/>` or `<false/>`.
+    case swiftBoolean(Bool)
+
+    /// The underlying boolean value.
+    public var boolValue: Bool {
+        switch self {
+        case .objectiveCBoolean(let value), .swiftBoolean(let value):
+            return value
+        }
+    }
+
+    /// Create from a string value (YES/NO).
+    ///
+    /// - Parameter string: "YES" or "NO" string
+    /// - Returns: `.objectiveCBoolean` if valid, nil otherwise
+    public static func fromObjectiveCString(_ string: String) -> TemplateBooleanFormat? {
+        switch string {
+        case "YES": return .objectiveCBoolean(true)
+        case "NO": return .objectiveCBoolean(false)
+        default: return nil
+        }
+    }
+
+    /// Create from a Swift Bool value.
+    ///
+    /// - Parameter value: Boolean value
+    /// - Returns: `.swiftBoolean` wrapping the value
+    public static func fromSwiftBool(_ value: Bool) -> TemplateBooleanFormat {
+        .swiftBoolean(value)
+    }
+
+    /// Serialize to property list string representation.
+    ///
+    /// - Returns: "YES"/"NO" for Objective-C format, not used for Swift format (handled by PropertyListSerialization)
+    public func toObjectiveCString() -> String? {
+        guard case .objectiveCBoolean(let value) = self else { return nil }
+        return value ? "YES" : "NO"
+    }
+}
+
 /// Metadata for a single template from JSON.
 ///
 /// Extracted from a `.xctemplate` bundle's `TemplateInfo.plist`.
