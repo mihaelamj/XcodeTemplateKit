@@ -10,8 +10,8 @@ import Testing
 struct DescriptionFieldTests {
     @Test("Parse description from template")
     func parseDescription() throws {
-        // Load fixture plist
-        let fixturePath = "/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/TemplateParserTests/Fixtures/Description_App.plist"
+        // Load App template which has Description
+        let fixturePath = #filePath.replacingOccurrences(of: "DescriptionTests.swift", with: "Fixtures/App_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -25,13 +25,11 @@ struct DescriptionFieldTests {
 
     @Test("Handle missing description")
     func parseMissingDescription() throws {
-        // Load fixture plist without Description field
-        let fixturePath = "/Volumes/Code/DeveloperExt/private/XcodeTemplateKit/Packages/Tests/TemplateParserTests/Fixtures/Description_Missing.plist"
-        let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
-        let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
+        // Create a plist without Description field (simulating templates that don't have it)
+        let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
 
         // Extract Description field
-        let description = plist["Description"] as? String
+        let description = testPlist["Description"] as? String
 
         // Verify Description is nil when not present
         #expect(description == nil, "Description should be nil when not present in template")
