@@ -130,6 +130,9 @@ public class TemplateScanner {
         // Build file structure
         let fileStructure = buildFileStructure(at: path, relativeTo: path)
 
+        // Extract description
+        let description = plist["Description"] as? String
+
         return TemplateMetadata(
             name: name,
             path: path,
@@ -138,6 +141,7 @@ public class TemplateScanner {
             options: options,
             totalCombinations: combinations,
             fileStructure: fileStructure.isEmpty ? nil : fileStructure,
+            description: description,
             rawContent: rawContent,
             rawContentType: contentType
         )

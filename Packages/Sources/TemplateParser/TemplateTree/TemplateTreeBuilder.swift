@@ -307,6 +307,12 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     public let totalCombinations: Int
     public let fileStructure: [FileNode]?
 
+    /// Detailed description of what this template creates.
+    ///
+    /// Example: "This template creates a multi-platform SwiftUI application."
+    /// Appears in 69 of 146 templates.
+    public let description: String?
+
     /// Original raw content from TemplateInfo.plist.
     ///
     /// Contains the raw text as it appears on disk,
@@ -332,6 +338,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         options: [TemplateOptionJSON] = [],
         totalCombinations: Int = 1,
         fileStructure: [FileNode]? = nil,
+        description: String? = nil,
         rawContent: String? = nil,
         rawContentType: String? = nil
     ) {
@@ -342,6 +349,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         self.options = options
         self.totalCombinations = totalCombinations
         self.fileStructure = fileStructure
+        self.description = description
         self.rawContent = rawContent
         self.rawContentType = rawContentType
         id = path
@@ -363,6 +371,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         options = try container.decodeIfPresent([TemplateOptionJSON].self, forKey: .options) ?? []
         totalCombinations = try container.decodeIfPresent(Int.self, forKey: .totalCombinations) ?? 1
         fileStructure = try container.decodeIfPresent([FileNode].self, forKey: .fileStructure)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
         rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
         id = path // Use path as unique ID
@@ -377,6 +386,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         try container.encode(options, forKey: .options)
         try container.encode(totalCombinations, forKey: .totalCombinations)
         try container.encodeIfPresent(fileStructure, forKey: .fileStructure)
+        try container.encodeIfPresent(description, forKey: .description)
         try container.encodeIfPresent(rawContent, forKey: .rawContent)
         try container.encodeIfPresent(rawContentType, forKey: .rawContentType)
     }
@@ -390,6 +400,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         case options
         case totalCombinations
         case fileStructure = "file_structure"
+        case description
         case rawContent = "raw_content"
         case rawContentType = "raw_content_type"
     }
