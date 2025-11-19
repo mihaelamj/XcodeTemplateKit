@@ -21,6 +21,7 @@ excluded:
   - ".build/**" # Swift Package Manager build artifacts
   - "Packages/.build/**" # Swift PM dependencies (checked out packages)
   - "Packages/.swiftpm/**" # Swift PM configuration files
+  - "Packages/Tests/FieldTests/**" # Generated comprehensive test files
 
 custom_rules:
   # check's for Combine's .assign(to: xxx, on: self) ref-cycle
