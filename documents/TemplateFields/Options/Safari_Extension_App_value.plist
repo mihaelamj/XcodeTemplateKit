@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>userInterface</string>
+			<key>Override</key>
+			<string>Storyboard</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>appLifecycle</string>
+			<key>Override</key>
+			<string>Cocoa</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>extensionBundleIdentifier</string>
+			<key>Override</key>
+			<string>ForAppTemplate</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>Full</string>
+			<key>Identifier</key>
+			<string>extensionTargetType</string>
+			<key>Values</key>
+			<array>
+				<string>Full</string>
+				<string>Base</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

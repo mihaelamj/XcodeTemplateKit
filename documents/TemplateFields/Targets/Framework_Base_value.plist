@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>BuildPhases</key>
+			<array>
+				<dict>
+					<key>Class</key>
+					<string>Headers</string>
+				</dict>
+				<dict>
+					<key>Class</key>
+					<string>Sources</string>
+				</dict>
+				<dict>
+					<key>Class</key>
+					<string>Frameworks</string>
+				</dict>
+				<dict>
+					<key>Class</key>
+					<string>Resources</string>
+				</dict>
+			</array>
+			<key>ProductType</key>
+			<string>com.apple.product-type.framework</string>
+			<key>SharedSettings</key>
+			<dict>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_MODULE_VERIFIER</key>
+				<string>YES</string>
+				<key>INFOPLIST_KEY_NSHumanReadableCopyright</key>
+				<string>___COPYRIGHT___</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>MODULE_VERIFIER_SUPPORTED_LANGUAGES</key>
+				<string>objective-c objective-c++</string>
+				<key>MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS</key>
+				<string>gnu17 gnu++20</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME:c99extidentifier)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

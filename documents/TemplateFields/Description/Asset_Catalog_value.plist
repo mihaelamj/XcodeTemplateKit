@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Asset catalogs store and categorize resources for different platforms, devices, and capabilities (such as scale factors).  When built, items in asset catalogs are compiled into a unified, efficient runtime format or exported to their expected format (based on use).</string>
+</dict>
+</plist>

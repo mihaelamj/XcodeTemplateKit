@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Definitions</key>
+	<dict>
+		<key>Assets.xcassets</key>
+		<dict>
+			<key>AssetGeneration</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>AppIcon</string>
+					<key>Platforms</key>
+					<dict>
+						<key>iOS</key>
+						<string>true</string>
+						<key>macOS</key>
+						<string>true</string>
+					</dict>
+					<key>Type</key>
+					<string>appicon</string>
+				</dict>
+			</array>
+			<key>Path</key>
+			<string>Assets.xcassets</string>
+			<key>SortOrder</key>
+			<integer>190</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>
