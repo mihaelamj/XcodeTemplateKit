@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 import OSLog
+import TemplateModels
 import TemplateParser
 
 /// UI-specific tree model for displaying templates in an expandable hierarchy.

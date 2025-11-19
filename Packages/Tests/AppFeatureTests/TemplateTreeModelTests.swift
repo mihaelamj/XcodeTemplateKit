@@ -1,5 +1,6 @@
 @testable import AppFeature
 import Foundation
+import TemplateModels
 import TemplateParser
 import Testing
 

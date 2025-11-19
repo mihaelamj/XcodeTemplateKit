@@ -1,5 +1,6 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
+import TemplateModels
 @testable import TemplateParser
 import Testing
 

@@ -1,5 +1,5 @@
 import SwiftUI
-import TemplateParser
+import TemplateModels
 
 /// Displays a file or directory node in a recursive tree structure.
 ///

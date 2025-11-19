@@ -1,4 +1,5 @@
 import Foundation
+import TemplateModels
 
 /// Unified processor for ALL template types (File, Project, Package)
 /// Reuses core parsing and variable substitution

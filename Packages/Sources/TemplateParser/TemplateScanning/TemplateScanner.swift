@@ -1,4 +1,5 @@
 import Foundation
+import TemplateModels
 
 /// Scans Xcode templates and captures complete plist data
 public class TemplateScanner {

@@ -14,6 +14,7 @@ let baseProducts: [Product] = [
 ]
 
 let templateProducts: [Product] = [
+    .singleTargetLibrary("TemplateModels"),
     .singleTargetLibrary("TemplateParser"),
     .singleTargetLibrary("TemplateGenerator"),
 ]
@@ -63,9 +64,15 @@ let targets: [Target] = {
     ]
 
     // ---------- Templates ----------
+    let templateModelsTarget = Target.target(
+        name: "TemplateModels",
+        dependencies: []
+    )
+
     let templateParserTarget = Target.target(
         name: "TemplateParser",
         dependencies: [
+            "TemplateModels",
             .product(name: "Parsing", package: "swift-parsing"),
         ],
         exclude: ["README.md"]
@@ -81,7 +88,7 @@ let targets: [Target] = {
     let templateGeneratorTarget = Target.target(
         name: "TemplateGenerator",
         dependencies: [
-            "TemplateParser",
+            "TemplateModels",
         ]
     )
 
@@ -131,6 +138,7 @@ let targets: [Target] = {
     ]
 
     let templateTargets = [
+        templateModelsTarget,
         templateParserTarget,
         templateParserTestsTarget,
         templateGeneratorTarget,

@@ -8,7 +8,7 @@
 // swiftlint:disable function_body_length cyclomatic_complexity
 
 import Foundation
-import TemplateParser
+import TemplateModels
 
 /// Writes Xcode template metadata to property list format.
 ///

@@ -1,4 +1,5 @@
 import SwiftUI
+import TemplateModels
 import TemplateParser
 
 /// Displays detailed information about a selected template.

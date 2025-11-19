@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TemplateModels
 
 /// Hierarchical data structure for displaying Xcode templates in an NSOutlineView.
 ///

@@ -1,4 +1,5 @@
 import Foundation
+import TemplateModels
 @testable import TemplateParser
 import Testing
 

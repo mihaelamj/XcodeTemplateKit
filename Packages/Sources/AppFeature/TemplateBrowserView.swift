@@ -1,5 +1,6 @@
 import OSLog
 import SwiftUI
+import TemplateModels
 import TemplateParser
 
 /// Template browser with automatic data loading and error handling.
