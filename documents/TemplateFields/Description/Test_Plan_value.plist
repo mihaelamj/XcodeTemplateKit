@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>Description</key>
-	<string>A test plan file allows specifying which test targets and tests to run and how to run them, and can be referenced by schemes.</string>
-</dict>
-</plist>
