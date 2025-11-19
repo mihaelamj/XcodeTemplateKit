@@ -507,6 +507,19 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     case fileTemplateAppPrivacy
     case fileTemplateObjectiveCNewSuperclass
 
+    // File Templates - Generic File Template Kinds (Xcode.IDE*)
+    case fileTemplateTextSubstitution // Xcode.IDEFoundation.TextSubstitutionFileTemplateKind (44 templates)
+    case fileTemplateTextSubstitutionKit // Xcode.IDEKit.TextSubstitutionFileTemplateKind (7 templates)
+    case fileTemplateRefactoringNewSuperclass // Xcode.IDEKit.RefactoringFileTemplateKind.NewSuperclass
+    case fileTemplateTestPlanEditor // Xcode.IDETestPlanEditor.TestPlanTemplateKind
+
+    // File Templates - SiriKit/Intent Builder Kinds
+    case fileTemplateSiriAppEntity // Xcode.IDEIntentBuilderEditor.AppEntityTemplateKind
+    case fileTemplateSiriTransientAppEntity // Xcode.IDEIntentBuilderEditor.TransientAppEntityTemplateKind
+    case fileTemplateSiriAppEnumeration // Xcode.IDEIntentBuilderEditor.AppEnumerationTemplateKind
+    case fileTemplateSiriIntent // Xcode.IDEIntentBuilderEditor.IntentTemplateKind
+    case fileTemplateSiriLinkAction // Xcode.IDEIntentBuilderEditor.LinkActionTemplateKind
+
     // MARK: - Package Templates (Xcode.IDESwiftPackageSupport.PackageTemplateKind)
 
     case swiftMacro
@@ -690,6 +703,17 @@ public enum TemplateKind: Hashable, Codable, Sendable {
         case .fileTemplateEmptyFile: return "fileTemplate.emptyFile"
         case .fileTemplateAppPrivacy: return "fileTemplate.appPrivacy"
         case .fileTemplateObjectiveCNewSuperclass: return "fileTemplate.objectiveCnewsuperclass"
+        // File Templates - Generic Kinds (Xcode.IDE*)
+        case .fileTemplateTextSubstitution: return "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind"
+        case .fileTemplateTextSubstitutionKit: return "Xcode.IDEKit.TextSubstitutionFileTemplateKind"
+        case .fileTemplateRefactoringNewSuperclass: return "Xcode.IDEKit.RefactoringFileTemplateKind.NewSuperclass"
+        case .fileTemplateTestPlanEditor: return "Xcode.IDETestPlanEditor.TestPlanTemplateKind"
+        // File Templates - SiriKit/Intent Builder Kinds
+        case .fileTemplateSiriAppEntity: return "Xcode.IDEIntentBuilderEditor.AppEntityTemplateKind"
+        case .fileTemplateSiriTransientAppEntity: return "Xcode.IDEIntentBuilderEditor.TransientAppEntityTemplateKind"
+        case .fileTemplateSiriAppEnumeration: return "Xcode.IDEIntentBuilderEditor.AppEnumerationTemplateKind"
+        case .fileTemplateSiriIntent: return "Xcode.IDEIntentBuilderEditor.IntentTemplateKind"
+        case .fileTemplateSiriLinkAction: return "Xcode.IDEIntentBuilderEditor.LinkActionTemplateKind"
         // Package Templates
         case .swiftMacro: return "com.apple.dt.packageTemplate.SwiftMacro"
         case .buildToolPlugin: return "com.apple.dt.packageTemplate.BuildToolPlugin"
@@ -878,6 +902,17 @@ public enum TemplateKind: Hashable, Codable, Sendable {
         case "fileTemplate.emptyFile": self = .fileTemplateEmptyFile
         case "fileTemplate.appPrivacy": self = .fileTemplateAppPrivacy
         case "fileTemplate.objectiveCnewsuperclass": self = .fileTemplateObjectiveCNewSuperclass
+        // File Templates - Generic Kinds (Xcode.IDE*)
+        case "Xcode.IDEFoundation.TextSubstitutionFileTemplateKind": self = .fileTemplateTextSubstitution
+        case "Xcode.IDEKit.TextSubstitutionFileTemplateKind": self = .fileTemplateTextSubstitutionKit
+        case "Xcode.IDEKit.RefactoringFileTemplateKind.NewSuperclass": self = .fileTemplateRefactoringNewSuperclass
+        case "Xcode.IDETestPlanEditor.TestPlanTemplateKind": self = .fileTemplateTestPlanEditor
+        // File Templates - SiriKit/Intent Builder Kinds
+        case "Xcode.IDEIntentBuilderEditor.AppEntityTemplateKind": self = .fileTemplateSiriAppEntity
+        case "Xcode.IDEIntentBuilderEditor.TransientAppEntityTemplateKind": self = .fileTemplateSiriTransientAppEntity
+        case "Xcode.IDEIntentBuilderEditor.AppEnumerationTemplateKind": self = .fileTemplateSiriAppEnumeration
+        case "Xcode.IDEIntentBuilderEditor.IntentTemplateKind": self = .fileTemplateSiriIntent
+        case "Xcode.IDEIntentBuilderEditor.LinkActionTemplateKind": self = .fileTemplateSiriLinkAction
         // Package Templates
         case "com.apple.dt.packageTemplate.SwiftMacro": self = .swiftMacro
         case "com.apple.dt.packageTemplate.BuildToolPlugin": self = .buildToolPlugin
@@ -1107,6 +1142,17 @@ public enum TemplateKind: Hashable, Codable, Sendable {
         case .fileTemplateEmptyFile: return "Empty File"
         case .fileTemplateAppPrivacy: return "App Privacy"
         case .fileTemplateObjectiveCNewSuperclass: return "Objective-C New Superclass"
+        // File Templates - Generic Kinds
+        case .fileTemplateTextSubstitution: return "Text Substitution File"
+        case .fileTemplateTextSubstitutionKit: return "Text Substitution File (Kit)"
+        case .fileTemplateRefactoringNewSuperclass: return "Refactoring New Superclass"
+        case .fileTemplateTestPlanEditor: return "Test Plan"
+        // File Templates - SiriKit/Intent Builder
+        case .fileTemplateSiriAppEntity: return "Siri App Entity"
+        case .fileTemplateSiriTransientAppEntity: return "Siri Transient App Entity"
+        case .fileTemplateSiriAppEnumeration: return "Siri App Enumeration"
+        case .fileTemplateSiriIntent: return "Siri Intent"
+        case .fileTemplateSiriLinkAction: return "Siri Link Action"
         // Package Templates
         case .swiftMacro: return "Swift Macro"
         case .buildToolPlugin: return "Build Tool Plug-in"
