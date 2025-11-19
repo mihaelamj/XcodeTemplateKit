@@ -422,12 +422,41 @@ public enum TemplateBooleanFormat: Hashable, Sendable {
         .swiftBoolean(value)
     }
 
-    /// Serialize to property list string representation.
+    /// Serialize to Objective-C string representation (YES/NO).
     ///
-    /// - Returns: "YES"/"NO" for Objective-C format, not used for Swift format (handled by PropertyListSerialization)
+    /// Use this when writing HiddenFromChooser, HiddenFromLibrary, or build settings to plists.
+    ///
+    /// - Returns: "YES"/"NO" for Objective-C format, nil for Swift format
     public func toObjectiveCString() -> String? {
         guard case .objectiveCBoolean(let value) = self else { return nil }
         return value ? "YES" : "NO"
+    }
+
+    /// Serialize to property list value for PropertyListSerialization.
+    ///
+    /// Use this when writing boolean values to plist dictionaries before serialization.
+    ///
+    /// - Returns: String ("YES"/"NO") for Objective-C format, Bool (true/false) for Swift format
+    ///
+    /// ## Example
+    /// ```swift
+    /// var plist: [String: Any] = [:]
+    ///
+    /// // Objective-C boolean
+    /// let hidden = TemplateBooleanFormat.objectiveCBoolean(true)
+    /// plist["HiddenFromChooser"] = hidden.toPropertyListValue()  // "YES"
+    ///
+    /// // Swift boolean
+    /// let concrete = TemplateBooleanFormat.swiftBoolean(true)
+    /// plist["Concrete"] = concrete.toPropertyListValue()  // true
+    /// ```
+    public func toPropertyListValue() -> Any {
+        switch self {
+        case .objectiveCBoolean(let value):
+            return value ? "YES" : "NO"
+        case .swiftBoolean(let value):
+            return value
+        }
     }
 }
 
