@@ -3,6 +3,8 @@
 ## Overview
 The `Definitions` field provides detailed specifications for each file created by the template, including location, target membership, and generation rules.
 
+**Important**: This document describes the **data structure** and parsing rules, not semantic interpretation. Field names like "Group" and "Path" come directly from Xcode's plist format. How these are interpreted (e.g., whether Group refers to file system folders or virtual Xcode groups) is determined by the code generator, not the parser. The parser's job is to accurately represent the plist data structure.
+
 ## Type
 **Dictionary** (optional)
 
@@ -34,6 +36,7 @@ Value: Definition dictionary with file properties
 - Xcode group(s) containing the file
 - String for single group, Array for path
 - Example: `"ViewModels"` or `["MyApp", "Sources", "ViewModels"]`
+- **Note**: This field represents the data structure only (string vs array). Semantic interpretation (file system folders vs virtual Xcode groups) is handled by code generation, not parsing. The parser preserves the structure as-is from the plist.
 
 **TargetIndices** (Array of Integers)
 - Which targets should include this file
