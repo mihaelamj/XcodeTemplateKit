@@ -157,6 +157,12 @@ public class TemplateScanner {
         // Extract integer fields
         let sortOrder = plist["SortOrder"] as? Int
 
+        // Extract array fields
+        let allowedTypes = plist["AllowedTypes"] as? [String]
+        let nodes = plist["Nodes"] as? [String]
+        let platforms = plist["Platforms"] as? [String]
+        let title = plist["Title"] as? String
+
         return TemplateMetadata(
             name: name,
             path: path,
@@ -186,6 +192,10 @@ public class TemplateScanner {
             suppressTopLevelGroup: suppressTopLevelGroup,
             targetOnly: targetOnly,
             sortOrder: sortOrder,
+            allowedTypes: allowedTypes,
+            nodes: nodes,
+            platforms: platforms,
+            title: title,
             rawContent: rawContent,
             rawContentType: contentType
         )

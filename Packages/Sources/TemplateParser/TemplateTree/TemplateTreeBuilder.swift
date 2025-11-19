@@ -379,6 +379,20 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     /// UI sort order. Appears in 41 templates.
     public let sortOrder: Int?
 
+    // MARK: - Array Fields
+
+    /// Allowed UTI types for file templates. Appears in 26 templates.
+    public let allowedTypes: [String]?
+
+    /// Node identifiers for template. Appears in 40 templates.
+    public let nodes: [String]?
+
+    /// Platform identifiers. Appears in 73 templates.
+    public let platforms: [String]?
+
+    /// Template title. Appears in 6 templates.
+    public let title: String?
+
     /// Original raw content from TemplateInfo.plist.
     ///
     /// Contains the raw text as it appears on disk,
@@ -425,6 +439,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         suppressTopLevelGroup: Bool? = nil,
         targetOnly: Bool? = nil,
         sortOrder: Int? = nil,
+        allowedTypes: [String]? = nil,
+        nodes: [String]? = nil,
+        platforms: [String]? = nil,
+        title: String? = nil,
         rawContent: String? = nil,
         rawContentType: String? = nil
     ) {
@@ -456,6 +474,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         self.suppressTopLevelGroup = suppressTopLevelGroup
         self.targetOnly = targetOnly
         self.sortOrder = sortOrder
+        self.allowedTypes = allowedTypes
+        self.nodes = nodes
+        self.platforms = platforms
+        self.title = title
         self.rawContent = rawContent
         self.rawContentType = rawContentType
         id = path
@@ -498,6 +520,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         suppressTopLevelGroup = try container.decodeIfPresent(Bool.self, forKey: .suppressTopLevelGroup)
         targetOnly = try container.decodeIfPresent(Bool.self, forKey: .targetOnly)
         sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder)
+        allowedTypes = try container.decodeIfPresent([String].self, forKey: .allowedTypes)
+        nodes = try container.decodeIfPresent([String].self, forKey: .nodes)
+        platforms = try container.decodeIfPresent([String].self, forKey: .platforms)
+        title = try container.decodeIfPresent(String.self, forKey: .title)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
         rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
         id = path // Use path as unique ID
@@ -533,6 +559,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         try container.encodeIfPresent(suppressTopLevelGroup, forKey: .suppressTopLevelGroup)
         try container.encodeIfPresent(targetOnly, forKey: .targetOnly)
         try container.encodeIfPresent(sortOrder, forKey: .sortOrder)
+        try container.encodeIfPresent(allowedTypes, forKey: .allowedTypes)
+        try container.encodeIfPresent(nodes, forKey: .nodes)
+        try container.encodeIfPresent(platforms, forKey: .platforms)
+        try container.encodeIfPresent(title, forKey: .title)
         try container.encodeIfPresent(rawContent, forKey: .rawContent)
         try container.encodeIfPresent(rawContentType, forKey: .rawContentType)
     }
@@ -567,6 +597,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         case suppressTopLevelGroup
         case targetOnly
         case sortOrder
+        case allowedTypes
+        case nodes
+        case platforms
+        case title
         case rawContent = "raw_content"
         case rawContentType = "raw_content_type"
     }
