@@ -98,7 +98,8 @@ let targets: [Target] = {
         dependencies: [
             "TemplateGenerator",
             "TemplateParser",
-        ]
+        ],
+        exclude: ["FieldTests", "README.md"]
     )
 
     // ---------- Parser field test targets ----------
@@ -137,6 +138,15 @@ let targets: [Target] = {
         Target.testTarget(name: "TargetsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/TemplateParserTests/FieldTests/TargetsTests"),
         Target.testTarget(name: "TitleTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/TemplateParserTests/FieldTests/TitleTests"),
     ]
+
+    // ---------- Generator field test targets (TODO: implement) ----------
+    // When ready to implement generator tests, uncomment and use these targets
+    /*
+    let generatorFieldTestTargets: [Target] = [
+        Target.testTarget(name: "AllowedTypesGeneratorTests", dependencies: ["TemplateModels", "TemplateGenerator"], path: "Tests/TemplateGeneratorTests/FieldTests/AllowedTypesTests"),
+        // ... add rest of fields
+    ]
+    */
 
     let templateTargets = [
         templateModelsTarget,
