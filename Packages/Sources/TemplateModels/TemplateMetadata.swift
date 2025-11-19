@@ -337,13 +337,13 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     // MARK: - Array Fields
 
     /// Allowed UTI types for file templates. Appears in 26 templates.
-    public let allowedTypes: [String]?
+    public let allowedTypes: [UniformTypeIdentifier]?
 
     /// Node identifiers for template. Appears in 40 templates.
     public let nodes: [String]?
 
     /// Platform identifiers. Appears in 73 templates.
-    public let platforms: [String]?
+    public let platforms: [Platform]?
 
     /// Template title. Appears in 6 templates.
     public let title: String?
@@ -412,9 +412,9 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         suppressTopLevelGroup: Bool? = nil,
         targetOnly: Bool? = nil,
         sortOrder: Int? = nil,
-        allowedTypes: [String]? = nil,
+        allowedTypes: [UniformTypeIdentifier]? = nil,
         nodes: [String]? = nil,
-        platforms: [String]? = nil,
+        platforms: [Platform]? = nil,
         title: String? = nil,
         components: Data? = nil,
         targets: Data? = nil,
@@ -501,9 +501,9 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         suppressTopLevelGroup = try container.decodeIfPresent(Bool.self, forKey: .suppressTopLevelGroup)
         targetOnly = try container.decodeIfPresent(Bool.self, forKey: .targetOnly)
         sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder)
-        allowedTypes = try container.decodeIfPresent([String].self, forKey: .allowedTypes)
+        allowedTypes = try container.decodeIfPresent([UniformTypeIdentifier].self, forKey: .allowedTypes)
         nodes = try container.decodeIfPresent([String].self, forKey: .nodes)
-        platforms = try container.decodeIfPresent([String].self, forKey: .platforms)
+        platforms = try container.decodeIfPresent([Platform].self, forKey: .platforms)
         title = try container.decodeIfPresent(String.self, forKey: .title)
         components = try container.decodeIfPresent(Data.self, forKey: .components)
         targets = try container.decodeIfPresent(Data.self, forKey: .targets)

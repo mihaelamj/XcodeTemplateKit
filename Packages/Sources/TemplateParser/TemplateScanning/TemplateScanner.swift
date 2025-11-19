@@ -162,9 +162,11 @@ public class TemplateScanner {
         let sortOrder = plist["SortOrder"] as? Int
 
         // Extract array fields
-        let allowedTypes = plist["AllowedTypes"] as? [String]
+        let allowedTypesStrings = plist["AllowedTypes"] as? [String]
+        let allowedTypes = allowedTypesStrings?.map { UniformTypeIdentifier(rawValue: $0) }
         let nodes = plist["Nodes"] as? [String]
-        let platforms = plist["Platforms"] as? [String]
+        let platformsStrings = plist["Platforms"] as? [String]
+        let platforms = platformsStrings?.map { Platform(rawValue: $0) }
         let title = plist["Title"] as? String
 
         // Extract complex dictionary fields and serialize to Data
