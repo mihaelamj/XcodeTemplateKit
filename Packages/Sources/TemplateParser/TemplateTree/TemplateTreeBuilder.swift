@@ -393,6 +393,24 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     /// Template title. Appears in 6 templates.
     public let title: String?
 
+    // MARK: - Complex Dictionary Fields (Stored as Data)
+
+    /// Component configurations. Appears in 2 templates.
+    /// Stored as serialized Data due to complex nested structure.
+    public let components: Data?
+
+    /// Target configurations. Appears in 71 templates.
+    /// Stored as serialized Data due to complex nested structure.
+    public let targets: Data?
+
+    /// Template definitions for code generation. Appears in 28 templates.
+    /// Stored as serialized Data due to complex nested structure.
+    public let definitions: Data?
+
+    /// Option constraint rules. Appears in 8 templates.
+    /// Stored as serialized Data due to complex nested structure.
+    public let optionConstraints: Data?
+
     /// Original raw content from TemplateInfo.plist.
     ///
     /// Contains the raw text as it appears on disk,
@@ -443,6 +461,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         nodes: [String]? = nil,
         platforms: [String]? = nil,
         title: String? = nil,
+        components: Data? = nil,
+        targets: Data? = nil,
+        definitions: Data? = nil,
+        optionConstraints: Data? = nil,
         rawContent: String? = nil,
         rawContentType: String? = nil
     ) {
@@ -478,6 +500,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         self.nodes = nodes
         self.platforms = platforms
         self.title = title
+        self.components = components
+        self.targets = targets
+        self.definitions = definitions
+        self.optionConstraints = optionConstraints
         self.rawContent = rawContent
         self.rawContentType = rawContentType
         id = path
@@ -524,6 +550,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         nodes = try container.decodeIfPresent([String].self, forKey: .nodes)
         platforms = try container.decodeIfPresent([String].self, forKey: .platforms)
         title = try container.decodeIfPresent(String.self, forKey: .title)
+        components = try container.decodeIfPresent(Data.self, forKey: .components)
+        targets = try container.decodeIfPresent(Data.self, forKey: .targets)
+        definitions = try container.decodeIfPresent(Data.self, forKey: .definitions)
+        optionConstraints = try container.decodeIfPresent(Data.self, forKey: .optionConstraints)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
         rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
         id = path // Use path as unique ID
@@ -563,6 +593,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         try container.encodeIfPresent(nodes, forKey: .nodes)
         try container.encodeIfPresent(platforms, forKey: .platforms)
         try container.encodeIfPresent(title, forKey: .title)
+        try container.encodeIfPresent(components, forKey: .components)
+        try container.encodeIfPresent(targets, forKey: .targets)
+        try container.encodeIfPresent(definitions, forKey: .definitions)
+        try container.encodeIfPresent(optionConstraints, forKey: .optionConstraints)
         try container.encodeIfPresent(rawContent, forKey: .rawContent)
         try container.encodeIfPresent(rawContentType, forKey: .rawContentType)
     }
@@ -601,6 +635,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         case nodes
         case platforms
         case title
+        case components
+        case targets
+        case definitions
+        case optionConstraints
         case rawContent = "raw_content"
         case rawContentType = "raw_content_type"
     }

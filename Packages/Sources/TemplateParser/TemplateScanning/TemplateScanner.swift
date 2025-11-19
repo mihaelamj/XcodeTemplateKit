@@ -62,6 +62,7 @@ public class TemplateScanner {
         }
     }
 
+    // swiftlint:disable:next function_body_length
     private func parseTemplate(at path: String, templateType: String) -> TemplateMetadata? {
         let plistPath = "\(path)/TemplateInfo.plist"
 
@@ -163,6 +164,12 @@ public class TemplateScanner {
         let platforms = plist["Platforms"] as? [String]
         let title = plist["Title"] as? String
 
+        // Extract complex dictionary fields and serialize to Data
+        let components = serializeToData(plist["Components"])
+        let targets = serializeToData(plist["Targets"])
+        let definitions = serializeToData(plist["Definitions"])
+        let optionConstraints = serializeToData(plist["OptionConstraints"])
+
         return TemplateMetadata(
             name: name,
             path: path,
@@ -196,9 +203,19 @@ public class TemplateScanner {
             nodes: nodes,
             platforms: platforms,
             title: title,
+            components: components,
+            targets: targets,
+            definitions: definitions,
+            optionConstraints: optionConstraints,
             rawContent: rawContent,
             rawContentType: contentType
         )
+    }
+
+    /// Serialize a plist value to Data for storage.
+    private func serializeToData(_ value: Any?) -> Data? {
+        guard let value else { return nil }
+        return try? PropertyListSerialization.data(fromPropertyList: value, format: .binary, options: 0)
     }
 
     private func extractOptions(from plist: [String: Any]) -> [TemplateOptionJSON] {
