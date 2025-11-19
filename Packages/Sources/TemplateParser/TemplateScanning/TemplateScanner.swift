@@ -134,18 +134,20 @@ public class TemplateScanner {
         // Extract all string fields
         let description = plist["Description"] as? String
         let associatedTargetSpecification = plist["AssociatedTargetSpecification"] as? String
-        let buildableType = plist["BuildableType"] as? String
         let defaultCompletionName = plist["DefaultCompletionName"] as? String
-        let hiddenFromChooser = plist["HiddenFromChooser"] as? String
-        let hiddenFromLibrary = plist["HiddenFromLibrary"] as? String
         let icon = plist["Icon"] as? String
-        let image = plist["Image"] as? String
         let mainTemplateFile = plist["MainTemplateFile"] as? String
         let templateName = plist["Name"] as? String
         let nameOfInitialFileForEditor = plist["NameOfInitialFileForEditor"] as? String
-        let packageType = plist["PackageType"] as? String
-        let project = plist["Project"] as? String
         let summary = plist["Summary"] as? String
+
+        // Extract enum fields
+        let buildableType = (plist["BuildableType"] as? String).flatMap { BuildableType(rawValue: $0) }
+        let hiddenFromChooser = plist["HiddenFromChooser"] as? Bool
+        let hiddenFromLibrary = plist["HiddenFromLibrary"] as? Bool
+        let image = (plist["Image"] as? String).flatMap { ImageSourceType(rawValue: $0) }
+        let packageType = (plist["PackageType"] as? String).flatMap { PackageType(rawValue: $0) }
+        let project = (plist["Project"] as? String).flatMap { ProjectConfiguration(rawValue: $0) }
 
         // Extract boolean fields
         let concrete = plist["Concrete"] as? Bool

@@ -273,6 +273,84 @@ public struct TemplateInventory: Codable, Sendable {
     }
 }
 
+// MARK: - Template Field Enums
+
+/// Build phase type for file templates.
+///
+/// Specifies how files created from this template should be handled in build phases.
+/// Appears in 16 templates.
+public enum BuildableType: String, Codable, Hashable, Sendable {
+    case none = "None"
+    case test = "Test"
+    case hidden = "Hidden"
+}
+
+/// Swift Package type for package templates.
+///
+/// Specifies the type of Swift Package to create.
+/// Appears in 5 templates.
+public enum PackageType: Codable, Hashable, Sendable {
+    case swiftMacro
+    case library
+    case empty
+    case commandPlugin
+    case buildToolPlugin
+    case unknown(String)
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self)
+        self = PackageType(rawValue: rawValue)
+    }
+
+    public init(rawValue: String) {
+        switch rawValue {
+        case "swift-macro": self = .swiftMacro
+        case "library": self = .library
+        case "empty": self = .empty
+        case "command-plugin": self = .commandPlugin
+        case "build-tool-plugin": self = .buildToolPlugin
+        default: self = .unknown(rawValue)
+        }
+    }
+
+    public var rawValue: String {
+        switch self {
+        case .swiftMacro: return "swift-macro"
+        case .library: return "library"
+        case .empty: return "empty"
+        case .commandPlugin: return "command-plugin"
+        case .buildToolPlugin: return "build-tool-plugin"
+        case .unknown(let value): return value
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(rawValue)
+    }
+}
+
+/// Image source type indicating how template icon should be resolved.
+///
+/// Specifies whether the image comes from a file, system symbol, bundle, etc.
+/// Appears in 59 templates.
+public enum ImageSourceType: String, Codable, Hashable, Sendable {
+    case fileTypeIcon = "FileTypeIcon"
+    case systemSymbol = "SystemSymbolName"
+    case bundleImage = "BundleImageName"
+    case bundleIdentifier = "BundleIdentifier"
+}
+
+/// Project configuration type for template settings.
+///
+/// Specifies the type of project configuration settings included.
+/// Appears in 10 templates.
+public enum ProjectConfiguration: String, Codable, Hashable, Sendable {
+    case configurations = "Configurations"
+    case sharedSettings = "SharedSettings"
+}
+
 /// Metadata for a single template from JSON.
 ///
 /// Extracted from a `.xctemplate` bundle's `TemplateInfo.plist`.
@@ -319,22 +397,22 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     public let associatedTargetSpecification: String?
 
     /// Build phase type for file templates. Appears in 16 templates.
-    public let buildableType: String?
+    public let buildableType: BuildableType?
 
     /// Default filename for the created file. Appears in 69 templates.
     public let defaultCompletionName: String?
 
     /// UI visibility flag. Appears in 9 templates.
-    public let hiddenFromChooser: String?
+    public let hiddenFromChooser: Bool?
 
     /// Library visibility flag. Appears in 9 templates.
-    public let hiddenFromLibrary: String?
+    public let hiddenFromLibrary: Bool?
 
     /// Icon filename for template. Appears in 5 templates.
     public let icon: String?
 
     /// Image asset name. Appears in 59 templates.
-    public let image: String?
+    public let image: ImageSourceType?
 
     /// Primary template file path. Appears in 47 templates.
     public let mainTemplateFile: String?
@@ -346,10 +424,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     public let nameOfInitialFileForEditor: String?
 
     /// Swift Package type. Appears in 5 templates.
-    public let packageType: String?
+    public let packageType: PackageType?
 
     /// Project configuration. Appears in 10 templates.
-    public let project: String?
+    public let project: ProjectConfiguration?
 
     /// Template summary text. Prevalence unknown.
     public let summary: String?
@@ -438,17 +516,17 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         fileStructure: [FileNode]? = nil,
         description: String? = nil,
         associatedTargetSpecification: String? = nil,
-        buildableType: String? = nil,
+        buildableType: BuildableType? = nil,
         defaultCompletionName: String? = nil,
-        hiddenFromChooser: String? = nil,
-        hiddenFromLibrary: String? = nil,
+        hiddenFromChooser: Bool? = nil,
+        hiddenFromLibrary: Bool? = nil,
         icon: String? = nil,
-        image: String? = nil,
+        image: ImageSourceType? = nil,
         mainTemplateFile: String? = nil,
         templateName: String? = nil,
         nameOfInitialFileForEditor: String? = nil,
-        packageType: String? = nil,
-        project: String? = nil,
+        packageType: PackageType? = nil,
+        project: ProjectConfiguration? = nil,
         summary: String? = nil,
         concrete: Bool? = nil,
         localizedByDefault: Bool? = nil,
@@ -527,17 +605,17 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         fileStructure = try container.decodeIfPresent([FileNode].self, forKey: .fileStructure)
         description = try container.decodeIfPresent(String.self, forKey: .description)
         associatedTargetSpecification = try container.decodeIfPresent(String.self, forKey: .associatedTargetSpecification)
-        buildableType = try container.decodeIfPresent(String.self, forKey: .buildableType)
+        buildableType = try container.decodeIfPresent(BuildableType.self, forKey: .buildableType)
         defaultCompletionName = try container.decodeIfPresent(String.self, forKey: .defaultCompletionName)
-        hiddenFromChooser = try container.decodeIfPresent(String.self, forKey: .hiddenFromChooser)
-        hiddenFromLibrary = try container.decodeIfPresent(String.self, forKey: .hiddenFromLibrary)
+        hiddenFromChooser = try container.decodeIfPresent(Bool.self, forKey: .hiddenFromChooser)
+        hiddenFromLibrary = try container.decodeIfPresent(Bool.self, forKey: .hiddenFromLibrary)
         icon = try container.decodeIfPresent(String.self, forKey: .icon)
-        image = try container.decodeIfPresent(String.self, forKey: .image)
+        image = try container.decodeIfPresent(ImageSourceType.self, forKey: .image)
         mainTemplateFile = try container.decodeIfPresent(String.self, forKey: .mainTemplateFile)
         templateName = try container.decodeIfPresent(String.self, forKey: .templateName)
         nameOfInitialFileForEditor = try container.decodeIfPresent(String.self, forKey: .nameOfInitialFileForEditor)
-        packageType = try container.decodeIfPresent(String.self, forKey: .packageType)
-        project = try container.decodeIfPresent(String.self, forKey: .project)
+        packageType = try container.decodeIfPresent(PackageType.self, forKey: .packageType)
+        project = try container.decodeIfPresent(ProjectConfiguration.self, forKey: .project)
         summary = try container.decodeIfPresent(String.self, forKey: .summary)
         concrete = try container.decodeIfPresent(Bool.self, forKey: .concrete)
         localizedByDefault = try container.decodeIfPresent(Bool.self, forKey: .localizedByDefault)
