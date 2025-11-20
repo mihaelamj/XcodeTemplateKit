@@ -190,7 +190,7 @@ public enum TemplateTreeBuilder {
         )
     }
 
-    private static func buildOptionNode(from option: TemplateOptionJSON, parentPath: String) -> TemplateTreeNode {
+    private static func buildOptionNode(from option: Option, parentPath: String) -> TemplateTreeNode {
         let optionType = OptionType(rawValue: option.type) ?? .text
 
         let details: [DetailNode] = [

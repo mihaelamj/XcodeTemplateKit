@@ -305,7 +305,7 @@ public struct TemplateOption: Codable, Sendable {
     public let values: [String]?
     public let required: Bool?
     public let notPersisted: Bool?
-    public let units: [String: OptionUnit]?
+    public let units: [String: ParserOptionUnit]?
 
     enum CodingKeys: String, CodingKey {
         case identifier = "Identifier"
@@ -322,8 +322,8 @@ public struct TemplateOption: Codable, Sendable {
 }
 
 /// Unit within an option (for conditional generation)
-public struct OptionUnit: Codable, Sendable {
-    public let components: [Component]?
+public struct ParserOptionUnit: Codable, Sendable {
+    public let components: [ParserComponent]?
     public let nodes: [String]?
 
     enum CodingKeys: String, CodingKey {
@@ -333,7 +333,7 @@ public struct OptionUnit: Codable, Sendable {
 }
 
 /// Component within a unit
-public struct Component: Codable, Sendable {
+public struct ParserComponent: Codable, Sendable {
     public let identifier: String?
     public let name: String?
 

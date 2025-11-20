@@ -419,7 +419,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func optionDetail(_ option: TemplateOptionJSON) -> some View {
+    private func optionDetail(_ option: Option) -> some View {
         Form {
             Section("Option Details") {
                 LabeledContent("Name", value: option.name)
@@ -568,7 +568,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func optionDocumentation(_ option: TemplateOptionJSON) -> some View {
+    private func optionDocumentation(_ option: Option) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Description") {
                 CopyableText(text: """
@@ -686,7 +686,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func optionExamples(_ option: TemplateOptionJSON) -> some View {
+    private func optionExamples(_ option: Option) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Option Definition") {
                 CodeBlock(code: """

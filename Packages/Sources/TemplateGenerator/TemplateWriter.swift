@@ -409,7 +409,7 @@ public struct TemplateWriter {
     /// - Parameter option: The template option
     /// - Returns: Dictionary representation
     /// - Throws: Serialization errors
-    private func createOptionPlist(from option: TemplateOptionJSON) throws -> [String: Any] {
+    private func createOptionPlist(from option: Option) throws -> [String: Any] {
         var optionPlist: [String: Any] = [:]
 
         // Required fields
@@ -462,7 +462,7 @@ public struct TemplateWriter {
     /// - Parameter unit: The template option unit
     /// - Returns: Dictionary representation
     /// - Throws: Serialization errors
-    private func createUnitPlist(from unit: TemplateOptionUnit) throws -> [String: Any] {
+    private func createUnitPlist(from unit: OptionUnit) throws -> [String: Any] {
         var unitPlist: [String: Any] = [:]
 
         if let components = unit.components {

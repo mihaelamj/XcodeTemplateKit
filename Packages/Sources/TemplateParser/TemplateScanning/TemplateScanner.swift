@@ -292,8 +292,8 @@ public class TemplateScanner {
         return definitions.isEmpty ? nil : TemplateDefinitions(definitions: definitions)
     }
 
-    private func extractOptions(from plist: [String: Any]) -> [TemplateOptionJSON] {
-        var options: [TemplateOptionJSON] = []
+    private func extractOptions(from plist: [String: Any]) -> [Option] {
+        var options: [Option] = []
 
         guard let optionsArray = plist["Options"] as? [[String: Any]] else {
             return options
@@ -320,14 +320,14 @@ public class TemplateScanner {
             let requiredOptionsForValues = optionDict["RequiredOptionsForValues"] as? [String: [String: String]]
 
             // Parse Units
-            var units: [String: TemplateOptionUnit]?
+            var units: [String: OptionUnit]?
             if let unitsDict = optionDict["Units"] as? [String: Any] {
-                var parsedUnits: [String: TemplateOptionUnit] = [:]
+                var parsedUnits: [String: OptionUnit] = [:]
                 for (key, value) in unitsDict {
                     if let unitDict = value as? [String: Any] {
                         // Convert to data and decode using PropertyListDecoder
                         if let data = try? PropertyListSerialization.data(fromPropertyList: unitDict, format: .binary, options: 0),
-                           let unit = try? PropertyListDecoder().decode(TemplateOptionUnit.self, from: data) {
+                           let unit = try? PropertyListDecoder().decode(OptionUnit.self, from: data) {
                             parsedUnits[key] = unit
                         }
                     }
@@ -335,7 +335,7 @@ public class TemplateScanner {
                 units = parsedUnits.isEmpty ? nil : parsedUnits
             }
 
-            options.append(TemplateOptionJSON(
+            options.append(Option(
                 identifier: identifier,
                 name: name,
                 type: type ?? "text",
@@ -356,7 +356,7 @@ public class TemplateScanner {
         return options
     }
 
-    private func calculateCombinations(for options: [TemplateOptionJSON]) -> Int {
+    private func calculateCombinations(for options: [Option]) -> Int {
         guard !options.isEmpty else { return 1 }
 
         return options.reduce(1) { total, option in

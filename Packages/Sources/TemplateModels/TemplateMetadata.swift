@@ -258,7 +258,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     public let path: String
     public let kind: TemplateKind
     public let ancestors: [TemplateKind]?
-    public let options: [TemplateOptionJSON]
+    public let options: [Option]
     public let totalCombinations: Int
     public let fileStructure: [FileNode]?
 
@@ -384,7 +384,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         path: String,
         kind: TemplateKind,
         ancestors: [TemplateKind]? = nil,
-        options: [TemplateOptionJSON] = [],
+        options: [Option] = [],
         totalCombinations: Int = 1,
         fileStructure: [FileNode]? = nil,
         description: String? = nil,
@@ -473,7 +473,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
 
         kind = try container.decode(TemplateKind.self, forKey: .kind)
         ancestors = try container.decodeIfPresent([TemplateKind].self, forKey: .ancestors)
-        options = try container.decodeIfPresent([TemplateOptionJSON].self, forKey: .options) ?? []
+        options = try container.decodeIfPresent([Option].self, forKey: .options) ?? []
         totalCombinations = try container.decodeIfPresent(Int.self, forKey: .totalCombinations) ?? 1
         fileStructure = try container.decodeIfPresent([FileNode].self, forKey: .fileStructure)
         description = try container.decodeIfPresent(String.self, forKey: .description)
@@ -592,153 +592,5 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         case optionConstraints
         case rawContent = "raw_content"
         case rawContentType = "raw_content_type"
-    }
-}
-
-/// Component in an option unit (e.g., test targets to be created).
-///
-/// Example: When selecting "Swift Testing", it creates unit and UI test targets.
-public struct TemplateOptionComponent: Codable, Hashable, Sendable {
-    public let identifier: String
-    public let name: String
-
-    enum CodingKeys: String, CodingKey {
-        case identifier = "Identifier"
-        case name = "Name"
-    }
-}
-
-/// Unit value for an option (e.g., "Swift" or "Objective-C" for language choice).
-///
-/// Units can contain complex nested structures like Components, Definitions, and Targets.
-/// For now, we only decode Components. Definitions and Targets will be added later.
-public struct TemplateOptionUnit: Codable, Hashable, Sendable {
-    public let components: [TemplateOptionComponent]?
-
-    enum CodingKeys: String, CodingKey {
-        case components = "Components"
-    }
-}
-
-/// Template option from JSON (internal type).
-///
-/// Renamed from `TemplateOption` to avoid collision with existing parser type.
-///
-/// ## Example JSON
-/// ```json
-/// {
-///   "name": "Testing System:",
-///   "type": "popup",
-///   "identifier": "testingSystem",
-///   "defaultValue": "None",
-///   "values": ["None", "XCTest", "Swift Testing"],
-///   "valueTitles": ["None", "XCTest for Unit and UI Tests", "Swift Testing with XCTest UI Tests"],
-///   "units": { ... }
-/// }
-/// ```
-public struct TemplateOptionJSON: Codable, Hashable, Sendable {
-    public let identifier: String
-    public let name: String
-    public let type: String
-    public let defaultValue: String
-    public let description: String?
-    public let override: String?
-    public let notPersisted: Bool?
-    public let required: Bool?
-    public let emptyReplacement: String?
-    public let sortOrder: Int?
-    public let values: [String]?
-    public let valueTitles: [String]?
-    public let requiredOptionsForValues: [String: [String: String]]?
-    public let units: [String: TemplateOptionUnit]?
-
-    // Legacy field for backward compatibility
-    public var choices: [String]? {
-        values
-    }
-
-    public init(
-        identifier: String,
-        name: String = "",
-        type: String = "text",
-        defaultValue: String = "",
-        description: String? = nil,
-        override: String? = nil,
-        notPersisted: Bool? = nil,
-        required: Bool? = nil,
-        emptyReplacement: String? = nil,
-        sortOrder: Int? = nil,
-        values: [String]? = nil,
-        valueTitles: [String]? = nil,
-        requiredOptionsForValues: [String: [String: String]]? = nil,
-        units: [String: TemplateOptionUnit]? = nil
-    ) {
-        self.identifier = identifier
-        self.name = name
-        self.type = type
-        self.defaultValue = defaultValue
-        self.description = description
-        self.override = override
-        self.notPersisted = notPersisted
-        self.required = required
-        self.emptyReplacement = emptyReplacement
-        self.sortOrder = sortOrder
-        self.values = values
-        self.valueTitles = valueTitles
-        self.requiredOptionsForValues = requiredOptionsForValues
-        self.units = units
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case identifier = "Identifier"
-        case name = "Name"
-        case type = "Type"
-        case defaultValue = "Default"
-        case description = "Description"
-        case override = "Override"
-        case notPersisted = "NotPersisted"
-        case required = "Required"
-        case emptyReplacement = "EmptyReplacement"
-        case sortOrder = "SortOrder"
-        case values = "Values"
-        case valueTitles = "ValueTitles"
-        case requiredOptionsForValues = "RequiredOptionsForValues"
-        case units = "Units"
-    }
-
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        identifier = try container.decode(String.self, forKey: .identifier)
-        name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
-        type = try container.decodeIfPresent(String.self, forKey: .type) ?? "text"
-        defaultValue = try container.decodeIfPresent(String.self, forKey: .defaultValue) ?? ""
-        description = try container.decodeIfPresent(String.self, forKey: .description)
-        override = try container.decodeIfPresent(String.self, forKey: .override)
-        notPersisted = try container.decodeIfPresent(Bool.self, forKey: .notPersisted)
-        required = try container.decodeIfPresent(Bool.self, forKey: .required)
-        emptyReplacement = try container.decodeIfPresent(String.self, forKey: .emptyReplacement)
-        sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder)
-        values = try container.decodeIfPresent([String].self, forKey: .values)
-        valueTitles = try container.decodeIfPresent([String].self, forKey: .valueTitles)
-        requiredOptionsForValues = try container.decodeIfPresent([String: [String: String]].self, forKey: .requiredOptionsForValues)
-        units = try container.decodeIfPresent([String: TemplateOptionUnit].self, forKey: .units)
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(identifier, forKey: .identifier)
-        try container.encode(name, forKey: .name)
-        try container.encode(type, forKey: .type)
-        try container.encode(defaultValue, forKey: .defaultValue)
-        try container.encodeIfPresent(description, forKey: .description)
-        try container.encodeIfPresent(override, forKey: .override)
-        try container.encodeIfPresent(notPersisted, forKey: .notPersisted)
-        try container.encodeIfPresent(required, forKey: .required)
-        try container.encodeIfPresent(emptyReplacement, forKey: .emptyReplacement)
-        try container.encodeIfPresent(sortOrder, forKey: .sortOrder)
-        try container.encodeIfPresent(values, forKey: .values)
-        try container.encodeIfPresent(valueTitles, forKey: .valueTitles)
-        try container.encodeIfPresent(requiredOptionsForValues, forKey: .requiredOptionsForValues)
-        try container.encodeIfPresent(units, forKey: .units)
     }
 }

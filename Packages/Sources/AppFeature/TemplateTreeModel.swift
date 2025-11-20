@@ -280,7 +280,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildOptionsNode(options: [TemplateOptionJSON], templateName: String) -> TreeNode {
+    func buildOptionsNode(options: [Option], templateName: String) -> TreeNode {
         let optionChildren = options.enumerated().map { index, option in
             TreeNode(
                 id: "option-\(templateName)-\(index)",
@@ -300,7 +300,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func optionDetailNodes(option: TemplateOptionJSON, templateName: String, index: Int) -> [TreeNode] {
+    func optionDetailNodes(option: Option, templateName: String, index: Int) -> [TreeNode] {
         var optionDetails: [TreeNode] = [
             TreeNode(
                 id: "option-\(templateName)-\(index)-type",
@@ -548,7 +548,7 @@ public enum NodeType: Hashable {
     case ancestor(kind: TemplateKind)
     case section(name: String)
     case property(key: String, value: String)
-    case option(TemplateOptionJSON)
+    case option(Option)
     case file(FileNode)
     case value(String)
 }
