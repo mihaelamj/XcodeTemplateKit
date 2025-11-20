@@ -151,7 +151,7 @@ struct DescriptionFieldTests {
 struct PlatformsFieldTests {
     @Test("Parse platforms array", .disabled("Field not yet implemented"))
     func parsePlatforms() throws {
-        // TODO: Implement Platforms field in TemplateMetadata
+        // TODO: Implement Platforms field in Metadata
         // TODO: Load from Fixtures/Platforms_App.plist
         throw TestError.notImplemented
     }

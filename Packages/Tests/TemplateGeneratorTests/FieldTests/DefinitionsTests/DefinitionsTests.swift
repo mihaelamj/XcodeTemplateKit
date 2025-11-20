@@ -38,7 +38,7 @@ struct DefinitionsTests {
             }
         }
 
-        let templateDefinitions = TemplateDefinitions(definitions: definitions)
+        let templateDefinitions = Definitions(definitions: definitions)
 
         // Verify parsed structure
         #expect(templateDefinitions.definitions.count == 2)
@@ -46,7 +46,7 @@ struct DefinitionsTests {
         #expect(templateDefinitions.definitions["main.m:main"] != nil)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -96,13 +96,13 @@ struct DefinitionsTests {
             }
         }
 
-        let templateDefinitions = TemplateDefinitions(definitions: definitions)
+        let templateDefinitions = Definitions(definitions: definitions)
 
         // Verify parsed structure - has both strings and FileDefinitions
         #expect(!templateDefinitions.definitions.isEmpty)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),

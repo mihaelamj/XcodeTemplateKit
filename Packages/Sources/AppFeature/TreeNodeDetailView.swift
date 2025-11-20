@@ -135,7 +135,7 @@ struct TreeNodeDetailView: View {
 
     // MARK: - Detail Views
 
-    private func categoryDetail(_ category: TemplateCategory) -> some View {
+    private func categoryDetail(_ category: TemplateModels.Category) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Category") {
                 InspectorRow(label: "Type", value: category.displayName)
@@ -145,7 +145,7 @@ struct TreeNodeDetailView: View {
     }
 
     // swiftlint:disable:next function_body_length
-    private func templateDetail(_ template: TemplateMetadata) -> some View {
+    private func templateDetail(_ template: Metadata) -> some View {
         Form {
             Section("Overview") {
                 LabeledContent {
@@ -170,7 +170,7 @@ struct TreeNodeDetailView: View {
                         Image(systemName: "tag")
                             .font(.system(size: 9))
                             .foregroundStyle(.tertiary)
-                        Text("TemplateKind")
+                        Text("Kind")
                             .font(.system(size: 9, design: .monospaced))
                             .foregroundStyle(.tertiary)
                     }
@@ -185,7 +185,7 @@ struct TreeNodeDetailView: View {
                         Image(systemName: "tag")
                             .font(.system(size: 9))
                             .foregroundStyle(.tertiary)
-                        Text("TemplateCategory")
+                        Text("Category")
                             .font(.system(size: 9, design: .monospaced))
                             .foregroundStyle(.tertiary)
                     }
@@ -350,7 +350,7 @@ struct TreeNodeDetailView: View {
         .formStyle(.grouped)
     }
 
-    private func ancestorDetail(_ kind: TemplateKind) -> some View {
+    private func ancestorDetail(_ kind: Kind) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             Label("Ancestor Template", systemImage: "arrow.turn.down.right")
                 .font(.title3)
@@ -532,7 +532,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func templateDocumentation(_ template: TemplateMetadata) -> some View {
+    private func templateDocumentation(_ template: Metadata) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Overview") {
                 CopyableText(text: """
@@ -603,7 +603,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func categoryDocumentation(_ category: TemplateCategory) -> some View {
+    private func categoryDocumentation(_ category: TemplateModels.Category) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Category Description") {
                 CopyableText(text: """
@@ -636,7 +636,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func templateExamples(_ template: TemplateMetadata) -> some View {
+    private func templateExamples(_ template: Metadata) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Template Definition Example") {
                 CodeBlock(code: """
@@ -655,7 +655,7 @@ struct TreeNodeDetailView: View {
                 InspectorSection(title: "Options Usage Example") {
                     CodeBlock(code: """
                     // Example of programmatically accessing template options:
-                    let template = TemplateMetadata(/* ... */)
+                    let template = Metadata(/* ... */)
 
                     for option in template.options {
                         print("Option: \\(option.name)")

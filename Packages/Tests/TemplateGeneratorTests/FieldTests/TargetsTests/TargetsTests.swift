@@ -26,7 +26,7 @@ struct TargetsTests {
 
         // Parse to typed model
         let targetsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let targets = try PropertyListDecoder().decode(TemplateTargets.self, from: targetsData)
+        let targets = try PropertyListDecoder().decode(Targets.self, from: targetsData)
 
         // Verify parsed structure
         #expect(targets.targets.count == 1)
@@ -34,7 +34,7 @@ struct TargetsTests {
         #expect(targets.targets[0].buildPhases?.count == 3)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -74,13 +74,13 @@ struct TargetsTests {
 
         // Parse to typed model
         let targetsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let targets = try PropertyListDecoder().decode(TemplateTargets.self, from: targetsData)
+        let targets = try PropertyListDecoder().decode(Targets.self, from: targetsData)
 
         // Verify parsed structure
         #expect(!targets.targets.isEmpty)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),

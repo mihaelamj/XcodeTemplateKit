@@ -9,12 +9,12 @@ import Foundation
 /// ## Examples
 /// ```swift
 /// // Simple code snippet definition
-/// let definitions = TemplateDefinitions(definitions: [
+/// let definitions = Definitions(definitions: [
 ///     "Info.plist:NSExtension": .string("<key>NSExtension</key>...")
 /// ])
 ///
 /// // Structured file definition
-/// let definitions = TemplateDefinitions(definitions: [
+/// let definitions = Definitions(definitions: [
 ///     "MyFile.swift": .file(FileDefinition(
 ///         path: "Sources/MyFile.swift",
 ///         group: .single("Sources"),
@@ -22,7 +22,7 @@ import Foundation
 ///     ))
 /// ])
 /// ```
-public struct TemplateDefinitions: Codable, Hashable, Sendable {
+public struct Definitions: Codable, Hashable, Sendable {
     /// Dictionary mapping file identifiers to their definitions.
     public let definitions: [String: DefinitionValue]
 

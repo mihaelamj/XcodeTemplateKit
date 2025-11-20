@@ -64,8 +64,8 @@ private extension TemplateTreeModelTests {
         TemplateTreeModel(inventory: sampleInventory())
     }
 
-    func sampleInventory() -> TemplateInventory {
-        let projectTemplate = TemplateMetadata(
+    func sampleInventory() -> Inventory {
+        let projectTemplate = Metadata(
             name: "Sample App",
             path: "/tmp/SampleApp.xctemplate",
             kind: .app,
@@ -75,7 +75,7 @@ private extension TemplateTreeModelTests {
             fileStructure: nil
         )
 
-        let fileTemplate = TemplateMetadata(
+        let fileTemplate = Metadata(
             name: "Sample View",
             path: "/tmp/SampleView.xctemplate",
             kind: .fileTemplateSwiftUIView,
@@ -86,7 +86,7 @@ private extension TemplateTreeModelTests {
         )
 
         let templates = [projectTemplate, fileTemplate]
-        return TemplateInventory(
+        return Inventory(
             generatedAt: "now",
             templates: templates,
             totalTemplates: templates.count,

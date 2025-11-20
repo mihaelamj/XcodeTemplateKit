@@ -52,7 +52,7 @@ public enum TemplateTreeBuilder {
     /// - Throws: Decoding errors if JSON is invalid
     public static func buildTree(from jsonData: Data) throws -> TemplateTreeNode {
         let decoder = JSONDecoder()
-        let inventory = try decoder.decode(TemplateInventory.self, from: jsonData)
+        let inventory = try decoder.decode(Inventory.self, from: jsonData)
         return buildTree(from: inventory)
     }
 
@@ -66,9 +66,9 @@ public enum TemplateTreeBuilder {
     ///
     /// - Parameter inventory: Parsed template inventory
     /// - Returns: Root node of the template tree
-    public static func buildTree(from inventory: TemplateInventory) -> TemplateTreeNode {
+    public static func buildTree(from inventory: Inventory) -> TemplateTreeNode {
         // Group templates by category, then by kind
-        var categorizedTemplates: [TemplateCategory: [TemplateKind: [TemplateMetadata]]] = [:]
+        var categorizedTemplates: [TemplateModels.Category: [Kind: [Metadata]]] = [:]
 
         for template in inventory.templates {
             let kind = template.kind
@@ -118,7 +118,7 @@ public enum TemplateTreeBuilder {
     // MARK: - Private Helpers
 
     // swiftlint:disable:next function_body_length
-    private static func buildTemplateNode(from metadata: TemplateMetadata) -> TemplateNode {
+    private static func buildTemplateNode(from metadata: Metadata) -> TemplateNode {
         var sections: [SectionNode] = []
 
         // Properties section

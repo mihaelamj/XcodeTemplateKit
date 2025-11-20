@@ -26,7 +26,7 @@ struct ComponentsTests {
 
         // Parse to typed model
         let componentsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let components = try PropertyListDecoder().decode(TemplateComponents.self, from: componentsData)
+        let components = try PropertyListDecoder().decode(Components.self, from: componentsData)
 
         // Verify parsed structure
         #expect(components.components.count == 1)
@@ -36,7 +36,7 @@ struct ComponentsTests {
         #expect(components.components[0].productBuildPhaseInjections?[0].targetIdentifier == "com.apple.dt.applicationTarget")
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -78,13 +78,13 @@ struct ComponentsTests {
 
         // Parse to typed model
         let componentsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let components = try PropertyListDecoder().decode(TemplateComponents.self, from: componentsData)
+        let components = try PropertyListDecoder().decode(Components.self, from: componentsData)
 
         // Verify parsed structure
         #expect(!components.components.isEmpty)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),

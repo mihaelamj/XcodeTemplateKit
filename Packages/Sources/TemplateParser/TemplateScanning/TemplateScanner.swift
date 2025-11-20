@@ -13,8 +13,8 @@ public class TemplateScanner {
     public init() {}
 
     /// Scan all Xcode templates and return complete inventory
-    public func scanAllTemplates() -> TemplateInventory {
-        var templates: [TemplateMetadata] = []
+    public func scanAllTemplates() -> Inventory {
+        var templates: [Metadata] = []
         var seenPaths = Set<String>()
 
         for root in templateRoots where fileManager.fileExists(atPath: root) {
@@ -24,7 +24,7 @@ public class TemplateScanner {
         // Calculate total combinations
         let totalCombinations = templates.reduce(0) { $0 + $1.totalCombinations }
 
-        return TemplateInventory(
+        return Inventory(
             generatedAt: ISO8601DateFormatter().string(from: Date()),
             templates: templates,
             totalTemplates: templates.count,
@@ -32,8 +32,8 @@ public class TemplateScanner {
         )
     }
 
-    private func scanTemplates(atRoot root: String, seenPaths: inout Set<String>) -> [TemplateMetadata] {
-        var templates: [TemplateMetadata] = []
+    private func scanTemplates(atRoot root: String, seenPaths: inout Set<String>) -> [Metadata] {
+        var templates: [Metadata] = []
 
         guard let enumerator = fileManager.enumerator(atPath: root) else {
             return templates
@@ -64,7 +64,7 @@ public class TemplateScanner {
     }
 
     // swiftlint:disable:next function_body_length
-    private func parseTemplate(at path: String, templateType: String) -> TemplateMetadata? {
+    private func parseTemplate(at path: String, templateType: String) -> Metadata? {
         let plistPath = "\(path)/TemplateInfo.plist"
 
         guard fileManager.fileExists(atPath: plistPath) else {
@@ -119,7 +119,7 @@ public class TemplateScanner {
         }
 
         // Parse template kind - unknown kinds are preserved as .unknown(String)
-        let kind = TemplateKind(rawValue: kindString)
+        let kind = Kind(rawValue: kindString)
 
         let ancestors = plist["Ancestors"] as? [String]
 
@@ -175,11 +175,11 @@ public class TemplateScanner {
         let definitions = parseDefinitions(plist["Definitions"])
         let optionConstraints = parseOptionConstraints(plist["OptionConstraints"])
 
-        return TemplateMetadata(
+        return Metadata(
             name: name,
             path: path,
             kind: kind,
-            ancestors: ancestors?.compactMap { TemplateKind(rawValue: $0) },
+            ancestors: ancestors?.compactMap { Kind(rawValue: $0) },
             options: options,
             totalCombinations: combinations,
             fileStructure: fileStructure.isEmpty ? nil : fileStructure,
@@ -224,14 +224,14 @@ public class TemplateScanner {
     }
 
     /// Parse Components field from plist array.
-    private func parseComponents(_ value: Any?) -> TemplateComponents? {
+    private func parseComponents(_ value: Any?) -> Components? {
         guard let componentsArray = value as? [[String: Any]], !componentsArray.isEmpty else {
             return nil
         }
 
-        // Convert to proper format for TemplateComponents decoding
+        // Convert to proper format for Components decoding
         guard let data = try? PropertyListSerialization.data(fromPropertyList: componentsArray, format: .binary, options: 0),
-              let components = try? PropertyListDecoder().decode(TemplateComponents.self, from: data) else {
+              let components = try? PropertyListDecoder().decode(Components.self, from: data) else {
             return nil
         }
 
@@ -239,14 +239,14 @@ public class TemplateScanner {
     }
 
     /// Parse Targets field from plist array.
-    private func parseTargets(_ value: Any?) -> TemplateTargets? {
+    private func parseTargets(_ value: Any?) -> Targets? {
         guard let targetsArray = value as? [[String: Any]], !targetsArray.isEmpty else {
             return nil
         }
 
-        // Convert to proper format for TemplateTargets decoding
+        // Convert to proper format for Targets decoding
         guard let data = try? PropertyListSerialization.data(fromPropertyList: targetsArray, format: .binary, options: 0),
-              let targets = try? PropertyListDecoder().decode(TemplateTargets.self, from: data) else {
+              let targets = try? PropertyListDecoder().decode(Targets.self, from: data) else {
             return nil
         }
 
@@ -254,14 +254,14 @@ public class TemplateScanner {
     }
 
     /// Parse OptionConstraints field from plist array.
-    private func parseOptionConstraints(_ value: Any?) -> TemplateOptionConstraints? {
+    private func parseOptionConstraints(_ value: Any?) -> OptionConstraints? {
         guard let constraintsArray = value as? [[String: Any]], !constraintsArray.isEmpty else {
             return nil
         }
 
-        // Convert to proper format for TemplateOptionConstraints decoding
+        // Convert to proper format for OptionConstraints decoding
         guard let data = try? PropertyListSerialization.data(fromPropertyList: constraintsArray, format: .binary, options: 0),
-              let constraints = try? PropertyListDecoder().decode(TemplateOptionConstraints.self, from: data) else {
+              let constraints = try? PropertyListDecoder().decode(OptionConstraints.self, from: data) else {
             return nil
         }
 
@@ -269,7 +269,7 @@ public class TemplateScanner {
     }
 
     /// Parse Definitions field from plist dictionary.
-    private func parseDefinitions(_ value: Any?) -> TemplateDefinitions? {
+    private func parseDefinitions(_ value: Any?) -> Definitions? {
         guard let definitionsDict = value as? [String: Any], !definitionsDict.isEmpty else {
             return nil
         }
@@ -289,7 +289,7 @@ public class TemplateScanner {
             }
         }
 
-        return definitions.isEmpty ? nil : TemplateDefinitions(definitions: definitions)
+        return definitions.isEmpty ? nil : Definitions(definitions: definitions)
     }
 
     private func extractOptions(from plist: [String: Any]) -> [Option] {

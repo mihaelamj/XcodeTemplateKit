@@ -22,15 +22,15 @@ import Foundation
 ///   "templates": [...]
 /// }
 /// ```
-public struct TemplateInventory: Codable, Sendable {
+public struct Inventory: Codable, Sendable {
     public let generatedAt: String
-    public let templates: [TemplateMetadata]
+    public let templates: [Metadata]
     public let totalTemplates: Int
     public let totalCombinations: Int
 
     public init(
         generatedAt: String,
-        templates: [TemplateMetadata],
+        templates: [Metadata],
         totalTemplates: Int,
         totalCombinations: Int
     ) {
@@ -149,7 +149,7 @@ public enum ProjectConfiguration: String, Codable, Hashable, Sendable {
 /// ```
 ///
 /// See `BooleanPropertyFormats.md` for complete documentation.
-public enum TemplateBooleanFormat: Hashable, Sendable {
+public enum BooleanFormat: Hashable, Sendable {
     /// Objective-C boolean format using YES/NO strings.
     ///
     /// Used for legacy template properties and all Xcode build settings.
@@ -174,7 +174,7 @@ public enum TemplateBooleanFormat: Hashable, Sendable {
     ///
     /// - Parameter string: "YES" or "NO" string
     /// - Returns: `.objectiveCBoolean` if valid, nil otherwise
-    public static func fromObjectiveCString(_ string: String) -> TemplateBooleanFormat? {
+    public static func fromObjectiveCString(_ string: String) -> BooleanFormat? {
         switch string {
         case "YES": return .objectiveCBoolean(true)
         case "NO": return .objectiveCBoolean(false)
@@ -186,7 +186,7 @@ public enum TemplateBooleanFormat: Hashable, Sendable {
     ///
     /// - Parameter value: Boolean value
     /// - Returns: `.swiftBoolean` wrapping the value
-    public static func fromSwiftBool(_ value: Bool) -> TemplateBooleanFormat {
+    public static func fromSwiftBool(_ value: Bool) -> BooleanFormat {
         .swiftBoolean(value)
     }
 
@@ -211,11 +211,11 @@ public enum TemplateBooleanFormat: Hashable, Sendable {
     /// var plist: [String: Any] = [:]
     ///
     /// // Objective-C boolean
-    /// let hidden = TemplateBooleanFormat.objectiveCBoolean(true)
+    /// let hidden = BooleanFormat.objectiveCBoolean(true)
     /// plist["HiddenFromChooser"] = hidden.toPropertyListValue()  // "YES"
     ///
     /// // Swift boolean
-    /// let concrete = TemplateBooleanFormat.swiftBoolean(true)
+    /// let concrete = BooleanFormat.swiftBoolean(true)
     /// plist["Concrete"] = concrete.toPropertyListValue()  // true
     /// ```
     public func toPropertyListValue() -> Any {
@@ -252,12 +252,12 @@ public enum TemplateBooleanFormat: Hashable, Sendable {
 ///
 /// - Note: `ancestors` contains template identifier strings that reference parent templates.
 ///   These are resolved later using `ProjectTemplateParser.loadWithAncestors()`.
-public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
+public struct Metadata: Codable, Identifiable, Hashable, Sendable {
     public let id: String // Use path as unique ID
     public let name: String
     public let path: String
-    public let kind: TemplateKind
-    public let ancestors: [TemplateKind]?
+    public let kind: Kind
+    public let ancestors: [Kind]?
     public let options: [Option]
     public let totalCombinations: Int
     public let fileStructure: [FileNode]?
@@ -351,16 +351,16 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     // MARK: - Complex Dictionary Fields (Stored as Data)
 
     /// Component configurations. Appears in 2 templates.
-    public let components: TemplateComponents?
+    public let components: Components?
 
     /// Target configurations. Appears in 71 templates.
-    public let targets: TemplateTargets?
+    public let targets: Targets?
 
     /// Template definitions for code generation. Appears in 28 templates.
-    public let definitions: TemplateDefinitions?
+    public let definitions: Definitions?
 
     /// Option constraint rules. Appears in 8 templates.
-    public let optionConstraints: TemplateOptionConstraints?
+    public let optionConstraints: OptionConstraints?
 
     /// Original raw content from TemplateInfo.plist.
     ///
@@ -382,8 +382,8 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     public init(
         name: String,
         path: String,
-        kind: TemplateKind,
-        ancestors: [TemplateKind]? = nil,
+        kind: Kind,
+        ancestors: [Kind]? = nil,
         options: [Option] = [],
         totalCombinations: Int = 1,
         fileStructure: [FileNode]? = nil,
@@ -412,10 +412,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         nodes: [String]? = nil,
         platforms: [Platform]? = nil,
         title: String? = nil,
-        components: TemplateComponents? = nil,
-        targets: TemplateTargets? = nil,
-        definitions: TemplateDefinitions? = nil,
-        optionConstraints: TemplateOptionConstraints? = nil,
+        components: Components? = nil,
+        targets: Targets? = nil,
+        definitions: Definitions? = nil,
+        optionConstraints: OptionConstraints? = nil,
         rawContent: String? = nil,
         rawContentType: String? = nil
     ) {
@@ -471,8 +471,8 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
             path = try container.decode(String.self, forKey: .sourcePath)
         }
 
-        kind = try container.decode(TemplateKind.self, forKey: .kind)
-        ancestors = try container.decodeIfPresent([TemplateKind].self, forKey: .ancestors)
+        kind = try container.decode(Kind.self, forKey: .kind)
+        ancestors = try container.decodeIfPresent([Kind].self, forKey: .ancestors)
         options = try container.decodeIfPresent([Option].self, forKey: .options) ?? []
         totalCombinations = try container.decodeIfPresent(Int.self, forKey: .totalCombinations) ?? 1
         fileStructure = try container.decodeIfPresent([FileNode].self, forKey: .fileStructure)
@@ -501,10 +501,10 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         nodes = try container.decodeIfPresent([String].self, forKey: .nodes)
         platforms = try container.decodeIfPresent([Platform].self, forKey: .platforms)
         title = try container.decodeIfPresent(String.self, forKey: .title)
-        components = try container.decodeIfPresent(TemplateComponents.self, forKey: .components)
-        targets = try container.decodeIfPresent(TemplateTargets.self, forKey: .targets)
-        definitions = try container.decodeIfPresent(TemplateDefinitions.self, forKey: .definitions)
-        optionConstraints = try container.decodeIfPresent(TemplateOptionConstraints.self, forKey: .optionConstraints)
+        components = try container.decodeIfPresent(Components.self, forKey: .components)
+        targets = try container.decodeIfPresent(Targets.self, forKey: .targets)
+        definitions = try container.decodeIfPresent(Definitions.self, forKey: .definitions)
+        optionConstraints = try container.decodeIfPresent(OptionConstraints.self, forKey: .optionConstraints)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
         rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
         id = path // Use path as unique ID

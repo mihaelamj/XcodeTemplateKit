@@ -68,11 +68,11 @@ public struct ProjectTemplateInfo: Codable, Sendable {
     ///
     /// ## Example
     /// ```swift
-    /// appTemplate.kind         // TemplateKind.app
-    /// frameworkTemplate.kind   // TemplateKind.framework
-    /// baseTemplate.kind        // TemplateKind.applicationBase
+    /// appTemplate.kind         // Kind.app
+    /// frameworkTemplate.kind   // Kind.framework
+    /// baseTemplate.kind        // Kind.applicationBase
     /// ```
-    public let kind: TemplateKind
+    public let kind: Kind
 
     /// Unique template identifier derived from the template kind.
     ///
@@ -282,7 +282,7 @@ public struct ProjectTemplateInfo: Codable, Sendable {
     public let fileStructure: [FileNode]?
 
     enum CodingKeys: String, CodingKey {
-        case kind = "Identifier" // Decode from Identifier field which maps to TemplateKind enum
+        case kind = "Identifier" // Decode from Identifier field which maps to Kind enum
         case description = "Description"
         case ancestors = "Ancestors"
         case concrete = "Concrete"

@@ -3,7 +3,7 @@ import TemplateModels
 @testable import TemplateParser
 import Testing
 
-/// Tests for decoding TemplateMetadata from JSON.
+/// Tests for decoding Metadata from JSON.
 ///
 /// Verifies that template metadata can be correctly decoded from
 /// extracted JSON files with proper field mapping.
@@ -47,7 +47,7 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let template = try decoder.decode(TemplateMetadata.self, from: data)
+        let template = try decoder.decode(Metadata.self, from: data)
 
         // Verify basic fields
         #expect(template.name == "App Base")
@@ -87,7 +87,7 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let template = try decoder.decode(TemplateMetadata.self, from: data)
+        let template = try decoder.decode(Metadata.self, from: data)
 
         #expect(template.name == "Empty")
         #expect(template.kind == .emptyProject)
@@ -111,13 +111,13 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let template = try decoder.decode(TemplateMetadata.self, from: data)
+        let template = try decoder.decode(Metadata.self, from: data)
 
         #expect(template.path == "/custom/path/App.xctemplate")
         #expect(template.name == "App")
     }
 
-    /// Test decoding TemplateInventory with multiple templates.
+    /// Test decoding Inventory with multiple templates.
     @Test("Decode template inventory")
     func decodeInventory() throws {
         let json = """
@@ -146,7 +146,7 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let inventory = try decoder.decode(TemplateInventory.self, from: data)
+        let inventory = try decoder.decode(Inventory.self, from: data)
 
         #expect(inventory.totalTemplates == 2)
         #expect(inventory.totalCombinations == 3)

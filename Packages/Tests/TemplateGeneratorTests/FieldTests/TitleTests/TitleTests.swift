@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
 @testable import TemplateGenerator
+import TemplateModels
 import Testing
 
 /// Generator tests for the "Title" field
@@ -9,29 +9,28 @@ import Testing
 /// Tests that TemplateWriter correctly serializes Title values to plist format.
 @Suite("Title Field Generation")
 struct TitleTests {
-
     @Test("Generate Title for Application")
     func generateApplication() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Application_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
-        
+
         // Extract field value from original
         guard let originalValue = originalPlist["Title"] else { return }
-        
+
         // Create metadata with this field
-        var metadata = TemplateMetadata(
+        var metadata = Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
         )
         // TODO: Set metadata.title = originalValue (need proper conversion)
-        
+
         // Generate plist
         let writer = TemplateWriter()
         let generatedPlist = try writer.createPlist(from: metadata)
-        
+
         // Verify field is present if it should be
         _ = generatedPlist["Title"]
     }
@@ -42,22 +41,22 @@ struct TitleTests {
         let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Empty_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
-        
+
         // Extract field value from original
         guard let originalValue = originalPlist["Title"] else { return }
-        
+
         // Create metadata with this field
-        var metadata = TemplateMetadata(
+        var metadata = Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
         )
         // TODO: Set metadata.title = originalValue (need proper conversion)
-        
+
         // Generate plist
         let writer = TemplateWriter()
         let generatedPlist = try writer.createPlist(from: metadata)
-        
+
         // Verify field is present if it should be
         _ = generatedPlist["Title"]
     }
@@ -68,22 +67,22 @@ struct TitleTests {
         let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Main_Menu_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
-        
+
         // Extract field value from original
         guard let originalValue = originalPlist["Title"] else { return }
-        
+
         // Create metadata with this field
-        var metadata = TemplateMetadata(
+        var metadata = Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
         )
         // TODO: Set metadata.title = originalValue (need proper conversion)
-        
+
         // Generate plist
         let writer = TemplateWriter()
         let generatedPlist = try writer.createPlist(from: metadata)
-        
+
         // Verify field is present if it should be
         _ = generatedPlist["Title"]
     }
@@ -94,22 +93,22 @@ struct TitleTests {
         let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Storyboard_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
-        
+
         // Extract field value from original
         guard let originalValue = originalPlist["Title"] else { return }
-        
+
         // Create metadata with this field
-        var metadata = TemplateMetadata(
+        var metadata = Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
         )
         // TODO: Set metadata.title = originalValue (need proper conversion)
-        
+
         // Generate plist
         let writer = TemplateWriter()
         let generatedPlist = try writer.createPlist(from: metadata)
-        
+
         // Verify field is present if it should be
         _ = generatedPlist["Title"]
     }
@@ -120,22 +119,22 @@ struct TitleTests {
         let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/View_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
-        
+
         // Extract field value from original
         guard let originalValue = originalPlist["Title"] else { return }
-        
+
         // Create metadata with this field
-        var metadata = TemplateMetadata(
+        var metadata = Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
         )
         // TODO: Set metadata.title = originalValue (need proper conversion)
-        
+
         // Generate plist
         let writer = TemplateWriter()
         let generatedPlist = try writer.createPlist(from: metadata)
-        
+
         // Verify field is present if it should be
         _ = generatedPlist["Title"]
     }
@@ -146,22 +145,22 @@ struct TitleTests {
         let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Window_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
-        
+
         // Extract field value from original
         guard let originalValue = originalPlist["Title"] else { return }
-        
+
         // Create metadata with this field
-        var metadata = TemplateMetadata(
+        var metadata = Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
         )
         // TODO: Set metadata.title = originalValue (need proper conversion)
-        
+
         // Generate plist
         let writer = TemplateWriter()
         let generatedPlist = try writer.createPlist(from: metadata)
-        
+
         // Verify field is present if it should be
         _ = generatedPlist["Title"]
     }

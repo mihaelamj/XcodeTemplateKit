@@ -8,7 +8,7 @@ import Foundation
 /// ## Examples
 /// ```swift
 /// // Simple application target
-/// let targets = TemplateTargets(targets: [
+/// let targets = Targets(targets: [
 ///     TargetDefinition(
 ///         productType: "com.apple.product-type.application",
 ///         buildPhases: [
@@ -19,7 +19,7 @@ import Foundation
 ///     )
 /// ])
 /// ```
-public struct TemplateTargets: Codable, Hashable, Sendable {
+public struct Targets: Codable, Hashable, Sendable {
     /// Array of target definitions.
     public let targets: [TargetDefinition]
 

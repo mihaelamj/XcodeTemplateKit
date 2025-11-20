@@ -10,15 +10,17 @@ import Testing
 /// correct round-trip behavior for all fixtures.
 @Suite("ProjectOnly Field Parsing")
 struct ProjectOnlyTests {
-
     @Test("Parse ProjectOnly from Empty")
     func parseEmpty() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ProjectOnlyTests/ProjectOnlyTests.swift", with: "Fixtures/ProjectOnly/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ProjectOnlyTests/ProjectOnlyTests.swift",
+            with: "Fixtures/ProjectOnly/Empty_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["ProjectOnly"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["ProjectOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -26,12 +28,15 @@ struct ProjectOnlyTests {
 
     @Test("Round-trip ProjectOnly from Empty")
     func roundTripEmpty() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ProjectOnlyTests/ProjectOnlyTests.swift", with: "Fixtures/ProjectOnly/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ProjectOnlyTests/ProjectOnlyTests.swift",
+            with: "Fixtures/ProjectOnly/Empty_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["ProjectOnly"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["ProjectOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -45,7 +50,7 @@ struct ProjectOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["ProjectOnly"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["ProjectOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "ProjectOnly should survive round-trip")
@@ -55,7 +60,7 @@ struct ProjectOnlyTests {
     func parseMissingProjectOnly() throws {
         let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
 
-        let value = (testPlist["ProjectOnly"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (testPlist["ProjectOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         #expect(value == nil, "ProjectOnly should be nil when not present")
     }

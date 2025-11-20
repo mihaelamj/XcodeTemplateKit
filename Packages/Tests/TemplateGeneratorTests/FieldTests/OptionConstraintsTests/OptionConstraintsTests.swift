@@ -26,7 +26,7 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Verify parsed structure
         #expect(constraints.constraints.count == 1)
@@ -35,7 +35,7 @@ struct OptionConstraintsTests {
         #expect(constraints.constraints[0].value == "___ASSOCIATEDTARGET_bundleIdentifier___")
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -74,14 +74,14 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Verify parsed structure
         #expect(constraints.constraints.count == 1)
         #expect(constraints.constraints[0].constraintType == .requirementIfAssociatedTarget)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -117,10 +117,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -156,10 +156,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -195,10 +195,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -234,10 +234,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -273,10 +273,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -312,10 +312,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(TemplateOptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = TemplateMetadata(
+        let metadata = Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),

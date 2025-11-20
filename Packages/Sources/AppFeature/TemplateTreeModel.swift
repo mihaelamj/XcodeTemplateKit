@@ -23,8 +23,8 @@ public final class TemplateTreeModel {
     public var rootNodes: [TreeNode] = []
     public var expandedNodes: Set<String> = []
 
-    private let inventory: TemplateInventory
-    private var templateCache: [String: TemplateMetadata] = [:]
+    private let inventory: Inventory
+    private var templateCache: [String: Metadata] = [:]
     private var cachedExpandableIDs: Set<String> = []
     private var fullyExpandedFlattenCache: [FlattenedNode] = []
     private var filteredNodeCache: [String: [TreeNode]] = [:]
@@ -33,7 +33,7 @@ public final class TemplateTreeModel {
     private static let logger = Logger(subsystem: "com.xcodetemplate.app", category: "TemplateTreeModel")
     private static let signposter = OSSignposter(logHandle: log)
 
-    public init(inventory: TemplateInventory) {
+    public init(inventory: Inventory) {
         self.inventory = inventory
         inventory.templates.forEach { templateCache[$0.identifier] = $0 }
         buildTree()
@@ -126,7 +126,7 @@ private extension TemplateTreeModel {
     func buildTree() {
         let grouped = Dictionary(grouping: inventory.templates) { $0.kind.category }
 
-        rootNodes = TemplateCategory.allCases.compactMap { category in
+        rootNodes = TemplateModels.Category.allCases.compactMap { category in
             guard let templates = grouped[category] else { return nil }
 
             return TreeNode(
@@ -143,7 +143,7 @@ private extension TemplateTreeModel {
         refreshCaches()
     }
 
-    func buildTemplateNode(_ template: TemplateMetadata) -> TreeNode {
+    func buildTemplateNode(_ template: Metadata) -> TreeNode {
         var children: [TreeNode] = []
 
         let propertiesNode = buildPropertiesNode(for: template)
@@ -174,7 +174,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildPropertiesNode(for template: TemplateMetadata, idPrefix: String? = nil) -> TreeNode {
+    func buildPropertiesNode(for template: Metadata, idPrefix: String? = nil) -> TreeNode {
         var propertyChildren: [TreeNode] = []
         let prefix = idPrefix ?? template.path
 
@@ -229,7 +229,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildAncestorsNode(ancestors: [TemplateKind], templateName: String) -> TreeNode {
+    func buildAncestorsNode(ancestors: [Kind], templateName: String) -> TreeNode {
         let ancestorChildren = ancestors.enumerated().map { index, ancestorKind in
             if let ancestorTemplate = templateCache[ancestorKind.rawValue] {
                 return buildAncestorTemplateNode(ancestorTemplate, index: index, parentName: templateName)
@@ -253,7 +253,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildAncestorTemplateNode(_ template: TemplateMetadata, index: Int, parentName: String) -> TreeNode {
+    func buildAncestorTemplateNode(_ template: Metadata, index: Int, parentName: String) -> TreeNode {
         var children: [TreeNode] = []
 
         let ancestorTemplateName = "ancestor-\(parentName)-\(index)"
@@ -473,7 +473,7 @@ private extension TemplateTreeModel {
 // MARK: - Icons
 
 private extension TemplateTreeModel {
-    func iconForCategory(_ category: TemplateCategory) -> String {
+    func iconForCategory(_ category: TemplateModels.Category) -> String {
         switch category {
         case .projectTemplates: return "folder.fill"
         case .fileTemplates: return "doc.fill"
@@ -481,7 +481,7 @@ private extension TemplateTreeModel {
         }
     }
 
-    func iconForTemplate(_ template: TemplateMetadata) -> String {
+    func iconForTemplate(_ template: Metadata) -> String {
         if template.kind.isBaseTemplate {
             return "cube"
         }
@@ -542,10 +542,10 @@ public struct TreeNode: Identifiable, Hashable {
 // MARK: - Node Type
 
 public enum NodeType: Hashable {
-    case category(TemplateCategory)
-    case template(TemplateMetadata)
-    case ancestorTemplate(TemplateMetadata)
-    case ancestor(kind: TemplateKind)
+    case category(TemplateModels.Category)
+    case template(Metadata)
+    case ancestorTemplate(Metadata)
+    case ancestor(kind: Kind)
     case section(name: String)
     case property(key: String, value: String)
     case option(Option)

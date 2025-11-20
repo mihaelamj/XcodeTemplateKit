@@ -19,9 +19,9 @@ enum PropertyType {
         case .string: return "String"
         case .integer: return "Integer"
         case .boolean: return "Boolean"
-        case .templateKind: return "TemplateKind"
-        case .templateCategory: return "TemplateCategory"
-        case .arrayOfTemplateKinds: return "Array<TemplateKind>"
+        case .templateKind: return "Kind"
+        case .templateCategory: return "Category"
+        case .arrayOfTemplateKinds: return "Array<Kind>"
         case .arrayOfStrings: return "Array<String>"
         case .arrayOfOptions: return "Array<TemplateOption>"
         case .fileStructure: return "Array<FileNode>"
@@ -48,7 +48,7 @@ enum PropertyType {
             return ["true", "false"]
 
         case .templateCategory:
-            return TemplateCategory.allCases.map(\.rawValue)
+            return TemplateModels.Category.allCases.map(\.rawValue)
 
         case .templateKind:
             // Return a sample of template kinds - there are 158 total
@@ -77,7 +77,7 @@ enum PropertyType {
             return ["Any positive integer (typically 1-999)"]
 
         case .arrayOfTemplateKinds:
-            return ["Array containing any TemplateKind values"]
+            return ["Array containing any Kind values"]
 
         case .arrayOfStrings:
             return ["Array containing string values"]

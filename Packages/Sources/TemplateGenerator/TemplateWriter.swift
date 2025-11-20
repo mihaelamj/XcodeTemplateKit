@@ -12,13 +12,13 @@ import TemplateModels
 
 /// Writes Xcode template metadata to property list format.
 ///
-/// This is the inverse of `TemplateScanner` - it takes `TemplateMetadata` and serializes it
+/// This is the inverse of `TemplateScanner` - it takes `Metadata` and serializes it
 /// to a `.plist` file that Xcode can read.
 ///
 /// ## Usage
 ///
 /// ```swift
-/// let metadata = TemplateMetadata(
+/// let metadata = Metadata(
 ///     kind: .projectTemplateUnitKind,
 ///     identifier: "com.example.MyTemplate",
 ///     name: "My Template",
@@ -56,7 +56,7 @@ public struct TemplateWriter {
     ///   - format: The property list format (default: `.xml`)
     /// - Throws: Serialization or file system errors
     public func write(
-        _ metadata: TemplateMetadata,
+        _ metadata: Metadata,
         to url: URL,
         format: PropertyListSerialization.PropertyListFormat = .xml
     ) throws {
@@ -70,7 +70,7 @@ public struct TemplateWriter {
     /// - Parameter metadata: The template metadata
     /// - Returns: Dictionary suitable for `PropertyListSerialization`
     /// - Throws: Serialization errors
-    public func createPlist(from metadata: TemplateMetadata) throws -> [String: Any] {
+    public func createPlist(from metadata: Metadata) throws -> [String: Any] {
         var plist: [String: Any] = [:]
 
         // Required fields
@@ -136,37 +136,37 @@ public struct TemplateWriter {
 
         // Objective-C boolean fields (YES/NO strings)
         if let hiddenFromChooser = metadata.hiddenFromChooser {
-            let format = TemplateBooleanFormat.objectiveCBoolean(hiddenFromChooser)
+            let format = BooleanFormat.objectiveCBoolean(hiddenFromChooser)
             plist["HiddenFromChooser"] = format.toPropertyListValue()
         }
         if let hiddenFromLibrary = metadata.hiddenFromLibrary {
-            let format = TemplateBooleanFormat.objectiveCBoolean(hiddenFromLibrary)
+            let format = BooleanFormat.objectiveCBoolean(hiddenFromLibrary)
             plist["HiddenFromLibrary"] = format.toPropertyListValue()
         }
 
         // Swift boolean fields (<true/>/<false/>)
         if let concrete = metadata.concrete {
-            let format = TemplateBooleanFormat.swiftBoolean(concrete)
+            let format = BooleanFormat.swiftBoolean(concrete)
             plist["Concrete"] = format.toPropertyListValue()
         }
         if let localizedByDefault = metadata.localizedByDefault {
-            let format = TemplateBooleanFormat.swiftBoolean(localizedByDefault)
+            let format = BooleanFormat.swiftBoolean(localizedByDefault)
             plist["LocalizedByDefault"] = format.toPropertyListValue()
         }
         if let projectOnly = metadata.projectOnly {
-            let format = TemplateBooleanFormat.swiftBoolean(projectOnly)
+            let format = BooleanFormat.swiftBoolean(projectOnly)
             plist["ProjectOnly"] = format.toPropertyListValue()
         }
         if let supportsSwiftPackage = metadata.supportsSwiftPackage {
-            let format = TemplateBooleanFormat.swiftBoolean(supportsSwiftPackage)
+            let format = BooleanFormat.swiftBoolean(supportsSwiftPackage)
             plist["SupportsSwiftPackage"] = format.toPropertyListValue()
         }
         if let suppressTopLevelGroup = metadata.suppressTopLevelGroup {
-            let format = TemplateBooleanFormat.swiftBoolean(suppressTopLevelGroup)
+            let format = BooleanFormat.swiftBoolean(suppressTopLevelGroup)
             plist["SuppressTopLevelGroup"] = format.toPropertyListValue()
         }
         if let targetOnly = metadata.targetOnly {
-            let format = TemplateBooleanFormat.swiftBoolean(targetOnly)
+            let format = BooleanFormat.swiftBoolean(targetOnly)
             plist["TargetOnly"] = format.toPropertyListValue()
         }
 
@@ -192,21 +192,21 @@ public struct TemplateWriter {
         return plist
     }
 
-    /// Serialize TemplateComponents to plist array format.
+    /// Serialize Components to plist array format.
     ///
     /// - Parameter components: The template components
     /// - Returns: Array of component dictionaries
     /// - Throws: Serialization errors
-    private func serializeComponents(_ components: TemplateComponents) throws -> [[String: Any]] {
+    private func serializeComponents(_ components: Components) throws -> [[String: Any]] {
         try components.components.map { try serializeComponent($0) }
     }
 
-    /// Serialize TemplateComponent to plist dictionary format.
+    /// Serialize Component to plist dictionary format.
     ///
     /// - Parameter component: The component definition
     /// - Returns: Dictionary representation
     /// - Throws: Serialization errors
-    private func serializeComponent(_ component: TemplateComponent) throws -> [String: Any] {
+    private func serializeComponent(_ component: Component) throws -> [String: Any] {
         var dict: [String: Any] = [:]
 
         dict["Identifier"] = component.identifier
@@ -221,12 +221,12 @@ public struct TemplateWriter {
         return dict
     }
 
-    /// Serialize TemplateTargets to plist array format.
+    /// Serialize Targets to plist array format.
     ///
     /// - Parameter targets: The template targets
     /// - Returns: Array of target dictionaries
     /// - Throws: Serialization errors
-    private func serializeTargets(_ targets: TemplateTargets) throws -> [[String: Any]] {
+    private func serializeTargets(_ targets: Targets) throws -> [[String: Any]] {
         try targets.targets.map { try serializeTargetDefinition($0) }
     }
 
@@ -307,12 +307,12 @@ public struct TemplateWriter {
         }
     }
 
-    /// Serialize TemplateOptionConstraints to plist array format.
+    /// Serialize OptionConstraints to plist array format.
     ///
     /// - Parameter optionConstraints: The option constraints
     /// - Returns: Array of constraint dictionaries
     /// - Throws: Serialization errors
-    private func serializeOptionConstraints(_ optionConstraints: TemplateOptionConstraints) throws -> [[String: Any]] {
+    private func serializeOptionConstraints(_ optionConstraints: OptionConstraints) throws -> [[String: Any]] {
         optionConstraints.constraints.map { constraint in
             [
                 "ConstraintType": constraint.constraintType.rawValue,
@@ -322,12 +322,12 @@ public struct TemplateWriter {
         }
     }
 
-    /// Serialize TemplateDefinitions to plist dictionary format.
+    /// Serialize Definitions to plist dictionary format.
     ///
     /// - Parameter definitions: The template definitions
     /// - Returns: Dictionary mapping file identifiers to their definitions
     /// - Throws: Serialization errors
-    private func serializeDefinitions(_ definitions: TemplateDefinitions) throws -> [String: Any] {
+    private func serializeDefinitions(_ definitions: Definitions) throws -> [String: Any] {
         var result: [String: Any] = [:]
 
         for (key, value) in definitions.definitions {

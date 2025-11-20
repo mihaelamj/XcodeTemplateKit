@@ -164,7 +164,7 @@ public struct RootNode: Hashable, Identifiable {
 /// ```
 public struct TemplateCategoryNode: Hashable, Identifiable {
     public let id: String
-    public let category: TemplateCategory
+    public let category: TemplateModels.Category
     public let kinds: [TemplateKindNode]
 
     public var displayName: String {
@@ -173,7 +173,7 @@ public struct TemplateCategoryNode: Hashable, Identifiable {
 
     public init(
         id: String,
-        category: TemplateCategory,
+        category: TemplateModels.Category,
         kinds: [TemplateKindNode]
     ) {
         self.id = id
@@ -205,7 +205,7 @@ public struct TemplateCategoryNode: Hashable, Identifiable {
 /// ```
 public struct TemplateKindNode: Hashable, Identifiable {
     public let id: String
-    public let kind: TemplateKind
+    public let kind: Kind
     public let templates: [TemplateNode]
 
     public var displayName: String {
@@ -214,7 +214,7 @@ public struct TemplateKindNode: Hashable, Identifiable {
 
     public init(
         id: String,
-        kind: TemplateKind,
+        kind: Kind,
         templates: [TemplateNode]
     ) {
         self.id = id
@@ -259,7 +259,7 @@ public struct TemplateNode: Hashable, Identifiable {
     public let id: String
     public let name: String
     public let path: String
-    public let kind: TemplateKind
+    public let kind: Kind
     public let sections: [SectionNode]
 
     /// Template identifier derived from the kind.
@@ -271,7 +271,7 @@ public struct TemplateNode: Hashable, Identifiable {
         id: String,
         name: String,
         path: String,
-        kind: TemplateKind,
+        kind: Kind,
         sections: [SectionNode]
     ) {
         self.id = id

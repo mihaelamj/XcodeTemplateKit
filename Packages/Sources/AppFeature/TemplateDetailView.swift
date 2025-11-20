@@ -3,7 +3,7 @@ import TemplateModels
 
 /// Displays detailed information about a selected template.
 struct TemplateDetailView: View {
-    let template: TemplateMetadata
+    let template: Metadata
 
     var body: some View {
         Form {

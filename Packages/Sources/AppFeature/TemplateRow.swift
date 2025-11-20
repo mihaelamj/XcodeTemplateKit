@@ -15,7 +15,7 @@ import TemplateModels
 /// }
 /// ```
 struct TemplateRow: View {
-    let template: TemplateMetadata
+    let template: Metadata
     @State private var isExpanded = false
 
     var body: some View {

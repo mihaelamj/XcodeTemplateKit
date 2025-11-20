@@ -13,7 +13,7 @@ import TemplateParser
 /// TemplateBrowserView()
 /// ```
 struct TemplateBrowserView: View {
-    @State private var templateInventory: TemplateInventory?
+    @State private var templateInventory: Inventory?
     @State private var isLoading = false
     @State private var errorMessage: String?
     @State private var treeModel: TemplateTreeModel?
@@ -87,8 +87,8 @@ struct TemplateBrowserView: View {
 
             // Scan templates directly from Xcode installation
             let inventory = try await withThrowingTaskGroup(
-                of: TemplateInventory.self,
-                returning: TemplateInventory.self
+                of: Inventory.self,
+                returning: Inventory.self
             ) { group in
                 group.addTask(priority: .userInitiated) {
                     TemplateScanner().scanAllTemplates()

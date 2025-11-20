@@ -10,15 +10,17 @@ import Testing
 /// correct round-trip behavior for all fixtures.
 @Suite("LocalizedByDefault Field Parsing")
 struct LocalizedByDefaultTests {
-
     @Test("Parse LocalizedByDefault from Strings_File_(Legacy)")
     func parseStrings_File_Legacy() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift", with: "Fixtures/LocalizedByDefault/Strings_File_(Legacy)_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift",
+            with: "Fixtures/LocalizedByDefault/Strings_File_(Legacy)_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["LocalizedByDefault"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -26,12 +28,15 @@ struct LocalizedByDefaultTests {
 
     @Test("Round-trip LocalizedByDefault from Strings_File_(Legacy)")
     func roundTripStrings_File_Legacy() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift", with: "Fixtures/LocalizedByDefault/Strings_File_(Legacy)_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift",
+            with: "Fixtures/LocalizedByDefault/Strings_File_(Legacy)_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["LocalizedByDefault"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -45,7 +50,7 @@ struct LocalizedByDefaultTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["LocalizedByDefault"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "LocalizedByDefault should survive round-trip")
@@ -53,12 +58,15 @@ struct LocalizedByDefaultTests {
 
     @Test("Parse LocalizedByDefault from Stringsdict_File_(Legacy)")
     func parseStringsdict_File_Legacy() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift", with: "Fixtures/LocalizedByDefault/Stringsdict_File_(Legacy)_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift",
+            with: "Fixtures/LocalizedByDefault/Stringsdict_File_(Legacy)_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["LocalizedByDefault"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -66,12 +74,15 @@ struct LocalizedByDefaultTests {
 
     @Test("Round-trip LocalizedByDefault from Stringsdict_File_(Legacy)")
     func roundTripStringsdict_File_Legacy() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift", with: "Fixtures/LocalizedByDefault/Stringsdict_File_(Legacy)_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/LocalizedByDefaultTests/LocalizedByDefaultTests.swift",
+            with: "Fixtures/LocalizedByDefault/Stringsdict_File_(Legacy)_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["LocalizedByDefault"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -85,7 +96,7 @@ struct LocalizedByDefaultTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["LocalizedByDefault"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "LocalizedByDefault should survive round-trip")
@@ -95,7 +106,7 @@ struct LocalizedByDefaultTests {
     func parseMissingLocalizedByDefault() throws {
         let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
 
-        let value = (testPlist["LocalizedByDefault"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (testPlist["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         #expect(value == nil, "LocalizedByDefault should be nil when not present")
     }

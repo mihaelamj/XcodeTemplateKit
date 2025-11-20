@@ -10,7 +10,6 @@ import Testing
 /// correct round-trip behavior for all fixtures.
 @Suite("Concrete Field Parsing")
 struct ConcreteTests {
-
     @Test("Parse Concrete from Aggregate")
     func parseAggregate() throws {
         let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Aggregate_value.plist")
@@ -18,7 +17,7 @@ struct ConcreteTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -31,7 +30,7 @@ struct ConcreteTests {
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -45,7 +44,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -58,7 +57,7 @@ struct ConcreteTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -71,7 +70,7 @@ struct ConcreteTests {
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -85,7 +84,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -93,12 +92,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from Audio_Unit_Extension_App")
     func parseAudio_Unit_Extension_App() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Audio_Unit_Extension_App_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Audio_Unit_Extension_App_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -106,12 +108,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from Audio_Unit_Extension_App")
     func roundTripAudio_Unit_Extension_App() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Audio_Unit_Extension_App_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Audio_Unit_Extension_App_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -125,7 +130,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -133,12 +138,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from Audio_Unit_Extension")
     func parseAudio_Unit_Extension() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Audio_Unit_Extension_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Audio_Unit_Extension_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -146,12 +154,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from Audio_Unit_Extension")
     func roundTripAudio_Unit_Extension() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Audio_Unit_Extension_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Audio_Unit_Extension_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -165,7 +176,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -178,7 +189,7 @@ struct ConcreteTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -191,7 +202,7 @@ struct ConcreteTests {
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -205,7 +216,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -218,7 +229,7 @@ struct ConcreteTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -231,7 +242,7 @@ struct ConcreteTests {
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -245,7 +256,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -253,12 +264,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from External_Build_System")
     func parseExternal_Build_System() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/External_Build_System_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/External_Build_System_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -266,12 +280,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from External_Build_System")
     func roundTripExternal_Build_System() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/External_Build_System_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/External_Build_System_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -285,7 +302,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -298,7 +315,7 @@ struct ConcreteTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -311,7 +328,7 @@ struct ConcreteTests {
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -325,7 +342,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -338,7 +355,7 @@ struct ConcreteTests {
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -351,7 +368,7 @@ struct ConcreteTests {
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -365,7 +382,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -373,12 +390,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from Generic_Extension")
     func parseGeneric_Extension() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Generic_Extension_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Generic_Extension_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -386,12 +406,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from Generic_Extension")
     func roundTripGeneric_Extension() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Generic_Extension_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Generic_Extension_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -405,7 +428,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -413,12 +436,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from Safari_Extension_App")
     func parseSafari_Extension_App() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Safari_Extension_App_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Safari_Extension_App_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -426,12 +452,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from Safari_Extension_App")
     func roundTripSafari_Extension_App() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Safari_Extension_App_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Safari_Extension_App_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -445,7 +474,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -453,12 +482,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from UI_Testing_Bundle")
     func parseUI_Testing_Bundle() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/UI_Testing_Bundle_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/UI_Testing_Bundle_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -466,12 +498,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from UI_Testing_Bundle")
     func roundTripUI_Testing_Bundle() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/UI_Testing_Bundle_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/UI_Testing_Bundle_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -485,7 +520,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -493,12 +528,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from Unit_Testing_Bundle")
     func parseUnit_Testing_Bundle() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Unit_Testing_Bundle_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Unit_Testing_Bundle_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -506,12 +544,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from Unit_Testing_Bundle")
     func roundTripUnit_Testing_Bundle() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Unit_Testing_Bundle_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Unit_Testing_Bundle_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -525,7 +566,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -533,12 +574,15 @@ struct ConcreteTests {
 
     @Test("Parse Concrete from Widget_Extension")
     func parseWidget_Extension() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Widget_Extension_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Widget_Extension_value.plist"
+        )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (plist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -546,12 +590,15 @@ struct ConcreteTests {
 
     @Test("Round-trip Concrete from Widget_Extension")
     func roundTripWidget_Extension() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift", with: "Fixtures/Concrete/Widget_Extension_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(
+            of: "TemplateParserTests/FieldTests/ConcreteTests/ConcreteTests.swift",
+            with: "Fixtures/Concrete/Widget_Extension_value.plist"
+        )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -565,7 +612,7 @@ struct ConcreteTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "Concrete should survive round-trip")
@@ -575,7 +622,7 @@ struct ConcreteTests {
     func parseMissingConcrete() throws {
         let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
 
-        let value = (testPlist["Concrete"] as? Bool).map { TemplateBooleanFormat.fromSwiftBool($0) }
+        let value = (testPlist["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
 
         #expect(value == nil, "Concrete should be nil when not present")
     }

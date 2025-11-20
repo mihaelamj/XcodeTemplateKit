@@ -29,7 +29,7 @@ import Foundation
 ///
 /// ## JSON Encoding
 /// The wrapper is transparent during encoding/decoding - it encodes as the underlying
-/// `TemplateKind` rawValue, so JSON remains unchanged.
+/// `Kind` rawValue, so JSON remains unchanged.
 ///
 /// ```json
 /// {
@@ -38,13 +38,13 @@ import Foundation
 /// ```
 public struct BaseTemplateKind: Codable, Sendable, Hashable {
     /// The underlying template kind.
-    public let kind: TemplateKind
+    public let kind: Kind
 
     /// Creates a base template kind with validation.
     ///
     /// - Parameter kind: The template kind to wrap.
     /// - Precondition: `kind.isBaseTemplate` must be `true`.
-    public init(_ kind: TemplateKind) {
+    public init(_ kind: Kind) {
         precondition(
             kind.isBaseTemplate,
             "Invalid BaseTemplateKind: \(kind.rawValue) is NOT a base template."
@@ -62,13 +62,13 @@ public struct BaseTemplateKind: Codable, Sendable, Hashable {
     ///     // Use baseKind
     /// }
     /// ```
-    public init?(safe kind: TemplateKind) {
+    public init?(safe kind: Kind) {
         guard kind.isBaseTemplate else { return nil }
         self.kind = kind
     }
 
     /// Convenience accessor for the underlying template kind.
-    public var templateKind: TemplateKind { kind }
+    public var templateKind: Kind { kind }
 
     /// Raw value of the underlying template kind.
     public var rawValue: String { kind.rawValue }
@@ -82,7 +82,7 @@ public struct BaseTemplateKind: Codable, Sendable, Hashable {
 extension BaseTemplateKind {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        let decoded = try container.decode(TemplateKind.self)
+        let decoded = try container.decode(Kind.self)
 
         guard decoded.isBaseTemplate else {
             throw DecodingError.dataCorruptedError(
@@ -159,10 +159,10 @@ extension BaseTemplateKind {
 ///
 /// ## Example
 /// ```swift
-/// let category = TemplateCategory.projectTemplates
+/// let category = Category.projectTemplates
 /// print(category.displayName)  // "Project Templates"
 /// ```
-public enum TemplateCategory: String, Hashable, CaseIterable {
+public enum Category: String, Hashable, CaseIterable {
     case projectTemplates = "Project Templates"
     case fileTemplates = "File Templates"
     case packageTemplates = "Package Templates"
@@ -206,21 +206,21 @@ public enum TemplateCategory: String, Hashable, CaseIterable {
 /// ## Example
 /// ```swift
 /// // User-selectable template
-/// let appKind = TemplateKind.app
+/// let appKind = Kind.app
 /// print(appKind.displayName)           // "App"
 /// print(appKind.rawValue)              // "com.apple.dt.unit.multiPlatform.app"
-/// print(appKind.category)              // TemplateCategory.projectTemplates
+/// print(appKind.category)              // Category.projectTemplates
 /// print(appKind.isBaseTemplate)        // false
 /// print(appKind.isUtilityTemplate)     // false
 ///
 /// // Base template (for inheritance)
-/// let baseKind = TemplateKind.applicationBase
+/// let baseKind = Kind.applicationBase
 /// print(baseKind.displayName)          // "Application Base"
 /// print(baseKind.isBaseTemplate)       // true
 /// print(baseKind.isUtilityTemplate)    // false
 ///
 /// // Utility template (option configuration)
-/// let utilityKind = TemplateKind.storageType
+/// let utilityKind = Kind.storageType
 /// print(utilityKind.displayName)       // "Storage Type"
 /// print(utilityKind.isBaseTemplate)    // true
 /// print(utilityKind.isUtilityTemplate) // true
@@ -245,14 +245,14 @@ public enum TemplateCategory: String, Hashable, CaseIterable {
 /// ## Property Relationships
 /// ```swift
 /// // All utility templates are also base templates
-/// assert(TemplateKind.allCases.filter { $0.isUtilityTemplate }.allSatisfy { $0.isBaseTemplate })
+/// assert(Kind.allCases.filter { $0.isUtilityTemplate }.allSatisfy { $0.isBaseTemplate })
 ///
 /// // User-selectable templates are neither base nor utility
-/// let userTemplates = TemplateKind.allCases.filter { !$0.isBaseTemplate }
+/// let userTemplates = Kind.allCases.filter { !$0.isBaseTemplate }
 /// assert(userTemplates.allSatisfy { !$0.isUtilityTemplate })
 ///
 /// // Package templates are never base or utility templates
-/// let packageTemplates = TemplateKind.allCases.filter { $0.category == .packageTemplates }
+/// let packageTemplates = Kind.allCases.filter { $0.category == .packageTemplates }
 /// assert(packageTemplates.allSatisfy { !$0.isBaseTemplate && !$0.isUtilityTemplate })
 /// ```
 ///
@@ -269,7 +269,7 @@ public enum TemplateCategory: String, Hashable, CaseIterable {
 /// The large size is intentional and necessary for comprehensive Xcode template support.
 // swiftlint:disable file_length
 // swiftlint:disable:next type_body_length
-public enum TemplateKind: Hashable, Codable, Sendable {
+public enum Kind: Hashable, Codable, Sendable {
     // MARK: - Unknown/Uncatalogued Templates
 
     case unknown(String) // Preserves the raw value for analysis
@@ -537,13 +537,13 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     ///
     /// ## Example
     /// ```swift
-    /// TemplateKind.app.rawValue
+    /// Kind.app.rawValue
     /// // Returns: "com.apple.dt.unit.multiPlatform.app"
     ///
-    /// TemplateKind.libraryPackage.rawValue
+    /// Kind.libraryPackage.rawValue
     /// // Returns: "com.apple.dt.packageTemplate.Library"
     ///
-    /// TemplateKind.unknown("custom.template").rawValue
+    /// Kind.unknown("custom.template").rawValue
     /// // Returns: "custom.template"
     /// ```
     public var rawValue: String {
@@ -730,10 +730,10 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     ///
     /// ## Example
     /// ```swift
-    /// let kind = TemplateKind(rawValue: "com.apple.dt.unit.multiPlatform.app")
+    /// let kind = Kind(rawValue: "com.apple.dt.unit.multiPlatform.app")
     /// // Returns: .app
     ///
-    /// let unknownKind = TemplateKind(rawValue: "custom.unknown.template")
+    /// let unknownKind = Kind(rawValue: "custom.unknown.template")
     /// // Returns: .unknown("custom.unknown.template")
     /// ```
     ///
@@ -931,19 +931,19 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     ///
     /// ## Example
     /// ```swift
-    /// TemplateKind.app.displayName
+    /// Kind.app.displayName
     /// // Returns: "App"
     ///
-    /// TemplateKind.multiplatformSwiftUIDocumentApp.displayName
+    /// Kind.multiplatformSwiftUIDocumentApp.displayName
     /// // Returns: "Multiplatform SwiftUI Document App"
     ///
-    /// TemplateKind.iosSafariExtensionApp.displayName
+    /// Kind.iosSafariExtensionApp.displayName
     /// // Returns: "iOS Safari Extension App"
     ///
-    /// TemplateKind.applicationBase.displayName
+    /// Kind.applicationBase.displayName
     /// // Returns: "Application Base"
     ///
-    /// TemplateKind.buildToolPlugin.displayName
+    /// Kind.buildToolPlugin.displayName
     /// // Returns: "Build Tool Plug-in"
     /// ```
     ///
@@ -1170,25 +1170,25 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     ///
     /// ## Example
     /// ```swift
-    /// TemplateKind.app.category
-    /// // Returns: TemplateCategory.projectTemplates
+    /// Kind.app.category
+    /// // Returns: Category.projectTemplates
     ///
-    /// TemplateKind.framework.category
-    /// // Returns: TemplateCategory.projectTemplates
+    /// Kind.framework.category
+    /// // Returns: Category.projectTemplates
     ///
-    /// TemplateKind.libraryPackage.category
-    /// // Returns: TemplateCategory.packageTemplates
+    /// Kind.libraryPackage.category
+    /// // Returns: Category.packageTemplates
     ///
-    /// TemplateKind.swiftMacro.category
-    /// // Returns: TemplateCategory.packageTemplates
+    /// Kind.swiftMacro.category
+    /// // Returns: Category.packageTemplates
     ///
-    /// TemplateKind.applicationBase.category
-    /// // Returns: TemplateCategory.projectTemplates (base templates are project templates)
+    /// Kind.applicationBase.category
+    /// // Returns: Category.projectTemplates (base templates are project templates)
     /// ```
     ///
     /// - Note: All base templates and utility templates belong to the project templates category,
     ///   even though they are not directly user-selectable.
-    public var category: TemplateCategory {
+    public var category: Category {
         switch self {
         case .swiftMacro, .buildToolPlugin, .commandPlugin, .emptyPackage, .libraryPackage:
             return .packageTemplates
@@ -1226,10 +1226,10 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     ///
     /// ## Example
     /// ```swift
-    /// TemplateKind.base.isBaseTemplate                 // true
-    /// TemplateKind.applicationBase.isBaseTemplate      // true
-    /// TemplateKind.app.isBaseTemplate                  // false (user-selectable)
-    /// TemplateKind.framework.isBaseTemplate            // false (user-selectable)
+    /// Kind.base.isBaseTemplate                 // true
+    /// Kind.applicationBase.isBaseTemplate      // true
+    /// Kind.app.isBaseTemplate                  // false (user-selectable)
+    /// Kind.framework.isBaseTemplate            // false (user-selectable)
     /// ```
     public var isBaseTemplate: Bool {
         switch self {
@@ -1273,22 +1273,22 @@ public enum TemplateKind: Hashable, Codable, Sendable {
     ///
     /// ## Example
     /// ```swift
-    /// TemplateKind.storageType.isUtilityTemplate
+    /// Kind.storageType.isUtilityTemplate
     /// // Returns: true
     /// // Purpose: Provides options for None/Core Data/SwiftData storage
     ///
-    /// TemplateKind.languageChoice.isUtilityTemplate
+    /// Kind.languageChoice.isUtilityTemplate
     /// // Returns: true
     /// // Purpose: Provides options for Swift/Objective-C language selection
     ///
-    /// TemplateKind.testingSystem.isUtilityTemplate
+    /// Kind.testingSystem.isUtilityTemplate
     /// // Returns: true
     /// // Purpose: Provides options for XCTest/Swift Testing framework selection
     ///
-    /// TemplateKind.app.isUtilityTemplate
+    /// Kind.app.isUtilityTemplate
     /// // Returns: false (user-selectable template, not a utility)
     ///
-    /// TemplateKind.applicationBase.isUtilityTemplate
+    /// Kind.applicationBase.isUtilityTemplate
     /// // Returns: false (base template, but not a utility)
     /// ```
     ///
@@ -1313,7 +1313,7 @@ public enum TemplateKind: Hashable, Codable, Sendable {
 
 // MARK: - Codable Conformance
 
-extension TemplateKind {
+extension Kind {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)

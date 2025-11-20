@@ -8,8 +8,8 @@ import Foundation
 /// ## Examples
 /// ```swift
 /// // Safari extension component
-/// let components = TemplateComponents(components: [
-///     TemplateComponent(
+/// let components = Components(components: [
+///     Component(
 ///         identifier: "com.apple.dt.unit.safariextension",
 ///         name: "___PACKAGENAME___ Extension",
 ///         productBuildPhaseInjections: [
@@ -20,11 +20,11 @@ import Foundation
 ///     )
 /// ])
 /// ```
-public struct TemplateComponents: Codable, Hashable, Sendable {
+public struct Components: Codable, Hashable, Sendable {
     /// Array of component definitions.
-    public let components: [TemplateComponent]
+    public let components: [Component]
 
-    public init(components: [TemplateComponent]) {
+    public init(components: [Component]) {
         self.components = components
     }
 
@@ -32,7 +32,7 @@ public struct TemplateComponents: Codable, Hashable, Sendable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        components = try container.decode([TemplateComponent].self)
+        components = try container.decode([Component].self)
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -42,7 +42,7 @@ public struct TemplateComponents: Codable, Hashable, Sendable {
 }
 
 /// Definition of a single template component (sub-target or extension).
-public struct TemplateComponent: Codable, Hashable, Sendable {
+public struct Component: Codable, Hashable, Sendable {
     /// Template identifier for the component target.
     public let identifier: String
 

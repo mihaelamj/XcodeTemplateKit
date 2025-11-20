@@ -8,7 +8,7 @@ import Foundation
 /// ## Examples
 /// ```swift
 /// // Require bundle identifier prefix if associated target exists
-/// let constraints = TemplateOptionConstraints(constraints: [
+/// let constraints = OptionConstraints(constraints: [
 ///     OptionConstraint(
 ///         constraintType: .requirementIfAssociatedTarget,
 ///         identifier: "bundleIdentifierPrefix",
@@ -16,7 +16,7 @@ import Foundation
 ///     )
 /// ])
 /// ```
-public struct TemplateOptionConstraints: Codable, Hashable, Sendable {
+public struct OptionConstraints: Codable, Hashable, Sendable {
     /// Array of option constraints.
     public let constraints: [OptionConstraint]
 
