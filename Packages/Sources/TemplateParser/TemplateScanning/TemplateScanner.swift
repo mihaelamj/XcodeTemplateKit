@@ -173,7 +173,7 @@ public class TemplateScanner {
         let components = parseComponents(plist["Components"])
         let targets = parseTargets(plist["Targets"])
         let definitions = parseDefinitions(plist["Definitions"])
-        let optionConstraints = serializeToData(plist["OptionConstraints"])
+        let optionConstraints = parseOptionConstraints(plist["OptionConstraints"])
 
         return TemplateMetadata(
             name: name,
@@ -251,6 +251,21 @@ public class TemplateScanner {
         }
 
         return targets
+    }
+
+    /// Parse OptionConstraints field from plist array.
+    private func parseOptionConstraints(_ value: Any?) -> TemplateOptionConstraints? {
+        guard let constraintsArray = value as? [[String: Any]], !constraintsArray.isEmpty else {
+            return nil
+        }
+
+        // Convert to proper format for TemplateOptionConstraints decoding
+        guard let data = try? PropertyListSerialization.data(fromPropertyList: constraintsArray, format: .binary, options: 0),
+              let constraints = try? PropertyListDecoder().decode(TemplateOptionConstraints.self, from: data) else {
+            return nil
+        }
+
+        return constraints
     }
 
     /// Parse Definitions field from plist dictionary.

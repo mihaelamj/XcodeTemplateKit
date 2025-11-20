@@ -38,6 +38,13 @@ import TemplateModels
 /// - **Complex fields**: `Components`, `Targets`, `Definitions`, `OptionConstraints` are stored as binary Data
 ///
 /// See `BooleanPropertyFormats.md` for complete documentation.
+///
+/// SwiftLint rule type_body_length disabled: This struct contains comprehensive serialization
+/// logic for all 33 template metadata fields. Each field type requires dedicated serialization
+/// methods (e.g., serializeTargets, serializeDefinitions, serializeComponents). Splitting this
+/// into multiple types would reduce cohesion and make the bidirectional parser/writer pair
+/// harder to maintain. The 307-line body length is justified by the complete serialization API.
+// swiftlint:disable:next type_body_length
 public struct TemplateWriter {
     public init() {}
 
@@ -173,9 +180,8 @@ public struct TemplateWriter {
         if let definitions = metadata.definitions {
             plist["Definitions"] = try serializeDefinitions(definitions)
         }
-        if let optionConstraintsData = metadata.optionConstraints {
-            let optionConstraints = try PropertyListSerialization.propertyList(from: optionConstraintsData, format: nil)
-            plist["OptionConstraints"] = optionConstraints
+        if let optionConstraints = metadata.optionConstraints {
+            plist["OptionConstraints"] = try serializeOptionConstraints(optionConstraints)
         }
 
         // Options field (array of dictionaries)
@@ -298,6 +304,21 @@ public struct TemplateWriter {
             return try array.map { try serializePropertyListValue($0) }
         case .dictionary(let dict):
             return try serializePropertyListDict(dict)
+        }
+    }
+
+    /// Serialize TemplateOptionConstraints to plist array format.
+    ///
+    /// - Parameter optionConstraints: The option constraints
+    /// - Returns: Array of constraint dictionaries
+    /// - Throws: Serialization errors
+    private func serializeOptionConstraints(_ optionConstraints: TemplateOptionConstraints) throws -> [[String: Any]] {
+        optionConstraints.constraints.map { constraint in
+            [
+                "ConstraintType": constraint.constraintType.rawValue,
+                "Identifier": constraint.identifier,
+                "Value": constraint.value,
+            ]
         }
     }
 

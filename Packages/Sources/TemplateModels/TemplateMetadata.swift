@@ -360,8 +360,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
     public let definitions: TemplateDefinitions?
 
     /// Option constraint rules. Appears in 8 templates.
-    /// Stored as serialized Data due to complex nested structure.
-    public let optionConstraints: Data?
+    public let optionConstraints: TemplateOptionConstraints?
 
     /// Original raw content from TemplateInfo.plist.
     ///
@@ -416,7 +415,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         components: TemplateComponents? = nil,
         targets: TemplateTargets? = nil,
         definitions: TemplateDefinitions? = nil,
-        optionConstraints: Data? = nil,
+        optionConstraints: TemplateOptionConstraints? = nil,
         rawContent: String? = nil,
         rawContentType: String? = nil
     ) {
@@ -505,7 +504,7 @@ public struct TemplateMetadata: Codable, Identifiable, Hashable, Sendable {
         components = try container.decodeIfPresent(TemplateComponents.self, forKey: .components)
         targets = try container.decodeIfPresent(TemplateTargets.self, forKey: .targets)
         definitions = try container.decodeIfPresent(TemplateDefinitions.self, forKey: .definitions)
-        optionConstraints = try container.decodeIfPresent(Data.self, forKey: .optionConstraints)
+        optionConstraints = try container.decodeIfPresent(TemplateOptionConstraints.self, forKey: .optionConstraints)
         rawContent = try container.decodeIfPresent(String.self, forKey: .rawContent)
         rawContentType = try container.decodeIfPresent(String.self, forKey: .rawContentType)
         id = path // Use path as unique ID
