@@ -1,5 +1,5 @@
 //
-//  TemplateModels.swift
+//  Models.swift
 //  TemplateModels
 //
 //  Created on November 19, 2025.

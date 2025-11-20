@@ -1,5 +1,5 @@
 //
-//  TemplateMetadata.swift
+//  Metadata.swift
 //  TemplateModels
 //
 //  Created on November 19, 2025.

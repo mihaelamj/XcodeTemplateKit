@@ -1,5 +1,5 @@
 //
-//  TemplateKind.swift
+//  Kind.swift
 //  XcodeTemplateKit
 //
 //  Created on November 17, 2025.
