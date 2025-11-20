@@ -167,13 +167,20 @@ let targets: [Target] = {
     let generatorFieldTestTargets: [Target] = [
         Target.testTarget(name: "ComponentsGeneratorTests", dependencies: ["TemplateModels", "TemplateGenerator"], path: "Tests/TemplateGeneratorTests/FieldTests/ComponentsTests"),
         Target.testTarget(
+            name: "DefinitionsGeneratorTests",
+            dependencies: ["TemplateModels", "TemplateGenerator"],
+            path: "Tests/TemplateGeneratorTests/FieldTests/DefinitionsTests"
+        ),
+        Target.testTarget(
             name: "OptionConstraintsGeneratorTests",
             dependencies: ["TemplateModels", "TemplateGenerator"],
             path: "Tests/TemplateGeneratorTests/FieldTests/OptionConstraintsTests"
         ),
-        // TODO: Implement Definitions and Targets generator tests
-        // Target.testTarget(name: "DefinitionsGeneratorTests", dependencies: ["TemplateModels", "TemplateGenerator"], path: "Tests/TemplateGeneratorTests/FieldTests/DefinitionsTests"),
-        // Target.testTarget(name: "TargetsGeneratorTests", dependencies: ["TemplateModels", "TemplateGenerator"], path: "Tests/TemplateGeneratorTests/FieldTests/TargetsTests"),
+        Target.testTarget(
+            name: "TargetsGeneratorTests",
+            dependencies: ["TemplateModels", "TemplateGenerator"],
+            path: "Tests/TemplateGeneratorTests/FieldTests/TargetsTests"
+        ),
     ]
 
     let templateTargets = [
