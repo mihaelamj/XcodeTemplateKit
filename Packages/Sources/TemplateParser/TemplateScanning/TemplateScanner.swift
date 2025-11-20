@@ -316,7 +316,24 @@ public class TemplateScanner {
             let values = optionDict["Values"] as? [String]
             let valueTitles = optionDict["ValueTitles"] as? [String]
 
-            // TODO: Parse RequiredOptionsForValues and Units properly
+            // Parse RequiredOptionsForValues
+            let requiredOptionsForValues = optionDict["RequiredOptionsForValues"] as? [String: [String: String]]
+
+            // Parse Units
+            var units: [String: TemplateOptionUnit]?
+            if let unitsDict = optionDict["Units"] as? [String: Any] {
+                var parsedUnits: [String: TemplateOptionUnit] = [:]
+                for (key, value) in unitsDict {
+                    if let unitDict = value as? [String: Any] {
+                        // Convert to data and decode using PropertyListDecoder
+                        if let data = try? PropertyListSerialization.data(fromPropertyList: unitDict, format: .binary, options: 0),
+                           let unit = try? PropertyListDecoder().decode(TemplateOptionUnit.self, from: data) {
+                            parsedUnits[key] = unit
+                        }
+                    }
+                }
+                units = parsedUnits.isEmpty ? nil : parsedUnits
+            }
 
             options.append(TemplateOptionJSON(
                 identifier: identifier,
@@ -330,7 +347,9 @@ public class TemplateScanner {
                 emptyReplacement: emptyReplacement,
                 sortOrder: sortOrder,
                 values: values,
-                valueTitles: valueTitles
+                valueTitles: valueTitles,
+                requiredOptionsForValues: requiredOptionsForValues,
+                units: units
             ))
         }
 
