@@ -1,7 +1,7 @@
-@testable import Parser
-import Models
-import Testing
 import Foundation
+import Models
+@testable import Parser
+import Testing
 
 @Suite("Definitions Parser Tests")
 struct DefinitionsParserTests {
@@ -46,7 +46,7 @@ struct DefinitionsParserTests {
         // Create a simple definitions dictionary with string values
         let definitionsDict: [String: Any] = [
             "snippet1": "class MyClass {}",
-            "snippet2": "func myFunction() {}"
+            "snippet2": "func myFunction() {}",
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: definitionsDict, format: .binary, options: 0)
@@ -74,8 +74,8 @@ struct DefinitionsParserTests {
             "snippet": "code here",
             "file": [
                 "Path": "MyFile.swift",
-                "SortOrder": 10
-            ]
+                "SortOrder": 10,
+            ],
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: definitionsDict, format: .binary, options: 0)
@@ -118,7 +118,7 @@ struct DefinitionsParserTests {
 
         let definitions = Template.Model.Definitions(definitions: [
             "snippet": stringDef,
-            "file": fileDef
+            "file": fileDef,
         ])
 
         // Encode

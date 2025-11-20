@@ -1,0 +1,133 @@
+# BundleIdentifier - Complete Context
+
+**Template**: App.xctemplate
+**Field Path**: `Image.BundleIdentifier`
+
+## Complete TemplateInfo.plist
+
+```xml<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.multiPlatform.app.SwiftUI</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>This template creates a multi-platform SwiftUI application.</string>
+	<key>Identifier</key>
+	<string>com.apple.dt.unit.multiPlatform.app</string>
+	<key>Image</key>
+	<dict>
+		<key>BundleIdentifier</key>
+		<string>com.apple.dt.IDEKit</string>
+		<key>BundleImageName</key>
+		<string>app</string>
+	</dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>NameOfInitialFileForEditor</key>
+	<string>ContentView.swift</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>languageChoice</string>
+			<key>Override</key>
+			<string>Swift</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>userInterface</string>
+			<key>Override</key>
+			<string>SwiftUI</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>appLifecycle</string>
+			<key>Override</key>
+			<string>SwiftUI</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>None</string>
+			<key>Identifier</key>
+			<string>testingSystem</string>
+			<key>Name</key>
+			<string>Testing System:</string>
+			<key>NotPersisted</key>
+			<false/>
+			<key>RequiredOptionsForValues</key>
+			<dict>
+				<key>Swift Testing</key>
+				<dict>
+					<key>languageChoice</key>
+					<string>Swift</string>
+				</dict>
+			</dict>
+			<key>SortOrder</key>
+			<integer>130</integer>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Units</key>
+			<dict>
+				<key>Swift Testing</key>
+				<dict>
+					<key>Components</key>
+					<array>
+						<dict>
+							<key>Identifier</key>
+							<string>com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.unit</string>
+							<key>Name</key>
+							<string>___PACKAGENAME___Tests</string>
+						</dict>
+						<dict>
+							<key>Identifier</key>
+							<string>com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.ui</string>
+							<key>Name</key>
+							<string>___PACKAGENAME___UITests</string>
+						</dict>
+					</array>
+				</dict>
+				<key>XCTest</key>
+				<dict>
+					<key>Components</key>
+					<array>
+						<dict>
+							<key>Identifier</key>
+							<string>com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.unit</string>
+							<key>Name</key>
+							<string>___PACKAGENAME___Tests</string>
+						</dict>
+						<dict>
+							<key>Identifier</key>
+							<string>com.apple.dt.unit.multiPlatform.app.SwiftUI.tests.ui</string>
+							<key>Name</key>
+							<string>___PACKAGENAME___UITests</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>ValueTitles</key>
+			<array>
+				<string>None</string>
+				<string>XCTest for Unit and UI Tests</string>
+				<string>Swift Testing with XCTest UI Tests</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>None</string>
+				<string>XCTest</string>
+				<string>Swift Testing</string>
+			</array>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array/>
+	<key>SortOrder</key>
+	<integer>1</integer>
+</dict>
+</plist>
+```

@@ -1,9 +1,10 @@
 import Foundation
-import TemplateParser
+import Models
+import Parser
 
 let outputPath = "documents/TemplateInventory.json"
 print("🔍 Scanning Xcode templates…")
-let scanner = TemplateScanner()
+let scanner = Template.Parser.Scanning.Scanner()
 let inventory = scanner.scanAllTemplates()
 print("✅ Found \(inventory.templates.count) templates")
 
@@ -13,7 +14,7 @@ encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
 do {
     let data = try encoder.encode(inventory)
     let url = URL(fileURLWithPath: outputPath)
-    try data.write(to: url, options: .atomic)
+    try data.write(to: url, options: [.atomic])
     print("💾 Wrote inventory to \(outputPath)")
 } catch {
     fputs("❌ Failed to write inventory: \(error)\n", stderr)

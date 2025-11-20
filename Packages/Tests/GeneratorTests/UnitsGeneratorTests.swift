@@ -13,7 +13,7 @@ struct UnitsGeneratorTests {
     func encodeUnitWithDefinitionsAndNodes() throws {
         // Create an OptionUnit with simple string definition
         let definitions = Template.Model.Definitions(definitions: [
-            "GameController.swift": .string("class GameController {}")
+            "GameController.swift": .string("class GameController {}"),
         ])
 
         let unit = Template.Model.OptionUnit(
@@ -76,7 +76,7 @@ struct UnitsGeneratorTests {
     func encodeOptionWithUnits() throws {
         // Create Swift unit with string definition
         let swiftDefinitions = Template.Model.Definitions(definitions: [
-            "GameController.swift": .string("class GameController {}")
+            "GameController.swift": .string("class GameController {}"),
         ])
         let swiftUnit = Template.Model.OptionUnit(
             definitions: swiftDefinitions,
@@ -90,7 +90,7 @@ struct UnitsGeneratorTests {
         // Create Objective-C unit with string definitions
         let objcDefinitions = Template.Model.Definitions(definitions: [
             "GameController.h": .string("@interface GameController @end"),
-            "GameController.m": .string("@implementation GameController @end")
+            "GameController.m": .string("@implementation GameController @end"),
         ])
         let objcUnit = Template.Model.OptionUnit(
             definitions: objcDefinitions,
@@ -118,7 +118,7 @@ struct UnitsGeneratorTests {
             requiredOptionsForValues: nil,
             units: [
                 "Swift": swiftUnit,
-                "Objective-C": objcUnit
+                "Objective-C": objcUnit,
             ]
         )
 
@@ -231,7 +231,7 @@ struct UnitsGeneratorTests {
     func encodeHeterogeneousUnits() throws {
         // Unit A: Only Definitions and Nodes
         let defA = Template.Model.Definitions(definitions: [
-            "test": .string("code snippet")
+            "test": .string("code snippet"),
         ])
         let unitA = Template.Model.OptionUnit(
             definitions: defA,
@@ -267,7 +267,7 @@ struct UnitsGeneratorTests {
         let units = [
             "A": unitA,
             "B": unitB,
-            "C": unitC
+            "C": unitC,
         ]
 
         // Encode the units dictionary

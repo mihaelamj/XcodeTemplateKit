@@ -1,0 +1,10 @@
+# ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS - Value
+
+**Template**: Base_ProjectSettings.xctemplate
+**Field Path**: `Project.SharedSettings.ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS`
+
+## Value
+
+```
+YES
+```

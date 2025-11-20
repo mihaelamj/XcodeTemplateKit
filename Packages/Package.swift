@@ -14,9 +14,9 @@ let baseProducts: [Product] = [
 ]
 
 let templateProducts: [Product] = [
-    .singleTargetLibrary("TemplateModels"),
-    .singleTargetLibrary("TemplateParser"),
-    .singleTargetLibrary("TemplateGenerator"),
+    .singleTargetLibrary("Models"),
+    .singleTargetLibrary("Parser"),
+    .singleTargetLibrary("Generator"),
 ]
 
 #if os(iOS) || os(macOS)
@@ -65,15 +65,15 @@ let targets: [Target] = {
 
     // ---------- Templates ----------
     let templateModelsTarget = Target.target(
-        name: "TemplateModels",
+        name: "Models",
         dependencies: [],
         path: "Sources/Models"
     )
 
     let templateParserTarget = Target.target(
-        name: "TemplateParser",
+        name: "Parser",
         dependencies: [
-            "TemplateModels",
+            "Models",
             .product(name: "Parsing", package: "swift-parsing"),
         ],
         path: "Sources/Parser",
@@ -81,27 +81,27 @@ let targets: [Target] = {
     )
 
     let templateParserTestsTarget = Target.testTarget(
-        name: "TemplateParserTests",
+        name: "ParserTests",
         dependencies: [
-            "TemplateParser",
+            "Parser",
         ],
         path: "Tests/ParserTests",
         exclude: ["FieldTests"]
     )
 
     let templateGeneratorTarget = Target.target(
-        name: "TemplateGenerator",
+        name: "Generator",
         dependencies: [
-            "TemplateModels",
+            "Models",
         ],
         path: "Sources/Generator"
     )
 
     let templateGeneratorTestsTarget = Target.testTarget(
-        name: "TemplateGeneratorTests",
+        name: "GeneratorTests",
         dependencies: [
-            "TemplateGenerator",
-            "TemplateParser",
+            "Generator",
+            "Parser",
         ],
         path: "Tests/GeneratorTests",
         exclude: ["FieldTests", "README.md"]
@@ -109,81 +109,81 @@ let targets: [Target] = {
 
     // ---------- Parser field test targets ----------
     let parserFieldTestTargets: [Target] = [
-        Target.testTarget(name: "AllowedTypesTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/AllowedTypesTests"),
-        Target.testTarget(name: "AncestorsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/AncestorsTests"),
+        Target.testTarget(name: "AllowedTypesTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/AllowedTypesTests"),
+        Target.testTarget(name: "AncestorsTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/AncestorsTests"),
         Target.testTarget(
             name: "AssociatedTargetSpecificationTests",
-            dependencies: ["TemplateModels", "TemplateParser"],
+            dependencies: ["Models", "Parser"],
             path: "Tests/ParserTests/FieldTests/AssociatedTargetSpecificationTests"
         ),
-        Target.testTarget(name: "BuildableTypeTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/BuildableTypeTests"),
-        Target.testTarget(name: "ComponentsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/ComponentsTests"),
-        Target.testTarget(name: "ConcreteTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/ConcreteTests"),
+        Target.testTarget(name: "BuildableTypeTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/BuildableTypeTests"),
+        Target.testTarget(name: "ComponentsTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/ComponentsTests"),
+        Target.testTarget(name: "ConcreteTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/ConcreteTests"),
         Target.testTarget(
             name: "DefaultCompletionNameTests",
-            dependencies: ["TemplateModels", "TemplateParser"],
+            dependencies: ["Models", "Parser"],
             path: "Tests/ParserTests/FieldTests/DefaultCompletionNameTests"
         ),
-        Target.testTarget(name: "DefinitionsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/DefinitionsTests"),
-        Target.testTarget(name: "DescriptionTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/DescriptionTests"),
-        Target.testTarget(name: "HiddenFromChooserTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/HiddenFromChooserTests"),
-        Target.testTarget(name: "HiddenFromLibraryTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/HiddenFromLibraryTests"),
-        Target.testTarget(name: "IconTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/IconTests"),
-        Target.testTarget(name: "IdentifierTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/IdentifierTests"),
-        Target.testTarget(name: "ImageTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/ImageTests"),
-        Target.testTarget(name: "KindTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/KindTests"),
+        Target.testTarget(name: "DefinitionsTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/DefinitionsTests"),
+        Target.testTarget(name: "DescriptionTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/DescriptionTests"),
+        Target.testTarget(name: "HiddenFromChooserTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/HiddenFromChooserTests"),
+        Target.testTarget(name: "HiddenFromLibraryTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/HiddenFromLibraryTests"),
+        Target.testTarget(name: "IconTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/IconTests"),
+        Target.testTarget(name: "IdentifierTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/IdentifierTests"),
+        Target.testTarget(name: "ImageTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/ImageTests"),
+        Target.testTarget(name: "KindTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/KindTests"),
         Target.testTarget(
             name: "LocalizedByDefaultTests",
-            dependencies: ["TemplateModels", "TemplateParser"],
+            dependencies: ["Models", "Parser"],
             path: "Tests/ParserTests/FieldTests/LocalizedByDefaultTests"
         ),
-        Target.testTarget(name: "MainFileTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/MainFileTests"),
+        Target.testTarget(name: "MainFileTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/MainFileTests"),
         Target.testTarget(
             name: "NameOfInitialFileForEditorTests",
-            dependencies: ["TemplateModels", "TemplateParser"],
+            dependencies: ["Models", "Parser"],
             path: "Tests/ParserTests/FieldTests/NameOfInitialFileForEditorTests"
         ),
-        Target.testTarget(name: "NameTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/NameTests"),
-        Target.testTarget(name: "NodesTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/NodesTests"),
-        Target.testTarget(name: "OptionConstraintsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/OptionConstraintsTests"),
-        Target.testTarget(name: "OptionsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/OptionsTests"),
-        Target.testTarget(name: "PackageTypeTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/PackageTypeTests"),
-        Target.testTarget(name: "PlatformsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/PlatformsTests"),
-        Target.testTarget(name: "ProjectOnlyTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/ProjectOnlyTests"),
-        Target.testTarget(name: "ProjectTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/ProjectTests"),
-        Target.testTarget(name: "SortOrderTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/SortOrderTests"),
-        Target.testTarget(name: "SummaryTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/SummaryTests"),
+        Target.testTarget(name: "NameTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/NameTests"),
+        Target.testTarget(name: "NodesTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/NodesTests"),
+        Target.testTarget(name: "OptionConstraintsTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/OptionConstraintsTests"),
+        Target.testTarget(name: "OptionsTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/OptionsTests"),
+        Target.testTarget(name: "PackageTypeTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/PackageTypeTests"),
+        Target.testTarget(name: "PlatformsTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/PlatformsTests"),
+        Target.testTarget(name: "ProjectOnlyTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/ProjectOnlyTests"),
+        Target.testTarget(name: "ProjectTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/ProjectTests"),
+        Target.testTarget(name: "SortOrderTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/SortOrderTests"),
+        Target.testTarget(name: "SummaryTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/SummaryTests"),
         Target.testTarget(
             name: "SupportsSwiftPackageTests",
-            dependencies: ["TemplateModels", "TemplateParser"],
+            dependencies: ["Models", "Parser"],
             path: "Tests/ParserTests/FieldTests/SupportsSwiftPackageTests"
         ),
         Target.testTarget(
             name: "SuppressTopLevelGroupTests",
-            dependencies: ["TemplateModels", "TemplateParser"],
+            dependencies: ["Models", "Parser"],
             path: "Tests/ParserTests/FieldTests/SuppressTopLevelGroupTests"
         ),
-        Target.testTarget(name: "TargetOnlyTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/TargetOnlyTests"),
-        Target.testTarget(name: "TargetsTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/TargetsTests"),
-        Target.testTarget(name: "TitleTests", dependencies: ["TemplateModels", "TemplateParser"], path: "Tests/ParserTests/FieldTests/TitleTests"),
+        Target.testTarget(name: "TargetOnlyTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/TargetOnlyTests"),
+        Target.testTarget(name: "TargetsTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/TargetsTests"),
+        Target.testTarget(name: "TitleTests", dependencies: ["Models", "Parser"], path: "Tests/ParserTests/FieldTests/TitleTests"),
     ]
 
     // ---------- Generator field test targets ----------
     let generatorFieldTestTargets: [Target] = [
-        Target.testTarget(name: "ComponentsGeneratorTests", dependencies: ["TemplateModels", "TemplateGenerator"], path: "Tests/GeneratorTests/FieldTests/ComponentsTests"),
+        Target.testTarget(name: "ComponentsGeneratorTests", dependencies: ["Models", "Generator"], path: "Tests/GeneratorTests/FieldTests/ComponentsTests"),
         Target.testTarget(
             name: "DefinitionsGeneratorTests",
-            dependencies: ["TemplateModels", "TemplateGenerator"],
+            dependencies: ["Models", "Generator"],
             path: "Tests/GeneratorTests/FieldTests/DefinitionsTests"
         ),
         Target.testTarget(
             name: "OptionConstraintsGeneratorTests",
-            dependencies: ["TemplateModels", "TemplateGenerator"],
+            dependencies: ["Models", "Generator"],
             path: "Tests/GeneratorTests/FieldTests/OptionConstraintsTests"
         ),
         Target.testTarget(
             name: "TargetsGeneratorTests",
-            dependencies: ["TemplateModels", "TemplateGenerator"],
+            dependencies: ["Models", "Generator"],
             path: "Tests/GeneratorTests/FieldTests/TargetsTests"
         ),
     ]
@@ -197,7 +197,7 @@ let targets: [Target] = {
         Target.executableTarget(
             name: "TemplateScannerAudit",
             dependencies: [
-                "TemplateParser",
+                "Parser",
             ],
             path: "Sources/ScannerAudit"
         ),
@@ -221,7 +221,7 @@ let targets: [Target] = {
         name: "AppFeature",
         dependencies: [
             "SharedModels",
-            "TemplateParser",
+            "Parser",
             "SharedViews",
         ],
         exclude: [
@@ -237,7 +237,7 @@ let targets: [Target] = {
         name: "AppFeatureTests",
         dependencies: [
             "AppFeature",
-            "TemplateParser",
+            "Parser",
         ]
     )
     #endif

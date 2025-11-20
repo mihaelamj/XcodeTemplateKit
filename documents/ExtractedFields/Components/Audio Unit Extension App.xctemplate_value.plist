@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Components</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>com.apple.dt.unit.audiounitextension.multiplatform</string>
+			<key>Name</key>
+			<string>___PACKAGENAME___Extension</string>
+			<key>ProductBuildPhaseInjections</key>
+			<array>
+				<dict>
+					<key>TargetIdentifier</key>
+					<string>com.apple.dt.applicationTarget</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

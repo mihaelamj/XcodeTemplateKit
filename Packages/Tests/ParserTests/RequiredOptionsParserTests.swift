@@ -1,7 +1,7 @@
-@testable import Parser
-import Models
-import Testing
 import Foundation
+import Models
+@testable import Parser
+import Testing
 
 @Suite("RequiredOptions Parser Tests")
 struct RequiredOptionsParserTests {
@@ -12,8 +12,8 @@ struct RequiredOptionsParserTests {
             "Nodes": ["file.swift"],
             "RequiredOptions": [
                 "option1": "value1",
-                "option2": "value2"
-            ]
+                "option2": "value2",
+            ],
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: unitDict, format: .binary, options: 0)
@@ -29,7 +29,7 @@ struct RequiredOptionsParserTests {
     func parseEmptyRequiredOptions() throws {
         let unitDict: [String: Any] = [
             "Nodes": ["file.swift"],
-            "RequiredOptions": [:]
+            "RequiredOptions": [:],
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: unitDict, format: .binary, options: 0)
@@ -42,7 +42,7 @@ struct RequiredOptionsParserTests {
     @Test("Parse OptionUnit without RequiredOptions")
     func parseWithoutRequiredOptions() throws {
         let unitDict: [String: Any] = [
-            "Nodes": ["file.swift"]
+            "Nodes": ["file.swift"],
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: unitDict, format: .binary, options: 0)
@@ -59,7 +59,7 @@ struct RequiredOptionsParserTests {
             project: nil,
             requiredOptions: [
                 "languageChoice": "Swift",
-                "testingSystem": "XCTest"
+                "testingSystem": "XCTest",
             ],
             targets: nil,
             components: nil
@@ -90,8 +90,8 @@ struct RequiredOptionsParserTests {
             "Values": ["Swift", "Objective-C"],
             "RequiredOptionsForValues": [
                 "Swift": ["testingSystem": "Swift Testing"],
-                "Objective-C": ["testingSystem": "XCTest"]
-            ]
+                "Objective-C": ["testingSystem": "XCTest"],
+            ],
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: optionDict, format: .binary, options: 0)

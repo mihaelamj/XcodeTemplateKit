@@ -1,0 +1,72 @@
+# Targets - Complete Context
+
+**Template**: UI Testing Bundle.xctemplate
+**Field Path**: `Targets`
+
+## Complete TemplateInfo.plist
+
+```xml<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.multiPlatform.UITestBundleBase</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>This target builds a user interface testing bundle.</string>
+	<key>Identifier</key>
+	<string>com.apple.dt.unit.multiPlatform.UITestingBundle</string>
+	<key>Image</key>
+	<dict>
+		<key>SystemSymbolName</key>
+		<string>slider.horizontal.below.square.fill.and.square</string>
+	</dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>OptionConstraints</key>
+	<array>
+		<dict>
+			<key>ConstraintType</key>
+			<string>DefaultIfAssociatedTarget</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Value</key>
+			<string>___ASSOCIATEDTARGET_bundleName___UITests</string>
+		</dict>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Default</key>
+			<string>XCTest</string>
+			<key>Description</key>
+			<string>The testing system to use.</string>
+			<key>Identifier</key>
+			<string>testingSystemStatic</string>
+			<key>Name</key>
+			<string>Testing System:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>SortOrder</key>
+			<integer>100</integer>
+			<key>Type</key>
+			<string>static</string>
+			<key>Value</key>
+			<string>XCTest</string>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array/>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>TargetIdentifier</key>
+			<string>com.apple.dt.multiPlatform.UITestBundleTarget</string>
+		</dict>
+	</array>
+</dict>
+</plist>
+```

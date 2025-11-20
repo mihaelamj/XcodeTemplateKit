@@ -1,9 +1,9 @@
+import Models
 import SwiftUI
-import TemplateModels
 
 /// Displays detailed information about a selected template.
 struct TemplateDetailView: View {
-    let template: TemplateModels.Template.Model.Metadata
+    let template: Models.Template.Model.Metadata
 
     var body: some View {
         Form {
@@ -135,7 +135,7 @@ struct TemplateDetailView: View {
 // MARK: - File Node Row
 
 struct FileNodeRow: View {
-    let node: TemplateModels.Template.Model.FileNode
+    let node: Models.Template.Model.FileNode
 
     var body: some View {
         HStack {

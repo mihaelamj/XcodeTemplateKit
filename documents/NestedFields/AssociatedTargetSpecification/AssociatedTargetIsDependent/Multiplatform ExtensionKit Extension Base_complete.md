@@ -1,0 +1,52 @@
+# AssociatedTargetIsDependent - Complete Context
+
+**Template**: Multiplatform ExtensionKit Extension Base.xctemplate
+**Field Path**: `AssociatedTargetSpecification.AssociatedTargetIsDependent`
+
+## Complete TemplateInfo.plist
+
+```xml<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.extensionkit-extension</string>
+		<string>com.apple.dt.unit.multiPlatform.base</string>
+	</array>
+	<key>AssociatedTargetSpecification</key>
+	<dict>
+		<key>AllowableProductTypes</key>
+		<array>
+			<string>com.apple.product-type.application</string>
+		</array>
+		<key>AssociatedTargetIsDependent</key>
+		<true/>
+		<key>AssociatedTargetNeedsProductBuildPhaseInjection</key>
+		<true/>
+		<key>PopUpDescription</key>
+		<string>The application target that will host this new extension. The application will be set up to embed the new extension.</string>
+		<key>PopUpTitle</key>
+		<string>Embed in Application:</string>
+	</dict>
+	<key>Identifier</key>
+	<string>com.apple.dt.unit.multiPlatform.extensionkit-extension</string>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>SharedSettings</key>
+			<dict>
+				<key>ENABLE_APP_SANDBOX</key>
+				<string>YES</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks</string>
+				<key>LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]</key>
+				<string>$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
+```

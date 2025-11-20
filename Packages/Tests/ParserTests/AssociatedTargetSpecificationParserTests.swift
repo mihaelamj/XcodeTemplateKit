@@ -1,7 +1,7 @@
-@testable import Parser
-import Models
-import Testing
 import Foundation
+import Models
+@testable import Parser
+import Testing
 
 @Suite("AssociatedTargetSpecification Parser Tests - Explicit")
 struct AssociatedTargetSpecificationParserTests {
@@ -33,7 +33,7 @@ struct AssociatedTargetSpecificationParserTests {
         let spec: [String: Any] = [
             "AllowableProductTypes": ["com.apple.product-type.application"],
             "AssociatedTargetIsDependent": true,
-            "PopUpTitle": "Target Application:"
+            "PopUpTitle": "Target Application:",
         ]
 
         // Encode

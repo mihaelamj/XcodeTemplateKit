@@ -1,7 +1,7 @@
-@testable import Parser
-import Models
-import Testing
 import Foundation
+import Models
+@testable import Parser
+import Testing
 
 @Suite("Image Parser Tests - Explicit")
 struct ImageParserTests {
@@ -12,7 +12,7 @@ struct ImageParserTests {
             ("FileTypeIcon", .fileTypeIcon),
             ("SystemSymbolName", .systemSymbol),
             ("BundleImageName", .bundleImage),
-            ("BundleIdentifier", .bundleIdentifier)
+            ("BundleIdentifier", .bundleIdentifier),
         ]
 
         for (rawValue, expectedType) in testCases {
@@ -25,7 +25,7 @@ struct ImageParserTests {
     func parseFromFixture() throws {
         // Create a simple plist with Image field
         let plist: [String: Any] = [
-            "Image": "FileTypeIcon"
+            "Image": "FileTypeIcon",
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: plist, format: .binary, options: 0)

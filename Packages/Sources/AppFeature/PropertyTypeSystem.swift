@@ -1,5 +1,5 @@
 import Foundation
-import TemplateModels
+import Models
 
 /// Type system for property metadata - provides type annotations and possible values
 enum PropertyType {
@@ -23,8 +23,8 @@ enum PropertyType {
         case .templateCategory: return "Category"
         case .arrayOfTemplateKinds: return "Array<Kind>"
         case .arrayOfStrings: return "Array<String>"
-        case .arrayOfOptions: return "Array<TemplateOption>"
-        case .fileStructure: return "Array<FileNode>"
+        case .arrayOfOptions: return "Array<Models.Template.Model.Option>"
+        case .fileStructure: return "Array<Models.Template.Model.FileNode>"
         case .unknown: return "Any"
         }
     }
@@ -48,7 +48,7 @@ enum PropertyType {
             return ["true", "false"]
 
         case .templateCategory:
-            return TemplateModels.Category.allCases.map(\.rawValue)
+            return Models.Template.Model.Category.allCases.map(\.rawValue)
 
         case .templateKind:
             // Return a sample of template kinds - there are 158 total

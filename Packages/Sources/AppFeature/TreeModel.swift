@@ -1,7 +1,7 @@
 import Foundation
+import Models
 import Observation
 import OSLog
-import TemplateModels
 
 /// UI-specific tree model for displaying templates in an expandable hierarchy.
 ///
@@ -23,8 +23,8 @@ public final class TemplateTreeModel {
     public var rootNodes: [TreeNode] = []
     public var expandedNodes: Set<String> = []
 
-    private let inventory: TemplateModels.Template.Model.Inventory
-    private var templateCache: [String: TemplateModels.Template.Model.Metadata] = [:]
+    private let inventory: Models.Template.Model.Inventory
+    private var templateCache: [String: Models.Template.Model.Metadata] = [:]
     private var cachedExpandableIDs: Set<String> = []
     private var fullyExpandedFlattenCache: [FlattenedNode] = []
     private var filteredNodeCache: [String: [TreeNode]] = [:]
@@ -33,7 +33,7 @@ public final class TemplateTreeModel {
     private static let logger = Logger(subsystem: "com.xcodetemplate.app", category: "TemplateTreeModel")
     private static let signposter = OSSignposter(logHandle: log)
 
-    public init(inventory: TemplateModels.Template.Model.Inventory) {
+    public init(inventory: Models.Template.Model.Inventory) {
         self.inventory = inventory
         inventory.templates.forEach { templateCache[$0.identifier] = $0 }
         buildTree()
@@ -126,7 +126,7 @@ private extension TemplateTreeModel {
     func buildTree() {
         let grouped = Dictionary(grouping: inventory.templates) { $0.kind.category }
 
-        rootNodes = TemplateModels.Template.Model.Category.allCases.compactMap { category in
+        rootNodes = Models.Template.Model.Category.allCases.compactMap { category in
             guard let templates = grouped[category] else { return nil }
 
             return TreeNode(
@@ -143,7 +143,7 @@ private extension TemplateTreeModel {
         refreshCaches()
     }
 
-    func buildTemplateNode(_ template: TemplateModels.Template.Model.Metadata) -> TreeNode {
+    func buildTemplateNode(_ template: Models.Template.Model.Metadata) -> TreeNode {
         var children: [TreeNode] = []
 
         let propertiesNode = buildPropertiesNode(for: template)
@@ -174,7 +174,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildPropertiesNode(for template: TemplateModels.Template.Model.Metadata, idPrefix: String? = nil) -> TreeNode {
+    func buildPropertiesNode(for template: Models.Template.Model.Metadata, idPrefix: String? = nil) -> TreeNode {
         var propertyChildren: [TreeNode] = []
         let prefix = idPrefix ?? template.path
 
@@ -229,7 +229,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildAncestorsNode(ancestors: [TemplateModels.Template.Model.Kind], templateName: String) -> TreeNode {
+    func buildAncestorsNode(ancestors: [Models.Template.Model.Kind], templateName: String) -> TreeNode {
         let ancestorChildren = ancestors.enumerated().map { index, ancestorKind in
             if let ancestorTemplate = templateCache[ancestorKind.rawValue] {
                 return buildAncestorTemplateNode(ancestorTemplate, index: index, parentName: templateName)
@@ -253,7 +253,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildAncestorTemplateNode(_ template: TemplateModels.Template.Model.Metadata, index: Int, parentName: String) -> TreeNode {
+    func buildAncestorTemplateNode(_ template: Models.Template.Model.Metadata, index: Int, parentName: String) -> TreeNode {
         var children: [TreeNode] = []
 
         let ancestorTemplateName = "ancestor-\(parentName)-\(index)"
@@ -280,7 +280,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildOptionsNode(options: [TemplateModels.Template.Model.Option], templateName: String) -> TreeNode {
+    func buildOptionsNode(options: [Models.Template.Model.Option], templateName: String) -> TreeNode {
         let optionChildren = options.enumerated().map { index, option in
             TreeNode(
                 id: "option-\(templateName)-\(index)",
@@ -300,7 +300,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func optionDetailNodes(option: TemplateModels.Template.Model.Option, templateName: String, index: Int) -> [TreeNode] {
+    func optionDetailNodes(option: Models.Template.Model.Option, templateName: String, index: Int) -> [TreeNode] {
         var optionDetails: [TreeNode] = [
             TreeNode(
                 id: "option-\(templateName)-\(index)-type",
@@ -350,7 +350,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildFileStructureNode(files: [TemplateModels.Template.Model.FileNode], templateName: String) -> TreeNode {
+    func buildFileStructureNode(files: [Models.Template.Model.FileNode], templateName: String) -> TreeNode {
         let fileChildren = files.enumerated().map { index, file in
             buildFileNode(file: file, templateName: templateName, index: index)
         }
@@ -364,7 +364,7 @@ private extension TemplateTreeModel {
         )
     }
 
-    func buildFileNode(file: TemplateModels.Template.Model.FileNode, templateName: String, index: Int) -> TreeNode {
+    func buildFileNode(file: Models.Template.Model.FileNode, templateName: String, index: Int) -> TreeNode {
         let children: [TreeNode]
         if let fileChildren = file.children, !fileChildren.isEmpty {
             children = fileChildren.enumerated().map { childIndex, child in
@@ -473,7 +473,7 @@ private extension TemplateTreeModel {
 // MARK: - Icons
 
 private extension TemplateTreeModel {
-    func iconForCategory(_ category: TemplateModels.Template.Model.Category) -> String {
+    func iconForCategory(_ category: Models.Template.Model.Category) -> String {
         switch category {
         case .projectTemplates: return "folder.fill"
         case .fileTemplates: return "doc.fill"
@@ -481,7 +481,7 @@ private extension TemplateTreeModel {
         }
     }
 
-    func iconForTemplate(_ template: TemplateModels.Template.Model.Metadata) -> String {
+    func iconForTemplate(_ template: Models.Template.Model.Metadata) -> String {
         if template.kind.isBaseTemplate {
             return "cube"
         }
@@ -542,13 +542,13 @@ public struct TreeNode: Identifiable, Hashable {
 // MARK: - Node Type
 
 public enum NodeType: Hashable {
-    case category(TemplateModels.Template.Model.Category)
-    case template(TemplateModels.Template.Model.Metadata)
-    case ancestorTemplate(TemplateModels.Template.Model.Metadata)
-    case ancestor(kind: TemplateModels.Template.Model.Kind)
+    case category(Models.Template.Model.Category)
+    case template(Models.Template.Model.Metadata)
+    case ancestorTemplate(Models.Template.Model.Metadata)
+    case ancestor(kind: Models.Template.Model.Kind)
     case section(name: String)
     case property(key: String, value: String)
-    case option(TemplateModels.Template.Model.Option)
-    case file(TemplateModels.Template.Model.FileNode)
+    case option(Models.Template.Model.Option)
+    case file(Models.Template.Model.FileNode)
     case value(String)
 }

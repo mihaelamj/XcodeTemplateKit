@@ -1,7 +1,7 @@
+import Models
 import OSLog
+import Parser
 import SwiftUI
-import TemplateModels
-import TemplateParser
 
 /// Template browser with automatic data loading and error handling.
 ///
@@ -13,7 +13,7 @@ import TemplateParser
 /// TemplateBrowserView()
 /// ```
 struct TemplateBrowserView: View {
-    @State private var templateInventory: TemplateModels.Template.Model.Inventory?
+    @State private var templateInventory: Models.Template.Model.Inventory?
     @State private var isLoading = false
     @State private var errorMessage: String?
     @State private var treeModel: TemplateTreeModel?
@@ -87,8 +87,8 @@ struct TemplateBrowserView: View {
 
             // Scan templates directly from Xcode installation
             let inventory = try await withThrowingTaskGroup(
-                of: TemplateModels.Template.Model.Inventory.self,
-                returning: TemplateModels.Template.Model.Inventory.self
+                of: Models.Template.Model.Inventory.self,
+                returning: Models.Template.Model.Inventory.self
             ) { group in
                 group.addTask(priority: .userInitiated) {
                     Template.Parser.Scanning.Scanner().scanAllTemplates()

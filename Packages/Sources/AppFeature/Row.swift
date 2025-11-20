@@ -1,5 +1,5 @@
+import Models
 import SwiftUI
-import TemplateModels
 
 /// Displays a single template with expandable details.
 ///
@@ -15,7 +15,7 @@ import TemplateModels
 /// }
 /// ```
 struct TemplateRow: View {
-    let template: TemplateModels.Template.Model.Metadata
+    let template: Models.Template.Model.Metadata
     @State private var isExpanded = false
 
     var body: some View {

@@ -10,7 +10,7 @@ struct DefinitionsGeneratorTests {
     func encodeStringDefinitions() throws {
         let definitions = Template.Model.Definitions(definitions: [
             "snippet1": .string("class MyClass {}"),
-            "snippet2": .string("func myFunction() {}")
+            "snippet2": .string("func myFunction() {}"),
         ])
 
         // Encode
@@ -39,7 +39,7 @@ struct DefinitionsGeneratorTests {
         )
 
         let definitions = Template.Model.Definitions(definitions: [
-            "file": .file(fileDef)
+            "file": .file(fileDef),
         ])
 
         // Encode
@@ -71,7 +71,7 @@ struct DefinitionsGeneratorTests {
 
         let definitions = Template.Model.Definitions(definitions: [
             "snippet": .string("code here"),
-            "file": .file(fileDef)
+            "file": .file(fileDef),
         ])
 
         // Encode

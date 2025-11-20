@@ -1,24 +1,27 @@
 import Foundation
+import Models
 
-/// Represents different types of template variables
-public enum VariableToken: Equatable, Sendable {
-    /// Simple variable: ___FILEBASENAME___
-    case simple(String)
+extension Template.Parser.Model {
+    /// Represents different types of template variables
+    public enum VariableToken: Equatable, Sendable {
+        /// Simple variable: ___FILEBASENAME___
+        case simple(String)
 
-    /// Variable with transformations: ___FILEBASENAME:identifier___
-    case transformed(String, [Transformation])
+        /// Variable with transformations: ___FILEBASENAME:identifier___
+        case transformed(String, [Transformation])
 
-    /// Option reference: ___VARIABLE_productName:identifier___
-    case option(String, [Transformation])
+        /// Option reference: ___VARIABLE_productName:identifier___
+        case option(String, [Transformation])
 
-    /// UUID generation: ___UUID:key___
-    case uuid(String)
+        /// UUID generation: ___UUID:key___
+        case uuid(String)
 
-    /// Macro expansion: ___FILEHEADER___
-    case macro(String)
+        /// Macro expansion: ___FILEHEADER___
+        case macro(String)
+    }
 }
 
-extension VariableToken: CustomStringConvertible {
+extension Template.Parser.Model.VariableToken: CustomStringConvertible {
     public var description: String {
         switch self {
         case .simple(let name):

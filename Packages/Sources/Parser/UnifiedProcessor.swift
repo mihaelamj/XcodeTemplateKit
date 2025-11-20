@@ -1,5 +1,5 @@
 import Foundation
-import TemplateModels
+import Models
 
 extension Template.Parser {
     /// Unified processor for ALL template types (File, Project, Package)

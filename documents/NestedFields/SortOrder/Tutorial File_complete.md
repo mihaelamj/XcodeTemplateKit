@@ -1,0 +1,30 @@
+# SortOrder - Complete Context
+
+**Template**: Tutorial File.xctemplate
+**Field Path**: `SortOrder`
+
+## Complete TemplateInfo.plist
+
+```xml<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DefaultCompletionName</key>
+	<string>Tutorial</string>
+	<key>Description</key>
+	<string>Tutorial File</string>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___.tutorial</string>
+	<key>Platforms</key>
+	<array/>
+	<key>SortOrder</key>
+	<integer>6</integer>
+	<key>Summary</key>
+	<string>Tutorials helps create richer documentation experience.</string>
+	<key>SupportsSwiftPackage</key>
+	<true/>
+</dict>
+</plist>
+```

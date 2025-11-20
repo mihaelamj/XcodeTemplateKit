@@ -1,7 +1,7 @@
-@testable import Parser
-import Models
-import Testing
 import Foundation
+import Models
+@testable import Parser
+import Testing
 
 @Suite("OptionConstraints Parser Tests")
 struct OptionConstraintsParserTests {
@@ -35,13 +35,13 @@ struct OptionConstraintsParserTests {
             [
                 "ConstraintType": "RequirementIfAssociatedTarget",
                 "Identifier": "constraint1",
-                "Value": "value1"
+                "Value": "value1",
             ],
             [
                 "ConstraintType": "RequirementIfAssociatedTarget",
                 "Identifier": "constraint2",
-                "Value": "value2"
-            ]
+                "Value": "value2",
+            ],
         ]
 
         let data = try PropertyListSerialization.data(fromPropertyList: constraintsArray, format: .binary, options: 0)

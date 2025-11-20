@@ -1,0 +1,33 @@
+# Name - Complete Context
+
+**Template**: File List.xctemplate
+**Field Path**: `Name`
+
+## Complete TemplateInfo.plist
+
+```xml<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildableType</key>
+	<string>None</string>
+	<key>DefaultCompletionName</key>
+	<string>FileList</string>
+	<key>Description</key>
+	<string>An empty file list that is used in a Run Script Phase.</string>
+	<key>Image</key>
+	<dict>
+		<key>FileTypeIcon</key>
+		<string>xcfilelist</string>
+	</dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___.xcfilelist</string>
+	<key>Name</key>
+	<string>Build Phase File List</string>
+	<key>Summary</key>
+	<string>An empty file list.</string>
+</dict>
+</plist>
+```

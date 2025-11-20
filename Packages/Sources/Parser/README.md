@@ -38,7 +38,7 @@ TemplateParser/
 ### Basic Example
 
 ```swift
-import TemplateParser
+import Parser
 
 // 1. Create a variable context
 let context = VariableContext(
@@ -190,7 +190,7 @@ let output = try processor.process(template: template, context: context)
 
 ```swift
 import XCTest
-@testable import TemplateParser
+@testable import Parser
 
 class MyTests: XCTestCase {
     func testVariableParsing() throws {

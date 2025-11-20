@@ -1,7 +1,7 @@
-@testable import Parser
-import Models
-import Testing
 import Foundation
+import Models
+@testable import Parser
+import Testing
 
 @Suite("Components Parser Tests")
 struct ComponentsParserTests {
@@ -50,7 +50,7 @@ struct ComponentsParserTests {
         let componentsData = try PropertyListSerialization.data(fromPropertyList: componentsArray, format: .binary, options: 0)
         let components = try PropertyListDecoder().decode(Template.Model.Components.self, from: componentsData)
 
-        #expect(components.components.count > 0)
+        #expect(!components.components.isEmpty)
 
         // Verify all components have required fields
         for component in components.components {

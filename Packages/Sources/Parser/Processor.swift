@@ -1,4 +1,5 @@
 import Foundation
+import Models
 
 extension Template.Parser {
     /// Processes template content by parsing and substituting variables

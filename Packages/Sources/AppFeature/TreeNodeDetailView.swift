@@ -1,5 +1,5 @@
+import Models
 import SwiftUI
-import TemplateModels
 #if os(macOS)
 import AppKit
 #else
@@ -135,7 +135,7 @@ struct TreeNodeDetailView: View {
 
     // MARK: - Detail Views
 
-    private func categoryDetail(_ category: TemplateModels.Category) -> some View {
+    private func categoryDetail(_ category: Models.Template.Model.Category) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Category") {
                 InspectorRow(label: "Type", value: category.displayName)
@@ -145,7 +145,7 @@ struct TreeNodeDetailView: View {
     }
 
     // swiftlint:disable:next function_body_length
-    private func templateDetail(_ template: Metadata) -> some View {
+    private func templateDetail(_ template: Models.Template.Model.Metadata) -> some View {
         Form {
             Section("Overview") {
                 LabeledContent {
@@ -350,7 +350,7 @@ struct TreeNodeDetailView: View {
         .formStyle(.grouped)
     }
 
-    private func ancestorDetail(_ kind: Kind) -> some View {
+    private func ancestorDetail(_ kind: Models.Template.Model.Kind) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             Label("Ancestor Template", systemImage: "arrow.turn.down.right")
                 .font(.title3)
@@ -419,7 +419,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func optionDetail(_ option: Option) -> some View {
+    private func optionDetail(_ option: Models.Template.Model.Option) -> some View {
         Form {
             Section("Option Details") {
                 LabeledContent("Name", value: option.name)
@@ -450,7 +450,7 @@ struct TreeNodeDetailView: View {
         .formStyle(.grouped)
     }
 
-    private func fileDetail(_ fileNode: FileNode) -> some View {
+    private func fileDetail(_ fileNode: Models.Template.Model.FileNode) -> some View {
         Form {
             Section("File Information") {
                 LabeledContent("Name", value: fileNode.name)
@@ -532,7 +532,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func templateDocumentation(_ template: Metadata) -> some View {
+    private func templateDocumentation(_ template: Models.Template.Model.Metadata) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Overview") {
                 CopyableText(text: """
@@ -568,7 +568,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func optionDocumentation(_ option: Option) -> some View {
+    private func optionDocumentation(_ option: Models.Template.Model.Option) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Description") {
                 CopyableText(text: """
@@ -603,7 +603,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func categoryDocumentation(_ category: TemplateModels.Category) -> some View {
+    private func categoryDocumentation(_ category: Models.Template.Model.Category) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Category Description") {
                 CopyableText(text: """
@@ -636,7 +636,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func templateExamples(_ template: Metadata) -> some View {
+    private func templateExamples(_ template: Models.Template.Model.Metadata) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Template Definition Example") {
                 CodeBlock(code: """
@@ -655,7 +655,7 @@ struct TreeNodeDetailView: View {
                 InspectorSection(title: "Options Usage Example") {
                     CodeBlock(code: """
                     // Example of programmatically accessing template options:
-                    let template = Metadata(/* ... */)
+                    let template = Models.Template.Model.Metadata(/* ... */)
 
                     for option in template.options {
                         print("Option: \\(option.name)")
@@ -686,7 +686,7 @@ struct TreeNodeDetailView: View {
         }
     }
 
-    private func optionExamples(_ option: Option) -> some View {
+    private func optionExamples(_ option: Models.Template.Model.Option) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             InspectorSection(title: "Option Definition") {
                 CodeBlock(code: """

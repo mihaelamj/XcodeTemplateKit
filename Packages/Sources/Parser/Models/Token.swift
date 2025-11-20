@@ -1,6 +1,7 @@
 import Foundation
+import Models
 
-extension Template.Parser {
+extension Template.Parser.Model {
     /// Represents a parsed piece of template content
     public enum Token: Equatable, Sendable {
         /// Plain text content
@@ -11,13 +12,13 @@ extension Template.Parser {
     }
 }
 
-extension Template.Parser.Token: CustomStringConvertible {
-        public var description: String {
-            switch self {
-            case .text(let str):
-                return "Text(\"\(str)\")"
-            case .variable(let token):
-                return "Variable(\(token))"
-            }
+extension Template.Parser.Model.Token: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .text(let str):
+            return "Text(\"\(str)\")"
+        case .variable(let token):
+            return "Variable(\(token))"
         }
     }
+}

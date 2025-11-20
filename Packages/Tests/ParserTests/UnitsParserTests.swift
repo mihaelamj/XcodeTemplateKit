@@ -1,7 +1,7 @@
-@testable import Parser
-import Models
-import Testing
 import Foundation
+import Models
+@testable import Parser
+import Testing
 
 @Suite("Units Parser Tests")
 struct UnitsParserTests {
@@ -90,7 +90,7 @@ struct UnitsParserTests {
 
         let result = parser.parse([
             "Swift": swiftPlist,
-            "Objective-C": objcPlist
+            "Objective-C": objcPlist,
         ])
 
         #expect(result != nil)
@@ -119,7 +119,7 @@ struct UnitsParserTests {
     func unitWithPartialFields() throws {
         // Create a minimal unit with only Nodes
         let minimalUnit: [String: Any] = [
-            "Nodes": ["File1.swift", "File2.swift"]
+            "Nodes": ["File1.swift", "File2.swift"],
         ]
 
         let result = parser.parse(["Minimal": minimalUnit])

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Definitions</key>
+	<dict>
+		<key>Common/Parameters/ParameterSpecBase.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Common</string>
+				<string>Parameters</string>
+			</array>
+			<key>Path</key>
+			<string>_Shared/Common/Parameters/ParameterSpecBase.swift</string>
+		</dict>
+		<key>Common/Utility/CrossPlatform.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Common</string>
+				<string>Utility</string>
+			</array>
+			<key>Path</key>
+			<string>_Shared/Common/Utility/CrossPlatform.swift</string>
+		</dict>
+		<key>Common/Utility/String+Utils.swift</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Common</string>
+				<string>Utility</string>
+			</array>
+			<key>Path</key>
+			<string>_Shared/Common/Utility/String+Utils.swift</string>
+		</dict>
+		<key>Common/___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h</key>
+		<dict>
+			<key>Group</key>
+			<array>
+				<string>Common</string>
+			</array>
+			<key>Path</key>
+			<string>_Shared/Common/___PACKAGENAMEASIDENTIFIER___-Bridging-Header.h</string>
+		</dict>
+		<key>README.md</key>
+		<dict>
+			<key>Group</key>
+			<array/>
+			<key>Path</key>
+			<string>_Shared/README.md</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

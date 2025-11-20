@@ -1,0 +1,35 @@
+# Fields
+
+  1. AllowedTypes
+  2. Ancestors
+  3. AssociatedTargetSpecification
+  4. BuildableType
+  5. Components
+  6. Concrete
+  7. DefaultCompletionName
+  8. Definitions
+  9. Description
+  10. HiddenFromChooser
+  11. HiddenFromLibrary
+  12. Icon
+  13. Identifier
+  14. Image
+  15. Kind
+  16. LocalizedByDefault
+  17. MainTemplateFile
+  18. Name
+  19. NameOfInitialFileForEditor
+  20. Nodes
+  21. OptionConstraints
+  22. Options
+  23. PackageType
+  24. Platforms
+  25. Project
+  26. ProjectOnly
+  27. SortOrder
+  28. Summary
+  29. SupportsSwiftPackage
+  30. SuppressTopLevelGroup
+  31. TargetOnly
+  32. Targets
+  33. Title

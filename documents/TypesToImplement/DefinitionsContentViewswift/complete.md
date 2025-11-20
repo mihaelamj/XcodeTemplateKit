@@ -1,0 +1,34 @@
+# DefinitionsContentViewswift - Complete Type Specification
+
+## Type Name
+`DefinitionsContentViewswift`
+
+## Field Count
+2 fields
+
+## Swift Type Definition (Proposed)
+
+```swift
+extension Template.Model {
+    public struct DefinitionsContentViewswift: Codable, Hashable, Sendable {
+            public let path: String?
+            public let targetIdentifiers: [DefinitionsContentViewswiftTargetIdentifiers]?
+    }
+}
+```
+
+## Example Values
+From template: **SharedContent RealityKit Game.xctemplate**
+
+### Path
+```
+ContentView.swift
+```
+
+### TargetIdentifiers
+```
+(
+    "com.apple.dt.applicationTarget"
+)
+```
+

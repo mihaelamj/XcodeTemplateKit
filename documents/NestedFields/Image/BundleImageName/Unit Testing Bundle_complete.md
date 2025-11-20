@@ -1,0 +1,95 @@
+# BundleImageName - Complete Context
+
+**Template**: Unit Testing Bundle.xctemplate
+**Field Path**: `Image.BundleImageName`
+
+## Complete TemplateInfo.plist
+
+```xml<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.multiPlatform.unitTestBundleBase</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>This target builds a unit test bundle.</string>
+	<key>Identifier</key>
+	<string>com.apple.dt.unit.multiPlatform.unitTestBundle</string>
+	<key>Image</key>
+	<dict>
+		<key>BundleIdentifier</key>
+		<string>com.apple.dt.IDEKit</string>
+		<key>BundleImageName</key>
+		<string>unittest</string>
+	</dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>OptionConstraints</key>
+	<array>
+		<dict>
+			<key>ConstraintType</key>
+			<string>DefaultIfAssociatedTarget</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Value</key>
+			<string>___ASSOCIATEDTARGET_bundleName___Tests</string>
+		</dict>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Default</key>
+			<string>None</string>
+			<key>Identifier</key>
+			<string>testingSystem</string>
+			<key>Name</key>
+			<string>Testing System:</string>
+			<key>NotPersisted</key>
+			<false/>
+			<key>RequiredOptionsForValues</key>
+			<dict>
+				<key>None</key>
+				<dict>
+					<key>languageChoice</key>
+					<string>Suppress</string>
+				</dict>
+				<key>Swift Testing</key>
+				<dict>
+					<key>languageChoice</key>
+					<string>Swift</string>
+				</dict>
+			</dict>
+			<key>SortOrder</key>
+			<integer>100</integer>
+			<key>Type</key>
+			<string>popup</string>
+			<key>ValueTitles</key>
+			<array>
+				<string>None</string>
+				<string>XCTest</string>
+				<string>Swift Testing</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>None</string>
+				<string>XCTest</string>
+				<string>Swift Testing</string>
+			</array>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array/>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>TargetIdentifier</key>
+			<string>com.apple.dt.multiPlatform.unitTestBundleTarget</string>
+		</dict>
+	</array>
+</dict>
+</plist>
+```

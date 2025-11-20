@@ -1,5 +1,5 @@
+import Models
 import SwiftUI
-import TemplateModels
 
 /// Displays a file or directory node in a recursive tree structure.
 ///
@@ -13,7 +13,7 @@ import TemplateModels
 /// }
 /// ```
 struct FileNodeView: View {
-    let node: FileNode
+    let node: Models.Template.Model.FileNode
     let level: Int
     @State private var isExpanded = false
 
