@@ -1,19 +1,19 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "BuildableType" field
 ///
-/// Tests that TemplateWriter correctly serializes BuildableType values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes BuildableType values to plist format.
 @Suite("BuildableType Field Generation")
 struct BuildableTypeTests {
     @Test("Generate BuildableType for Article_File")
     func generateArticle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -23,7 +23,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -31,7 +31,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -42,7 +42,7 @@ struct BuildableTypeTests {
     func generateCLIPS_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/CLIPS_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -52,7 +52,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -60,7 +60,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -71,7 +71,7 @@ struct BuildableTypeTests {
     func generateConfiguration_Settings_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Configuration_Settings_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -81,7 +81,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -89,7 +89,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -100,7 +100,7 @@ struct BuildableTypeTests {
     func generateEmpty() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Empty_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -110,7 +110,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -118,7 +118,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -129,7 +129,7 @@ struct BuildableTypeTests {
     func generateExports_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Exports_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -139,7 +139,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -147,7 +147,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -158,7 +158,7 @@ struct BuildableTypeTests {
     func generateExtension_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -168,7 +168,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -176,7 +176,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -187,7 +187,7 @@ struct BuildableTypeTests {
     func generateFile_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/File_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -205,7 +205,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -216,7 +216,7 @@ struct BuildableTypeTests {
     func generateHeader_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -226,7 +226,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -234,7 +234,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -245,7 +245,7 @@ struct BuildableTypeTests {
     func generateMarkdown_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Markdown_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -255,7 +255,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -263,7 +263,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -274,7 +274,7 @@ struct BuildableTypeTests {
     func generatePCH_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/PCH_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -284,7 +284,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -292,7 +292,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -303,7 +303,7 @@ struct BuildableTypeTests {
     func generateShell_Script() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Shell_Script_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -313,7 +313,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -321,7 +321,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -332,7 +332,7 @@ struct BuildableTypeTests {
     func generateSwift_Testing_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -342,7 +342,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -350,7 +350,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -361,7 +361,7 @@ struct BuildableTypeTests {
     func generateTest_Plan() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Test_Plan_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -371,7 +371,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -379,7 +379,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -390,7 +390,7 @@ struct BuildableTypeTests {
     func generateXCTest_UI_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/XCTest_UI_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -400,7 +400,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -408,7 +408,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -419,7 +419,7 @@ struct BuildableTypeTests {
     func generateXCTest_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "GeneratorTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/XCTest_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -429,7 +429,7 @@ struct BuildableTypeTests {
         guard let originalValue = originalPlist["BuildableType"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -437,7 +437,7 @@ struct BuildableTypeTests {
         // TODO: Set metadata.buildabletype = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be

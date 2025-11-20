@@ -1,12 +1,13 @@
-@testable import TemplateParser
+@testable import Parser
+import Models
 import Testing
 
 @Suite("Template Processor Tests")
 struct TemplateProcessorTests {
-    let processor = TemplateProcessor()
+    let processor = Template.Parser.Processor()
 
-    func makeTestContext() -> VariableContext {
-        VariableContext(
+    func makeTestContext() -> Template.Parser.Resolution.VariableContext {
+        Template.Parser.Resolution.VariableContext(
             fileName: "ContentView.swift",
             fileBaseName: "ContentView",
             projectName: "MyApp",

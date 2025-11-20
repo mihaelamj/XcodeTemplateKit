@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "PackageType" field
@@ -13,7 +13,7 @@ struct PackageTypeTests {
     @Test("Parse PackageType from Build_Tool_Plug-in")
     func parseBuild_Tool_Plug_in() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Build_Tool_Plug-in_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -29,7 +29,7 @@ struct PackageTypeTests {
     @Test("Round-trip PackageType from Build_Tool_Plug-in")
     func roundTripBuild_Tool_Plug_in() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Build_Tool_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -59,7 +59,7 @@ struct PackageTypeTests {
     @Test("Parse PackageType from Command_Plug-in")
     func parseCommand_Plug_in() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Command_Plug-in_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -75,7 +75,7 @@ struct PackageTypeTests {
     @Test("Round-trip PackageType from Command_Plug-in")
     func roundTripCommand_Plug_in() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Command_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -105,7 +105,7 @@ struct PackageTypeTests {
     @Test("Parse PackageType from Empty")
     func parseEmpty() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Empty_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -121,7 +121,7 @@ struct PackageTypeTests {
     @Test("Round-trip PackageType from Empty")
     func roundTripEmpty() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Empty_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -151,7 +151,7 @@ struct PackageTypeTests {
     @Test("Parse PackageType from Library")
     func parseLibrary() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Library_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -167,7 +167,7 @@ struct PackageTypeTests {
     @Test("Round-trip PackageType from Library")
     func roundTripLibrary() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Library_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct PackageTypeTests {
     @Test("Parse PackageType from Swift_Macro")
     func parseSwift_Macro() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Swift_Macro_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -213,7 +213,7 @@ struct PackageTypeTests {
     @Test("Round-trip PackageType from Swift_Macro")
     func roundTripSwift_Macro() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
+            of: "ParserTests/FieldTests/PackageTypeTests/PackageTypeTests.swift",
             with: "Fixtures/PackageType/Swift_Macro_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))

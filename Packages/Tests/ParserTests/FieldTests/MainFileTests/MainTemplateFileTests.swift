@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "MainTemplateFile" field
@@ -13,8 +13,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from App_Privacy")
     func parseApp_Privacy() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/App_Privacy_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/App_Privacy_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -29,8 +29,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from App_Privacy")
     func roundTripApp_Privacy() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/App_Privacy_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/App_Privacy_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -59,8 +59,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Application")
     func parseApplication() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Application_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Application_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -75,8 +75,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Application")
     func roundTripApplication() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Application_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Application_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -105,8 +105,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Article_File")
     func parseArticle_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Article_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Article_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -121,8 +121,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Article_File")
     func roundTripArticle_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Article_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -151,8 +151,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Assembly_File")
     func parseAssembly_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Assembly_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Assembly_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -167,8 +167,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Assembly_File")
     func roundTripAssembly_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Assembly_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Assembly_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -197,8 +197,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Asset_Catalog")
     func parseAsset_Catalog() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Asset_Catalog_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Asset_Catalog_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -213,8 +213,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Asset_Catalog")
     func roundTripAsset_Catalog() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Asset_Catalog_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -243,8 +243,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from C++_File")
     func parseC_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/C++_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/C++_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -259,8 +259,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from C++_File")
     func roundTripC_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/C++_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/C++_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -289,8 +289,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from CLIPS_File")
     func parseCLIPS_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/CLIPS_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/CLIPS_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -305,8 +305,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from CLIPS_File")
     func roundTripCLIPS_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/CLIPS_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/CLIPS_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -335,8 +335,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from C_File")
     func parseC_File_2() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/C_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/C_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -351,8 +351,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from C_File")
     func roundTripC_File_2() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/C_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -381,8 +381,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Configuration_Settings_File")
     func parseConfiguration_Settings_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Configuration_Settings_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Configuration_Settings_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -397,8 +397,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Configuration_Settings_File")
     func roundTripConfiguration_Settings_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Configuration_Settings_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Configuration_Settings_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -427,8 +427,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Documentation_Catalog")
     func parseDocumentation_Catalog() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Documentation_Catalog_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Documentation_Catalog_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -443,8 +443,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Documentation_Catalog")
     func roundTripDocumentation_Catalog() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Documentation_Catalog_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Documentation_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -473,8 +473,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Empty_File")
     func parseEmpty_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Empty_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Empty_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -489,8 +489,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Empty_File")
     func roundTripEmpty_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Empty_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Empty_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -519,8 +519,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Empty")
     func parseEmpty() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Empty_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Empty_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -535,8 +535,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Empty")
     func roundTripEmpty() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Empty_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Empty_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -565,8 +565,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Exports_File")
     func parseExports_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Exports_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Exports_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -581,8 +581,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Exports_File")
     func roundTripExports_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Exports_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Exports_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -611,8 +611,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Extension_File")
     func parseExtension_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Extension_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Extension_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -627,8 +627,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Extension_File")
     func roundTripExtension_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Extension_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -657,8 +657,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from File_List")
     func parseFile_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/File_List_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/File_List_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -673,8 +673,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from File_List")
     func roundTripFile_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/File_List_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/File_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -703,8 +703,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Header_File")
     func parseHeader_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Header_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Header_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -719,8 +719,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Header_File")
     func roundTripHeader_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Header_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -749,8 +749,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Main_Menu")
     func parseMain_Menu() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Main_Menu_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Main_Menu_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -765,8 +765,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Main_Menu")
     func roundTripMain_Menu() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Main_Menu_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Main_Menu_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -795,8 +795,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Markdown_File")
     func parseMarkdown_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Markdown_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Markdown_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -811,8 +811,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Markdown_File")
     func roundTripMarkdown_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Markdown_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Markdown_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -841,8 +841,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Metal_File")
     func parseMetal_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Metal_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Metal_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -857,8 +857,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Metal_File")
     func roundTripMetal_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Metal_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Metal_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -887,8 +887,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Module_Map")
     func parseModule_Map() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Module_Map_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Module_Map_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -903,8 +903,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Module_Map")
     func roundTripModule_Map() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Module_Map_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Module_Map_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -933,8 +933,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Objective-C_new_superclass")
     func parseObjective_C_new_superclass() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Objective-C_new_superclass_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Objective-C_new_superclass_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -949,8 +949,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Objective-C_new_superclass")
     func roundTripObjective_C_new_superclass() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Objective-C_new_superclass_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Objective-C_new_superclass_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -979,8 +979,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from PCH_File")
     func parsePCH_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/PCH_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/PCH_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -995,8 +995,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from PCH_File")
     func roundTripPCH_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/PCH_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/PCH_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1025,8 +1025,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Package_Swift_File")
     func parsePackage_Swift_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Package_Swift_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Package_Swift_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1041,8 +1041,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Package_Swift_File")
     func roundTripPackage_Swift_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Package_Swift_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Package_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1071,8 +1071,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Package_Test_Case")
     func parsePackage_Test_Case() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Package_Test_Case_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Package_Test_Case_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1087,8 +1087,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Package_Test_Case")
     func roundTripPackage_Test_Case() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Package_Test_Case_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Package_Test_Case_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1117,8 +1117,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Playground_Page")
     func parsePlayground_Page() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Playground_Page_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Playground_Page_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1133,8 +1133,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Playground_Page")
     func roundTripPlayground_Page() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Playground_Page_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Playground_Page_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1163,8 +1163,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Property_List")
     func parseProperty_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Property_List_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Property_List_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1179,8 +1179,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Property_List")
     func roundTripProperty_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Property_List_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Property_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1209,8 +1209,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from RTF_File")
     func parseRTF_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/RTF_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/RTF_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1225,8 +1225,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from RTF_File")
     func roundTripRTF_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/RTF_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/RTF_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1255,8 +1255,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SceneKit_Asset_Cache")
     func parseSceneKit_Asset_Cache() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Asset_Cache_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Asset_Cache_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1271,8 +1271,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SceneKit_Asset_Cache")
     func roundTripSceneKit_Asset_Cache() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Asset_Cache_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Asset_Cache_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1301,8 +1301,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SceneKit_Asset_Catalog")
     func parseSceneKit_Asset_Catalog() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Asset_Catalog_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Asset_Catalog_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1317,8 +1317,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SceneKit_Asset_Catalog")
     func roundTripSceneKit_Asset_Catalog() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Asset_Catalog_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1347,8 +1347,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SceneKit_Scene_File")
     func parseSceneKit_Scene_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Scene_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Scene_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1363,8 +1363,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SceneKit_Scene_File")
     func roundTripSceneKit_Scene_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Scene_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Scene_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1393,8 +1393,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Shell_Script")
     func parseShell_Script() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Shell_Script_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Shell_Script_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1409,8 +1409,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Shell_Script")
     func roundTripShell_Script() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Shell_Script_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Shell_Script_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1439,8 +1439,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SiriKit_Intent_Definition_File")
     func parseSiriKit_Intent_Definition_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SiriKit_Intent_Definition_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SiriKit_Intent_Definition_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1455,8 +1455,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SiriKit_Intent_Definition_File")
     func roundTripSiriKit_Intent_Definition_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SiriKit_Intent_Definition_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SiriKit_Intent_Definition_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1485,8 +1485,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Sources_Folder_Swift_File")
     func parseSources_Folder_Swift_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Sources_Folder_Swift_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Sources_Folder_Swift_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1501,8 +1501,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Sources_Folder_Swift_File")
     func roundTripSources_Folder_Swift_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Sources_Folder_Swift_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Sources_Folder_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1531,8 +1531,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SpriteKit_Action")
     func parseSpriteKit_Action() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Action_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Action_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1547,8 +1547,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SpriteKit_Action")
     func roundTripSpriteKit_Action() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Action_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Action_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1577,8 +1577,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SpriteKit_Particle_File")
     func parseSpriteKit_Particle_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Particle_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Particle_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1593,8 +1593,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SpriteKit_Particle_File")
     func roundTripSpriteKit_Particle_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Particle_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Particle_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1623,8 +1623,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SpriteKit_Scene")
     func parseSpriteKit_Scene() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Scene_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Scene_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1639,8 +1639,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SpriteKit_Scene")
     func roundTripSpriteKit_Scene() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Scene_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Scene_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1669,8 +1669,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SpriteKit_Tile_Set")
     func parseSpriteKit_Tile_Set() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Tile_Set_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Tile_Set_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1685,8 +1685,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SpriteKit_Tile_Set")
     func roundTripSpriteKit_Tile_Set() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Tile_Set_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Tile_Set_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1715,8 +1715,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Storyboard")
     func parseStoryboard() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Storyboard_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Storyboard_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1731,8 +1731,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Storyboard")
     func roundTripStoryboard() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Storyboard_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Storyboard_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1761,8 +1761,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Strings_File_(Legacy)")
     func parseStrings_File_Legacy() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Strings_File_(Legacy)_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Strings_File_(Legacy)_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1777,8 +1777,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Strings_File_(Legacy)")
     func roundTripStrings_File_Legacy() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Strings_File_(Legacy)_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Strings_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1807,8 +1807,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Stringsdict_File_(Legacy)")
     func parseStringsdict_File_Legacy() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Stringsdict_File_(Legacy)_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Stringsdict_File_(Legacy)_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1823,8 +1823,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Stringsdict_File_(Legacy)")
     func roundTripStringsdict_File_Legacy() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Stringsdict_File_(Legacy)_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Stringsdict_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1853,8 +1853,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from SwiftUI_View")
     func parseSwiftUI_View() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SwiftUI_View_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SwiftUI_View_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1869,8 +1869,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from SwiftUI_View")
     func roundTripSwiftUI_View() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SwiftUI_View_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SwiftUI_View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1899,8 +1899,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Swift_File")
     func parseSwift_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Swift_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Swift_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1915,8 +1915,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Swift_File")
     func roundTripSwift_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Swift_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1945,8 +1945,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Swift_Testing_Unit_Test")
     func parseSwift_Testing_Unit_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Swift_Testing_Unit_Test_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Swift_Testing_Unit_Test_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -1961,8 +1961,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Swift_Testing_Unit_Test")
     func roundTripSwift_Testing_Unit_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Swift_Testing_Unit_Test_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1991,8 +1991,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Test_Plan")
     func parseTest_Plan() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Test_Plan_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Test_Plan_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -2007,8 +2007,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Test_Plan")
     func roundTripTest_Plan() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Test_Plan_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Test_Plan_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -2037,8 +2037,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Touch_Alternatives_Property_List")
     func parseTouch_Alternatives_Property_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Touch_Alternatives_Property_List_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Touch_Alternatives_Property_List_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -2053,8 +2053,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Touch_Alternatives_Property_List")
     func roundTripTouch_Alternatives_Property_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Touch_Alternatives_Property_List_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Touch_Alternatives_Property_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -2083,8 +2083,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Tutorial_File")
     func parseTutorial_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Tutorial_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Tutorial_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -2099,8 +2099,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Tutorial_File")
     func roundTripTutorial_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Tutorial_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Tutorial_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -2129,8 +2129,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Tutorial_Table_of_Contents_File")
     func parseTutorial_Table_of_Contents_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Tutorial_Table_of_Contents_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Tutorial_Table_of_Contents_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -2145,8 +2145,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Tutorial_Table_of_Contents_File")
     func roundTripTutorial_Table_of_Contents_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Tutorial_Table_of_Contents_File_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Tutorial_Table_of_Contents_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -2175,8 +2175,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from View")
     func parseView() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/View_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/View_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -2191,8 +2191,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from View")
     func roundTripView() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/View_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -2221,8 +2221,8 @@ struct MainTemplateFileTests {
     @Test("Parse MainTemplateFile from Window")
     func parseWindow() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Window_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Window_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
@@ -2237,8 +2237,8 @@ struct MainTemplateFileTests {
     @Test("Round-trip MainTemplateFile from Window")
     func roundTripWindow() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Window_value.plist"
+            of: "ParserTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Window_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]

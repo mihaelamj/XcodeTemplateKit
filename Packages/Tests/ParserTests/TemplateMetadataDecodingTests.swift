@@ -1,6 +1,6 @@
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Tests for decoding Metadata from JSON.
@@ -47,7 +47,7 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let template = try decoder.decode(Metadata.self, from: data)
+        let template = try decoder.decode(Models.Template.Model.Metadata.self, from: data)
 
         // Verify basic fields
         #expect(template.name == "App Base")
@@ -87,7 +87,7 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let template = try decoder.decode(Metadata.self, from: data)
+        let template = try decoder.decode(Models.Template.Model.Metadata.self, from: data)
 
         #expect(template.name == "Empty")
         #expect(template.kind == .emptyProject)
@@ -111,7 +111,7 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let template = try decoder.decode(Metadata.self, from: data)
+        let template = try decoder.decode(Models.Template.Model.Metadata.self, from: data)
 
         #expect(template.path == "/custom/path/App.xctemplate")
         #expect(template.name == "App")
@@ -146,7 +146,7 @@ struct TemplateMetadataDecodingTests {
 
         let data = Data(json.utf8)
         let decoder = JSONDecoder()
-        let inventory = try decoder.decode(Inventory.self, from: data)
+        let inventory = try decoder.decode(Models.Template.Model.Inventory.self, from: data)
 
         #expect(inventory.totalTemplates == 2)
         #expect(inventory.totalCombinations == 3)

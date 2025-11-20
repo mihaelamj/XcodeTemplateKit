@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "Project" field
@@ -13,7 +13,7 @@ struct ProjectTests {
     @Test("Parse Project from Base_ProjectSettings")
     func parseBase_ProjectSettings() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/Base_ProjectSettings_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -29,7 +29,7 @@ struct ProjectTests {
     @Test("Round-trip Project from Base_ProjectSettings")
     func roundTripBase_ProjectSettings() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/Base_ProjectSettings_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -58,7 +58,7 @@ struct ProjectTests {
 
     @Test("Parse Project from Empty")
     func parseEmpty() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Empty_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -71,7 +71,7 @@ struct ProjectTests {
 
     @Test("Round-trip Project from Empty")
     func roundTripEmpty() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Empty_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -98,7 +98,7 @@ struct ProjectTests {
 
     @Test("Parse Project from Framework_Base")
     func parseFramework_Base() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Framework_Base_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Framework_Base_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -111,7 +111,7 @@ struct ProjectTests {
 
     @Test("Round-trip Project from Framework_Base")
     func roundTripFramework_Base() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Framework_Base_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift", with: "Fixtures/Project/Framework_Base_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -139,7 +139,7 @@ struct ProjectTests {
     @Test("Parse Project from Metal_Library_Base")
     func parseMetal_Library_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/Metal_Library_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -155,7 +155,7 @@ struct ProjectTests {
     @Test("Round-trip Project from Metal_Library_Base")
     func roundTripMetal_Library_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/Metal_Library_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -185,7 +185,7 @@ struct ProjectTests {
     @Test("Parse Project from iOS_Safari_Extension_App")
     func parseiOS_Safari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/iOS_Safari_Extension_App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -201,7 +201,7 @@ struct ProjectTests {
     @Test("Round-trip Project from iOS_Safari_Extension_App")
     func roundTripiOS_Safari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/iOS_Safari_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -231,7 +231,7 @@ struct ProjectTests {
     @Test("Parse Project from iOS_Safari_Extension")
     func parseiOS_Safari_Extension() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/iOS_Safari_Extension_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -247,7 +247,7 @@ struct ProjectTests {
     @Test("Round-trip Project from iOS_Safari_Extension")
     func roundTripiOS_Safari_Extension() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/iOS_Safari_Extension_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -277,7 +277,7 @@ struct ProjectTests {
     @Test("Parse Project from macOS_Safari_Extension_App")
     func parsemacOS_Safari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/macOS_Safari_Extension_App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -293,7 +293,7 @@ struct ProjectTests {
     @Test("Round-trip Project from macOS_Safari_Extension_App")
     func roundTripmacOS_Safari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/macOS_Safari_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -323,7 +323,7 @@ struct ProjectTests {
     @Test("Parse Project from macOS_Safari_Extension")
     func parsemacOS_Safari_Extension() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/macOS_Safari_Extension_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -339,7 +339,7 @@ struct ProjectTests {
     @Test("Round-trip Project from macOS_Safari_Extension")
     func roundTripmacOS_Safari_Extension() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ProjectTests/ProjectTests.swift",
+            of: "ParserTests/FieldTests/ProjectTests/ProjectTests.swift",
             with: "Fixtures/Project/macOS_Safari_Extension_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))

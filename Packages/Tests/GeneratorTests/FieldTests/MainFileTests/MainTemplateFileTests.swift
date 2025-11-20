@@ -1,20 +1,20 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "MainTemplateFile" field
 ///
-/// Tests that TemplateWriter correctly serializes MainTemplateFile values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes MainTemplateFile values to plist format.
 @Suite("MainTemplateFile Field Generation")
 struct MainTemplateFileTests {
     @Test("Generate MainTemplateFile for App_Privacy")
     func generateApp_Privacy() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/App_Privacy_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/App_Privacy_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -23,7 +23,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -31,7 +31,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -42,8 +42,8 @@ struct MainTemplateFileTests {
     func generateApplication() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Application_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Application_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -52,7 +52,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -60,7 +60,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -71,8 +71,8 @@ struct MainTemplateFileTests {
     func generateArticle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Article_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -81,7 +81,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -89,7 +89,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -100,8 +100,8 @@ struct MainTemplateFileTests {
     func generateAssembly_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Assembly_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Assembly_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -110,7 +110,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -118,7 +118,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -129,8 +129,8 @@ struct MainTemplateFileTests {
     func generateAsset_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Asset_Catalog_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -139,7 +139,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -147,7 +147,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -158,8 +158,8 @@ struct MainTemplateFileTests {
     func generateC ++ _File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/C++_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/C++_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -168,7 +168,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -176,7 +176,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -187,8 +187,8 @@ struct MainTemplateFileTests {
     func generateCLIPS_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/CLIPS_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/CLIPS_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -197,7 +197,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -205,7 +205,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -216,8 +216,8 @@ struct MainTemplateFileTests {
     func generateC_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/C_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -226,7 +226,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -234,7 +234,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -245,8 +245,8 @@ struct MainTemplateFileTests {
     func generateConfiguration_Settings_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Configuration_Settings_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Configuration_Settings_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -255,7 +255,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -263,7 +263,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -274,8 +274,8 @@ struct MainTemplateFileTests {
     func generateDocumentation_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Documentation_Catalog_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Documentation_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -284,7 +284,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -292,7 +292,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -303,8 +303,8 @@ struct MainTemplateFileTests {
     func generateEmpty_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Empty_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Empty_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -313,7 +313,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -321,7 +321,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -332,8 +332,8 @@ struct MainTemplateFileTests {
     func generateEmpty() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Empty_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Empty_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -342,7 +342,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -350,7 +350,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -361,8 +361,8 @@ struct MainTemplateFileTests {
     func generateExports_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Exports_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Exports_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -371,7 +371,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -379,7 +379,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -390,8 +390,8 @@ struct MainTemplateFileTests {
     func generateExtension_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Extension_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -400,7 +400,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -408,7 +408,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -419,8 +419,8 @@ struct MainTemplateFileTests {
     func generateFile_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/File_List_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/File_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -429,7 +429,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -437,7 +437,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -448,8 +448,8 @@ struct MainTemplateFileTests {
     func generateHeader_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Header_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -458,7 +458,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -466,7 +466,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -477,8 +477,8 @@ struct MainTemplateFileTests {
     func generateMain_Menu() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Main_Menu_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Main_Menu_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -487,7 +487,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -495,7 +495,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -506,8 +506,8 @@ struct MainTemplateFileTests {
     func generateMarkdown_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Markdown_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Markdown_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -516,7 +516,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -524,7 +524,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -535,8 +535,8 @@ struct MainTemplateFileTests {
     func generateMetal_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Metal_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Metal_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -545,7 +545,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -553,7 +553,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -564,8 +564,8 @@ struct MainTemplateFileTests {
     func generateModule_Map() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Module_Map_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Module_Map_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -574,7 +574,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -582,7 +582,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -593,8 +593,8 @@ struct MainTemplateFileTests {
     func generateObjective_C_new_superclass() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Objective-C_new_superclass_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Objective-C_new_superclass_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -603,7 +603,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -611,7 +611,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -622,8 +622,8 @@ struct MainTemplateFileTests {
     func generatePCH_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/PCH_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/PCH_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -632,7 +632,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -640,7 +640,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -651,8 +651,8 @@ struct MainTemplateFileTests {
     func generatePackage_Swift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Package_Swift_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Package_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -661,7 +661,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -669,7 +669,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -680,8 +680,8 @@ struct MainTemplateFileTests {
     func generatePackage_Test_Case() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Package_Test_Case_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Package_Test_Case_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -690,7 +690,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -698,7 +698,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -709,8 +709,8 @@ struct MainTemplateFileTests {
     func generatePlayground_Page() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Playground_Page_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Playground_Page_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -719,7 +719,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -727,7 +727,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -738,8 +738,8 @@ struct MainTemplateFileTests {
     func generateProperty_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Property_List_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Property_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -748,7 +748,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -756,7 +756,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -767,8 +767,8 @@ struct MainTemplateFileTests {
     func generateRTF_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/RTF_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/RTF_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -777,7 +777,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -785,7 +785,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -796,8 +796,8 @@ struct MainTemplateFileTests {
     func generateSceneKit_Asset_Cache() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Asset_Cache_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Asset_Cache_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -806,7 +806,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -814,7 +814,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -825,8 +825,8 @@ struct MainTemplateFileTests {
     func generateSceneKit_Asset_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Asset_Catalog_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -835,7 +835,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -843,7 +843,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -854,8 +854,8 @@ struct MainTemplateFileTests {
     func generateSceneKit_Scene_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SceneKit_Scene_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SceneKit_Scene_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -864,7 +864,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -872,7 +872,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -883,8 +883,8 @@ struct MainTemplateFileTests {
     func generateShell_Script() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Shell_Script_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Shell_Script_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -893,7 +893,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -901,7 +901,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -912,8 +912,8 @@ struct MainTemplateFileTests {
     func generateSiriKit_Intent_Definition_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SiriKit_Intent_Definition_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SiriKit_Intent_Definition_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -922,7 +922,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -930,7 +930,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -941,8 +941,8 @@ struct MainTemplateFileTests {
     func generateSources_Folder_Swift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Sources_Folder_Swift_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Sources_Folder_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -951,7 +951,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -959,7 +959,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -970,8 +970,8 @@ struct MainTemplateFileTests {
     func generateSpriteKit_Action() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Action_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Action_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -980,7 +980,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -988,7 +988,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -999,8 +999,8 @@ struct MainTemplateFileTests {
     func generateSpriteKit_Particle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Particle_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Particle_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1009,7 +1009,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1017,7 +1017,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1028,8 +1028,8 @@ struct MainTemplateFileTests {
     func generateSpriteKit_Scene() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Scene_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Scene_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1038,7 +1038,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1046,7 +1046,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1057,8 +1057,8 @@ struct MainTemplateFileTests {
     func generateSpriteKit_Tile_Set() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SpriteKit_Tile_Set_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SpriteKit_Tile_Set_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1067,7 +1067,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1075,7 +1075,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1086,8 +1086,8 @@ struct MainTemplateFileTests {
     func generateStoryboard() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Storyboard_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Storyboard_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1096,7 +1096,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1104,7 +1104,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1115,8 +1115,8 @@ struct MainTemplateFileTests {
     func generateStrings_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Strings_File_(Legacy)_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Strings_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1125,7 +1125,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1133,7 +1133,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1144,8 +1144,8 @@ struct MainTemplateFileTests {
     func generateStringsdict_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Stringsdict_File_(Legacy)_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Stringsdict_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1154,7 +1154,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1162,7 +1162,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1173,8 +1173,8 @@ struct MainTemplateFileTests {
     func generateSwiftUI_View() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/SwiftUI_View_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/SwiftUI_View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1183,7 +1183,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1191,7 +1191,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1202,8 +1202,8 @@ struct MainTemplateFileTests {
     func generateSwift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Swift_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1212,7 +1212,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1220,7 +1220,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1231,8 +1231,8 @@ struct MainTemplateFileTests {
     func generateSwift_Testing_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Swift_Testing_Unit_Test_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1241,7 +1241,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1249,7 +1249,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1260,8 +1260,8 @@ struct MainTemplateFileTests {
     func generateTest_Plan() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Test_Plan_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Test_Plan_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1270,7 +1270,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1278,7 +1278,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1289,8 +1289,8 @@ struct MainTemplateFileTests {
     func generateTouch_Alternatives_Property_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Touch_Alternatives_Property_List_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Touch_Alternatives_Property_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1299,7 +1299,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1307,7 +1307,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1318,8 +1318,8 @@ struct MainTemplateFileTests {
     func generateTutorial_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Tutorial_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Tutorial_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1328,7 +1328,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1336,7 +1336,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1347,8 +1347,8 @@ struct MainTemplateFileTests {
     func generateTutorial_Table_of_Contents_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Tutorial_Table_of_Contents_File_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Tutorial_Table_of_Contents_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1357,7 +1357,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1365,7 +1365,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1376,8 +1376,8 @@ struct MainTemplateFileTests {
     func generateView() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/View_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1386,7 +1386,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1394,7 +1394,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1405,8 +1405,8 @@ struct MainTemplateFileTests {
     func generateWindow() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/MainTemplateFileTests/MainTemplateFileTests.swift",
-            with: "Fixtures/MainTemplateFile/Window_value.plist"
+            of: "GeneratorTests/FieldTests/MainFileTests/MainTemplateFileTests.swift",
+            with: "Fixtures/MainFile/Window_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
@@ -1415,7 +1415,7 @@ struct MainTemplateFileTests {
         guard let originalValue = originalPlist["MainTemplateFile"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1423,7 +1423,7 @@ struct MainTemplateFileTests {
         // TODO: Set metadata.maintemplatefile = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be

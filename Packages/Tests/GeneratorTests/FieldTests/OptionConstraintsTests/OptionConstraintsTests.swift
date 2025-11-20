@@ -1,19 +1,19 @@
 // swiftlint:disable force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "OptionConstraints" field
 ///
-/// Tests that TemplateWriter correctly serializes OptionConstraints values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes OptionConstraints values to plist format.
 @Suite("OptionConstraints Field Generation")
 struct OptionConstraintsTests {
     @Test("Generate OptionConstraints for App_Extension_Base")
     func generateApp_Extension_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/App_Extension_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -26,7 +26,7 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Verify parsed structure
         #expect(constraints.constraints.count == 1)
@@ -35,7 +35,7 @@ struct OptionConstraintsTests {
         #expect(constraints.constraints[0].value == "___ASSOCIATEDTARGET_bundleIdentifier___")
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -43,7 +43,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -61,7 +61,7 @@ struct OptionConstraintsTests {
     func generateExtensionKit_Extension_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/ExtensionKit_Extension_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -74,14 +74,14 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Verify parsed structure
         #expect(constraints.constraints.count == 1)
         #expect(constraints.constraints[0].constraintType == .requirementIfAssociatedTarget)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -89,7 +89,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -104,7 +104,7 @@ struct OptionConstraintsTests {
     func generateSwiftUI_App_UI_Test_Bundle_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/SwiftUI_App_UI_Test_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -117,10 +117,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -128,7 +128,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -143,7 +143,7 @@ struct OptionConstraintsTests {
     func generateSwiftUI_App_Unit_Testing_Bundle_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/SwiftUI_App_Unit_Testing_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -156,10 +156,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -167,7 +167,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -182,7 +182,7 @@ struct OptionConstraintsTests {
     func generateUI_Testing_Bundle() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/UI_Testing_Bundle_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -195,10 +195,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -206,7 +206,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -221,7 +221,7 @@ struct OptionConstraintsTests {
     func generateUnit_Testing_Bundle() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/Unit_Testing_Bundle_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -234,10 +234,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -245,7 +245,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -260,7 +260,7 @@ struct OptionConstraintsTests {
     func generateiOS_App_UI_Test_Bundle() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/iOS_App_UI_Test_Bundle_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -273,10 +273,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -284,7 +284,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -299,7 +299,7 @@ struct OptionConstraintsTests {
     func generatemacOS_App_UI_Test_Bundle() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
+            of: "GeneratorTests/FieldTests/OptionConstraintsTests/OptionConstraintsTests.swift",
             with: "Fixtures/OptionConstraints/macOS_App_UI_Test_Bundle_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -312,10 +312,10 @@ struct OptionConstraintsTests {
 
         // Parse to typed model
         let constraintsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let constraints = try PropertyListDecoder().decode(OptionConstraints.self, from: constraintsData)
+        let constraints = try PropertyListDecoder().decode(Models.Template.Model.OptionConstraints.self, from: constraintsData)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -323,7 +323,7 @@ struct OptionConstraintsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure

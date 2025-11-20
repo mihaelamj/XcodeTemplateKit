@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "AssociatedTargetSpecification" field
@@ -13,7 +13,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Parse AssociatedTargetSpecification from Framework")
     func parseFramework() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Framework_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -29,7 +29,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Round-trip AssociatedTargetSpecification from Framework")
     func roundTripFramework() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Framework_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -59,7 +59,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Parse AssociatedTargetSpecification from Multiplatform_App_Extension_Base")
     func parseMultiplatform_App_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_App_Extension_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -75,7 +75,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Round-trip AssociatedTargetSpecification from Multiplatform_App_Extension_Base")
     func roundTripMultiplatform_App_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_App_Extension_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -105,7 +105,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Parse AssociatedTargetSpecification from Multiplatform_ExtensionKit_Extension_Base")
     func parseMultiplatform_ExtensionKit_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_ExtensionKit_Extension_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -121,7 +121,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Round-trip AssociatedTargetSpecification from Multiplatform_ExtensionKit_Extension_Base")
     func roundTripMultiplatform_ExtensionKit_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_ExtensionKit_Extension_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -151,7 +151,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Parse AssociatedTargetSpecification from Multiplatform_Test_Bundle_Base")
     func parseMultiplatform_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_Test_Bundle_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -167,7 +167,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Round-trip AssociatedTargetSpecification from Multiplatform_Test_Bundle_Base")
     func roundTripMultiplatform_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_Test_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Parse AssociatedTargetSpecification from Multiplatform_UI_Test_Bundle_Base")
     func parseMultiplatform_UI_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_UI_Test_Bundle_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -213,7 +213,7 @@ struct AssociatedTargetSpecificationTests {
     @Test("Round-trip AssociatedTargetSpecification from Multiplatform_UI_Test_Bundle_Base")
     func roundTripMultiplatform_UI_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
+            of: "ParserTests/FieldTests/AssociatedTargetSpecificationTests/AssociatedTargetSpecificationTests.swift",
             with: "Fixtures/AssociatedTargetSpecification/Multiplatform_UI_Test_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))

@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "Components" field
@@ -13,7 +13,7 @@ struct ComponentsTests {
     @Test("Parse Components from Audio_Unit_Extension_App")
     func parseAudio_Unit_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
+            of: "ParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
             with: "Fixtures/Components/Audio_Unit_Extension_App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -29,7 +29,7 @@ struct ComponentsTests {
     @Test("Round-trip Components from Audio_Unit_Extension_App")
     func roundTripAudio_Unit_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
+            of: "ParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
             with: "Fixtures/Components/Audio_Unit_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -59,7 +59,7 @@ struct ComponentsTests {
     @Test("Parse Components from Safari_Extension_App")
     func parseSafari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
+            of: "ParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
             with: "Fixtures/Components/Safari_Extension_App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -75,7 +75,7 @@ struct ComponentsTests {
     @Test("Round-trip Components from Safari_Extension_App")
     func roundTripSafari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
+            of: "ParserTests/FieldTests/ComponentsTests/ComponentsTests.swift",
             with: "Fixtures/Components/Safari_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))

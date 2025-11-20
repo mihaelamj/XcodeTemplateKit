@@ -1,9 +1,10 @@
-@testable import TemplateParser
+@testable import Parser
+import Models
 import Testing
 
 @Suite("Variable Parser Tests")
 struct VariableParserTests {
-    let parser = VariableParser()
+    let parser = Template.Parser.Content.VariableParser()
 
     @Test("Parse simple variable")
     func simpleVariable() throws {

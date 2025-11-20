@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "Title" field
@@ -12,7 +12,7 @@ import Testing
 struct TitleTests {
     @Test("Parse Title from Application")
     func parseApplication() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Application_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Application_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -25,7 +25,7 @@ struct TitleTests {
 
     @Test("Round-trip Title from Application")
     func roundTripApplication() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Application_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Application_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -52,7 +52,7 @@ struct TitleTests {
 
     @Test("Parse Title from Empty")
     func parseEmpty() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Empty_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -65,7 +65,7 @@ struct TitleTests {
 
     @Test("Round-trip Title from Empty")
     func roundTripEmpty() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Empty_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -92,7 +92,7 @@ struct TitleTests {
 
     @Test("Parse Title from Main_Menu")
     func parseMain_Menu() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Main_Menu_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Main_Menu_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -105,7 +105,7 @@ struct TitleTests {
 
     @Test("Round-trip Title from Main_Menu")
     func roundTripMain_Menu() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Main_Menu_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Main_Menu_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -132,7 +132,7 @@ struct TitleTests {
 
     @Test("Parse Title from Storyboard")
     func parseStoryboard() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Storyboard_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Storyboard_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -145,7 +145,7 @@ struct TitleTests {
 
     @Test("Round-trip Title from Storyboard")
     func roundTripStoryboard() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Storyboard_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Storyboard_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -172,7 +172,7 @@ struct TitleTests {
 
     @Test("Parse Title from View")
     func parseView() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/View_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/View_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -185,7 +185,7 @@ struct TitleTests {
 
     @Test("Round-trip Title from View")
     func roundTripView() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/View_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/View_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -212,7 +212,7 @@ struct TitleTests {
 
     @Test("Parse Title from Window")
     func parseWindow() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Window_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Window_value.plist")
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
@@ -225,7 +225,7 @@ struct TitleTests {
 
     @Test("Round-trip Title from Window")
     func roundTripWindow() throws {
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Window_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "ParserTests/FieldTests/TitleTests/TitleTests.swift", with: "Fixtures/Title/Window_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 

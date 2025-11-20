@@ -1,19 +1,19 @@
 // swiftlint:disable force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "Targets" field
 ///
-/// Tests that TemplateWriter correctly serializes Targets values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes Targets values to plist format.
 @Suite("Targets Field Generation")
 struct TargetsTests {
     @Test("Generate Targets for App_Base")
     func generateApp_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/TargetsTests/TargetsTests.swift",
+            of: "GeneratorTests/FieldTests/TargetsTests/TargetsTests.swift",
             with: "Fixtures/Targets/App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -26,7 +26,7 @@ struct TargetsTests {
 
         // Parse to typed model
         let targetsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let targets = try PropertyListDecoder().decode(Targets.self, from: targetsData)
+        let targets = try PropertyListDecoder().decode(Models.Template.Model.Targets.self, from: targetsData)
 
         // Verify parsed structure
         #expect(targets.targets.count == 1)
@@ -34,7 +34,7 @@ struct TargetsTests {
         #expect(targets.targets[0].buildPhases?.count == 3)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -42,7 +42,7 @@ struct TargetsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -61,7 +61,7 @@ struct TargetsTests {
     func generateAggregate() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/TargetsTests/TargetsTests.swift",
+            of: "GeneratorTests/FieldTests/TargetsTests/TargetsTests.swift",
             with: "Fixtures/Targets/Aggregate_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -74,13 +74,13 @@ struct TargetsTests {
 
         // Parse to typed model
         let targetsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let targets = try PropertyListDecoder().decode(Targets.self, from: targetsData)
+        let targets = try PropertyListDecoder().decode(Models.Template.Model.Targets.self, from: targetsData)
 
         // Verify parsed structure
         #expect(!targets.targets.isEmpty)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -88,7 +88,7 @@ struct TargetsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure

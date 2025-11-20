@@ -1,19 +1,19 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "HiddenFromLibrary" field
 ///
-/// Tests that TemplateWriter correctly serializes HiddenFromLibrary values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes HiddenFromLibrary values to plist format.
 @Suite("HiddenFromLibrary Field Generation")
 struct HiddenFromLibraryTests {
     @Test("Generate HiddenFromLibrary for App_Entity")
     func generateApp_Entity() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/App_Entity_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -23,7 +23,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -31,7 +31,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -42,7 +42,7 @@ struct HiddenFromLibraryTests {
     func generateApp_Enum() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/App_Enum_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -52,7 +52,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -60,7 +60,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -71,7 +71,7 @@ struct HiddenFromLibraryTests {
     func generateINIntent_subclass() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/INIntent_subclass_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -81,7 +81,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -89,7 +89,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -100,7 +100,7 @@ struct HiddenFromLibraryTests {
     func generateLink_action() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/Link_action_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -110,7 +110,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -118,7 +118,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -129,7 +129,7 @@ struct HiddenFromLibraryTests {
     func generatePackage_Swift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/Package_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -139,7 +139,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -147,7 +147,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -158,7 +158,7 @@ struct HiddenFromLibraryTests {
     func generatePackage_Test_Case() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/Package_Test_Case_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -168,7 +168,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -176,7 +176,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -187,7 +187,7 @@ struct HiddenFromLibraryTests {
     func generatePlayground_Page() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/Playground_Page_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -205,7 +205,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -216,7 +216,7 @@ struct HiddenFromLibraryTests {
     func generateSceneKit_Asset_Cache() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/SceneKit_Asset_Cache_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -226,7 +226,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -234,7 +234,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -245,7 +245,7 @@ struct HiddenFromLibraryTests {
     func generateSources_Folder_Swift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/Sources_Folder_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -255,7 +255,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -263,7 +263,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -274,7 +274,7 @@ struct HiddenFromLibraryTests {
     func generateTransient_App_Entity() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
+            of: "GeneratorTests/FieldTests/HiddenFromLibraryTests/HiddenFromLibraryTests.swift",
             with: "Fixtures/HiddenFromLibrary/Transient_App_Entity_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -284,7 +284,7 @@ struct HiddenFromLibraryTests {
         guard let originalValue = originalPlist["HiddenFromLibrary"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -292,7 +292,7 @@ struct HiddenFromLibraryTests {
         // TODO: Set metadata.hiddenfromlibrary = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be

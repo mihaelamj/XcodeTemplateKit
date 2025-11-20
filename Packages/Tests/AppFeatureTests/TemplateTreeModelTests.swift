@@ -1,7 +1,7 @@
 @testable import AppFeature
 import Foundation
-import TemplateModels
-import TemplateParser
+import Models
+import Parser
 import Testing
 
 @MainActor
@@ -64,8 +64,8 @@ private extension TemplateTreeModelTests {
         TemplateTreeModel(inventory: sampleInventory())
     }
 
-    func sampleInventory() -> Inventory {
-        let projectTemplate = Metadata(
+    func sampleInventory() -> Models.Template.Model.Inventory {
+        let projectTemplate = Models.Template.Model.Metadata(
             name: "Sample App",
             path: "/tmp/SampleApp.xctemplate",
             kind: .app,
@@ -75,7 +75,7 @@ private extension TemplateTreeModelTests {
             fileStructure: nil
         )
 
-        let fileTemplate = Metadata(
+        let fileTemplate = Models.Template.Model.Metadata(
             name: "Sample View",
             path: "/tmp/SampleView.xctemplate",
             kind: .fileTemplateSwiftUIView,
@@ -86,7 +86,7 @@ private extension TemplateTreeModelTests {
         )
 
         let templates = [projectTemplate, fileTemplate]
-        return Inventory(
+        return Models.Template.Model.Inventory(
             generatedAt: "now",
             templates: templates,
             totalTemplates: templates.count,

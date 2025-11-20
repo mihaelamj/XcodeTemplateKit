@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "TargetOnly" field
@@ -13,14 +13,14 @@ struct TargetOnlyTests {
     @Test("Parse TargetOnly from Aggregate")
     func parseAggregate() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Aggregate_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -29,14 +29,14 @@ struct TargetOnlyTests {
     @Test("Round-trip TargetOnly from Aggregate")
     func roundTripAggregate() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Aggregate_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -50,7 +50,7 @@ struct TargetOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "TargetOnly should survive round-trip")
@@ -59,14 +59,14 @@ struct TargetOnlyTests {
     @Test("Parse TargetOnly from App_Extension_Base")
     func parseApp_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/App_Extension_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -75,14 +75,14 @@ struct TargetOnlyTests {
     @Test("Round-trip TargetOnly from App_Extension_Base")
     func roundTripApp_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/App_Extension_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -96,7 +96,7 @@ struct TargetOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "TargetOnly should survive round-trip")
@@ -105,14 +105,14 @@ struct TargetOnlyTests {
     @Test("Parse TargetOnly from ExtensionKit_Extension_Base")
     func parseExtensionKit_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/ExtensionKit_Extension_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -121,14 +121,14 @@ struct TargetOnlyTests {
     @Test("Round-trip TargetOnly from ExtensionKit_Extension_Base")
     func roundTripExtensionKit_Extension_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/ExtensionKit_Extension_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -142,7 +142,7 @@ struct TargetOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "TargetOnly should survive round-trip")
@@ -151,14 +151,14 @@ struct TargetOnlyTests {
     @Test("Parse TargetOnly from Multiplatform_Test_Bundle_Base")
     func parseMultiplatform_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Multiplatform_Test_Bundle_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -167,14 +167,14 @@ struct TargetOnlyTests {
     @Test("Round-trip TargetOnly from Multiplatform_Test_Bundle_Base")
     func roundTripMultiplatform_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Multiplatform_Test_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -188,7 +188,7 @@ struct TargetOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "TargetOnly should survive round-trip")
@@ -197,14 +197,14 @@ struct TargetOnlyTests {
     @Test("Parse TargetOnly from Multiplatform_UI_Test_Bundle_Base")
     func parseMultiplatform_UI_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Multiplatform_UI_Test_Bundle_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -213,14 +213,14 @@ struct TargetOnlyTests {
     @Test("Round-trip TargetOnly from Multiplatform_UI_Test_Bundle_Base")
     func roundTripMultiplatform_UI_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Multiplatform_UI_Test_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -234,7 +234,7 @@ struct TargetOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "TargetOnly should survive round-trip")
@@ -243,14 +243,14 @@ struct TargetOnlyTests {
     @Test("Parse TargetOnly from UI_Test_Bundle_Base")
     func parseUI_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/UI_Test_Bundle_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -259,14 +259,14 @@ struct TargetOnlyTests {
     @Test("Round-trip TargetOnly from UI_Test_Bundle_Base")
     func roundTripUI_Test_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/UI_Test_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -280,7 +280,7 @@ struct TargetOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "TargetOnly should survive round-trip")
@@ -289,14 +289,14 @@ struct TargetOnlyTests {
     @Test("Parse TargetOnly from Unit_Testing_Bundle_Base")
     func parseUnit_Testing_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Unit_Testing_Bundle_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -305,14 +305,14 @@ struct TargetOnlyTests {
     @Test("Round-trip TargetOnly from Unit_Testing_Bundle_Base")
     func roundTripUnit_Testing_Bundle_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
+            of: "ParserTests/FieldTests/TargetOnlyTests/TargetOnlyTests.swift",
             with: "Fixtures/TargetOnly/Unit_Testing_Bundle_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -326,7 +326,7 @@ struct TargetOnlyTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "TargetOnly should survive round-trip")
@@ -336,7 +336,7 @@ struct TargetOnlyTests {
     func parseMissingTargetOnly() throws {
         let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
 
-        let value = (testPlist["TargetOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (testPlist["TargetOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         #expect(value == nil, "TargetOnly should be nil when not present")
     }

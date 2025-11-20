@@ -1,6 +1,6 @@
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 // MARK: - Implemented Fields Tests

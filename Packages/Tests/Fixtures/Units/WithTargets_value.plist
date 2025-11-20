@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Nodes</key>
+	<array>
+		<string>___PACKAGENAME:identifier___.swift</string>
+		<string>AppIntent.swift</string>
+	</array>
+	<key>Definitions</key>
+	<dict>
+		<key>___PACKAGENAME:identifier___.swift</key>
+		<dict>
+			<key>Path</key>
+			<string>Widget-Intent.swift</string>
+		</dict>
+		<key>AppIntent.swift</key>
+		<dict>
+			<key>Path</key>
+			<string>AppIntent.swift</string>
+		</dict>
+	</dict>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>SharedSettings</key>
+			<dict/>
+		</dict>
+	</array>
+</dict>
+</plist>

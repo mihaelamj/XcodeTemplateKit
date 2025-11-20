@@ -1,19 +1,19 @@
 // swiftlint:disable force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "Components" field
 ///
-/// Tests that TemplateWriter correctly serializes Components values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes Components values to plist format.
 @Suite("Components Field Generation")
 struct ComponentsTests {
     @Test("Generate Components for Audio_Unit_Extension_App")
     func generateAudio_Unit_Extension_App() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/ComponentsTests/ComponentsTests.swift",
+            of: "GeneratorTests/FieldTests/ComponentsTests/ComponentsTests.swift",
             with: "Fixtures/Components/Audio_Unit_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -26,7 +26,7 @@ struct ComponentsTests {
 
         // Parse to typed model
         let componentsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let components = try PropertyListDecoder().decode(Components.self, from: componentsData)
+        let components = try PropertyListDecoder().decode(Models.Template.Model.Components.self, from: componentsData)
 
         // Verify parsed structure
         #expect(components.components.count == 1)
@@ -36,7 +36,7 @@ struct ComponentsTests {
         #expect(components.components[0].productBuildPhaseInjections?[0].targetIdentifier == "com.apple.dt.applicationTarget")
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -44,7 +44,7 @@ struct ComponentsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -65,7 +65,7 @@ struct ComponentsTests {
     func generateSafari_Extension_App() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/ComponentsTests/ComponentsTests.swift",
+            of: "GeneratorTests/FieldTests/ComponentsTests/ComponentsTests.swift",
             with: "Fixtures/Components/Safari_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -78,13 +78,13 @@ struct ComponentsTests {
 
         // Parse to typed model
         let componentsData = try PropertyListSerialization.data(fromPropertyList: originalValue, format: .binary, options: 0)
-        let components = try PropertyListDecoder().decode(Components.self, from: componentsData)
+        let components = try PropertyListDecoder().decode(Models.Template.Model.Components.self, from: componentsData)
 
         // Verify parsed structure
         #expect(!components.components.isEmpty)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -92,7 +92,7 @@ struct ComponentsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure

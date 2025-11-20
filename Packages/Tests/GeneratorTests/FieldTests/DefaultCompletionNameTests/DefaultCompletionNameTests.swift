@@ -1,19 +1,19 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "DefaultCompletionName" field
 ///
-/// Tests that TemplateWriter correctly serializes DefaultCompletionName values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes DefaultCompletionName values to plist format.
 @Suite("DefaultCompletionName Field Generation")
 struct DefaultCompletionNameTests {
     @Test("Generate DefaultCompletionName for App_Entity")
     func generateApp_Entity() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/App_Entity_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -23,7 +23,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -31,7 +31,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -42,7 +42,7 @@ struct DefaultCompletionNameTests {
     func generateApp_Enum() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/App_Enum_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -52,7 +52,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -60,7 +60,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -71,7 +71,7 @@ struct DefaultCompletionNameTests {
     func generateApp_Privacy() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/App_Privacy_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -81,7 +81,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -89,7 +89,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -100,7 +100,7 @@ struct DefaultCompletionNameTests {
     func generateArticle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -110,7 +110,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -118,7 +118,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -129,7 +129,7 @@ struct DefaultCompletionNameTests {
     func generateAssembly_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Assembly_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -139,7 +139,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -147,7 +147,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -158,7 +158,7 @@ struct DefaultCompletionNameTests {
     func generateAsset_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -168,7 +168,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -176,7 +176,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -187,7 +187,7 @@ struct DefaultCompletionNameTests {
     func generateBuild_Tool_Plug_in() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Build_Tool_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -205,7 +205,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -216,7 +216,7 @@ struct DefaultCompletionNameTests {
     func generateC ++ _File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/C++_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -226,7 +226,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -234,7 +234,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -245,7 +245,7 @@ struct DefaultCompletionNameTests {
     func generateCLIPS_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/CLIPS_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -255,7 +255,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -263,7 +263,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -274,7 +274,7 @@ struct DefaultCompletionNameTests {
     func generateC_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -284,7 +284,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -292,7 +292,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -303,7 +303,7 @@ struct DefaultCompletionNameTests {
     func generateCommand_Plug_in() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Command_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -313,7 +313,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -321,7 +321,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -332,7 +332,7 @@ struct DefaultCompletionNameTests {
     func generateConfiguration_Settings_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Configuration_Settings_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -342,7 +342,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -350,7 +350,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -361,7 +361,7 @@ struct DefaultCompletionNameTests {
     func generateDocumentation_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Documentation_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -371,7 +371,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -379,7 +379,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -390,7 +390,7 @@ struct DefaultCompletionNameTests {
     func generateEmpty_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Empty_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -400,7 +400,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -408,7 +408,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -419,7 +419,7 @@ struct DefaultCompletionNameTests {
     func generateEmpty() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Empty_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -429,7 +429,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -437,7 +437,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -448,7 +448,7 @@ struct DefaultCompletionNameTests {
     func generateExports_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Exports_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -458,7 +458,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -466,7 +466,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -477,7 +477,7 @@ struct DefaultCompletionNameTests {
     func generateExtension_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -487,7 +487,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -495,7 +495,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -506,7 +506,7 @@ struct DefaultCompletionNameTests {
     func generateFile_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/File_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -516,7 +516,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -524,7 +524,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -535,7 +535,7 @@ struct DefaultCompletionNameTests {
     func generateHeader_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -545,7 +545,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -553,7 +553,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -564,7 +564,7 @@ struct DefaultCompletionNameTests {
     func generateINIntent_subclass() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/INIntent_subclass_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -574,7 +574,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -582,7 +582,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -593,7 +593,7 @@ struct DefaultCompletionNameTests {
     func generateLibrary() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Library_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -603,7 +603,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -611,7 +611,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -622,7 +622,7 @@ struct DefaultCompletionNameTests {
     func generateLink_action() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Link_action_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -632,7 +632,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -640,7 +640,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -651,7 +651,7 @@ struct DefaultCompletionNameTests {
     func generateMain_Menu() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Main_Menu_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -661,7 +661,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -669,7 +669,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -680,7 +680,7 @@ struct DefaultCompletionNameTests {
     func generateMarkdown_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Markdown_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -690,7 +690,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -698,7 +698,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -709,7 +709,7 @@ struct DefaultCompletionNameTests {
     func generateMetal_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Metal_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -719,7 +719,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -727,7 +727,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -738,7 +738,7 @@ struct DefaultCompletionNameTests {
     func generateModule_Map() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Module_Map_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -748,7 +748,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -756,7 +756,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -767,7 +767,7 @@ struct DefaultCompletionNameTests {
     func generateObjective_C_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Objective-C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -777,7 +777,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -785,7 +785,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -796,7 +796,7 @@ struct DefaultCompletionNameTests {
     func generatePCH_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/PCH_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -806,7 +806,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -814,7 +814,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -825,7 +825,7 @@ struct DefaultCompletionNameTests {
     func generatePackage_Swift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Package_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -835,7 +835,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -843,7 +843,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -854,7 +854,7 @@ struct DefaultCompletionNameTests {
     func generatePackage_Test_Case() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Package_Test_Case_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -864,7 +864,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -872,7 +872,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -883,7 +883,7 @@ struct DefaultCompletionNameTests {
     func generatePlayground_Page() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Playground_Page_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -893,7 +893,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -901,7 +901,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -912,7 +912,7 @@ struct DefaultCompletionNameTests {
     func generateRTF_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/RTF_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -922,7 +922,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -930,7 +930,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -941,7 +941,7 @@ struct DefaultCompletionNameTests {
     func generateSceneKit_Asset_Cache() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SceneKit_Asset_Cache_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -951,7 +951,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -959,7 +959,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -970,7 +970,7 @@ struct DefaultCompletionNameTests {
     func generateSceneKit_Asset_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SceneKit_Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -980,7 +980,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -988,7 +988,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -999,7 +999,7 @@ struct DefaultCompletionNameTests {
     func generateSceneKit_Scene_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SceneKit_Scene_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1009,7 +1009,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1017,7 +1017,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1028,7 +1028,7 @@ struct DefaultCompletionNameTests {
     func generateShell_Script() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Shell_Script_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1038,7 +1038,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1046,7 +1046,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1057,7 +1057,7 @@ struct DefaultCompletionNameTests {
     func generateSiriKit_Intent_Definition_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SiriKit_Intent_Definition_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1067,7 +1067,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1075,7 +1075,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1086,7 +1086,7 @@ struct DefaultCompletionNameTests {
     func generateSources_Folder_Swift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Sources_Folder_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1096,7 +1096,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1104,7 +1104,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1115,7 +1115,7 @@ struct DefaultCompletionNameTests {
     func generateSpriteKit_Action() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SpriteKit_Action_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1125,7 +1125,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1133,7 +1133,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1144,7 +1144,7 @@ struct DefaultCompletionNameTests {
     func generateSpriteKit_Particle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SpriteKit_Particle_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1154,7 +1154,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1162,7 +1162,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1173,7 +1173,7 @@ struct DefaultCompletionNameTests {
     func generateSpriteKit_Scene() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SpriteKit_Scene_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1183,7 +1183,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1191,7 +1191,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1202,7 +1202,7 @@ struct DefaultCompletionNameTests {
     func generateSpriteKit_Tile_Set() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SpriteKit_Tile_Set_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1212,7 +1212,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1220,7 +1220,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1231,7 +1231,7 @@ struct DefaultCompletionNameTests {
     func generateStrings_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Strings_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1241,7 +1241,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1249,7 +1249,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1260,7 +1260,7 @@ struct DefaultCompletionNameTests {
     func generateStringsdict_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Stringsdict_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1270,7 +1270,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1278,7 +1278,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1289,7 +1289,7 @@ struct DefaultCompletionNameTests {
     func generateSwiftUI_View() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/SwiftUI_View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1299,7 +1299,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1307,7 +1307,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1318,7 +1318,7 @@ struct DefaultCompletionNameTests {
     func generateSwift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1328,7 +1328,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1336,7 +1336,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1347,7 +1347,7 @@ struct DefaultCompletionNameTests {
     func generateSwift_Macro() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Swift_Macro_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1357,7 +1357,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1365,7 +1365,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1376,7 +1376,7 @@ struct DefaultCompletionNameTests {
     func generateSwift_Testing_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1386,7 +1386,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1394,7 +1394,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1405,7 +1405,7 @@ struct DefaultCompletionNameTests {
     func generateTest_Plan() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Test_Plan_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1415,7 +1415,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1423,7 +1423,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1434,7 +1434,7 @@ struct DefaultCompletionNameTests {
     func generateTouch_Alternatives_Property_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Touch_Alternatives_Property_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1444,7 +1444,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1452,7 +1452,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1463,7 +1463,7 @@ struct DefaultCompletionNameTests {
     func generateTransient_App_Entity() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Transient_App_Entity_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1473,7 +1473,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1481,7 +1481,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1492,7 +1492,7 @@ struct DefaultCompletionNameTests {
     func generateTutorial_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Tutorial_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1502,7 +1502,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1510,7 +1510,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1521,7 +1521,7 @@ struct DefaultCompletionNameTests {
     func generateTutorial_Table_of_Contents_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/Tutorial_Table_of_Contents_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1531,7 +1531,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1539,7 +1539,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1550,7 +1550,7 @@ struct DefaultCompletionNameTests {
     func generateXCTest_UI_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/XCTest_UI_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1560,7 +1560,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1568,7 +1568,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1579,7 +1579,7 @@ struct DefaultCompletionNameTests {
     func generateXCTest_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
+            of: "GeneratorTests/FieldTests/DefaultCompletionNameTests/DefaultCompletionNameTests.swift",
             with: "Fixtures/DefaultCompletionName/XCTest_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1589,7 +1589,7 @@ struct DefaultCompletionNameTests {
         guard let originalValue = originalPlist["DefaultCompletionName"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1597,7 +1597,7 @@ struct DefaultCompletionNameTests {
         // TODO: Set metadata.defaultcompletionname = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be

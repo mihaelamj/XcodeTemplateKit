@@ -1,19 +1,19 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "Platforms" field
 ///
-/// Tests that TemplateWriter correctly serializes Platforms values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes Platforms values to plist format.
 @Suite("Platforms Field Generation")
 struct PlatformsTests {
     @Test("Generate Platforms for App_Privacy")
     func generateApp_Privacy() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/App_Privacy_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -23,7 +23,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -31,7 +31,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -41,7 +41,7 @@ struct PlatformsTests {
     @Test("Generate Platforms for App")
     func generateApp() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/App_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/App_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -49,7 +49,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -57,7 +57,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -68,7 +68,7 @@ struct PlatformsTests {
     func generateApplication() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Application_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -78,7 +78,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -86,7 +86,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -97,7 +97,7 @@ struct PlatformsTests {
     func generateArticle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -107,7 +107,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -115,7 +115,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -126,7 +126,7 @@ struct PlatformsTests {
     func generateAsset_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -136,7 +136,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -144,7 +144,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -155,7 +155,7 @@ struct PlatformsTests {
     func generateAudio_Unit_Extension() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Audio_Unit_Extension_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -165,7 +165,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -173,7 +173,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -184,7 +184,7 @@ struct PlatformsTests {
     func generateBuild_Tool_Plug_in() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Build_Tool_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -194,7 +194,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -202,7 +202,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -213,7 +213,7 @@ struct PlatformsTests {
     func generateC ++ _File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/C++_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -223,7 +223,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -231,7 +231,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -241,7 +241,7 @@ struct PlatformsTests {
     @Test("Generate Platforms for C_File")
     func generateC_File() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/C_File_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/C_File_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -249,7 +249,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -257,7 +257,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -268,7 +268,7 @@ struct PlatformsTests {
     func generateCommand_Plug_in() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Command_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -278,7 +278,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -286,7 +286,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -297,7 +297,7 @@ struct PlatformsTests {
     func generateDocument_App() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Document_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -307,7 +307,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -315,7 +315,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -326,7 +326,7 @@ struct PlatformsTests {
     func generateDocumentation_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Documentation_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -336,7 +336,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -344,7 +344,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -354,7 +354,7 @@ struct PlatformsTests {
     @Test("Generate Platforms for Empty")
     func generateEmpty() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/Empty_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -362,7 +362,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -370,7 +370,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -381,7 +381,7 @@ struct PlatformsTests {
     func generateExtension_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -391,7 +391,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -399,7 +399,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -410,7 +410,7 @@ struct PlatformsTests {
     func generateFramework() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Framework_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -420,7 +420,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -428,7 +428,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -438,7 +438,7 @@ struct PlatformsTests {
     @Test("Generate Platforms for Game")
     func generateGame() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/Game_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/Game_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -446,7 +446,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -454,7 +454,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -465,7 +465,7 @@ struct PlatformsTests {
     func generateGeneric_Extension() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Generic_Extension_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -475,7 +475,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -483,7 +483,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -494,7 +494,7 @@ struct PlatformsTests {
     func generateHeader_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -504,7 +504,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -512,7 +512,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -523,7 +523,7 @@ struct PlatformsTests {
     func generateLibrary() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Library_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -533,7 +533,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -541,7 +541,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -552,7 +552,7 @@ struct PlatformsTests {
     func generateMain_Menu() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Main_Menu_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -562,7 +562,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -570,7 +570,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -581,7 +581,7 @@ struct PlatformsTests {
     func generateMetal_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Metal_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -591,7 +591,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -599,7 +599,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -610,7 +610,7 @@ struct PlatformsTests {
     func generateModule_Map() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Module_Map_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -620,7 +620,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -628,7 +628,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -639,7 +639,7 @@ struct PlatformsTests {
     func generateObjective_C_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Objective-C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -649,7 +649,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -657,7 +657,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -668,7 +668,7 @@ struct PlatformsTests {
     func generateObjective_C_new_superclass() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Objective-C_new_superclass_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -678,7 +678,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -686,7 +686,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -697,7 +697,7 @@ struct PlatformsTests {
     func generatePlayground_Page() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Playground_Page_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -707,7 +707,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -715,7 +715,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -726,7 +726,7 @@ struct PlatformsTests {
     func generateProperty_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Property_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -736,7 +736,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -744,7 +744,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -755,7 +755,7 @@ struct PlatformsTests {
     func generateRTF_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/RTF_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -765,7 +765,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -773,7 +773,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -784,7 +784,7 @@ struct PlatformsTests {
     func generateSafari_Extension_App() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Safari_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -794,7 +794,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -802,7 +802,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -813,7 +813,7 @@ struct PlatformsTests {
     func generateSceneKit_Asset_Cache() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SceneKit_Asset_Cache_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -823,7 +823,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -831,7 +831,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -842,7 +842,7 @@ struct PlatformsTests {
     func generateSceneKit_Asset_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SceneKit_Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -852,7 +852,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -860,7 +860,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -871,7 +871,7 @@ struct PlatformsTests {
     func generateSceneKit_Scene_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SceneKit_Scene_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -881,7 +881,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -889,7 +889,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -900,7 +900,7 @@ struct PlatformsTests {
     func generateSiriKit_Intent_Definition_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SiriKit_Intent_Definition_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -910,7 +910,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -918,7 +918,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -929,7 +929,7 @@ struct PlatformsTests {
     func generateSources_Folder_Swift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Sources_Folder_Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -939,7 +939,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -947,7 +947,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -958,7 +958,7 @@ struct PlatformsTests {
     func generateSpriteKit_Action() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SpriteKit_Action_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -968,7 +968,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -976,7 +976,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -987,7 +987,7 @@ struct PlatformsTests {
     func generateSpriteKit_Particle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SpriteKit_Particle_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -997,7 +997,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1005,7 +1005,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1016,7 +1016,7 @@ struct PlatformsTests {
     func generateSpriteKit_Scene() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SpriteKit_Scene_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1026,7 +1026,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1034,7 +1034,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1045,7 +1045,7 @@ struct PlatformsTests {
     func generateSpriteKit_Tile_Set() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SpriteKit_Tile_Set_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1055,7 +1055,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1063,7 +1063,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1074,7 +1074,7 @@ struct PlatformsTests {
     func generateStoryboard() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Storyboard_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1084,7 +1084,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1092,7 +1092,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1103,7 +1103,7 @@ struct PlatformsTests {
     func generateStrings_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Strings_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1113,7 +1113,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1121,7 +1121,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1132,7 +1132,7 @@ struct PlatformsTests {
     func generateStringsdict_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Stringsdict_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1142,7 +1142,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1150,7 +1150,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1161,7 +1161,7 @@ struct PlatformsTests {
     func generateSwiftUI_View() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/SwiftUI_View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1171,7 +1171,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1179,7 +1179,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1190,7 +1190,7 @@ struct PlatformsTests {
     func generateSwift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1200,7 +1200,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1208,7 +1208,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1219,7 +1219,7 @@ struct PlatformsTests {
     func generateSwift_Macro() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Swift_Macro_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1229,7 +1229,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1237,7 +1237,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1248,7 +1248,7 @@ struct PlatformsTests {
     func generateSwift_Testing_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1258,7 +1258,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1266,7 +1266,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1277,7 +1277,7 @@ struct PlatformsTests {
     func generateTouch_Alternatives_Property_List() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Touch_Alternatives_Property_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1287,7 +1287,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1295,7 +1295,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1306,7 +1306,7 @@ struct PlatformsTests {
     func generateTutorial_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Tutorial_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1316,7 +1316,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1324,7 +1324,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1335,7 +1335,7 @@ struct PlatformsTests {
     func generateTutorial_Table_of_Contents_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Tutorial_Table_of_Contents_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1345,7 +1345,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1353,7 +1353,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1364,7 +1364,7 @@ struct PlatformsTests {
     func generateUI_Testing_Bundle() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/UI_Testing_Bundle_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1374,7 +1374,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1382,7 +1382,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1393,7 +1393,7 @@ struct PlatformsTests {
     func generateUnit_Testing_Bundle() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Unit_Testing_Bundle_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1403,7 +1403,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1411,7 +1411,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1421,7 +1421,7 @@ struct PlatformsTests {
     @Test("Generate Platforms for View")
     func generateView() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/View_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/View_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -1429,7 +1429,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1437,7 +1437,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1448,7 +1448,7 @@ struct PlatformsTests {
     func generateWidget_Extension() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/Widget_Extension_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1458,7 +1458,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1466,7 +1466,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1476,7 +1476,7 @@ struct PlatformsTests {
     @Test("Generate Platforms for Window")
     func generateWindow() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/Window_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift", with: "Fixtures/Platforms/Window_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -1484,7 +1484,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1492,7 +1492,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1503,7 +1503,7 @@ struct PlatformsTests {
     func generateXCTest_UI_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/XCTest_UI_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1513,7 +1513,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1521,7 +1521,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1532,7 +1532,7 @@ struct PlatformsTests {
     func generateXCTest_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/XCTest_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1542,7 +1542,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1550,7 +1550,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1561,7 +1561,7 @@ struct PlatformsTests {
     func generateiOS_App_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/iOS_App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1571,7 +1571,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1579,7 +1579,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1590,7 +1590,7 @@ struct PlatformsTests {
     func generatemacOS_App_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/macOS_App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1600,7 +1600,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1608,7 +1608,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1619,7 +1619,7 @@ struct PlatformsTests {
     func generatemacOS_App_Entitlements() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/macOS_App_Entitlements_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1629,7 +1629,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1637,7 +1637,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -1648,7 +1648,7 @@ struct PlatformsTests {
     func generatetvOS_App_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
+            of: "GeneratorTests/FieldTests/PlatformsTests/PlatformsTests.swift",
             with: "Fixtures/Platforms/tvOS_App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -1658,7 +1658,7 @@ struct PlatformsTests {
         guard let originalValue = originalPlist["Platforms"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -1666,7 +1666,7 @@ struct PlatformsTests {
         // TODO: Set metadata.platforms = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be

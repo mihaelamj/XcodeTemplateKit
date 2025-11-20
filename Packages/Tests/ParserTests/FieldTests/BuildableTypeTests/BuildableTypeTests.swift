@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "BuildableType" field
@@ -13,7 +13,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Article_File")
     func parseArticle_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Article_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -29,7 +29,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Article_File")
     func roundTripArticle_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -59,7 +59,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from CLIPS_File")
     func parseCLIPS_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/CLIPS_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -75,7 +75,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from CLIPS_File")
     func roundTripCLIPS_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/CLIPS_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -105,7 +105,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Configuration_Settings_File")
     func parseConfiguration_Settings_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Configuration_Settings_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -121,7 +121,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Configuration_Settings_File")
     func roundTripConfiguration_Settings_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Configuration_Settings_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -151,7 +151,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Empty")
     func parseEmpty() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Empty_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -167,7 +167,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Empty")
     func roundTripEmpty() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Empty_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Exports_File")
     func parseExports_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Exports_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -213,7 +213,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Exports_File")
     func roundTripExports_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Exports_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -243,7 +243,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Extension_File")
     func parseExtension_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Extension_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -259,7 +259,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Extension_File")
     func roundTripExtension_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -289,7 +289,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from File_List")
     func parseFile_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/File_List_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -305,7 +305,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from File_List")
     func roundTripFile_List() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/File_List_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -335,7 +335,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Header_File")
     func parseHeader_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Header_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -351,7 +351,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Header_File")
     func roundTripHeader_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -381,7 +381,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Markdown_File")
     func parseMarkdown_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Markdown_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -397,7 +397,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Markdown_File")
     func roundTripMarkdown_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Markdown_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -427,7 +427,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from PCH_File")
     func parsePCH_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/PCH_File_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -443,7 +443,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from PCH_File")
     func roundTripPCH_File() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/PCH_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -473,7 +473,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Shell_Script")
     func parseShell_Script() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Shell_Script_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -489,7 +489,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Shell_Script")
     func roundTripShell_Script() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Shell_Script_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -519,7 +519,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Swift_Testing_Unit_Test")
     func parseSwift_Testing_Unit_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Swift_Testing_Unit_Test_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -535,7 +535,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Swift_Testing_Unit_Test")
     func roundTripSwift_Testing_Unit_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -565,7 +565,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from Test_Plan")
     func parseTest_Plan() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Test_Plan_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -581,7 +581,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from Test_Plan")
     func roundTripTest_Plan() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/Test_Plan_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -611,7 +611,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from XCTest_UI_Test")
     func parseXCTest_UI_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/XCTest_UI_Test_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -627,7 +627,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from XCTest_UI_Test")
     func roundTripXCTest_UI_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/XCTest_UI_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -657,7 +657,7 @@ struct BuildableTypeTests {
     @Test("Parse BuildableType from XCTest_Unit_Test")
     func parseXCTest_Unit_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/XCTest_Unit_Test_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -673,7 +673,7 @@ struct BuildableTypeTests {
     @Test("Round-trip BuildableType from XCTest_Unit_Test")
     func roundTripXCTest_Unit_Test() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
+            of: "ParserTests/FieldTests/BuildableTypeTests/BuildableTypeTests.swift",
             with: "Fixtures/BuildableType/XCTest_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))

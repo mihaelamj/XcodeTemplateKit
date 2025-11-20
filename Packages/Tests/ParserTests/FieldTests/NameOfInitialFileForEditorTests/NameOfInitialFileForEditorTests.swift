@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "NameOfInitialFileForEditor" field
@@ -13,7 +13,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Parse NameOfInitialFileForEditor from App")
     func parseApp() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -29,7 +29,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Round-trip NameOfInitialFileForEditor from App")
     func roundTripApp() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -59,7 +59,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Parse NameOfInitialFileForEditor from Document_App")
     func parseDocument_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/Document_App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -75,7 +75,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Round-trip NameOfInitialFileForEditor from Document_App")
     func roundTripDocument_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/Document_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -105,7 +105,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Parse NameOfInitialFileForEditor from Safari_Extension_App")
     func parseSafari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/Safari_Extension_App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -121,7 +121,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Round-trip NameOfInitialFileForEditor from Safari_Extension_App")
     func roundTripSafari_Extension_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/Safari_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -151,7 +151,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Parse NameOfInitialFileForEditor from SharedContent_RealityKit_Game")
     func parseSharedContent_RealityKit_Game() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/SharedContent_RealityKit_Game_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -167,7 +167,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Round-trip NameOfInitialFileForEditor from SharedContent_RealityKit_Game")
     func roundTripSharedContent_RealityKit_Game() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/SharedContent_RealityKit_Game_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Parse NameOfInitialFileForEditor from SwiftUI_App_Base")
     func parseSwiftUI_App_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/SwiftUI_App_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -213,7 +213,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Round-trip NameOfInitialFileForEditor from SwiftUI_App_Base")
     func roundTripSwiftUI_App_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/SwiftUI_App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -243,7 +243,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Parse NameOfInitialFileForEditor from SwiftUI_Document_App_Base")
     func parseSwiftUI_Document_App_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/SwiftUI_Document_App_Base_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -259,7 +259,7 @@ struct NameOfInitialFileForEditorTests {
     @Test("Round-trip NameOfInitialFileForEditor from SwiftUI_Document_App_Base")
     func roundTripSwiftUI_Document_App_Base() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
+            of: "ParserTests/FieldTests/NameOfInitialFileForEditorTests/NameOfInitialFileForEditorTests.swift",
             with: "Fixtures/NameOfInitialFileForEditor/SwiftUI_Document_App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))

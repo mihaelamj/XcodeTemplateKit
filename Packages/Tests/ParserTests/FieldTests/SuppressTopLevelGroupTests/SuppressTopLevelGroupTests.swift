@@ -1,7 +1,7 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for the "SuppressTopLevelGroup" field
@@ -13,14 +13,14 @@ struct SuppressTopLevelGroupTests {
     @Test("Parse SuppressTopLevelGroup from Compositor_Services")
     func parseCompositor_Services() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
+            of: "ParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
             with: "Fixtures/SuppressTopLevelGroup/Compositor_Services_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["SuppressTopLevelGroup"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["SuppressTopLevelGroup"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -29,14 +29,14 @@ struct SuppressTopLevelGroupTests {
     @Test("Round-trip SuppressTopLevelGroup from Compositor_Services")
     func roundTripCompositor_Services() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
+            of: "ParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
             with: "Fixtures/SuppressTopLevelGroup/Compositor_Services_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["SuppressTopLevelGroup"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["SuppressTopLevelGroup"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -50,7 +50,7 @@ struct SuppressTopLevelGroupTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["SuppressTopLevelGroup"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["SuppressTopLevelGroup"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "SuppressTopLevelGroup should survive round-trip")
@@ -59,14 +59,14 @@ struct SuppressTopLevelGroupTests {
     @Test("Parse SuppressTopLevelGroup from Immersive_Space_App")
     func parseImmersive_Space_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
+            of: "ParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
             with: "Fixtures/SuppressTopLevelGroup/Immersive_Space_App_value.plist"
         )
         let plistData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let plist = try PropertyListSerialization.propertyList(from: plistData, format: nil) as! [String: Any]
 
         // Extract field - may be nil if field not present in this template
-        let value = (plist["SuppressTopLevelGroup"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (plist["SuppressTopLevelGroup"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Test passes if plist loads and extraction completes without error
         _ = value
@@ -75,14 +75,14 @@ struct SuppressTopLevelGroupTests {
     @Test("Round-trip SuppressTopLevelGroup from Immersive_Space_App")
     func roundTripImmersive_Space_App() throws {
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
+            of: "ParserTests/FieldTests/SuppressTopLevelGroupTests/SuppressTopLevelGroupTests.swift",
             with: "Fixtures/SuppressTopLevelGroup/Immersive_Space_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
         // Parse original value
-        let value = (originalPlist["SuppressTopLevelGroup"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (originalPlist["SuppressTopLevelGroup"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Skip test if field not present in this template
         guard let value else { return }
@@ -96,7 +96,7 @@ struct SuppressTopLevelGroupTests {
 
         // Parse serialized data
         let reparsedPlist = try PropertyListSerialization.propertyList(from: outputData, format: nil) as! [String: Any]
-        let reparsedValue = (reparsedPlist["SuppressTopLevelGroup"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let reparsedValue = (reparsedPlist["SuppressTopLevelGroup"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify round-trip preserves value
         #expect(reparsedValue != nil, "SuppressTopLevelGroup should survive round-trip")
@@ -106,7 +106,7 @@ struct SuppressTopLevelGroupTests {
     func parseMissingSuppressTopLevelGroup() throws {
         let testPlist: [String: Any] = ["Kind": "Xcode.Xcode3.ProjectTemplateUnitKind"]
 
-        let value = (testPlist["SuppressTopLevelGroup"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let value = (testPlist["SuppressTopLevelGroup"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         #expect(value == nil, "SuppressTopLevelGroup should be nil when not present")
     }

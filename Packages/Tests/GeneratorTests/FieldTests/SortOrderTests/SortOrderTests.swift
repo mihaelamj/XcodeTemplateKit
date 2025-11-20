@@ -1,18 +1,18 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "SortOrder" field
 ///
-/// Tests that TemplateWriter correctly serializes SortOrder values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes SortOrder values to plist format.
 @Suite("SortOrder Field Generation")
 struct SortOrderTests {
     @Test("Generate SortOrder for App")
     func generateApp() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/App_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/App_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -20,7 +20,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -28,7 +28,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -39,7 +39,7 @@ struct SortOrderTests {
     func generateApplication() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Application_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -49,7 +49,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -57,7 +57,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -68,7 +68,7 @@ struct SortOrderTests {
     func generateArticle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -78,7 +78,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -86,7 +86,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -97,7 +97,7 @@ struct SortOrderTests {
     func generateAudio_Unit_Extension_App() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Audio_Unit_Extension_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -107,7 +107,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -115,7 +115,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -126,7 +126,7 @@ struct SortOrderTests {
     func generateBuild_Tool_Plug_in() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Build_Tool_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -136,7 +136,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -144,7 +144,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -155,7 +155,7 @@ struct SortOrderTests {
     func generateC ++ _File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/C++_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -165,7 +165,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -173,7 +173,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -183,7 +183,7 @@ struct SortOrderTests {
     @Test("Generate SortOrder for C_File")
     func generateC_File() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/C_File_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/C_File_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -191,7 +191,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -199,7 +199,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -210,7 +210,7 @@ struct SortOrderTests {
     func generateCommand_Plug_in() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Command_Plug-in_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -220,7 +220,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -228,7 +228,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -239,7 +239,7 @@ struct SortOrderTests {
     func generateDocument_App() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Document_App_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -249,7 +249,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -257,7 +257,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -268,7 +268,7 @@ struct SortOrderTests {
     func generateDocumentation_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Documentation_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -278,7 +278,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -286,7 +286,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -297,7 +297,7 @@ struct SortOrderTests {
     func generateEmpty_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Empty_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -307,7 +307,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -315,7 +315,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -325,7 +325,7 @@ struct SortOrderTests {
     @Test("Generate SortOrder for Empty")
     func generateEmpty() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/Empty_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/Empty_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -333,7 +333,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -341,7 +341,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -352,7 +352,7 @@ struct SortOrderTests {
     func generateExtension_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -362,7 +362,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -370,7 +370,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -381,7 +381,7 @@ struct SortOrderTests {
     func generateFramework() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Framework_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -391,7 +391,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -399,7 +399,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -409,7 +409,7 @@ struct SortOrderTests {
     @Test("Generate SortOrder for Game")
     func generateGame() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/Game_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/Game_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -417,7 +417,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -425,7 +425,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -436,7 +436,7 @@ struct SortOrderTests {
     func generateHeader_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -446,7 +446,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -454,7 +454,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -465,7 +465,7 @@ struct SortOrderTests {
     func generateLibrary() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Library_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -475,7 +475,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -483,7 +483,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -494,7 +494,7 @@ struct SortOrderTests {
     func generateMain_Menu() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Main_Menu_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -504,7 +504,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -512,7 +512,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -523,7 +523,7 @@ struct SortOrderTests {
     func generateMetal_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Metal_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -533,7 +533,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -541,7 +541,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -552,7 +552,7 @@ struct SortOrderTests {
     func generateMetal_Library_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Metal_Library_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -562,7 +562,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -570,7 +570,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -581,7 +581,7 @@ struct SortOrderTests {
     func generateObjective_C_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Objective-C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -591,7 +591,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -599,7 +599,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -610,7 +610,7 @@ struct SortOrderTests {
     func generateSharedContent_RealityKit_Game() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/SharedContent_RealityKit_Game_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -620,7 +620,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -628,7 +628,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -639,7 +639,7 @@ struct SortOrderTests {
     func generateStoryboard() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Storyboard_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -649,7 +649,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -657,7 +657,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -668,7 +668,7 @@ struct SortOrderTests {
     func generateSwiftUI_App_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/SwiftUI_App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -678,7 +678,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -686,7 +686,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -697,7 +697,7 @@ struct SortOrderTests {
     func generateSwiftUI_Document_App_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/SwiftUI_Document_App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -707,7 +707,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -715,7 +715,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -726,7 +726,7 @@ struct SortOrderTests {
     func generateSwiftUI_View() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/SwiftUI_View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -736,7 +736,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -744,7 +744,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -755,7 +755,7 @@ struct SortOrderTests {
     func generateSwift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -765,7 +765,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -773,7 +773,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -784,7 +784,7 @@ struct SortOrderTests {
     func generateSwift_Macro() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Swift_Macro_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -794,7 +794,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -802,7 +802,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -813,7 +813,7 @@ struct SortOrderTests {
     func generateSwift_Testing_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -823,7 +823,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -831,7 +831,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -842,7 +842,7 @@ struct SortOrderTests {
     func generateTutorial_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Tutorial_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -852,7 +852,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -860,7 +860,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -871,7 +871,7 @@ struct SortOrderTests {
     func generateTutorial_Table_of_Contents_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/Tutorial_Table_of_Contents_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -881,7 +881,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -889,7 +889,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -899,7 +899,7 @@ struct SortOrderTests {
     @Test("Generate SortOrder for View")
     func generateView() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/View_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/View_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -907,7 +907,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -915,7 +915,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -925,7 +925,7 @@ struct SortOrderTests {
     @Test("Generate SortOrder for Window")
     func generateWindow() throws {
         // Load original fixture
-        let fixturePath = #filePath.replacingOccurrences(of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/Window_value.plist")
+        let fixturePath = #filePath.replacingOccurrences(of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift", with: "Fixtures/SortOrder/Window_value.plist")
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
         let originalPlist = try PropertyListSerialization.propertyList(from: originalData, format: nil) as! [String: Any]
 
@@ -933,7 +933,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -941,7 +941,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -952,7 +952,7 @@ struct SortOrderTests {
     func generateXCTest_UI_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/XCTest_UI_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -962,7 +962,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -970,7 +970,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -981,7 +981,7 @@ struct SortOrderTests {
     func generateXCTest_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
+            of: "GeneratorTests/FieldTests/SortOrderTests/SortOrderTests.swift",
             with: "Fixtures/SortOrder/XCTest_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -991,7 +991,7 @@ struct SortOrderTests {
         guard let originalValue = originalPlist["SortOrder"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -999,7 +999,7 @@ struct SortOrderTests {
         // TODO: Set metadata.sortorder = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be

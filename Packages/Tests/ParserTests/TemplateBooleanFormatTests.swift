@@ -1,6 +1,6 @@
 import Foundation
-import TemplateModels
-@testable import TemplateParser
+import Models
+@testable import Parser
 import Testing
 
 /// Comprehensive bidirectional tests for BooleanFormat enum.
@@ -13,7 +13,7 @@ struct TemplateBooleanFormatTests {
 
     @Test("Parse Objective-C YES string")
     func parseObjectiveCYES() {
-        let format = BooleanFormat.fromObjectiveCString("YES")
+        let format = Models.Template.Model.BooleanFormat.fromObjectiveCString("YES")
 
         #expect(format != nil, "Should parse YES string")
         #expect(format?.boolValue == true, "YES should be true")
@@ -27,7 +27,7 @@ struct TemplateBooleanFormatTests {
 
     @Test("Parse Objective-C NO string")
     func parseObjectiveCNO() {
-        let format = BooleanFormat.fromObjectiveCString("NO")
+        let format = Models.Template.Model.BooleanFormat.fromObjectiveCString("NO")
 
         #expect(format != nil, "Should parse NO string")
         #expect(format?.boolValue == false, "NO should be false")
@@ -44,27 +44,27 @@ struct TemplateBooleanFormatTests {
         let invalidInputs = ["yes", "no", "Yes", "No", "TRUE", "FALSE", "true", "false", "1", "0", ""]
 
         for input in invalidInputs {
-            let format = BooleanFormat.fromObjectiveCString(input)
+            let format = Models.Template.Model.BooleanFormat.fromObjectiveCString(input)
             #expect(format == nil, "Should reject invalid input: \(input)")
         }
     }
 
     @Test("Serialize Objective-C boolean to string")
     func serializeObjectiveCToString() {
-        let trueFormat = BooleanFormat.objectiveCBoolean(true)
+        let trueFormat = Models.Template.Model.BooleanFormat.objectiveCBoolean(true)
         #expect(trueFormat.toObjectiveCString() == "YES", "true should serialize to YES")
 
-        let falseFormat = BooleanFormat.objectiveCBoolean(false)
+        let falseFormat = Models.Template.Model.BooleanFormat.objectiveCBoolean(false)
         #expect(falseFormat.toObjectiveCString() == "NO", "false should serialize to NO")
     }
 
     @Test("Serialize Objective-C boolean to property list value")
     func serializeObjectiveCToPropertyList() {
-        let trueFormat = BooleanFormat.objectiveCBoolean(true)
+        let trueFormat = Models.Template.Model.BooleanFormat.objectiveCBoolean(true)
         let trueValue = trueFormat.toPropertyListValue()
         #expect(trueValue as? String == "YES", "Should serialize to YES string")
 
-        let falseFormat = BooleanFormat.objectiveCBoolean(false)
+        let falseFormat = Models.Template.Model.BooleanFormat.objectiveCBoolean(false)
         let falseValue = falseFormat.toPropertyListValue()
         #expect(falseValue as? String == "NO", "Should serialize to NO string")
     }
@@ -72,15 +72,15 @@ struct TemplateBooleanFormatTests {
     @Test("Round-trip Objective-C boolean through string")
     func roundTripObjectiveCThroughString() {
         // true → YES → true
-        let originalTrue = BooleanFormat.objectiveCBoolean(true)
+        let originalTrue = Models.Template.Model.BooleanFormat.objectiveCBoolean(true)
         let yesString = originalTrue.toObjectiveCString()
-        let parsedTrue = BooleanFormat.fromObjectiveCString(yesString!)
+        let parsedTrue = Models.Template.Model.BooleanFormat.fromObjectiveCString(yesString!)
         #expect(parsedTrue?.boolValue == true, "Round-trip true should preserve value")
 
         // false → NO → false
-        let originalFalse = BooleanFormat.objectiveCBoolean(false)
+        let originalFalse = Models.Template.Model.BooleanFormat.objectiveCBoolean(false)
         let noString = originalFalse.toObjectiveCString()
-        let parsedFalse = BooleanFormat.fromObjectiveCString(noString!)
+        let parsedFalse = Models.Template.Model.BooleanFormat.fromObjectiveCString(noString!)
         #expect(parsedFalse?.boolValue == false, "Round-trip false should preserve value")
     }
 
@@ -88,8 +88,8 @@ struct TemplateBooleanFormatTests {
     func roundTripObjectiveCThroughPropertyList() throws {
         // Create plist with Objective-C booleans
         var plist: [String: Any] = [:]
-        plist["HiddenFromChooser"] = BooleanFormat.objectiveCBoolean(true).toPropertyListValue()
-        plist["HiddenFromLibrary"] = BooleanFormat.objectiveCBoolean(false).toPropertyListValue()
+        plist["HiddenFromChooser"] = Models.Template.Model.BooleanFormat.objectiveCBoolean(true).toPropertyListValue()
+        plist["HiddenFromLibrary"] = Models.Template.Model.BooleanFormat.objectiveCBoolean(false).toPropertyListValue()
 
         // Serialize to Data
         let data = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
@@ -99,9 +99,9 @@ struct TemplateBooleanFormatTests {
 
         // Parse back to BooleanFormat
         let hidden = (deserialized["HiddenFromChooser"] as? String)
-            .flatMap { BooleanFormat.fromObjectiveCString($0) }
+            .flatMap { Models.Template.Model.BooleanFormat.fromObjectiveCString($0) }
         let library = (deserialized["HiddenFromLibrary"] as? String)
-            .flatMap { BooleanFormat.fromObjectiveCString($0) }
+            .flatMap { Models.Template.Model.BooleanFormat.fromObjectiveCString($0) }
 
         #expect(hidden?.boolValue == true, "HiddenFromChooser should round-trip as true")
         #expect(library?.boolValue == false, "HiddenFromLibrary should round-trip as false")
@@ -111,7 +111,7 @@ struct TemplateBooleanFormatTests {
 
     @Test("Create Swift boolean from Bool")
     func createSwiftBoolean() {
-        let trueFormat = BooleanFormat.fromSwiftBool(true)
+        let trueFormat = Models.Template.Model.BooleanFormat.fromSwiftBool(true)
         #expect(trueFormat.boolValue == true, "Should wrap true")
 
         if case .swiftBoolean(let value) = trueFormat {
@@ -120,7 +120,7 @@ struct TemplateBooleanFormatTests {
             Issue.record("Expected .swiftBoolean case")
         }
 
-        let falseFormat = BooleanFormat.fromSwiftBool(false)
+        let falseFormat = Models.Template.Model.BooleanFormat.fromSwiftBool(false)
         #expect(falseFormat.boolValue == false, "Should wrap false")
 
         if case .swiftBoolean(let value) = falseFormat {
@@ -132,20 +132,20 @@ struct TemplateBooleanFormatTests {
 
     @Test("Swift boolean cannot serialize to Objective-C string")
     func swiftBooleanRejectsObjectiveCString() {
-        let trueFormat = BooleanFormat.swiftBoolean(true)
+        let trueFormat = Models.Template.Model.BooleanFormat.swiftBoolean(true)
         #expect(trueFormat.toObjectiveCString() == nil, "Swift boolean should not serialize to YES/NO")
 
-        let falseFormat = BooleanFormat.swiftBoolean(false)
+        let falseFormat = Models.Template.Model.BooleanFormat.swiftBoolean(false)
         #expect(falseFormat.toObjectiveCString() == nil, "Swift boolean should not serialize to YES/NO")
     }
 
     @Test("Serialize Swift boolean to property list value")
     func serializeSwiftToPropertyList() {
-        let trueFormat = BooleanFormat.swiftBoolean(true)
+        let trueFormat = Models.Template.Model.BooleanFormat.swiftBoolean(true)
         let trueValue = trueFormat.toPropertyListValue()
         #expect(trueValue as? Bool == true, "Should serialize to true Bool")
 
-        let falseFormat = BooleanFormat.swiftBoolean(false)
+        let falseFormat = Models.Template.Model.BooleanFormat.swiftBoolean(false)
         let falseValue = falseFormat.toPropertyListValue()
         #expect(falseValue as? Bool == false, "Should serialize to false Bool")
     }
@@ -154,9 +154,9 @@ struct TemplateBooleanFormatTests {
     func roundTripSwiftThroughPropertyList() throws {
         // Create plist with Swift booleans
         var plist: [String: Any] = [:]
-        plist["Concrete"] = BooleanFormat.swiftBoolean(true).toPropertyListValue()
-        plist["LocalizedByDefault"] = BooleanFormat.swiftBoolean(false).toPropertyListValue()
-        plist["ProjectOnly"] = BooleanFormat.swiftBoolean(true).toPropertyListValue()
+        plist["Concrete"] = Models.Template.Model.BooleanFormat.swiftBoolean(true).toPropertyListValue()
+        plist["LocalizedByDefault"] = Models.Template.Model.BooleanFormat.swiftBoolean(false).toPropertyListValue()
+        plist["ProjectOnly"] = Models.Template.Model.BooleanFormat.swiftBoolean(true).toPropertyListValue()
 
         // Serialize to Data (XML format to verify <true/>/<false/> encoding)
         let data = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
@@ -170,9 +170,9 @@ struct TemplateBooleanFormatTests {
         let deserialized = try PropertyListSerialization.propertyList(from: data, format: nil) as! [String: Any]
 
         // Parse back to BooleanFormat
-        let concrete = (deserialized["Concrete"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
-        let localized = (deserialized["LocalizedByDefault"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
-        let projectOnly = (deserialized["ProjectOnly"] as? Bool).map { BooleanFormat.fromSwiftBool($0) }
+        let concrete = (deserialized["Concrete"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
+        let localized = (deserialized["LocalizedByDefault"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
+        let projectOnly = (deserialized["ProjectOnly"] as? Bool).map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         #expect(concrete?.boolValue == true, "Concrete should round-trip as true")
         #expect(localized?.boolValue == false, "LocalizedByDefault should round-trip as false")
@@ -186,12 +186,12 @@ struct TemplateBooleanFormatTests {
         var plist: [String: Any] = [:]
 
         // Add Objective-C booleans (HiddenFromChooser, HiddenFromLibrary)
-        plist["HiddenFromChooser"] = BooleanFormat.objectiveCBoolean(true).toPropertyListValue()
-        plist["HiddenFromLibrary"] = BooleanFormat.objectiveCBoolean(false).toPropertyListValue()
+        plist["HiddenFromChooser"] = Models.Template.Model.BooleanFormat.objectiveCBoolean(true).toPropertyListValue()
+        plist["HiddenFromLibrary"] = Models.Template.Model.BooleanFormat.objectiveCBoolean(false).toPropertyListValue()
 
         // Add Swift booleans (Concrete, LocalizedByDefault)
-        plist["Concrete"] = BooleanFormat.swiftBoolean(true).toPropertyListValue()
-        plist["LocalizedByDefault"] = BooleanFormat.swiftBoolean(false).toPropertyListValue()
+        plist["Concrete"] = Models.Template.Model.BooleanFormat.swiftBoolean(true).toPropertyListValue()
+        plist["LocalizedByDefault"] = Models.Template.Model.BooleanFormat.swiftBoolean(false).toPropertyListValue()
 
         // Serialize and deserialize
         let data = try PropertyListSerialization.data(fromPropertyList: plist, format: .xml, options: 0)
@@ -210,8 +210,8 @@ struct TemplateBooleanFormatTests {
 
     @Test("Objective-C and Swift booleans are distinct types")
     func distinctTypes() {
-        let objcTrue = BooleanFormat.objectiveCBoolean(true)
-        let swiftTrue = BooleanFormat.swiftBoolean(true)
+        let objcTrue = Models.Template.Model.BooleanFormat.objectiveCBoolean(true)
+        let swiftTrue = Models.Template.Model.BooleanFormat.swiftBoolean(true)
 
         // Both have same boolean value
         #expect(objcTrue.boolValue == swiftTrue.boolValue)
@@ -222,7 +222,7 @@ struct TemplateBooleanFormatTests {
 
     @Test("boolValue extracts underlying value from both formats")
     func boolValueExtraction() {
-        let formats: [BooleanFormat] = [
+        let formats: [Models.Template.Model.BooleanFormat] = [
             .objectiveCBoolean(true),
             .objectiveCBoolean(false),
             .swiftBoolean(true),
@@ -252,13 +252,13 @@ struct TemplateBooleanFormatTests {
 
         // Parse booleans
         let hiddenFromChooser = (templatePlist["HiddenFromChooser"] as? String)
-            .flatMap { BooleanFormat.fromObjectiveCString($0) }
+            .flatMap { Models.Template.Model.BooleanFormat.fromObjectiveCString($0) }
         let hiddenFromLibrary = (templatePlist["HiddenFromLibrary"] as? String)
-            .flatMap { BooleanFormat.fromObjectiveCString($0) }
+            .flatMap { Models.Template.Model.BooleanFormat.fromObjectiveCString($0) }
         let concrete = (templatePlist["Concrete"] as? Bool)
-            .map { BooleanFormat.fromSwiftBool($0) }
+            .map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
         let localized = (templatePlist["LocalizedByDefault"] as? Bool)
-            .map { BooleanFormat.fromSwiftBool($0) }
+            .map { Models.Template.Model.BooleanFormat.fromSwiftBool($0) }
 
         // Verify parsing
         #expect(hiddenFromChooser?.boolValue == true)

@@ -1,19 +1,19 @@
 // swiftlint:disable force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "Definitions" field
 ///
-/// Tests that TemplateWriter correctly serializes Definitions values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes Definitions values to plist format.
 @Suite("Definitions Field Generation")
 struct DefinitionsTests {
     @Test("Generate Definitions for App_Base")
     func generateApp_Base() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefinitionsTests/DefinitionsTests.swift",
+            of: "GeneratorTests/FieldTests/DefinitionsTests/DefinitionsTests.swift",
             with: "Fixtures/Definitions/App_Base_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -27,18 +27,18 @@ struct DefinitionsTests {
         // Parse to typed model
         let decoder = PropertyListDecoder()
 
-        var definitions: [String: DefinitionValue] = [:]
+        var definitions: [String: Models.Template.Model.DefinitionValue] = [:]
         for (key, value) in originalValue {
             if let stringValue = value as? String {
                 definitions[key] = .string(stringValue)
             } else if let dictValue = value as? [String: Any] {
                 let data = try PropertyListSerialization.data(fromPropertyList: dictValue, format: .binary, options: 0)
-                let fileDefinition = try decoder.decode(FileDefinition.self, from: data)
+                let fileDefinition = try decoder.decode(Models.Template.Model.FileDefinition.self, from: data)
                 definitions[key] = .file(fileDefinition)
             }
         }
 
-        let templateDefinitions = Definitions(definitions: definitions)
+        let templateDefinitions = Models.Template.Model.Definitions(definitions: definitions)
 
         // Verify parsed structure
         #expect(templateDefinitions.definitions.count == 2)
@@ -46,7 +46,7 @@ struct DefinitionsTests {
         #expect(templateDefinitions.definitions["main.m:main"] != nil)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -54,7 +54,7 @@ struct DefinitionsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure
@@ -71,7 +71,7 @@ struct DefinitionsTests {
     func generateBase_DefinitionsLanguage() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/DefinitionsTests/DefinitionsTests.swift",
+            of: "GeneratorTests/FieldTests/DefinitionsTests/DefinitionsTests.swift",
             with: "Fixtures/Definitions/Base_DefinitionsLanguage_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -85,24 +85,24 @@ struct DefinitionsTests {
         // Parse to typed model
         let decoder = PropertyListDecoder()
 
-        var definitions: [String: DefinitionValue] = [:]
+        var definitions: [String: Models.Template.Model.DefinitionValue] = [:]
         for (key, value) in originalValue {
             if let stringValue = value as? String {
                 definitions[key] = .string(stringValue)
             } else if let dictValue = value as? [String: Any] {
                 let data = try PropertyListSerialization.data(fromPropertyList: dictValue, format: .binary, options: 0)
-                let fileDefinition = try decoder.decode(FileDefinition.self, from: data)
+                let fileDefinition = try decoder.decode(Models.Template.Model.FileDefinition.self, from: data)
                 definitions[key] = .file(fileDefinition)
             }
         }
 
-        let templateDefinitions = Definitions(definitions: definitions)
+        let templateDefinitions = Models.Template.Model.Definitions(definitions: definitions)
 
         // Verify parsed structure - has both strings and FileDefinitions
         #expect(!templateDefinitions.definitions.isEmpty)
 
         // Create metadata with this field
-        let metadata = Metadata(
+        let metadata = Models.Template.Model.Metadata(
             name: "Test",
             path: "/test/path",
             kind: .unknown("com.test.template"),
@@ -110,7 +110,7 @@ struct DefinitionsTests {
         )
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present and matches original structure

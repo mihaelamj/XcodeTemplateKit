@@ -1,19 +1,19 @@
 // swiftlint:disable type_body_length force_cast
 import Foundation
-@testable import TemplateGenerator
-import TemplateModels
+@testable import Generator
+import Models
 import Testing
 
 /// Generator tests for the "SupportsSwiftPackage" field
 ///
-/// Tests that TemplateWriter correctly serializes SupportsSwiftPackage values to plist format.
+/// Tests that Template.Generator.Writer correctly serializes SupportsSwiftPackage values to plist format.
 @Suite("SupportsSwiftPackage Field Generation")
 struct SupportsSwiftPackageTests {
     @Test("Generate SupportsSwiftPackage for App_Privacy")
     func generateApp_Privacy() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/App_Privacy_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -23,7 +23,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -31,7 +31,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -42,7 +42,7 @@ struct SupportsSwiftPackageTests {
     func generateArticle_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Article_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -52,7 +52,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -60,7 +60,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -71,7 +71,7 @@ struct SupportsSwiftPackageTests {
     func generateAsset_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Asset_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -81,7 +81,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -89,7 +89,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -100,7 +100,7 @@ struct SupportsSwiftPackageTests {
     func generateC ++ _File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/C++_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -110,7 +110,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -118,7 +118,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -129,7 +129,7 @@ struct SupportsSwiftPackageTests {
     func generateC_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -139,7 +139,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -147,7 +147,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -158,7 +158,7 @@ struct SupportsSwiftPackageTests {
     func generateDocumentation_Catalog() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Documentation_Catalog_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -168,7 +168,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -176,7 +176,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -187,7 +187,7 @@ struct SupportsSwiftPackageTests {
     func generateEmpty_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Empty_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -197,7 +197,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -205,7 +205,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -216,7 +216,7 @@ struct SupportsSwiftPackageTests {
     func generateEmpty() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Empty_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -226,7 +226,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -234,7 +234,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -245,7 +245,7 @@ struct SupportsSwiftPackageTests {
     func generateExtension_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Extension_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -255,7 +255,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -263,7 +263,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -274,7 +274,7 @@ struct SupportsSwiftPackageTests {
     func generateHeader_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Header_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -284,7 +284,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -292,7 +292,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -303,7 +303,7 @@ struct SupportsSwiftPackageTests {
     func generateMain_Menu() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Main_Menu_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -313,7 +313,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -321,7 +321,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -332,7 +332,7 @@ struct SupportsSwiftPackageTests {
     func generateMarkdown_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Markdown_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -342,7 +342,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -350,7 +350,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -361,7 +361,7 @@ struct SupportsSwiftPackageTests {
     func generateMetal_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Metal_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -371,7 +371,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -379,7 +379,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -390,7 +390,7 @@ struct SupportsSwiftPackageTests {
     func generateObjective_C_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Objective-C_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -400,7 +400,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -408,7 +408,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -419,7 +419,7 @@ struct SupportsSwiftPackageTests {
     func generateObjective_C_new_superclass() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Objective-C_new_superclass_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -429,7 +429,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -437,7 +437,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -448,7 +448,7 @@ struct SupportsSwiftPackageTests {
     func generateStoryboard() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Storyboard_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -458,7 +458,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -466,7 +466,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -477,7 +477,7 @@ struct SupportsSwiftPackageTests {
     func generateStrings_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Strings_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -487,7 +487,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -495,7 +495,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -506,7 +506,7 @@ struct SupportsSwiftPackageTests {
     func generateStringsdict_File_(Legacy)() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Stringsdict_File_(Legacy)_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -516,7 +516,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -524,7 +524,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -535,7 +535,7 @@ struct SupportsSwiftPackageTests {
     func generateSwiftUI_View() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/SwiftUI_View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -545,7 +545,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -553,7 +553,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -564,7 +564,7 @@ struct SupportsSwiftPackageTests {
     func generateSwift_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Swift_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -574,7 +574,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -582,7 +582,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -593,7 +593,7 @@ struct SupportsSwiftPackageTests {
     func generateSwift_Testing_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Swift_Testing_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -603,7 +603,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -611,7 +611,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -622,7 +622,7 @@ struct SupportsSwiftPackageTests {
     func generateTutorial_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Tutorial_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -632,7 +632,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -640,7 +640,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -651,7 +651,7 @@ struct SupportsSwiftPackageTests {
     func generateTutorial_Table_of_Contents_File() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Tutorial_Table_of_Contents_File_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -661,7 +661,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -669,7 +669,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -680,7 +680,7 @@ struct SupportsSwiftPackageTests {
     func generateView() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/View_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -690,7 +690,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -698,7 +698,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -709,7 +709,7 @@ struct SupportsSwiftPackageTests {
     func generateWindow() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/Window_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -719,7 +719,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -727,7 +727,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be
@@ -738,7 +738,7 @@ struct SupportsSwiftPackageTests {
     func generateXCTest_Unit_Test() throws {
         // Load original fixture
         let fixturePath = #filePath.replacingOccurrences(
-            of: "TemplateGeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
+            of: "GeneratorTests/FieldTests/SupportsSwiftPackageTests/SupportsSwiftPackageTests.swift",
             with: "Fixtures/SupportsSwiftPackage/XCTest_Unit_Test_value.plist"
         )
         let originalData = try Data(contentsOf: URL(fileURLWithPath: fixturePath))
@@ -748,7 +748,7 @@ struct SupportsSwiftPackageTests {
         guard let originalValue = originalPlist["SupportsSwiftPackage"] else { return }
 
         // Create metadata with this field
-        var metadata = Metadata(
+        var metadata = Models.Template.Model.Metadata(
             kind: .fileTemplateUnitKind,
             id: "test.template",
             name: "Test"
@@ -756,7 +756,7 @@ struct SupportsSwiftPackageTests {
         // TODO: Set metadata.supportsswiftpackage = originalValue (need proper conversion)
 
         // Generate plist
-        let writer = TemplateWriter()
+        let writer = Template.Generator.Writer()
         let generatedPlist = try writer.createPlist(from: metadata)
 
         // Verify field is present if it should be

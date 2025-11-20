@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Nodes</key>
+	<array>
+		<string>GameController.h</string>
+		<string>GameController.m</string>
+	</array>
+	<key>Definitions</key>
+	<dict>
+		<key>GameController.h</key>
+		<dict>
+			<key>Path</key>
+			<string>GameController.h</string>
+			<key>TargetIdentifiers</key>
+			<array/>
+		</dict>
+		<key>GameController.m</key>
+		<dict>
+			<key>Path</key>
+			<string>GameController.m</string>
+			<key>TargetIdentifiers</key>
+			<array>
+				<string>com.apple.dt.iosApplicationTarget</string>
+				<string>com.apple.dt.tvosApplicationTarget</string>
+				<string>com.apple.dt.osxApplicationTarget</string>
+			</array>
+		</dict>
+	</dict>
+</dict>
+</plist>
