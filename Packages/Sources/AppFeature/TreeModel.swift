@@ -1,7 +1,6 @@
 import Foundation
 import Models
 import Observation
-import OSLog
 
 /// UI-specific tree model for displaying templates in an expandable hierarchy.
 ///
@@ -24,17 +23,24 @@ public final class TemplateTreeModel {
     public var expandedNodes: Set<String> = []
 
     private let inventory: Models.Template.Model.Inventory
+    private let logger: ActivityLogger
     private var templateCache: [String: Models.Template.Model.Metadata] = [:]
     private var cachedExpandableIDs: Set<String> = []
     private var fullyExpandedFlattenCache: [FlattenedNode] = []
     private var filteredNodeCache: [String: [TreeNode]] = [:]
     private var nodeLookup: [String: TreeNode] = [:]
-    private static let log = OSLog(subsystem: "com.xcodetemplate.app", category: .pointsOfInterest)
-    private static let logger = Logger(subsystem: "com.xcodetemplate.app", category: "TemplateTreeModel")
-    private static let signposter = OSSignposter(logHandle: log)
 
-    public init(inventory: Models.Template.Model.Inventory) {
+    /// Creates a tree model with the specified inventory and logger.
+    ///
+    /// - Parameters:
+    ///   - inventory: The template inventory to display.
+    ///   - logger: Logger for performance tracking. Defaults to `OSActivityLogger`.
+    public init(
+        inventory: Models.Template.Model.Inventory,
+        logger: ActivityLogger = OSActivityLogger(subsystem: "com.xcodetemplate.app", category: "TemplateTreeModel")
+    ) {
         self.inventory = inventory
+        self.logger = logger
         inventory.templates.forEach { templateCache[$0.identifier] = $0 }
         buildTree()
     }
@@ -83,8 +89,7 @@ public extension TemplateTreeModel {
         expandedIDs: Set<String>,
         autoExpandAll: Bool = false
     ) -> [FlattenedNode] {
-        let signpostID = TemplateTreeModel.signposter.makeSignpostID()
-        let interval = TemplateTreeModel.signposter.beginInterval("FlattenNodes", id: signpostID)
+        let interval = logger.beginInterval("FlattenNodes")
         let nodes: [FlattenedNode]
         if autoExpandAll, usingFullRootSet(roots) {
             nodes = fullyExpandedFlattenCache
@@ -95,7 +100,7 @@ public extension TemplateTreeModel {
                 autoExpandAll: autoExpandAll
             )
         }
-        TemplateTreeModel.signposter.endInterval("FlattenNodes", interval)
+        logger.endInterval("FlattenNodes", interval)
         return nodes
     }
 
@@ -107,10 +112,9 @@ public extension TemplateTreeModel {
             return cached
         }
 
-        let signpostID = TemplateTreeModel.signposter.makeSignpostID()
-        TemplateTreeModel.signposter.emitEvent("FilterNodes", id: signpostID)
+        logger.emitEvent("FilterNodes")
         let filtered = rootNodes.compactMap { filterNode($0, searchText: normalizedText) }
-        TemplateTreeModel.signposter.emitEvent("FilterNodesResult", id: signpostID)
+        logger.emitEvent("FilterNodesResult")
         filteredNodeCache[normalizedText] = filtered
         return filtered
     }

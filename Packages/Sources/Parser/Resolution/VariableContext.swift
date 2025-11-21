@@ -23,9 +23,25 @@ extension Template.Parser.Resolution {
         // Template options
         public let options: [String: String]
 
+        // Environment for UUID generation
+        private let environment: TemplateEnvironment
+
         // UUID cache (not thread-safe, use with caution)
         private var uuidCache: [String: String]
 
+        /// Creates a variable context with the specified values.
+        ///
+        /// - Parameters:
+        ///   - fileName: The file name including extension.
+        ///   - fileBaseName: The file name without extension.
+        ///   - projectName: The project name.
+        ///   - packageName: The package name.
+        ///   - userName: The user's short name.
+        ///   - fullUserName: The user's full name.
+        ///   - date: The formatted date string.
+        ///   - year: The year string.
+        ///   - options: Template options dictionary.
+        ///   - environment: Environment for system dependencies. Defaults to `SystemEnvironment()`.
         public init(
             fileName: String,
             fileBaseName: String,
@@ -35,7 +51,8 @@ extension Template.Parser.Resolution {
             fullUserName: String,
             date: String,
             year: String,
-            options: [String: String] = [:]
+            options: [String: String] = [:],
+            environment: TemplateEnvironment = SystemEnvironment()
         ) {
             self.fileName = fileName
             self.fileBaseName = fileBaseName
@@ -46,6 +63,7 @@ extension Template.Parser.Resolution {
             self.date = date
             self.year = year
             self.options = options
+            self.environment = environment
             uuidCache = [:]
         }
 
@@ -67,7 +85,7 @@ extension Template.Parser.Resolution {
                 if let cached = uuidCache[key] {
                     return cached
                 }
-                let uuid = UUID().uuidString
+                let uuid = environment.generateUUID().uuidString
                 uuidCache[key] = uuid
                 return uuid
 

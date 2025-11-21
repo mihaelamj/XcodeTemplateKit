@@ -7,18 +7,30 @@ extension Template.Parser.Scanning {
         // TODO: Make Xcode path configurable/selectable by user in future
         // For now, hardcoded to standard Xcode.app location
         private let xcodeTemplatesPath = "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates"
-        private let fileManager = FileManager.default
+        private let fileSystem: FileSystemProvider
+        private let environment: TemplateEnvironment
         private lazy var templateRoots: [String] = // Only scan main Xcode.app bundle, not platform-specific templates
             [xcodeTemplatesPath]
 
-        public init() {}
+        /// Creates a scanner with the specified dependencies.
+        ///
+        /// - Parameters:
+        ///   - fileSystem: Provides file system access. Defaults to `FileManager.default`.
+        ///   - environment: Provides system dependencies. Defaults to `SystemEnvironment()`.
+        public init(
+            fileSystem: FileSystemProvider = FileManager.default,
+            environment: TemplateEnvironment = SystemEnvironment()
+        ) {
+            self.fileSystem = fileSystem
+            self.environment = environment
+        }
 
         /// Scan all Xcode templates and return complete inventory
         public func scanAllTemplates() -> Models.Template.Model.Inventory {
             var templates: [Models.Template.Model.Metadata] = []
             var seenPaths = Set<String>()
 
-            for root in templateRoots where fileManager.fileExists(atPath: root) {
+            for root in templateRoots where fileSystem.fileExists(atPath: root) {
                 templates.append(contentsOf: scanTemplates(atRoot: root, seenPaths: &seenPaths))
             }
 
@@ -26,7 +38,7 @@ extension Template.Parser.Scanning {
             let totalCombinations = templates.reduce(0) { $0 + $1.totalCombinations }
 
             return Models.Template.Model.Inventory(
-                generatedAt: ISO8601DateFormatter().string(from: Date()),
+                generatedAt: ISO8601DateFormatter().string(from: environment.currentDate()),
                 templates: templates,
                 totalTemplates: templates.count,
                 totalCombinations: totalCombinations
@@ -36,7 +48,7 @@ extension Template.Parser.Scanning {
         private func scanTemplates(atRoot root: String, seenPaths: inout Set<String>) -> [Models.Template.Model.Metadata] {
             var templates: [Models.Template.Model.Metadata] = []
 
-            guard let enumerator = fileManager.enumerator(atPath: root) else {
+            guard let enumerator = fileSystem.enumerator(atPath: root) else {
                 return templates
             }
 
@@ -68,7 +80,7 @@ extension Template.Parser.Scanning {
         private func parseTemplate(at path: String, templateType: String) -> Models.Template.Model.Metadata? {
             let plistPath = "\(path)/TemplateInfo.plist"
 
-            guard fileManager.fileExists(atPath: plistPath) else {
+            guard fileSystem.fileExists(atPath: plistPath) else {
                 return nil
             }
 
@@ -361,7 +373,7 @@ extension Template.Parser.Scanning {
         private func buildFileStructure(at path: String, relativeTo basePath: String) -> [Models.Template.Model.FileNode] {
             var nodes: [Models.Template.Model.FileNode] = []
 
-            guard let contents = try? fileManager.contentsOfDirectory(atPath: path) else {
+            guard let contents = try? fileSystem.contentsOfDirectory(atPath: path) else {
                 return nodes
             }
 
@@ -375,7 +387,7 @@ extension Template.Parser.Scanning {
                 let relativePath = fullPath.replacingOccurrences(of: "\(basePath)/", with: "")
 
                 var isDir: ObjCBool = false
-                fileManager.fileExists(atPath: fullPath, isDirectory: &isDir)
+                _ = fileSystem.fileExists(atPath: fullPath, isDirectory: &isDir)
 
                 let children: [Models.Template.Model.FileNode]?
                 if isDir.boolValue {

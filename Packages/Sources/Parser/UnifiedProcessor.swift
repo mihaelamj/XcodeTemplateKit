@@ -7,8 +7,14 @@ extension Template.Parser {
     public struct UnifiedProcessor: Sendable {
         private let templateInfoParser = Metadata.Info()
         private let templateProcessor = Processor()
+        private let environment: TemplateEnvironment
 
-        public init() {}
+        /// Creates a unified processor with the specified dependencies.
+        ///
+        /// - Parameter environment: Environment for system dependencies. Defaults to `SystemEnvironment()`.
+        public init(environment: TemplateEnvironment = SystemEnvironment()) {
+            self.environment = environment
+        }
 
         // MARK: - Universal Processing
 
@@ -85,17 +91,19 @@ extension Template.Parser {
             }
 
             let baseFileName = URL(fileURLWithPath: fileName).deletingPathExtension().lastPathComponent
+            let now = environment.currentDate()
 
             return Resolution.VariableContext(
                 fileName: fileName,
                 fileBaseName: baseFileName,
                 projectName: projectName,
                 packageName: projectName,
-                userName: NSUserName(),
-                fullUserName: NSFullUserName(),
-                date: DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .none),
-                year: String(Calendar.current.component(.year, from: Date())),
-                options: options
+                userName: environment.userName(),
+                fullUserName: environment.fullUserName(),
+                date: DateFormatter.localizedString(from: now, dateStyle: .short, timeStyle: .none),
+                year: String(Calendar.current.component(.year, from: now)),
+                options: options,
+                environment: environment
             )
         }
 

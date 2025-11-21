@@ -1,5 +1,4 @@
 import Models
-import OSLog
 import Parser
 import SwiftUI
 
@@ -19,7 +18,11 @@ struct TemplateBrowserView: View {
     @State private var treeModel: TemplateTreeModel?
     @State private var selectedNodeID: String?
 
-    private let logger = Logger(subsystem: "com.xcodetemplate.app", category: "TemplateBrowser")
+    private let logger: ActivityLogger
+
+    init(logger: ActivityLogger = OSActivityLogger(subsystem: "com.xcodetemplate.app", category: "TemplateBrowser")) {
+        self.logger = logger
+    }
 
     var body: some View {
         NavigationSplitView {
@@ -83,7 +86,7 @@ struct TemplateBrowserView: View {
         defer { isLoading = false }
 
         do {
-            logger.info("Scanning Xcode templates...")
+            logger.log("Scanning Xcode templates...")
 
             // Scan templates directly from Xcode installation
             let inventory = try await withThrowingTaskGroup(
@@ -101,7 +104,7 @@ struct TemplateBrowserView: View {
                 return inventory
             }
 
-            logger.info("Successfully scanned \(inventory.totalTemplates) templates with \(inventory.totalCombinations) combinations")
+            logger.log("Successfully scanned \(inventory.totalTemplates) templates with \(inventory.totalCombinations) combinations")
 
             // Update state on main thread to avoid "publishing changes from within view updates"
             await MainActor.run {
@@ -110,8 +113,8 @@ struct TemplateBrowserView: View {
             }
         } catch {
             let message = "Failed to load templates: \(error.localizedDescription)"
-            logger.error("\(message)")
-            logger.error("Error details: \(String(describing: error))")
+            logger.log("\(message)")
+            logger.log("Error details: \(String(describing: error))")
             errorMessage = message
         }
     }
