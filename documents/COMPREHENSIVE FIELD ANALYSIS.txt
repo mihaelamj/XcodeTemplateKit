@@ -1,0 +1,294 @@
+ ====================================================================================================
+     COMPREHENSIVE FIELD ANALYSIS - ALL NESTING LEVELS
+     Analyzed 146 Xcode templates
+     ====================================================================================================
+
+     TOP-LEVEL FIELDS
+     ----------------------------------------------------------------------------------------------------
+       Kind                                      141 occurrences
+       Identifier                                 88 occurrences
+       Options                                    71 occurrences
+       Description                                67 occurrences
+       Ancestors                                  66 occurrences
+       Platforms                                  60 occurrences
+       Image                                      52 occurrences
+       DefaultCompletionName                      51 occurrences
+       MainTemplateFile                           50 occurrences
+       Summary                                    48 occurrences
+       Targets                                    45 occurrences
+       Definitions                                43 occurrences
+       SortOrder                                  37 occurrences
+       SupportsSwiftPackage                       27 occurrences
+       Nodes                                      24 occurrences
+       AllowedTypes                               21 occurrences
+       BuildableType                              15 occurrences
+       Concrete                                   14 occurrences
+       Project                                     8 occurrences
+       OptionConstraints                           8 occurrences
+       TargetOnly                                  7 occurrences
+       Name                                        6 occurrences
+       Icon                                        6 occurrences
+       Title                                       6 occurrences
+       NameOfInitialFileForEditor                  6 occurrences
+       HiddenFromLibrary                           5 occurrences
+       HiddenFromChooser                           5 occurrences
+       PackageType                                 5 occurrences
+       AssociatedTargetSpecification               5 occurrences
+       LocalizedByDefault                          2 occurrences
+       Components                                  2 occurrences
+       SuppressTopLevelGroup                       2 occurrences
+       ProjectOnly                                 1 occurrences
+
+     Subtotal: 33 fields
+
+     OPTION SUB-FIELDS (Options[])
+     ----------------------------------------------------------------------------------------------------
+       Identifier                                135 occurrences
+       Units                                      58 occurrences
+       Name                                       56 occurrences
+       Type                                       54 occurrences
+       Default                                    50 occurrences
+       Description                                46 occurrences
+       Values                                     38 occurrences
+       NotPersisted                               33 occurrences
+       Override                                   33 occurrences
+       Required                                   31 occurrences
+       SortOrder                                  18 occurrences
+       Variables                                  13 occurrences
+       RequiredOptionsForValues                    8 occurrences
+       Placeholder                                 8 occurrences
+       ValueTitles                                 6 occurrences
+       EmptyReplacement                            5 occurrences
+       RequiredOptions                             3 occurrences
+       AllowedTypes                                2 occurrences
+       MainTemplateFiles                           2 occurrences
+       Value                                       1 occurrences
+
+     Subtotal: 20 fields
+
+     UNIT SUB-FIELDS (Options[].Units{})
+     ----------------------------------------------------------------------------------------------------
+       Definitions                                62 occurrences
+       Nodes                                      60 occurrences
+       Targets                                    18 occurrences
+       Components                                 11 occurrences
+       RequiredOptions                             5 occurrences
+       Project                                     1 occurrences
+
+     Subtotal: 6 fields
+
+     TARGET SUB-FIELDS (Targets[])
+     ----------------------------------------------------------------------------------------------------
+       SharedSettings                             36 occurrences
+       TargetIdentifier                           24 occurrences
+       Name                                        8 occurrences
+       ProductType                                 8 occurrences
+       Configurations                              6 occurrences
+       BuildPhases                                 6 occurrences
+       TargetIdentifierToBeTested                  5 occurrences
+       Concrete                                    3 occurrences
+       TargetType                                  2 occurrences
+       Frameworks                                  2 occurrences
+       BuildToolPath                               1 occurrences
+       BuildToolArgsString                         1 occurrences
+
+     Subtotal: 12 fields
+
+     TARGET CONFIGURATION KEYS (Targets[].Configurations{})
+     ----------------------------------------------------------------------------------------------------
+       DEBUG_INFORMATION_FORMAT                    2 occurrences
+       VALIDATE_PRODUCT                            2 occurrences
+       DEBUGGING_SYMBOLS                           1 occurrences
+       GCC_GENERATE_DEBUGGING_SYMBOLS              1 occurrences
+       GCC_OPTIMIZATION_LEVEL                      1 occurrences
+
+     Subtotal: 5 fields
+
+     TARGET SHARED SETTINGS (Targets[].SharedSettings{})
+     ----------------------------------------------------------------------------------------------------
+       ALLOW_TARGET_PLATFORM_SPECIALIZATION
+       ASSETCATALOG_COMPILER_APPICON_NAME
+       ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME
+       ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME
+       CLANG_CXX_LANGUAGE_STANDARD
+       CLANG_CXX_LIBRARY
+       CODE_SIGN_ENTITLEMENTS
+       COMBINE_HIDPI_IMAGES
+       CURRENT_PROJECT_VERSION
+       DYLIB_COMPATIBILITY_VERSION
+       DYLIB_CURRENT_VERSION
+       DYLIB_INSTALL_NAME_BASE
+       ENABLE_APP_SANDBOX
+       ENABLE_HARDENED_RUNTIME
+       ENABLE_MODULE_VERIFIER
+       ENABLE_OUTGOING_NETWORK_CONNECTIONS
+       ENABLE_PREVIEWS
+       ENABLE_USER_SELECTED_FILES
+       GENERATE_INFOPLIST_FILE
+       INFOPLIST_FILE
+       INFOPLIST_KEY_CFBundleDisplayName
+       INFOPLIST_KEY_NSCameraUsageDescription
+       INFOPLIST_KEY_NSHumanReadableCopyright
+       INFOPLIST_KEY_NSMainStoryboardFile
+       INFOPLIST_KEY_NSPrincipalClass
+       INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]
+       INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]
+       INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents
+       INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]
+       INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]
+       INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]
+       INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]
+       INFOPLIST_KEY_UILaunchStoryboardName
+       INFOPLIST_KEY_UIMainStoryboardFile
+       INFOPLIST_KEY_UIStatusBarHidden
+       INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]
+       INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]
+       INFOPLIST_KEY_UISupportedInterfaceOrientations
+       INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad
+       INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone
+       INFOPLIST_KEY_UISupportsDocumentBrowser[sdk=iphoneos*]
+       INFOPLIST_KEY_UISupportsDocumentBrowser[sdk=iphonesimulator*]
+       INFOPLIST_KEY_UIUserInterfaceStyle
+       INSTALL_PATH
+       IPHONEOS_DEPLOYMENT_TARGET
+       LD_RUNPATH_SEARCH_PATHS
+       LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]
+       MACOSX_DEPLOYMENT_TARGET
+       MARKETING_VERSION
+       MODULE_VERIFIER_SUPPORTED_LANGUAGES
+       MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS
+       OTHER_CFLAGS
+       OTHER_LDFLAGS
+       PRODUCT_BUNDLE_IDENTIFIER
+       PRODUCT_NAME
+       REGISTER_APP_GROUPS
+       RUN_CLANG_STATIC_ANALYZER
+       SDKROOT
+       SKIP_INSTALL
+       STRING_CATALOG_GENERATE_SYMBOLS
+       SUPPORTED_PLATFORMS
+       SWIFT_EMIT_LOC_STRINGS
+       SWIFT_OBJC_BRIDGING_HEADER
+       SWIFT_OBJC_INTEROP_MODE
+       TARGETED_DEVICE_FAMILY
+       TVOS_DEPLOYMENT_TARGET
+       VERSIONING_SYSTEM
+       XROS_DEPLOYMENT_TARGET
+
+     Subtotal: 68 fields
+
+     PROJECT SUB-FIELDS (Project{})
+     ----------------------------------------------------------------------------------------------------
+       SharedSettings                              7 occurrences
+       Configurations                              3 occurrences
+
+     Subtotal: 2 fields
+
+     PROJECT CONFIGURATION KEYS (Project.Configurations{})
+     ----------------------------------------------------------------------------------------------------
+       MTL_ENABLE_DEBUG_INFO                       4 occurrences
+       DEBUG_INFORMATION_FORMAT                    2 occurrences
+       ONLY_ACTIVE_ARCH                            1 occurrences
+       GCC_OPTIMIZATION_LEVEL                      1 occurrences
+       GCC_PREPROCESSOR_DEFINITIONS                1 occurrences
+       ENABLE_TESTABILITY                          1 occurrences
+       GCC_DYNAMIC_NO_PIC                          1 occurrences
+       ENABLE_NS_ASSERTIONS                        1 occurrences
+
+     Subtotal: 8 fields
+
+     PROJECT SHARED SETTINGS (Project.SharedSettings{})
+     ----------------------------------------------------------------------------------------------------
+       ALWAYS_SEARCH_USER_PATHS
+       ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS
+       CLANG_ANALYZER_NONNULL
+       CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION
+       CLANG_CXX_LANGUAGE_STANDARD
+       CLANG_ENABLE_MODULES
+       CLANG_ENABLE_OBJC_ARC
+       CLANG_ENABLE_OBJC_WEAK
+       CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING
+       CLANG_WARN_BOOL_CONVERSION
+       CLANG_WARN_COMMA
+       CLANG_WARN_CONSTANT_CONVERSION
+       CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS
+       CLANG_WARN_DIRECT_OBJC_ISA_USAGE
+       CLANG_WARN_DOCUMENTATION_COMMENTS
+       CLANG_WARN_EMPTY_BODY
+       CLANG_WARN_ENUM_CONVERSION
+       CLANG_WARN_INFINITE_RECURSION
+       CLANG_WARN_INT_CONVERSION
+       CLANG_WARN_NON_LITERAL_NULL_CONVERSION
+       CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF
+       CLANG_WARN_OBJC_LITERAL_CONVERSION
+       CLANG_WARN_OBJC_ROOT_CLASS
+       CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER
+       CLANG_WARN_RANGE_LOOP_ANALYSIS
+       CLANG_WARN_STRICT_PROTOTYPES
+       CLANG_WARN_SUSPICIOUS_MOVE
+       CLANG_WARN_UNGUARDED_AVAILABILITY
+       CLANG_WARN_UNREACHABLE_CODE
+       CLANG_WARN__DUPLICATE_METHOD_MATCH
+       COPY_PHASE_STRIP
+       CURRENT_PROJECT_VERSION
+       ENABLE_STRICT_OBJC_MSGSEND
+       ENABLE_USER_SCRIPT_SANDBOXING
+       GCC_C_LANGUAGE_STANDARD
+       GCC_NO_COMMON_BLOCKS
+       GCC_WARN_64_TO_32_BIT_CONVERSION
+       GCC_WARN_ABOUT_RETURN_TYPE
+       GCC_WARN_UNDECLARED_SELECTOR
+       GCC_WARN_UNINITIALIZED_AUTOS
+       GCC_WARN_UNUSED_FUNCTION
+       GCC_WARN_UNUSED_VARIABLE
+       IPHONEOS_DEPLOYMENT_TARGET
+       LOCALIZATION_PREFERS_STRING_CATALOGS
+       MACOSX_DEPLOYMENT_TARGET
+       MTL_FAST_MATH
+       VERSIONING_SYSTEM
+       VERSION_INFO_PREFIX
+
+     Subtotal: 48 fields
+
+     BUILD PHASE FIELDS (Targets[].BuildPhases[])
+     ----------------------------------------------------------------------------------------------------
+       Class                                      17 occurrences
+
+     Subtotal: 1 fields
+
+     ASSOCIATED TARGET SPEC FIELDS (AssociatedTargetSpecification{})
+     ----------------------------------------------------------------------------------------------------
+       PopUpTitle                                  5 occurrences
+       PopUpDescription                            5 occurrences
+       AllowableProductTypes                       5 occurrences
+       AssociatedTargetIsDependent                 3 occurrences
+       AssociatedTargetNeedsProductBuildPhaseInjection      3 occurrences
+       AssociatedTargetIsTargetToBeTested          2 occurrences
+
+     Subtotal: 6 fields
+
+     OPTION CONSTRAINT FIELDS (OptionConstraints[])
+     ----------------------------------------------------------------------------------------------------
+       Identifier                                  8 occurrences
+       ConstraintType                              8 occurrences
+       Value                                       8 occurrences
+
+     Subtotal: 3 fields
+
+     COMPONENT FIELDS (Components[])
+     ----------------------------------------------------------------------------------------------------
+       Identifier                                  7 occurrences
+       Name                                        7 occurrences
+       ProductBuildPhaseInjections                 3 occurrences
+
+     Subtotal: 3 fields
+
+     ====================================================================================================
+     GRAND TOTAL OF ALL DISTINCT FIELDS:
+     ====================================================================================================
+     Total distinct field names across all nesting levels: 215
+
+     Note: Configuration and SharedSettings keys are dynamic build settings,
+           not fixed field names (e.g., SWIFT_VERSION, PRODUCT_NAME, etc.)
+     ====================================================================================================
+

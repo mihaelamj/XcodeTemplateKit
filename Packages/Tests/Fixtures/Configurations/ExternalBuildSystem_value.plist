@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Configurations</key>
+	<dict>
+		<key>Debug</key>
+		<dict>
+			<key>DEBUGGING_SYMBOLS</key>
+			<string>YES</string>
+			<key>GCC_GENERATE_DEBUGGING_SYMBOLS</key>
+			<string>YES</string>
+			<key>GCC_OPTIMIZATION_LEVEL</key>
+			<string>0</string>
+			<key>DEBUG_INFORMATION_FORMAT</key>
+			<string>dwarf</string>
+		</dict>
+		<key>Release</key>
+		<dict>
+			<key>DEBUG_INFORMATION_FORMAT</key>
+			<string>dwarf-with-dsym</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

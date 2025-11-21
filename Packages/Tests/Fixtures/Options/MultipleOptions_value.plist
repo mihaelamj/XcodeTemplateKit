@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Name</key>
+			<string>Product Name:</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Default</key>
+			<string>MyApp</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>organizationName</string>
+			<key>Name</key>
+			<string>Organization:</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Default</key>
+			<string>My Company</string>
+			<key>NotPersisted</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>languageChoice</string>
+			<key>Name</key>
+			<string>Language:</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>Default</key>
+			<string>Swift</string>
+			<key>Values</key>
+			<array>
+				<string>Swift</string>
+				<string>Objective-C</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,6 @@
+// File: ___FILEBASENAME___
+// Identifier: ___FILEBASENAMEASIDENTIFIER___
+// Package: ___PACKAGENAME:identifier___
+// RFC1034: ___PACKAGENAME:RFC1034Identifier___
+// Lower: ___VARIABLE_testName:lower___
+// Upper: ___VARIABLE_testName:upper___

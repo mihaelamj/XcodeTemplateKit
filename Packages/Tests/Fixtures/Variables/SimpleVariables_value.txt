@@ -1,0 +1,4 @@
+class ___FILEBASENAMEASIDENTIFIER___: ___VARIABLE_testSubclass___ {
+    var name = "___PACKAGENAME___"
+    var identifier = "___VARIABLE_productIdentifier___"
+}
